@@ -18,6 +18,18 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <style>
+    .caros {
+        max-width: 100%;
+        min-height: 100%;
+        display: block; /* remove extra space below image */
+        object-fit: cover;
+    }
+    .box{
+        height: 550px;        
+    }    
+  </style>
+
 </head>
 
 <body class="">
@@ -27,13 +39,40 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-12 col-lg-12 col-md-9">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image" style="height: 530px;"></div>
+              <div class="col-lg-6 d-none d-lg-block">
+                <div id="imgIndicator" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
+                    <li data-target="#imgIndicator" data-slide-to="1"></li>
+                    <li data-target="#imgIndicator" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active box">
+                      <img class="d-block caros" src="img/kaabah.jpg" >
+                    </div>
+                    <div class="carousel-item box">
+                      <img class="d-block caros" src="img/kaabah.jpg">
+                    </div>
+                    <div class="carousel-item box">
+                      <img class="d-block caros" src="img/kaabah.jpg">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#imgIndicator" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
               <div class="col-lg-6" style="width: 920px;">
                 <div class="p-5">
                   <div class="text-center">
@@ -41,7 +80,7 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
