@@ -36,7 +36,8 @@
               <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success text-xs" data-toggle="modal" data-target="#editPackageModal">View / Edit</button>
+              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -49,7 +50,8 @@
               <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success text-xs" data-toggle="modal" data-target="#editPackageModal">View / Edit</button>
+              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -62,7 +64,8 @@
               <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success text-xs" data-toggle="modal" data-target="#editPackageModal">View / Edit</button>
+              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -75,7 +78,8 @@
               <h6><span class="badge badge-secondary" style="display: block;">Close</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-sm btn-success text-xs" data-toggle="modal" data-target="#editPackageModal">View / Edit</button>
+              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
         </tbody>

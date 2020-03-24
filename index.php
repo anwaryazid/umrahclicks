@@ -22,6 +22,13 @@
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <style>
+    .btn-group-xs > .btn, .btn-xs {
+      padding: .2rem .3rem;
+      font-size: .875rem;
+      line-height: .5;
+      border-radius: .2rem;
+    }
+    
     .table th {
       text-align: center;   
     }
