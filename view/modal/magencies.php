@@ -7,7 +7,7 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body" style="height: 480px; overflow-y: auto;">
+      <div class="modal-body" style="height: 480px; overflow-y: auto; font-size:.8rem;">
         <div class="row">
           <div class="col-md-8">
             <h6 class="font-weight-bold text-primary">Al-Nile Tour & Travel Sdn Bhd</h6> 
@@ -16,8 +16,8 @@
             TEL : +604-733 4023/733 4024<br> 
             EMAIL : alnile_travel@yahoo.com
           </div>
-          <div class="col-md-4 align-middle">
-            <img class="d-block w-100" src="img/logo-agency/alnile.jpg" height="80px">
+          <div class="col-md-4" style="text-align: center;">
+            <img src="img/logo-agency/alnile.jpg" style="max-height:90px; max-width:100%;">
           </div>
         </div>
         <hr>
@@ -29,8 +29,8 @@
             TEL : +603-9200 7050<br> 
             EMAIL : ashhartravel@gmail.com
           </div>
-          <div class="col-md-4">
-            <img class="d-block w-100" src="img/logo-agency/ashhar.png" height="80px">
+          <div class="col-md-4" style="text-align: center;">
+            <img src="img/logo-agency/ashhar.png" style="max-height:90px; max-width:100%;">
           </div>
         </div>
         <hr>
@@ -42,8 +42,8 @@
             TEL : +603-9283 1588<br> 
             EMAIL : umrah@andalusia2u.com
           </div>
-          <div class="col-md-4">
-            <img class="d-block w-100" src="img/logo-agency/andalusia.png" height="80px">
+          <div class="col-md-4" style="text-align: center;">
+            <img src="img/logo-agency/andalusia.png" style="max-height:90px; max-width:100%;">
           </div>
         </div>
         <hr>
