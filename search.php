@@ -40,7 +40,7 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-6 d-none d-lg-block">
+          <div class="col-lg-7 d-none d-lg-block">
             <div id="imgIndicator" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -68,10 +68,11 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-5">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">UmrahClicks.my</h1>
+                <!-- <img src="img/umrahclicks_black.png" style="width:80%"> -->
               </div>
               <form class="user">
                 <div class="form-group row">
@@ -80,7 +81,7 @@
                     <label for="" class="col-form-label text-gray-900">Country</label>
                   </div>
                   <div class="col-sm-7">
-                    <select class="form-control" id="country">
+                    <select class="form-control form-control-sm" id="country">
                       <option value="">Please Select</option>
                       <option value="Malaysia">Malaysia</option>
                     </select>
@@ -92,7 +93,7 @@
                     <label for="" class="col-form-label text-gray-900">Date Depart From</label>
                   </div>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="date_Depart" placeholder="dd/mm/yyyy">
+                    <input type="text" class="form-control form-control-sm" id="date_Depart" placeholder="dd/mm/yyyy">
                   </div>                  
                 </div>
                 <div class="form-group row">
@@ -101,7 +102,7 @@
                     <label for="" class="col-form-label text-gray-900">Adult</label>
                   </div>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="no_adult" placeholder="No. of Adult">
+                    <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
                   </div>                  
                 </div>
                 <div class="form-group row">
@@ -110,7 +111,7 @@
                     <!-- <h3 class="h5 text-gray-900 mb-4">Children</h3> -->
                   </div>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="no_children" placeholder="No. of Children">
+                    <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
                   </div>                  
                 </div>
                 <a href="packages.php" class="btn btn-primary btn-block" style="font-size: 0.9rem;">
@@ -121,7 +122,7 @@
               <div class="text-center"> 
                 <a class="small" href="#" data-toggle="modal" data-target="#agenciesModal">Agencies</a> | 
                 <a class="small" href="packages.php">Packages</a> | 
-                <a class="small" href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
+                <a class="small" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
               </div>
               <hr>
               <div class="text-center">
