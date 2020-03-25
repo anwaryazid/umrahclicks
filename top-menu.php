@@ -17,12 +17,12 @@
   <div class="float-right text-white">
     <form class="form-inline">
       Date Depart From&nbsp;
-      <input type="text" class="form-control form-control-sm" id="date_Depart" placeholder="Date Depart From" value="28/03/2020" size="10">&nbsp;
+      <input type="text" class="form-control form-control-sm bg-primary text-white" id="date_Depart" value="28/03/2020" size="10">&nbsp;
       Adult&nbsp;
-      <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult" value="3" size="2">&nbsp;
+      <input type="text" class="form-control form-control-sm bg-primary text-white" id="no_adult" value="3" size="2">&nbsp;
       Children&nbsp;
-      <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children" value="3" size="2">
-      &nbsp;
+      <input type="text" class="form-control form-control-sm bg-primary text-white" id="no_children"  value="3" size="2">
+      &nbsp;&nbsp;
       <button class="btn btn-outline-light my-2 my-sm-0 btn-sm" type="submit"><i class="fas fa-search fa-sm"></i>&nbsp;Search</button>
     </form>
   </div> 

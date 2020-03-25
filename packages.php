@@ -30,6 +30,16 @@
       margin-top: 75px;
     }
 
+    .sinput {
+      /* outline: 0;
+      border-width: 0 0 2px;
+      border-color: blue */
+      border:none; border-bottom: 1px solid white; color: white;
+    }
+    .sinput:focus {
+      border-color: blue
+    }
+    
     /* #content {
       margin-top: 55px;
     }
@@ -65,7 +75,7 @@
         <div class="container-fluid ">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Packages</h1>
+          <!-- <h1 class="h3 mb-4 text-gray-800">Packages</h1> -->
 
           <div class="row">
 
@@ -81,37 +91,37 @@
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Price</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_price">
+                        <input type="text" class="form-control form-control-sm" id="f_price">
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Makkah Hotel</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_distance_Makkah">
+                        <input type="text" class="form-control form-control-sm" id="f_distance_Makkah">
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Madinah Hotel</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_distance_madinah">
+                        <input type="text" class="form-control form-control-sm" id="f_distance_madinah">
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Agency</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_agency">
+                        <input type="text" class="form-control form-control-sm" id="f_agency">
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Promotion</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_promo">
+                        <input type="text" class="form-control form-control-sm" id="f_promo">
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">City</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control" id="f_city">
+                        <input type="text" class="form-control form-control-sm" id="f_city">
                       </div>                  
                     </div>
                     <a href="package.html" class="btn btn-primary btn-user btn-block">
@@ -410,7 +420,7 @@
                         </div>
                         <div class="card mb-4">
                           <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Reviews (3 review)</h6>
+                            <strong class="m-0 text-primary">Reviews (3 review)</strong>
                           </div>
                           <div class="card-body">
                             <div class="row">
@@ -606,19 +616,11 @@
     </div>
   </div>
 
-  <!-- Payment Modal-->
-  <?php
-    include('view/modal/mpayment.php');
-  ?>
-
-  <!-- Booking Modal-->
+  <!-- Include Modal-->
   <?php
     include('view/modal/mbooking.php');
-  ?>
-
-  <!-- Logout Modal-->
-  <?php
-    include('view/modal/mlogout.php');
+    include('view/modal/madd_person.php');
+    include('view/modal/mpayment.php');
   ?>
 
   <script>
