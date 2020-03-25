@@ -110,22 +110,22 @@
               <tr class="text-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
                   <td>Malaysia</td>
-                  <td>4</td>
+                  <td class="text-center">4</td>
                 </tr>          
                 <tr data-toggle="modal" data-id="1" data-target="#customerModal" style="cursor: pointer;">
                   <td>Ash-Har Travel & Tours Sdn Bhd</td>
                   <td>Singapore</td>
-                  <td>2</td>
+                  <td class="text-center">2</td>
                 </tr>
                 <tr data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
                   <td>Al-Nile Tour & Travel Sdn Bhd</td>
                   <td>Malaysia</td>
-                  <td>1</td>
+                  <td class="text-center">1</td>
                 </tr>                              
               </tbody>
             </table>
           </div>
-          <span class="small">Click row to view customer details</span>
+          <span class="small">* Click row to view customer details</span>
         </div>
       </div>
     </div>
@@ -142,26 +142,26 @@
                   <th>Promo Code</th>
                   <th>Promo Description</th>
                   <th>Promo End Date</th>
-                  <th>Percent<br>(%)</th>
+                  <th>Percent</th>
               </thead>
               <tbody>                
                 <tr>
                   <td>UMRAH4ALL</td>
                   <td>Get 40% Discount</td>
                   <td>2020-03-01</td>
-                  <td>40</td>
+                  <td class="text-center">40%</td>
                 </tr>
                 <tr>
                   <td>ALNILE10</td>
                   <td>Get RM10 Discount</td>
                   <td>2020-03-01</td>
-                  <td>10</td>
+                  <td class="text-center">10%</td>
                 </tr>
                 <tr>
                   <td>ALNILE15</td>
                   <td>Get 15% Discount</td>
                   <td>2020-03-01</td>
-                  <td>15</td>
+                  <td class="text-center">15%</td>
                 </tr>
               </tbody>
             </table>
@@ -237,62 +237,62 @@
                 <tr>
                   <td>Malaysia</td>
                   <td>Ash-Har Travel & Tours Sdn Bhd</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <td class="text-center">1</td>
+                  <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Ash-Har Travel & Tours Sdn Bhd</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <td class="text-center">1</td>
+                  <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Ash-Har Travel & Tours Sdn Bhd</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <td class="text-center">1</td>
+                  <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
-                  <td>2</td>
-                  <td>2</td>
+                  <td class="text-center">2</td>
+                  <td class="text-center">2</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
-                  <td>2</td>
-                  <td>2</td>
+                  <td class="text-center">2</td>
+                  <td class="text-center">2</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
-                  <td>3</td>
-                  <td>3</td>
+                  <td class="text-center">3</td>
+                  <td class="text-center">3</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
                   <td>Al-Nile Tour & Travel Sdn Bhd</td>
-                  <td>4</td>
-                  <td>4</td>
+                  <td class="text-center">4</td>
+                  <td class="text-center">4</td>
                 </tr>   
                 <tr>
                   <td>Malaysia</td>
                   <td>Al-Nile Tour & Travel Sdn Bhd</td>
-                  <td>4</td>
-                  <td>4</td>
+                  <td class="text-center">4</td>
+                  <td class="text-center">4</td>
                 </tr> 
                 <tr>
                   <td>Malaysia</td>
                   <td>Al-Nile Tour & Travel Sdn Bhd</td>
-                  <td>4</td>
-                  <td>4</td>
+                  <td class="text-center">4</td>
+                  <td class="text-center">4</td>
                 </tr> 
                 <tr>
                   <td>Malaysia</td>
                   <td>Al-Nile Tour & Travel Sdn Bhd</td>
-                  <td>4</td>
-                  <td>4</td>
+                  <td class="text-center">4</td>
+                  <td class="text-center">4</td>
                 </tr>             
               </tbody>
             </table>

@@ -23,22 +23,22 @@
                 <td>Muhammad Anwar Bin Mohd Yazid</td>
                 <td>0123456789</td>
                 <td>anwary@gmail.com</td>
-                <td>6</td>
-                <td>6</td>
+                <td class="text-center">6</td>
+                <td class="text-center">6</td>
               </tr>
               <tr>
                 <td>Mazura</td>
                 <td>01923466201</td>
                 <td>mazuraf@gmail.com</td>
-                <td>2</td>
-                <td>3</td>
+                <td class="text-center">2</td>
+                <td class="text-center">3</td>
               </tr>
               <tr>
                 <td>Zainab Binti Akil</td>
                 <td>01911021451</td>
                 <td>zainab_a@gmail.com</td>
-                <td>2</td>
-                <td>1</td>
+                <td class="text-center">2</td>
+                <td class="text-center">1</td>
               </tr>
             </tbody>
           </table>
