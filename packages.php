@@ -19,6 +19,16 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
   <style>
+    .btn-group-xs > .btn, .btn-xs {
+      padding: .2rem .3rem;
+      font-size: .875rem;
+      line-height: .5;
+      border-radius: .2rem;
+    }
+
+    #content {
+      margin-top: 75px;
+    }
 
     /* #content {
       margin-top: 55px;
@@ -42,68 +52,14 @@
   <div id="wrapper">
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <div class="fix-top">
-        <?php
-          include('top-menu.php');
-        ?>          
-      </div>      
+    <div id="content-wrapper" class="d-flex flex-column"> 
+      
+      <?php
+        include('top-menu.php');
+      ?> 
 
       <!-- Main Content -->
-      <div id="content">               
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline  ml-md-3 my-2 my-md-0 mw-100">
-            <div class="text-md">
-              Date Depart From &nbsp;
-              <input type="text" class="form-control" id="date_Depart" placeholder="Date Depart From" value="28/03/2020">
-              &nbsp; Adult &nbsp;
-              <input type="text" class="form-control" id="no_adult" placeholder="No. of Adult" value="2">
-              &nbsp; Children &nbsp;
-              <input type="text" class="form-control" id="no_children" placeholder="No. of Children" value="3">
-              &nbsp; 
-              <a href="package.html" class="btn btn-primary btn-user">
-                <i class="fas fa-search fa-sm"></i> Search
-              </a>
-            </div>
-          </form>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group text-md">
-                    <input type="text" class="form-control" id="date_Depart" placeholder="dd/mm/yyyy" value="28/03/2020">
-                    &nbsp;
-                    <input type="text" class="form-control" id="no_adult" placeholder="No. of Adult" value="2">
-                    &nbsp;
-                    <input type="text" class="form-control" id="no_children" placeholder="No. of Children" value="3">
-                    &nbsp; 
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar --> 
+      <div id="content">  
 
         <!-- Begin Page Content -->
         <div class="container-fluid ">
@@ -403,7 +359,8 @@
                       <div class="col-lg-6">
                         <div class="card mb-4">
                           <div class="card-body">
-                            <div id="imgIndicator" class="carousel slide" data-ride="carousel">
+                            <img class="d-block w-100" src="img/elaf4.jpg" height="350px">
+                            <!-- <div id="imgIndicator" class="carousel slide" data-ride="carousel">
                               <ol class="carousel-indicators">
                                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
                                 <li data-target="#imgIndicator" data-slide-to="1"></li>
@@ -448,7 +405,7 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                               </a>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <div class="card mb-4">
