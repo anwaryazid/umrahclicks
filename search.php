@@ -71,7 +71,8 @@
           <div class="col-lg-5">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">UmrahClicks.my</h1>
+                <h1 class="h4 text-primary mb-4">UmrahClicks.my</h1>
+                <!-- <h1 class="h4 text-gray-900 mb-4">Umrah<span style="color:grey;">Clicks</span>.my</h1> -->
                 <!-- <img src="img/umrahclicks_black.png" style="width:80%"> -->
               </div>
               <form class="user">
@@ -171,48 +172,48 @@
 
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
-          <div class="card-header py-3">
+          <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Package 1</h6>
-          </div>
+          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf4.jpg" height="150px">
             <br>
             <p>Al-Nile Tour & Travel Sdn Bhd</p>
           </div>
           <div class="card-footer">
-            <a rel="nofollow" href="packages.php">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
           </div>
         </div>
       </div>
 
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
-          <div class="card-header py-3">
+          <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Package 2</h6>
-          </div>
+          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
             <br>
             <p>Ash-Har Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer">
-            <a rel="nofollow" href="packages.php">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
           </div>
         </div>
       </div>
 
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
-          <div class="card-header py-3">
+          <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Package 3</h6>
-          </div>
+          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf3.jpg" height="150px">
             <br>
             <p>Andalusia Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer">
-            <a rel="nofollow" href="packages.php">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
           </div>
         </div>
       </div>
