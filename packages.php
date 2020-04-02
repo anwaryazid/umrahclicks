@@ -81,7 +81,6 @@
 
             <div class="col-lg-2">
 
-              <!-- Default Card Example -->
               <div class="card mb-4">
                 <div class="card-header">
                   Filter By:
@@ -129,6 +128,28 @@
                     </a>
                     <hr>
                   </form>
+                </div>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-body" style="font-size: 0.7rem;">
+                  <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
+                  <br>
+                  Ash-Har Travel & Tours Sdn Bhd
+                </div>
+                <div class="card-footer">
+                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                </div>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-body" style="font-size: 0.7rem;">
+                  <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
+                  <br>
+                  Andalusia Travel & Tours Sdn Bhd
+                </div>
+                <div class="card-footer">
+                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
                 </div>
               </div>
 
