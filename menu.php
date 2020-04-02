@@ -54,13 +54,19 @@
       <span>Follow Up</span></a>
   </li>
 
-  <!-- <hr class="sidebar-divider my-0">
+  <hr class="sidebar-divider my-0">
 
   <li class="nav-item <?php if ($page == 'user-management'){ ?>active<?php } ?>">
     <a class="nav-link" href="index.php?page=user-management">
       <i class="fa fa-fw fa-user"></i>
       <span>User Management</span></a>
-  </li> -->
+  </li>
+
+  <li class="nav-item <?php if ($page == 'data_reference'){ ?>active<?php } ?>">
+    <a class="nav-link" href="#">
+      <i class="fa fa-fw fa-book"></i>
+      <span>Data Reference</span></a>
+  </li>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
