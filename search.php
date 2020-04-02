@@ -19,6 +19,13 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
   <style>
+    .container2 {
+      width: 100%;
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
     .caros {
         max-width: 100%;
         min-height: 100%;
@@ -34,13 +41,12 @@
 
 <body class="">
 
-  <div class="container">   
+  <div class="container2">   
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-7 d-none d-lg-block">
+          <div class="col-lg-8 d-none d-lg-block">
             <div id="imgIndicator" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -49,13 +55,13 @@
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active box">
-                  <img class="d-block caros" src="img/kaabah.jpg" >
+                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
                 </div>
                 <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg">
+                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
                 </div>
                 <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg">
+                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
@@ -68,7 +74,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-primary mb-4">UmrahClicks.my</h1>
@@ -115,7 +121,7 @@
                     <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
                   </div>                  
                 </div>
-                <a href="packages.php" class="btn btn-primary btn-block" style="font-size: 0.9rem;">
+                <a href="packages.php" class="btn btn-outline-primary btn-block" style="font-size: 0.9rem;">
                   <i class="fas fa-search fa-sm"></i> Search
                 </a>                
               </form>
@@ -142,23 +148,6 @@
 
     <!-- Content Row -->
     <div class="row">
-
-      <!-- <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 text-center">Jawrah Info</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
