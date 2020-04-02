@@ -123,7 +123,7 @@
                         <input type="text" class="form-control form-control-sm" id="f_city">
                       </div>                  
                     </div>
-                    <a href="package.html" class="btn btn-primary btn-user btn-block">
+                    <a href="package.html" class="btn btn-outline-primary btn-user btn-block">
                       <i class="fas fa-filter fa-sm"></i> Filter
                     </a>
                     <hr>
