@@ -9,25 +9,43 @@
       </div>
       <div class="modal-body">
         <div class="text-center">
-          <h1 class="h4 text-gray-900 mb-4">UmrahClicks.my</h1>
+          <h4 class="h4 text-gray-900 mb-4">UmrahClicks.my</h4>
         </div>
+        <div class="text-center text-gray-900" style="font-size:.9rem;">
+          Smart Umrah4all Dot Com Travel & Services Sdn Bhd (1269559-M)
+          <br/>
+          KPK/LN - 9774
+          <br/>
+          <br/>
+          F1-18-10, TAMARIND SUITES, PERSIARAN MULTIMEDIA, 63000 CYBERJAYA, MALAYSIA
+          <br/>
+          <br/>
+          +603-8230 8076
+          <br/>
+          sales@umrahclicks.com
+        </div>
+        <hr>
         <form class="user">
-
-          <label for="" class="col-form-label">Email Address</label>
-          <input type="text" class="form-control" id="">
-
-          <label for="" class="col-form-label">Subject</label>
-          <input type="text" class="form-control" id="">
-
-          <label for="" class="col-form-label">Message</label>
-            <textarea type="text" class="form-control" id="" rows="3"></textarea>
-
-          <br>
-          <button class="btn btn-success btn-block" type="button">Submit</button>
-
+          <div class="row" style="font-size:.9rem;">          
+            <div class="col-md-6">
+              <label for="" class="col-form-label">First Name</label>
+              <input type="text" class="form-control form-control-sm" id="">
+            </div>
+            <div class="col-md-6">
+              <label for="" class="col-form-label">Last Name</label>
+              <input type="text" class="form-control form-control-sm" id="">
+            </div>
+            <div class="col-md-12">
+              <label for="" class="col-form-label">Email Address</label>
+              <input type="text" class="form-control form-control-sm" id="">
+              <label for="" class="col-form-label">Message</label>
+              <textarea type="text" class="form-control form-control-sm" id="" rows="3"></textarea>
+              <br>
+              <button class="btn btn-success btn-block" type="button">Submit</button>
+            </div>          
+          </div> 
         </form>
-      </div>
-      
+      </div>      
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Back</button>
       </div>
