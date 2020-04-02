@@ -129,6 +129,7 @@
         </div>
       </div>
     </div>
+
     <div class="card shadow mb-4">
       <a href="#d3" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="d3">
         <h6 class="m-0 font-weight-bold text-primary text-md">Active Promo</h6>
@@ -142,7 +143,7 @@
                   <th>Promo Code</th>
                   <th>Promo Description</th>
                   <th>Promo End Date</th>
-                  <th>Percent</th>
+                  <th>Amount</th>
               </thead>
               <tbody>                
                 <tr>
@@ -155,7 +156,7 @@
                   <td>ALNILE10</td>
                   <td>Get RM10 Discount</td>
                   <td>2020-03-01</td>
-                  <td class="text-center">10%</td>
+                  <td class="text-center">RM10</td>
                 </tr>
                 <tr>
                   <td>ALNILE15</td>
@@ -169,6 +170,7 @@
         </div>
       </div>
     </div>
+    
     <div class="card shadow mb-4">
       <a href="#d4" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="d4">
         <h6 class="m-0 font-weight-bold text-primary text-md">Active Advertisment</h6>
