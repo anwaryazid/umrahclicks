@@ -133,7 +133,7 @@
 
               <div class="card mb-4">
                 <div class="card-body" style="font-size: 0.7rem;">
-                  <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
+                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
                   <br>
                   Ash-Har Travel & Tours Sdn Bhd
                 </div>
@@ -144,7 +144,18 @@
 
               <div class="card mb-4">
                 <div class="card-body" style="font-size: 0.7rem;">
-                  <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
+                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                  <br>
+                  Andalusia Travel & Tours Sdn Bhd
+                </div>
+                <div class="card-footer">
+                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                </div>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-body" style="font-size: 0.7rem;">
+                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
                   <br>
                   Andalusia Travel & Tours Sdn Bhd
                 </div>
@@ -304,7 +315,7 @@
                                 <strong>RM 6,200.00</strong>
                               </div>
                               <div class="col-md-4">
-                                <a class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                   <!-- <i class="fas fa-lock fa-sm"></i> --> Book Now
                                 </a>
                               </div>
@@ -319,7 +330,7 @@
                                 <strong>RM 7,200.00</strong>
                               </div>
                               <div class="col-md-4">
-                                <a class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                   Book Now
                                 </a>
                               </div>
@@ -334,7 +345,7 @@
                                 <strong>RM 8,200.00</strong>
                               </div>
                               <div class="col-md-4">
-                                <a class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                   Book Now
                                 </a>
                               </div>
@@ -461,7 +472,7 @@
                                 <br/><br/>
                                 <small class="text-muted">Posted by Anonymous on 3/1/17</small>
                                 <hr>
-                                <a class="btn btn-sm btn-success" href="#" data-toggle="modal" data-target="#reviewModal">
+                                <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
                                   Leave a Review
                                 </a>
                               </div>
