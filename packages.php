@@ -68,13 +68,10 @@
         include('top-menu.php');
       ?> 
 
-      <!-- Main Content -->
       <div id="content">  
 
-        <!-- Begin Page Content -->
         <div class="container-fluid ">
 
-          <!-- Page Heading -->
           <!-- <h1 class="h3 mb-4 text-gray-800">Packages</h1> -->
 
           <div class="row">
