@@ -76,7 +76,7 @@
 
           <div class="row">
 
-            <div class="col-lg-2">
+            <div class="col-lg-2 d-none d-xl-block">
 
               <div class="card mb-4">
                 <div class="card-header">
@@ -175,7 +175,7 @@
 
             </div>
 
-            <div class="col-lg-10">
+            <div class="col-lg-10 col-md-12">
 
               <div class="card shadow mb-4">
                 <a href="#agency_1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1">
@@ -664,13 +664,13 @@
     include('view/modal/mpayment.php');
   ?>
 
-  <script>
+  <!-- <script>
     $(document).on('hidden.bs.modal', function (event) {
       if ($('.modal:visible').length) {
         $('body').addClass('modal-open');
       }
     });
-  </script>
+  </script> -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
