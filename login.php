@@ -19,6 +19,13 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
   <style>
+    .container2 {
+      width: 100%;
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
     .caros {
         max-width: 100%;
         min-height: 100%;
@@ -34,12 +41,12 @@
 
 <body class="">
 
-  <div class="container">
+  <div class="container2">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
         <div class="row">
-          <div class="col-lg-7 d-none d-lg-block">
+          <div class="col-lg-8 d-none d-lg-block">
             <div id="imgIndicator" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -67,7 +74,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-primary mb-4">UmrahClicks.my</h1>
