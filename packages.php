@@ -87,22 +87,35 @@
                 </div>
                 <div class="card-body">
                   <form class="">
-                    <div class="form-group row text-md">
+                    <div class="row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Price</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_price">
+                        <div class="input-group input-group-sm mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">RM</span>
+                          </div>
+                          <input type="text" class="form-control" id="f_price">
+                        </div>
                       </div>                  
                     </div>
-                    <div class="form-group row text-md">
+                    <div class="row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Makkah Hotel</div>
                       <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_distance_Makkah">
+                        <div class="input-group input-group-sm mb-3">                          
+                          <input type="text" class="form-control" id="f_distance_Makkah">
+                          <div class="input-group-append">
+                            <span class="input-group-text">m</span>
+                          </div>
+                        </div>
                       </div>                  
                     </div>
-                    <div class="form-group row text-md">
+                    <div class="row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Madinah Hotel</div>
-                      <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_distance_madinah">
+                      <div class="col-sm-12 input-group input-group-sm mb-3">                    
+                          <input type="text" class="form-control" id="f_distance_madinah">
+                          <div class="input-group-append">
+                            <span class="input-group-text">m</span>
+                          </div>
                       </div>                  
                     </div>
                     <div class="form-group row text-md">
@@ -123,10 +136,9 @@
                         <input type="text" class="form-control form-control-sm" id="f_city">
                       </div>                  
                     </div>
-                    <a href="package.html" class="btn btn-outline-primary btn-user btn-block">
+                    <a href="package.html" class="btn btn-outline-primary btn-user btn-block btn-sm">
                       <i class="fas fa-filter fa-sm"></i> Filter
                     </a>
-                    <hr>
                   </form>
                 </div>
               </div>
