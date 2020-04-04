@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <div class="text-center">
-          <h4 class="h4 text-gray-900 mb-4">UmrahClicks.my</h4>
+          <h4 class="h4 text-primary mb-4">UmrahClicks.my</h4>
         </div>
         <div class="text-center text-gray-900" style="font-size:.9rem;">
           Smart Umrah4all Dot Com Travel & Services Sdn Bhd (1269559-M)
@@ -41,7 +41,7 @@
               <label for="" class="col-form-label">Message</label>
               <textarea type="text" class="form-control form-control-sm" id="" rows="3"></textarea>
               <br>
-              <button class="btn btn-success btn-block" type="button">Submit</button>
+              <button class="btn btn-outline-success btn-block" type="button">Submit</button>
             </div>          
           </div> 
         </form>
