@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <div class="text-center">
-          <h1 class="h4 text-gray-900 mb-4">UmrahClicks.my</h1>
+          <h1 class="h4 text-primary mb-4">UmrahClicks.my</h1>
         </div>
         <div class="text-center">
           <h2 class="h4 text-gray-900 mb-4">Create an Account!</h2>
@@ -18,10 +18,15 @@
           <div class="form-group row">
             <div class="col-sm-12 mb-3 mb-sm-0">
               <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Full Name">
-            </div>
+            </div>            
           </div>
-          <div class="form-group">
-            <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+          <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="User Name">
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+            </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">

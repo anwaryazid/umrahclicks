@@ -38,8 +38,8 @@
               <h6><span class="badge badge-primary" style="display: block;">Active</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -53,8 +53,8 @@
               <h6><span class="badge badge-secondary" style="display: block;">Inactive</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -68,8 +68,8 @@
               <h6><span class="badge badge-primary" style="display: block;">Active</span></h6>
             </td>
             <td class="text-center">
-              <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
         </tbody>
