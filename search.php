@@ -165,7 +165,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Package 1</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf4.jpg" height="150px">
+            <img class="d-block w-100" src="img/elaf4.jpg" height="180px">
             <br>
             <p>Al-Nile Tour & Travel Sdn Bhd</p>
           </div>
@@ -181,7 +181,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Package 2</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf2.jpg" height="150px">
+            <img class="d-block w-100" src="img/elaf2.jpg" height="180px">
             <br>
             <p>Ash-Har Travel & Tours Sdn Bhd</p>
           </div>
@@ -197,7 +197,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Package 3</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf3.jpg" height="150px">
+            <img class="d-block w-100" src="img/elaf3.jpg" height="180px">
             <br>
             <p>Andalusia Travel & Tours Sdn Bhd</p>
           </div>
