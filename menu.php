@@ -62,10 +62,25 @@
       <span>User Management</span></a>
   </li>
 
-  <li class="nav-item <?php if ($page == 'data_reference'){ ?>active<?php } ?>">
+  <!-- <li class="nav-item <?php if ($page == 'data-reference'){ ?>active<?php } ?>">
     <a class="nav-link" href="#">
       <i class="fa fa-fw fa-book"></i>
       <span>Data Reference</span></a>
+  </li> -->
+
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="collapse" data-target="#refData" aria-expanded="true" aria-controls="refData">
+      <i class="fas fa-fw fa-cog"></i>
+      <span>Data Reference</span>
+    </a>
+    <div id="refData" class="collapse <?php if (strpos($page, 'ref') !== false){ ?>show<?php } else { ?>hide<?php } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Data Reference:</h6>
+        <!-- <a class="collapse-item <?php if ($page == 'ref-user'){ ?>active<?php } ?>" href="index.php?page=ref-user">User Type</a> -->
+        <a class="collapse-item <?php if ($page == 'ref-group'){ ?>active<?php } ?>" href="index.php?page=ref-group">Group Type</a>
+        <a class="collapse-item <?php if ($page == 'ref-country'){ ?>active<?php } ?>" href="index.php?page=ref-country">Country</a>
+      </div>
+    </div>
   </li>
 
   <!-- Divider -->
