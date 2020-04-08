@@ -39,12 +39,7 @@
     .table th {
       text-align: center;   
     }
-
-    /* #content {
-      margin-top: 0;
-      margin-left: 225px;
-    } */
-
+        
     .fix-menu {
       overflow: hidden;
       position: fixed;
