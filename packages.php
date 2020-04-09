@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datepicker.css" rel="stylesheet">
 
   <style>
     .btn-group-xs > .btn, .btn-xs {
@@ -30,38 +31,14 @@
       margin-top: 75px;
     }
 
-    .sinput {
-      /* outline: 0;
-      border-width: 0 0 2px;
-      border-color: blue */
-      border:none; border-bottom: 1px solid white; color: white;
-    }
-    .sinput:focus {
-      border-color: blue
-    }
-    
-    /* #content {
-      margin-top: 55px;
-    }
-
-    .fix-top {
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 99;
-    } */
-
   </style>
 
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column"> 
       
       <?php
@@ -72,14 +49,12 @@
 
         <div class="container-fluid ">
 
-          <!-- <h1 class="h3 mb-4 text-gray-800">Packages</h1> -->
-
           <div class="row">
 
             <div class="col-lg-2 d-none d-xl-block">
 
               <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header" style="background-color: white;">
                   Filter By:
                 </div>
                 <div class="card-body">
@@ -87,13 +62,13 @@
                     <div class="row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Price</div>
                       <div class="col-sm-12">
-                        <div class="input-group input-group-sm mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">RM</span>
-                          </div>
+                        <div class="input-group input-group-sm mb-3">                          
                           <input type="text" class="form-control" id="f_price">
+                          <div class="input-group-append">
+                            <span class="input-group-text">MYR</span>
+                          </div>
                         </div>
-                      </div>                  
+                      </div>                 
                     </div>
                     <div class="row text-md">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Makkah Hotel</div>
@@ -178,7 +153,7 @@
             <div class="col-lg-10 col-md-12">
 
               <div class="card shadow mb-4">
-                <a href="#agency_1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1">
+                <a href="#agency_1" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary">Al-Nile Tour & Travel Sdn Bhd</h6> 
@@ -321,7 +296,7 @@
                                 (4 pax left)
                               </div>
                               <div class="col-md-4">
-                                <strong>RM 6,200.00</strong>
+                                <strong>MYR 6,200.00</strong>
                               </div>
                               <div class="col-md-4">
                                 <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -336,7 +311,7 @@
                                 (1 pax left)
                               </div>
                               <div class="col-md-4">
-                                <strong>RM 7,200.00</strong>
+                                <strong>MYR 7,200.00</strong>
                               </div>
                               <div class="col-md-4">
                                 <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -351,7 +326,7 @@
                                 (2 pax left)
                               </div>
                               <div class="col-md-4">
-                                <strong>RM 8,200.00</strong>
+                                <strong>MYR 8,200.00</strong>
                               </div>
                               <div class="col-md-4">
                                 <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -460,7 +435,7 @@
                           </div>
                         </div>
                         <div class="card mb-4">
-                          <div class="card-header">
+                          <div class="card-header" style="background-color: white;">
                             <strong class="m-0 text-primary">Reviews (3 review)</strong>
                           </div>
                           <div class="card-body">
@@ -494,7 +469,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
+                <a href="#agency_2" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary">Andalusia Travel & Tours Sdn Bhd</h6> 
@@ -518,7 +493,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_3" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
+                <a href="#agency_3" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary">Ash-Har Travel & Tours Sdn Bhd</h6> 
@@ -542,7 +517,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_4" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_4">
+                <a href="#agency_4" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_4">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary">Batuta Travel & Tours Sdn Bhd</h6> 
@@ -566,7 +541,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_5" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_5">
+                <a href="#agency_5" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_5">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary">Beststar Travel Centre Sdn Bhd</h6> 
@@ -681,6 +656,22 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script src="js/bootstrap-datepicker.js"></script>
+
+  <script>
+    $(function() {
+      $('#date_Depart').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+    });
+    /* jQuery('#date_Depart').datetimepicker({
+      timepicker: false,
+      datepicker: true,
+      format: 'd/m/Y'
+    }); */
+  </script>
 
 </body>
 
