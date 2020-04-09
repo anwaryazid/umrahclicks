@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -47,73 +47,100 @@
       width: 100%;
     }
 
-    /* .fix-topbar {
+    .fix-topbar {
       overflow: hidden;
       position: fixed;
-      left: 225px;
       right: 0;
       top: 0;
       z-index: 999;
-    } */
+    }
+
+    .sidenav {
+      height: 100%; /* Full-height: remove this if you want "auto" height */
+      position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+      z-index: 1; /* Stay on top */
+      top: 0; /* Stay at the top */
+      left: 0;
+      overflow-x: hidden; /* Disable horizontal scroll */
+    }    
+
+    @media screen and (min-width: 455px) {
+      .fix-topbar {
+        left: 224px;
+      }
+      .main {
+        margin-left: 224px; 
+      }
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+    @media screen and (max-width: 450px) {
+      .fix-topbar {
+        left: 100px;
+        right: 0;
+      }
+      .main {
+        margin-left: 100px; 
+      }
+    }
   </style>
 
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <?php 
-      include('menu.php');
-    ?> 
+    <div id="menu" class="sidenav">
+      <?php 
+        include('menu.php');
+      ?> 
+    </div>    
 
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">     
 
-      <!-- Main Content -->
-      <div id="content">
+      <!-- <nav class="navbar navbar-light bg-white topbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown no-arrow">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ahmad Bin Abu</span>
+          </li>
+        </ul>        
+      </nav> -->
 
-        <!-- Topbar -->
+      <div id="content" class="main">      
+
         <div class="">
-          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow ">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+            <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button> -->
+                                    
+            <ul class="navbar-nav ml-auto">
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+              <div class="topbar-divider d-none d-sm-block"></div>
 
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ahmad Bin Abu</span>
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" >
-                <!-- <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ahmad Bin Abu</span>
                 </a>
-                <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" >
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+            
           </nav>
         </div>   
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
+        
         <div class="container-fluid">
 
           <?php
@@ -126,12 +153,9 @@
           ?>
 
         </div>
-        <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
+      
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -139,22 +163,18 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
 
     </div>
-    <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
+  
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
   <?php
     include('view/modal/mlogout.php');
+    include('view/modal/mprofile.php');
   ?>
 
   <!-- Bootstrap core JavaScript-->
@@ -165,7 +185,7 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
