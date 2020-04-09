@@ -27,11 +27,11 @@
               <label for="" class="col-form-label">Package Name</label>
               <input type="text" class="form-control" id="">
 
-              <label for="" class="col-form-label">Promo Code</label>
+              <!-- <label for="" class="col-form-label">Promo Code</label>
               <select class="form-control" id="">
                 <option value="">Please Select</option>
                 <option value="">UMRAH4ALL</option>
-              </select>
+              </select> -->
 
               <label for="" class="col-form-label">Package Status</label>
               <select class="form-control" id="">

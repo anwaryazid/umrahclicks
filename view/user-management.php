@@ -18,6 +18,7 @@
           <tr>
             <th>Full Name</th>
             <th>Login ID</th>
+            <th>Email Address</th>
             <th>User Type</th>
             <th>Group Type</th>
             <th>Status</th>
@@ -28,6 +29,7 @@
           <tr>
             <td>Muhammad Anwar Bin Mohd Yazid</td>
             <td>anwar</td>
+            <td>m.anwaryazid@gmail.com</td>
             <td>Administrator</td>
             <td>Administrator</td>
             <td class="text-center">
