@@ -1,8 +1,8 @@
-<div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Summary of Booking Selection</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Summary of Booking Selection</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -12,23 +12,23 @@
           <div class="form-group row text-md">
             <div class="col-md-12">
               <label for="" class="col-form-label">Full Name:</label>
-              <input type="text" class="form-control" id="">
+              <input type="text" class="form-control form-control-sm" >
             </div>              
           </div>
           <div class="form-group row text-md">
             <div class="col-md-12">
               <label for="" class="col-form-label">Email Address:</label>
-              <input type="text" class="form-control" id="">
+              <input type="text" class="form-control form-control-sm" >
             </div>              
           </div>
           <div class="form-group row text-md">
             <div class="col-md-6">
               <label for="" class="col-form-label">Mobile Number:</label>
-              <input type="text" class="form-control" id="">
+              <input type="text" class="form-control form-control-sm" >
             </div>   
             <div class="col-md-6">
               <label for="" class="col-form-label">Country:</label>
-              <select class="form-control" id="country">
+              <select class="form-control form-control-sm" id="country">
                 <option value="">Please Select</option>
                 <option value="Malaysia">Malaysia</option>
               </select>
@@ -38,9 +38,9 @@
             <div class="col-md-12">
                 <label for="" class="col-form-label">Full Name:</label>
               <div class="input-group mb-3">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control form-control-sm">
                 <div class="input-group-append">
-                  <button class="btn btn-success" type="button">Add Person</button>
+                  <button class="btn btn-outline-success" type="button">Add Person</button>
                 </div>
               </div>
             </div>          
@@ -68,8 +68,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
+        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-outline-primary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Continue
         </a>
       </div>

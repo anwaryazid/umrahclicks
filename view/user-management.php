@@ -17,7 +17,7 @@
         <thead>
           <tr>
             <th>Full Name</th>
-            <th>Login ID</th>
+            <th>User Name</th>
             <th>Email Address</th>
             <th>User Type</th>
             <th>Group Type</th>

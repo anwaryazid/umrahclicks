@@ -1,8 +1,8 @@
-<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Summary of Booking Selection</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Summary of Booking Selection</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -30,7 +30,7 @@
               <div class="form-group row text-md">
                 <div class="col-md-12">
                   <label for="" class="col-form-label">Select payment method</label>
-                  <select class="form-control" id="country">
+                  <select class="form-control form-control-sm" id="country">
                     <option value="">Please Select</option>
                     <option value=""></option>
                   </select>
@@ -40,9 +40,9 @@
                 <div class="col-md-12">
                   <label for="" class="col-form-label">Credit/debit card number</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control form-control-sm" >
                     <div class="input-group-append">
-                      <button class="btn btn-secondary" type="button">
+                      <button class="btn btn-outline-secondary" type="button">
                         <i class="fas fa-lock fa-sm"></i>
                       </button>
                     </div>
@@ -52,20 +52,20 @@
               <div class="form-group row text-md">
                 <div class="col-md-12">
                   <label for="" class="col-form-label">Card holder name</label>
-                  <input type="text" class="form-control" id="">
+                  <input type="text" class="form-control form-control-sm" >
                 </div>              
               </div>
               <div class="form-group row text-md">
                 <div class="col-md-6">
                   <label for="" class="col-form-label">Expiry date</label>
-                  <input type="text" class="form-control" id="" placeholder="mm/yy">
+                  <input type="text" class="form-control form-control-sm"  placeholder="mm/yy">
                 </div>   
                 <div class="col-md-6">
                   <label for="" class="col-form-label">CVC/CVV</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control form-control-sm" >
                     <div class="input-group-append">
-                      <button class="btn btn-secondary" type="button">
+                      <button class="btn btn-outline-secondary" type="button">
                         <i class="fas fa-lock fa-sm"></i>
                       </button>
                     </div>                    
@@ -84,7 +84,7 @@
             <div class="row text-md">
               <div class="col-md-12">
                 <label for="" class="col-form-label">Promo Code</label>
-                <input type="text" class="form-control" id="">
+                <input type="text" class="form-control form-control-sm" >
               </div>
             </div>
             <br>
@@ -122,10 +122,10 @@
         </div>          
       </div>
       <div class="modal-footer">
-        <a class="btn btn-secondary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-secondary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#paymentModal">
+        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#paymentModal">
           Book & Pay Now!
         </a>
       </div>

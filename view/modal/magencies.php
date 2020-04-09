@@ -1,8 +1,8 @@
-<div class="modal fade" id="agenciesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="agenciesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agencies</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Agencies</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -98,7 +98,7 @@
         </div>  -->         
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Back</button>
+        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Back</button>
       </div>
     </div>
   </div>

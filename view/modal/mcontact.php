@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Contact Us</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -29,17 +29,17 @@
           <div class="row" style="font-size:.9rem;">          
             <div class="col-md-6">
               <label for="" class="col-form-label">First Name</label>
-              <input type="text" class="form-control form-control-sm" id="">
+              <input type="text" class="form-control form-control-sm" >
             </div>
             <div class="col-md-6">
               <label for="" class="col-form-label">Last Name</label>
-              <input type="text" class="form-control form-control-sm" id="">
+              <input type="text" class="form-control form-control-sm" >
             </div>
             <div class="col-md-12">
               <label for="" class="col-form-label">Email Address</label>
-              <input type="text" class="form-control form-control-sm" id="">
+              <input type="text" class="form-control form-control-sm" >
               <label for="" class="col-form-label">Message</label>
-              <textarea type="text" class="form-control form-control-sm" id="" rows="3"></textarea>
+              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>
               <br>
               <button class="btn btn-outline-success btn-block" type="button">Submit</button>
             </div>          
@@ -47,7 +47,7 @@
         </form>
       </div>      
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Back</button>
+        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Back</button>
       </div>
     </div>
   </div>

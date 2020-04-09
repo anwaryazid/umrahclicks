@@ -1,3 +1,8 @@
+<?php
+  include('view/modal/madd_country.php');
+  include('view/modal/medit_country.php');
+?>
+
 <h1 class="h3 mb-2 text-gray-800">Country</h1> 
 
 <hr>
@@ -15,8 +20,8 @@
               <tr>
                 <th>Country Code</th>
                 <th>Country Name</th>
-                <th>Country Currency</th>
                 <th>Currency Code</th>
+                <th>Currency Name</th>
                 <th style="width: 65px;">Action</th>
               </tr>
             </thead>
@@ -24,8 +29,8 @@
               <tr>
                 <td>MY</td>
                 <td>Malaysia</td>
-                <td>Malaysian Ringgit</td>
                 <td>MYR</td>
+                <td>Malaysian Ringgit</td>
                 <td class="text-center">
                   <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editCountryModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
                   <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>

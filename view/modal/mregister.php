@@ -1,8 +1,8 @@
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Register</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -36,13 +36,13 @@
               <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
             </div>
           </div>
-          <a href="login.php" class="btn btn-primary btn-user btn-block">
+          <a href="login.php" class="btn btn-outline-primary btn-user btn-block">
             Register Account
           </a>
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Back</button>
+        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Back</button>
       </div>
     </div>
   </div>

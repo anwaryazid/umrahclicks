@@ -4,6 +4,8 @@
 
 <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
 
+<hr>
+
 <div class="row">
 
   <div class="col-xl-2 mb-4">
@@ -88,8 +90,6 @@
 
 </div>
 
-<hr>
-
 <div class="row">
   <div class="col-xl-6">
     <div class="card shadow mb-4">
@@ -99,7 +99,7 @@
       <div class="collapse show" id="d1">
         <div class="card-body">
           <div class="table-responsive text-md">
-            <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Agency</th>
@@ -137,7 +137,7 @@
       <div class="collapse show" id="d3">
         <div class="card-body">
           <div class="table-responsive text-md">
-            <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Promo Code</th>
@@ -178,7 +178,7 @@
       <div class="collapse show" id="d4">
         <div class="card-body">
           <div class="table-responsive text-md">
-            <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Company</th>
@@ -227,7 +227,7 @@
       <div class="collapse show" id="d2">
         <div class="card-body">
           <div class="table-responsive text-md">
-            <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
+            <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Country</th>
@@ -328,7 +328,7 @@
               </div>
             </div>
           </form>
-          <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
+          <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Month</th>

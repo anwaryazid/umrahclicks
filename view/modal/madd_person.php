@@ -1,8 +1,8 @@
-<div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Summary of Booking Selection</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Summary of Booking Selection</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -13,9 +13,9 @@
             <div class="col-md-12">
                 <label for="" class="col-form-label">Full Name:</label>
               <div class="input-group mb-3">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control form-control-sm">
                 <div class="input-group-append">
-                  <button class="btn btn-success" type="button">Add Person</button>
+                  <button class="btn btn-outline-success" type="button">Add Person</button>
                 </div>
               </div>
             </div>          
@@ -46,10 +46,10 @@
         </form>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-secondary" href="#bookingModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-secondary" href="#bookingModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-primary" href="#paymentModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-primary" href="#paymentModal" data-toggle="modal" data-dismiss="modal" >
           Continue
         </a>
       </div>
