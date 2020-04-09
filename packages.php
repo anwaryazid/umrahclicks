@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
 
   <style>
@@ -114,14 +114,13 @@
                   </form>
                 </div>
               </div>
-
               <div class="card mb-4">
                 <div class="card-body" style="font-size: 0.7rem;">
                   <img class="d-block w-100" src="img/elaf2.jpg" height="">
                   <br>
                   Ash-Har Travel & Tours Sdn Bhd
                 </div>
-                <div class="card-footer">
+                <div class="card-footer bg-white"">
                   <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
                 </div>
               </div>
@@ -132,7 +131,7 @@
                   <br>
                   Andalusia Travel & Tours Sdn Bhd
                 </div>
-                <div class="card-footer">
+                <div class="card-footer bg-white">
                   <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
                 </div>
               </div>
@@ -143,7 +142,7 @@
                   <br>
                   Andalusia Travel & Tours Sdn Bhd
                 </div>
-                <div class="card-footer">
+                <div class="card-footer bg-white"">
                   <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
                 </div>
               </div>
@@ -151,7 +150,6 @@
             </div>
 
             <div class="col-lg-10 col-md-12">
-
               <div class="card shadow mb-4">
                 <a href="#agency_1" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
@@ -176,6 +174,55 @@
                       <div class="col-lg-6">
                         <div class="card mb-4">
                           <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td width="35%"></td>
+                                <td class="text-primary"><strong>Makkah</strong></td>
+                                <td class="text-primary"><strong>Madinah</strong></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Hotel</strong></td>
+                                <td>Elaf Al Mashaer</td>
+                                <td>Ramada Al Qibla</td>
+                              </tr>
+                              <tr>
+                                <td><strong>Days</strong></td>
+                                <td>7 days</td>
+                                <td>7 days</td>
+                              </tr>
+                              <tr>
+                                <td><strong>Night</strong></td>
+                                <td>7 night</td>
+                                <td>7 night</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td><strong>Distance to Mosque</strong></td>
+                                <td>250 m</td>
+                                <td>250 m</td>
+                              </tr>
+                              <tr>
+                                <td><strong>Meal</strong></td>
+                                <td colspan="2">Provided</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td><strong>Flight</strong></td>
+                                <td colspan="2">Direct</td>
+                              </tr>
+                              <tr>
+                                <td><strong>1st Destinator</strong></td>
+                                <td colspan="2">Makkah</td>
+                              </tr>
+                              <tr>
+                                <td><strong>Ziarah</strong></td>
+                                <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Mutawif</strong></td>
+                                <td colspan="2">Celebrity Mutawif</td>
+                              </tr>
+                            </table>
+                          </div>
+                          <!-- <div class="card-body">
                             <div class="row">
                               <div class="col-md-4">
                                 
@@ -274,10 +321,46 @@
                                 Celebrity Mutawif
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="card mb-4">
                           <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td class="text-primary"><strong>Room</strong></td>
+                                <td class="text-primary"><strong>Price</strong></td>
+                                <td></td>
+                              </tr>                              
+                              <tr>
+                                <td><strong>Double Bed</strong><br/>(4 pax left)</td>
+                                <td><strong>MYR 6,200.00</strong></td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><strong>Triple Bed</strong><br/>(2 pax left)</td>
+                                <td><strong>MYR 7,200.00</strong></td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><strong>Quadriple Bed</strong><br/>(1 pax left)</td>
+                                <td><strong>MYR 8,200.00</strong></td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                          <!-- <div class="card-body">
                             <div class="row">
                               <div class="col-md-4 text-primary">
                                 <strong>Room</strong>
@@ -300,7 +383,7 @@
                               </div>
                               <div class="col-md-4">
                                 <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                  <!-- <i class="fas fa-lock fa-sm"></i> --> Book Now
+                                  Book Now
                                 </a>
                               </div>
                             </div>
@@ -334,10 +417,29 @@
                                 </a>
                               </div>
                             </div>                       
-                          </div>
+                          </div> -->
                         </div>
                         <div class="card mb-4">
-                          <div class="card-body">
+                        <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <!-- <tr class="border-bottom">
+                                <td class="text-primary" colspan="2"><strong>Promotion</strong></td>
+                              </tr>     -->                          
+                              <tr class="border-bottom">
+                                <td class="text-primary"><strong>Promo Code</strong></td>
+                                <td class="text-primary"><strong>Promo Description</strong></td>
+                              </tr>
+                              <tr>
+                                <td>UMRAH4ALL</td>
+                                <td>Get 40% Discount. Maximum amount of RM4,000.00</td>
+                              </tr>
+                              <tr>
+                                <td>ALNILE10</td>
+                                <td>Get RM10 Discount</td>
+                              </tr>
+                            </table>
+                          </div>
+                          <!-- <div class="card-body">
                             <div class="row">
                               <div class="col-md-12 text-primary">
                                 <strong><i class="fas fa-certificate fa-sm"></i> Promotion</strong>
@@ -379,13 +481,13 @@
                                 Get 15% Discount
                               </div>                              
                             </div> 
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="card mb-4">
                           <div class="card-body">
-                            <img class="d-block w-100" src="img/elaf4.jpg" height="350px">
+                            <img class="d-block w-100" src="img/elaf4.jpg">
                             <!-- <div id="imgIndicator" class="carousel slide" data-ride="carousel">
                               <ol class="carousel-indicators">
                                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -567,12 +669,9 @@
             </div>
           </div>
         </div>
-        <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
 
-      <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -580,21 +679,17 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
 
     </div>
-    <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
 
   <!-- Review Modal-->
-  <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" data-backdrop="static" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -603,17 +698,23 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body text-md">
           <form>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Review:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <label for="message-text" class="col-form-label">Name</label>
+              <input class="form-control form-control-sm" id="rev_name">
             </div>
-          </form>
-          <form>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Email Address</label>
+              <input class="form-control form-control-sm" id="rev_email">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Review</label>
+              <textarea class="form-control form-control-sm" id="message-text"></textarea>
+            </div>
             <div class="form-group">
               <label for="message-text" class="col-form-label">Rating</label>
-              <select class="form-control" id="rating">
+              <select class="form-control form-control-sm" id="rating">
                 <option value="">Please Select</option>
                 <option value="1">1 star</option>
                 <option value="2">2 star</option>
@@ -655,7 +756,7 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="js/main.js"></script>
 
   <script src="js/bootstrap-datepicker.js"></script>
 
