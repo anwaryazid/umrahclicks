@@ -95,12 +95,12 @@
                 <!-- <a class="small" href="forgot-password.php">Forgot Password?</a> -->
                 <a class="small" href="#" data-toggle="modal" data-target="#forgotModal">Forgot Password?</a>
               </div>
-              <div class="text-center">
+              <!-- <div class="text-center">
                 <a class="small" href="#" data-toggle="modal" data-target="#registerModal">Create an Account!</a>
-              </div>
+              </div> -->
               <hr>
               <div class="text-center">
-                <a class="small" href="search.php">Search Package</a>
+                <a class="small" href="home.php">Search Package</a>
               </div>
             </div>
           </div>
