@@ -1,6 +1,6 @@
 <?php    
   if (!isset($_GET['page'])) {
-    header("Location: search.php");   
+    header("Location: home.php");   
     exit();
   } 
 ?>
