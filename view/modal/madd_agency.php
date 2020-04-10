@@ -20,9 +20,9 @@
               <label for="" class="col-form-label">Agency Logo</label>
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  <input type="file" class="custom-file-input" id="inputGroupFile02"
                     aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
               </div>
 
@@ -36,7 +36,7 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Country</label>
-              <select class="form-control form-control-sm" id="country">
+              <select class="form-control form-control-sm" id="country1">
                 <option value="">Please Select</option>
                 <option value="Malaysia">Malaysia</option>
               </select>

@@ -59,9 +59,9 @@
               <label for="" class="col-form-label">Image Advertisment</label>
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  <input type="file" class="custom-file-input" id="inputGroupFile02"
                     aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
               </div>
 
