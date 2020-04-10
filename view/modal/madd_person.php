@@ -15,7 +15,7 @@
               <div class="input-group mb-3">
                 <input type="text" class="form-control form-control-sm">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-success" type="button">Add Person</button>
+                  <button class="btn btn-outline-success btn-sm" type="button">Add Person</button>
                 </div>
               </div>
             </div>          
