@@ -39,7 +39,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editUserModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('User',1,3);"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>         
         </tbody>

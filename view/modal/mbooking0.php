@@ -1,4 +1,4 @@
-<div class="modal fade" data-backdrop="static" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" data-backdrop="static" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,11 +11,36 @@
         <form>
           <div class="form-group row text-md">
             <div class="col-md-12">
+              <label for="" class="col-form-label">Full Name:</label>
+              <input type="text" class="form-control form-control-sm" >
+            </div>              
+          </div>
+          <div class="form-group row text-md">
+            <div class="col-md-12">
+              <label for="" class="col-form-label">Email Address:</label>
+              <input type="text" class="form-control form-control-sm" >
+            </div>              
+          </div>
+          <div class="form-group row text-md">
+            <div class="col-md-6">
+              <label for="" class="col-form-label">Mobile Number:</label>
+              <input type="text" class="form-control form-control-sm" >
+            </div>   
+            <div class="col-md-6">
+              <label for="" class="col-form-label">Country:</label>
+              <select class="form-control form-control-sm" id="country">
+                <option value="">Please Select</option>
+                <option value="Malaysia">Malaysia</option>
+              </select>
+            </div>            
+          </div>
+          <!-- <div class="form-group row text-md">
+            <div class="col-md-12">
                 <label for="" class="col-form-label">Full Name:</label>
               <div class="input-group mb-3">
                 <input type="text" class="form-control form-control-sm">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-success btn-sm" type="button">Add Person</button>
+                  <button class="btn btn-outline-success" type="button">Add Person</button>
                 </div>
               </div>
             </div>          
@@ -34,22 +59,17 @@
                   <td class="text-center">1</td>
                   <td>Muhammad Anwar Bin Mohd Yazid</td>
                   <td class="text-center">
-                    <!-- <a class="" href="#" onClick="alert('Remove');">
-                      <i class="fa fa-trash"></i>
-                    </a> -->
                     <button class="btn btn-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
                   </td>
                 </tr>
               </tbody>
             </table>
-          </div>          
+          </div> -->          
         </form>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-outline-secondary" href="#bookingModal" data-toggle="modal" data-dismiss="modal" >
-          Back
-        </a>
-        <a class="btn btn-outline-primary" href="#paymentModal" data-toggle="modal" data-dismiss="modal" >
+        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-outline-primary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Continue
         </a>
       </div>

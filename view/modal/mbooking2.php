@@ -1,4 +1,4 @@
-<div class="modal fade" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -42,7 +42,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control form-control-sm" >
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button">
+                      <button class="btn btn-outline-secondary btn-sm" type="button">
                         <i class="fas fa-lock fa-sm"></i>
                       </button>
                     </div>
@@ -65,7 +65,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control form-control-sm" >
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button">
+                      <button class="btn btn-outline-secondary btn-sm" type="button">
                         <i class="fas fa-lock fa-sm"></i>
                       </button>
                     </div>                    

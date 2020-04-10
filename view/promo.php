@@ -41,7 +41,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',1,3);"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -56,7 +56,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',2,3);"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -71,7 +71,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',1,3);"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
         </tbody>

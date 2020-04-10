@@ -36,7 +36,7 @@
                 <td>Malaysian Ringgit</td>
                 <td class="text-center">
                   <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editCountryModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-                  <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Country',1,3);"><i class="fas fa-trash fa-sm"></i></button>
+                  <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
                 </td>
               </tr>         
             </tbody>
