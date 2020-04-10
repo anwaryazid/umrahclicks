@@ -224,7 +224,7 @@
           $('#success-alert').hide('fade');
         }, 3000);
 
-      } else if (id == 2) {
+      } else if (result == 2) {
 
         document.getElementById("textAlertDanger").innerHTML = from+" unsuccesfully "+typeText;
         $('#danger-alert').show('fade');
