@@ -163,7 +163,7 @@
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <div class="card-header py-3 bg-white">
-            <h6 class="m-0 font-weight-bold text-primary">Jawrah Info</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-md">Jawrah Info</h6>
           </div>
           <div class="card-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
@@ -174,7 +174,7 @@
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Package 1</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-md">Package 1</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf4.jpg" height="180px">
@@ -190,7 +190,7 @@
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Package 2</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-md">Package 2</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf2.jpg" height="180px">
@@ -206,7 +206,7 @@
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Package 3</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-md">Package 3</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/elaf3.jpg" height="180px">
