@@ -7,9 +7,23 @@
 
 <hr>
 
+<div class="alert alert-success collapse" id="success-alert">
+  <strong>Success!</strong> <span id="textAlertSuccess"></span>
+  <button type="button" class="close" onClick="closeAlert('success-alert');">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="alert alert-danger collapse" id="danger-alert">
+  <strong>Unsuccessful!</strong> <span id="textAlertDanger"></span>
+  <button type="button" class="close" onClick="closeAlert('danger-alert');">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">List of Agency <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addAgencyModal">Add Agency</button></h6> 
+    <h6 class="m-0 font-weight-bold text-primary text-md">List of Agency <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addAgencyModal">Add Agency</button></h6> 
   </div>
   <div class="card-body">
     <div class="table-responsive text-md">
@@ -35,7 +49,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editAgencyModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Agency',2,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -48,7 +62,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editAgencyModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Agency',2,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -61,7 +75,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editAgencyModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Agency',1,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -74,7 +88,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editAgencyModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Agency',1,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>          
         </tbody>
@@ -82,3 +96,4 @@
     </div>
   </div>
 </div>
+
