@@ -10158,7 +10158,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 1rem;
   margin: 0 0.5rem;
   display: block;
   color: #3a3b45;
@@ -10276,7 +10276,7 @@ a:focus {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 1rem;
+    padding: .85rem;
     width: 14rem;
   }
   .sidebar .nav-item .nav-link i {
@@ -10379,19 +10379,19 @@ a:focus {
 }
 
 .sidebar-light .nav-item .nav-link {
-  color: #858796;
+  color: #5a5c69;
 }
 
 .sidebar-light .nav-item .nav-link i {
-  color: #d1d3e2;
+  color: #6e707e;
 }
 
 .sidebar-light .nav-item .nav-link:active, .sidebar-light .nav-item .nav-link:focus, .sidebar-light .nav-item .nav-link:hover {
-  color: #6e707e;
+  color: #4e73df;
 }
 
 .sidebar-light .nav-item .nav-link:active i, .sidebar-light .nav-item .nav-link:focus i, .sidebar-light .nav-item .nav-link:hover i {
-  color: #6e707e;
+  color: #4e73df;
 }
 
 .sidebar-light .nav-item .nav-link[data-toggle="collapse"]::after {
