@@ -221,7 +221,7 @@
         $('#success-alert').show('fade');
 
         setTimeout(function () {
-          $('#success-alert').hresulte('fade');
+          $('#success-alert').hide('fade');
         }, 3000);
 
       } else if (id == 2) {
