@@ -108,7 +108,7 @@
                         <input type="text" class="form-control form-control-sm" id="f_city">
                       </div>                  
                     </div>
-                    <a href="package.html" class="btn btn-outline-primary btn-user btn-block btn-sm">
+                    <a href="packages.php" class="btn btn-outline-primary btn-user btn-block btn-sm">
                       <i class="fas fa-filter fa-sm"></i> Filter
                     </a>
                   </form>
@@ -149,7 +149,7 @@
 
             </div>
 
-            <div class="col-lg-10 col-md-12">
+            <div class="col-lg-10 col-md-12">              
               <div class="card shadow mb-4">
                 <a href="#agency_1" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
@@ -222,109 +222,10 @@
                               </tr>
                             </table>
                           </div>
-                          <!-- <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-4">
-                                
-                              </div>
-                              <div class="col-md-4 text-primary">
-                                <strong>Makkah</strong>
-                              </div>
-                              <div class="col-md-4 text-primary">
-                                <strong>Madinah</strong>                                
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Hotel</strong>
-                              </div>
-                              <div class="col-md-4">
-                                Elaf Al Mashaer
-                              </div>
-                              <div class="col-md-4">
-                                Ramada Al Qibla
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Days</strong>                                
-                              </div>
-                              <div class="col-md-4">
-                                7 days
-                              </div>
-                              <div class="col-md-4">
-                                7 days
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Night</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                7 night
-                              </div>
-                              <div class="col-md-4">
-                                7 night
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Distance to Mosque</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                250 m
-                              </div>
-                              <div class="col-md-4">
-                                250 m
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Meal</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                Provided
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Flight</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                Direct
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>1st Destinatior</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                Makkah
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Ziarah</strong>                                 
-                              </div>
-                              <div class="col-md-4">
-                                
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Mutawif</strong> 
-                              </div>
-                              <div class="col-md-4">
-                                Celebrity Mutawif
-                              </div>
-                            </div>
-                          </div> -->
                         </div>
                         <div class="card mb-4">
                           <div class="card-body">
+                            <?php //include('view/modal/malert_booking.php'); ?>
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
                                 <td class="text-primary"><strong>Room</strong></td>
@@ -360,64 +261,6 @@
                               </tr>
                             </table>
                           </div>
-                          <!-- <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-4 text-primary">
-                                <strong>Room</strong>
-                              </div>
-                              <div class="col-md-4 text-primary">
-                                <strong>Price</strong>
-                              </div>
-                              <div class="col-md-4">
-                                                              
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Double Bed</strong><br>
-                                (4 pax left)
-                              </div>
-                              <div class="col-md-4">
-                                <strong>MYR 6,200.00</strong>
-                              </div>
-                              <div class="col-md-4">
-                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                  Book Now
-                                </a>
-                              </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Triple Bed</strong><br>
-                                (1 pax left)
-                              </div>
-                              <div class="col-md-4">
-                                <strong>MYR 7,200.00</strong>
-                              </div>
-                              <div class="col-md-4">
-                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                  Book Now
-                                </a>
-                              </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Quadriple Bed</strong><br>
-                                (2 pax left)
-                              </div>
-                              <div class="col-md-4">
-                                <strong>MYR 8,200.00</strong>
-                              </div>
-                              <div class="col-md-4">
-                                <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                  Book Now
-                                </a>
-                              </div>
-                            </div>                       
-                          </div> -->
                         </div>
                         <div class="card mb-4">
                         <div class="card-body">
@@ -618,53 +461,25 @@
                   </div>
                 </div>
               </div>
-              <div class="card shadow mb-4">
-                <a href="#agency_4" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_4">
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">Batuta Travel & Tours Sdn Bhd</h6> 
-                      Cheras (LKU No : 6046) <br>
-                      Package Gold <br>
-                      Departure Date From 31 Mac 2020 to 11 April 2020
-                    </div>
-                    <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
-                      <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars
-                      <br>
-                      56 Reviews
-                    </div>
-                  </div>                   
-                </a>
-                <div class="collapse hide" id="agency_4">
-                  <div class="card-body">
-                    
-                  </div>
-                </div>
+              <div class="alert alert-light text-center text-md" role="alert">
+                No packages has been found. 
               </div>
-              <div class="card shadow mb-4">
-                <a href="#agency_5" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_5">
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">Beststar Travel Centre Sdn Bhd</h6> 
-                      Cyberjaya (LKU No : 6047) <br>
-                      Package Gold <br>
-                      Departure Date From 31 Mac 2020 to 11 April 2020
-                    </div>
-                    <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
-                      <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars
-                      <br>
-                      56 Reviews
-                    </div>
-                  </div>                   
-                </a>
-                <div class="collapse hide" id="agency_5">
-                  <div class="card-body">
-                    
-                  </div>
-                </div>
+              <div>
+                <nav>
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
@@ -689,55 +504,14 @@
   </a>
 
   <!-- Review Modal-->
-  <div class="modal fade" data-backdrop="static" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Review</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body text-md">
-          <form>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Name</label>
-              <input class="form-control form-control-sm" id="rev_name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Email Address</label>
-              <input class="form-control form-control-sm" id="rev_email">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Review</label>
-              <textarea class="form-control form-control-sm" id="message-text"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Rating</label>
-              <select class="form-control form-control-sm" id="rating">
-                <option value="">Please Select</option>
-                <option value="1">1 star</option>
-                <option value="2">2 star</option>
-                <option value="3">3 star</option>
-                <option value="4">4 star</option>
-                <option value="5">5 star</option>
-              </select>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-success" href="#">Submit</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Include Modal-->
   <?php
-    include('view/modal/mbooking.php');
-    include('view/modal/madd_person.php');
-    include('view/modal/mpayment.php');
+    include('view/modal/mbooking0.php');
+    include('view/modal/mbooking1.php');
+    include('view/modal/mbooking2.php');
+    include('view/modal/mreview.php');
   ?>
 
   <!-- <script>
@@ -759,6 +533,73 @@
   <script src="js/main.js"></script>
 
   <script src="js/bootstrap-datepicker.js"></script>
+
+  <script type="text/javascript">
+
+    function showAlert(from, result, type) {
+
+      /* 
+        result = 1 - Success
+        result = 2 - Unsuccesful 
+
+        type = 1 - Register
+        type = 2 - Update 
+        type = 3 - Remove 
+        type = 4 - Added
+      */
+
+      var typeText = '';
+      if (type == 1) {
+        var typeText = 'registered.';
+      } else if (type == 2) {
+        var typeText = 'updated.';
+      } else if (type == 3) {
+        var typeText = 'removed.';
+      } else {
+        var typeText = 'added.';
+      }
+
+      if (result == 1) {
+
+        document.getElementById("textAlertSuccess").innerHTML = from+" succesfully "+typeText;
+        $('#success-alert').show('fade');
+
+        setTimeout(function () {
+          $('#success-alert').hide('fade');
+        }, 3000);
+
+      } else if (result == 2) {
+
+        document.getElementById("textAlertDanger").innerHTML = from+" unsuccesfully "+typeText;
+        $('#danger-alert').show('fade');
+
+        setTimeout(function () {
+          $('#danger-alert').hide('fade');
+        }, 3000);
+
+      } else {
+        alert('x');
+      }
+      
+    }
+
+    function closeAlert(id) {
+      $('#'+id).hide('fade');
+    }
+
+    $(document).ready(function() {
+
+      $('.modal').on('hidden.bs.modal', function () {
+        if($(".modal:visible").length > 0) {
+          // setTimeout(function() {
+            $('body').addClass('modal-open');
+          // },10)
+        }
+      });
+
+    });
+      
+  </script>
 
   <script>
     $(function() {
