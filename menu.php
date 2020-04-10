@@ -68,7 +68,7 @@
   </li> -->
 
   <li class="nav-item <?php if (strpos($page, 'ref') !== false){ ?>active<?php } ?>">
-    <a class="nav-link" href="#" data-toggle="collapse" data-target="#refData" aria-expanded="true" aria-controls="refData">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#refData" aria-expanded="true" aria-controls="refData">
       <i class="fas fa-fw fa-book"></i>
       <span>Data Reference</span>
     </a>
