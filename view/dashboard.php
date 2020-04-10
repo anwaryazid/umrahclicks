@@ -312,7 +312,7 @@
             <div class="form-group row">
               <div class="col-md-6">
                 <div class="input-group">
-                  <select class="form-control" id="country">
+                  <select class="form-control form-control-sm" id="country">
                     <option value="">All</option>
                     <option value="">Malaysia</option>
                     <option value="">Indonesia</option>
@@ -320,7 +320,7 @@
                     <option value="">Brunei</option>
                   </select>
                   <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
+                    <button class="btn btn-outline-primary btn-sm" type="button">
                       <i class="fas fa-filter fa-sm"></i>
                     </button>
                   </div>
