@@ -154,7 +154,7 @@
                 <a href="#agency_1" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary">Al-Nile Tour & Travel Sdn Bhd</h6> 
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Al-Nile Tour & Travel Sdn Bhd</h6> 
                       Puchong (LKU No : 6043) <br>
                       Package Gold <br>
                       Departure Date From 31 Mac 2020 to 11 April 2020
@@ -574,7 +574,7 @@
                 <a href="#agency_2" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary">Andalusia Travel & Tours Sdn Bhd</h6> 
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Andalusia Travel & Tours Sdn Bhd</h6> 
                       Klang (LKU No : 6044) <br>
                       Package Gold <br>
                       Departure Date From 31 Mac 2020 to 11 April 2020
@@ -598,7 +598,7 @@
                 <a href="#agency_3" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary">Ash-Har Travel & Tours Sdn Bhd</h6> 
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Ash-Har Travel & Tours Sdn Bhd</h6> 
                       Damansara (LKU No : 6045) <br>
                       Package Gold <br>
                       Departure Date From 31 Mac 2020 to 11 April 2020
@@ -622,7 +622,7 @@
                 <a href="#agency_4" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_4">
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary">Batuta Travel & Tours Sdn Bhd</h6> 
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Batuta Travel & Tours Sdn Bhd</h6> 
                       Cheras (LKU No : 6046) <br>
                       Package Gold <br>
                       Departure Date From 31 Mac 2020 to 11 April 2020
@@ -646,7 +646,7 @@
                 <a href="#agency_5" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_5">
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary">Beststar Travel Centre Sdn Bhd</h6> 
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Beststar Travel Centre Sdn Bhd</h6> 
                       Cyberjaya (LKU No : 6047) <br>
                       Package Gold <br>
                       Departure Date From 31 Mac 2020 to 11 April 2020
