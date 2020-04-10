@@ -62,25 +62,25 @@
       top: 0; /* Stay at the top */
       left: 0;
       overflow-x: hidden; /* Disable horizontal scroll */
-    }    
-
-    @media screen and (min-width: 455px) {
-      .fix-topbar {
-        left: 224px;
-      }
-      .main {
-        margin-left: 224px; 
-      }
-    }
+    }       
 
     /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 769px) {
       .fix-topbar {
         left: 100px;
         right: 0;
       }
       .main {
         margin-left: 100px; 
+      }
+    }
+
+    @media screen and (min-width: 770px) {
+      .fix-topbar {
+        left: 224px;
+      }
+      .main {
+        margin-left: 224px; 
       }
     }
   </style>
