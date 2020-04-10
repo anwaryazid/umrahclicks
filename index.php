@@ -174,6 +174,7 @@
   <?php
     include('view/modal/mlogout.php');
     include('view/modal/mprofile.php');
+    include('view/modal/mconfirm_delete.php');
   ?>
 
   <!-- Bootstrap core JavaScript-->
@@ -204,6 +205,7 @@
         type = 1 - Register
         type = 2 - Update 
         type = 3 - Remove 
+        type = 4 - Added
       */
 
       var typeText = '';
@@ -211,8 +213,10 @@
         var typeText = 'registered.';
       } else if (type == 2) {
         var typeText = 'updated.';
+      } else if (type == 3) {
+        var typeText = 'removed.';
       } else {
-        var typeText = 'removed';
+        var typeText = 'added.';
       }
 
       if (result == 1) {
