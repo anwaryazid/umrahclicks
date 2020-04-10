@@ -7,6 +7,8 @@
 
 <hr>
 
+<?php include('view/modal/malert.php'); ?>
+
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary text-md">List of Promotion <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addPromoModal">Add Promotion</button></h6> 
@@ -39,7 +41,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',1,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -54,7 +56,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',2,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
           <tr>
@@ -69,7 +71,7 @@
             </td>
             <td class="text-center">
               <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove"><i class="fas fa-trash fa-sm"></i></button>
+              <button class="btn btn-outline-danger btn-xs" title="Remove" onClick="showAlert('Promo',1,3);"><i class="fas fa-trash fa-sm"></i></button>
             </td>
           </tr>
         </tbody>

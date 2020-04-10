@@ -64,7 +64,6 @@
       overflow-x: hidden; /* Disable horizontal scroll */
     }       
 
-    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
     @media screen and (max-width: 769px) {
       .fix-topbar {
         left: 100px;
@@ -193,6 +192,72 @@
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+
+  <script type="text/javascript">
+
+    function showAlert(from, result, type) {
+
+      /* 
+        result = 1 - Success
+        result = 2 - Unsuccesful 
+
+        type = 1 - Register
+        type = 2 - Update 
+        type = 3 - Remove 
+      */
+
+      var typeText = '';
+      if (type == 1) {
+        var typeText = 'registered.';
+      } else if (type == 2) {
+        var typeText = 'updated.';
+      } else {
+        var typeText = 'removed';
+      }
+
+      if (result == 1) {
+
+        document.getElementById("textAlertSuccess").innerHTML = from+" succesfully "+typeText;
+        $('#success-alert').show('fade');
+
+        setTimeout(function () {
+          $('#success-alert').hresulte('fade');
+        }, 3000);
+
+      } else if (id == 2) {
+
+        document.getElementById("textAlertDanger").innerHTML = from+" unsuccesfully "+typeText;
+        $('#danger-alert').show('fade');
+
+        setTimeout(function () {
+          $('#danger-alert').hide('fade');
+        }, 3000);
+
+      } else {
+        alert('x');
+      }
+      
+    }
+
+    function closeAlert(id) {
+      $('#'+id).hide('fade');
+    }
+
+    $(document).ready(function() {
+      
+
+    });
+      
+  </script>
+
+  <?php
+    if (isset($_GET['page'])) {
+      $page = $_GET['page'];
+      include("view/js/j_$page.php");
+    } else {
+      include("view/js/j_dashboard.php");
+    }          
+  ?>  
 
 </body>
 

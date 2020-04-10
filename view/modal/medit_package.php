@@ -120,7 +120,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Package',1,2);" >
           Save
         </a>
       </div>
