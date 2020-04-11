@@ -17,7 +17,7 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=user-management">46</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-user fa-2x text-gray-300"></i>
+            <i class="fa fa-users fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
@@ -30,10 +30,26 @@
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-uppercase text-primary mb-1">Agency</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=agency">167</a></div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=agency">8</a></div>
           </div>
           <div class="col-auto">
             <i class="fa fa-building fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 mb-4">
+    <div class="card border-left-secondary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-uppercase text-primary mb-1">Packages</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=packages">15</a></div>
+          </div>
+          <div class="col-auto">
+            <i class="fa fa-archive fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
