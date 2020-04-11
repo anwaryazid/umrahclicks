@@ -40,7 +40,7 @@
               </select>
 
               <label for="" class="col-form-label">Remarks</label>
-              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>
+              <textarea type="text" class="form-control form-control-sm" rows="3"></textarea>
 
               <label for="" class="col-form-label">Date From</label>
               <input type="text" class="form-control form-control-sm" >
@@ -58,7 +58,16 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Room For</label>
-              <input type="text" class="form-control form-control-sm" >              
+              <input type="text" class="form-control form-control-sm" >
+
+              <label for="" class="col-form-label">Image</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile02"
+                    aria-describedby="inputGroupFileAddon01">
+                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                </div>
+              </div>          
 
             </div>   
             <div class="col-md-6">
@@ -69,14 +78,14 @@
               <label for="" class="col-form-label">Distance Makkah Hotel</label>
               <input type="text" class="form-control form-control-sm" >
 
+              <label for="" class="col-form-label">Days in Makkah</label>
+              <input type="text" class="form-control form-control-sm" >
+
               <label for="" class="col-form-label">Madinah Hotel</label>
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Distance Madinah Hotel</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Days in Makkah</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" >              
 
               <label for="" class="col-form-label">Days in Madinah</label>
               <input type="text" class="form-control form-control-sm" >              
@@ -103,16 +112,7 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Ziarah</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Image</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02"
-                    aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                </div>
-              </div>
+              <textarea type="text" class="form-control form-control-sm" rows="4"></textarea>             
               
             </div>           
           </div>

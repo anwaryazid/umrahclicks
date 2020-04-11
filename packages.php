@@ -53,6 +53,7 @@
 
             <div class="col-lg-2 d-none d-xl-block">
 
+              <!-- Filter -->
               <div class="card mb-4">
                 <div class="card-header text-md" style="background-color: white;">
                   Filter By:
@@ -114,6 +115,8 @@
                   </form>
                 </div>
               </div>
+
+              <!-- Advertisment -->
               <div class="card mb-4">
                 <div class="card-body" style="font-size: 0.7rem;">
                   <img class="d-block w-100" src="img/elaf2.jpg" height="">
