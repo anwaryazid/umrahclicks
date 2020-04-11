@@ -54,12 +54,12 @@
             <div class="col-lg-2 d-none d-xl-block">
 
               <div class="card mb-4">
-                <div class="card-header" style="background-color: white;">
+                <div class="card-header text-md" style="background-color: white;">
                   Filter By:
                 </div>
                 <div class="card-body">
                   <form class="">
-                    <div class="row text-md">
+                    <div class="row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">Price</div>
                       <div class="col-sm-12">
                         <div class="input-group input-group-sm mb-3">                          
@@ -70,7 +70,7 @@
                         </div>
                       </div>                 
                     </div>
-                    <div class="row text-md">
+                    <div class="row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Makkah Hotel</div>
                       <div class="col-sm-12">
                         <div class="input-group input-group-sm mb-3">                          
@@ -81,7 +81,7 @@
                         </div>
                       </div>                  
                     </div>
-                    <div class="row text-md">
+                    <div class="row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">Distance Madinah Hotel</div>
                       <div class="col-sm-12 input-group input-group-sm mb-3">                    
                           <input type="text" class="form-control" id="f_distance_madinah">
@@ -90,19 +90,19 @@
                           </div>
                       </div>                  
                     </div>
-                    <div class="form-group row text-md">
+                    <div class="form-group row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">Agency</div>
                       <div class="col-sm-12">
                         <input type="text" class="form-control form-control-sm" id="f_agency">
                       </div>                  
                     </div>
-                    <div class="form-group row text-md">
+                    <div class="form-group row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">Promotion</div>
                       <div class="col-sm-12">
                         <input type="text" class="form-control form-control-sm" id="f_promo">
                       </div>                  
                     </div>
-                    <div class="form-group row text-md">
+                    <div class="form-group row" style="font-size: 13px;">
                       <div class="col-sm-12 mb-3 mb-sm-0">City</div>
                       <div class="col-sm-12">
                         <input type="text" class="form-control form-control-sm" id="f_city">
@@ -155,9 +155,11 @@
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Al-Nile Tour & Travel Sdn Bhd</h6> 
-                      Puchong (LKU No : 6043) <br>
-                      Package Gold <br>
-                      Departure Date From 31 Mac 2020 to 11 April 2020
+                      <div style="font-size: 13px;">
+                        Puchong (LKU No : 6043) <br>
+                        Package Gold <br>
+                        Departure Date From 31 Mac 2020 to 11 April 2020
+                      </div>                      
                     </div>
                     <div class="col-lg-3" style="font-size: 12px;">
                       Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
@@ -345,9 +347,11 @@
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Andalusia Travel & Tours Sdn Bhd</h6> 
-                      Klang (LKU No : 6044) <br>
-                      Package Gold <br>
-                      Departure Date From 31 Mac 2020 to 11 April 2020
+                      <div style="font-size: 13px;">
+                        Klang (LKU No : 6043) <br>
+                        Package Gold <br>
+                        Departure Date From 31 Mac 2020 to 11 April 2020
+                      </div> 
                     </div>
                     <div class="col-lg-3" style="font-size: 12px;">
                       Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
@@ -369,9 +373,11 @@
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Ash-Har Travel & Tours Sdn Bhd</h6> 
-                      Damansara (LKU No : 6045) <br>
-                      Package Gold <br>
-                      Departure Date From 31 Mac 2020 to 11 April 2020
+                      <div style="font-size: 13px;">
+                        Damansara (LKU No : 6043) <br>
+                        Package Gold <br>
+                        Departure Date From 31 Mac 2020 to 11 April 2020
+                      </div> 
                     </div>
                     <div class="col-lg-3" style="font-size: 12px;">
                       Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
