@@ -31,7 +31,7 @@
 
   <li class="nav-item <?php if ($page == 'packages'){ ?>active<?php } ?>">
     <a class="nav-link" href="index.php?page=packages">
-      <i class="fa fa-fw fa-star"></i>
+      <i class="fa fa-fw fa-archive"></i>
       <span>Packages</span></a>
   </li>
 
@@ -53,7 +53,17 @@
       <span>Follow Up</span></a>
   </li>
 
-  <hr class="sidebar-divider my-0">
+  <li class="nav-item <?php if ($page == 'reviews'){ ?>active<?php } ?>">
+    <a class="nav-link" href="index.php?page=reviews">
+      <i class="fa fa-fw fa-star"></i>
+      <span>Reviews</span></a>
+  </li>
+
+  <hr class="sidebar-divider">
+
+  <div class="sidebar-heading">
+    Administrator
+  </div>
 
   <li class="nav-item <?php if ($page == 'user-management'){ ?>active<?php } ?>">
     <a class="nav-link" href="index.php?page=user-management">
@@ -76,7 +86,8 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <!-- <a class="collapse-item <?php if ($page == 'ref-user'){ ?>active<?php } ?>" href="index.php?page=ref-user">User Type</a> -->
         <!-- <a class="collapse-item <?php if ($page == 'ref-group'){ ?>active<?php } ?>" href="index.php?page=ref-group">Group Type</a> -->
-        <a class="collapse-item <?php if ($page == 'ref-country'){ ?>active<?php } ?>" href="index.php?page=ref-country">Country</a>
+        <a class="collapse-item <?php if ($page == 'ref-country'){ ?>active<?php } ?>" href="index.php?page=ref-country">
+          Country</a>
       </div>
     </div>
   </li>

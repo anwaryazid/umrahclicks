@@ -3988,9 +3988,19 @@ input[type="button"].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-weight: 800;
+  font-size: 1rem;
   line-height: inherit;
   white-space: nowrap;
+
+  /* height: 4.375rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  letter-spacing: 0.05rem;
+  z-index: 1; */
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
@@ -10224,7 +10234,7 @@ a:focus {
   font-weight: 800;
   padding: 1.5rem 1rem;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.05rem;
   z-index: 1;
 }

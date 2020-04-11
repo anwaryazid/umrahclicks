@@ -174,6 +174,11 @@
                       <div class="col-lg-6">
                         <div class="card mb-4">
                           <div class="card-body">
+                            <img class="d-block w-100" src="img/elaf4.jpg">
+                          </div>
+                        </div>
+                        <div class="card mb-4">
+                          <div class="card-body">
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
                                 <td width="35%"></td>
@@ -222,7 +227,9 @@
                               </tr>
                             </table>
                           </div>
-                        </div>
+                        </div>     
+                      </div>
+                      <div class="col-lg-6">      
                         <div class="card mb-4">
                           <div class="card-body">
                             <?php //include('view/modal/malert_booking.php'); ?>
@@ -233,7 +240,7 @@
                                 <td></td>
                               </tr>                              
                               <tr>
-                                <td><strong>Double Bed</strong><br/>(4 pax left)</td>
+                                <td><strong>Double Bed</strong><br/><small>(4 pax left)</small></td>
                                 <td><strong>MYR 6,200.00</strong></td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -242,7 +249,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><strong>Triple Bed</strong><br/>(2 pax left)</td>
+                                <td><strong>Triple Bed</strong><br/><small>(4 pax left)</small></td>
                                 <td><strong>MYR 7,200.00</strong></td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -251,7 +258,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><strong>Quadriple Bed</strong><br/>(1 pax left)</td>
+                                <td><strong>Quadriple Bed</strong><br/><small>(2 pax left)</small></td>
                                 <td><strong>MYR 8,200.00</strong></td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
@@ -261,9 +268,9 @@
                               </tr>
                             </table>
                           </div>
-                        </div>
+                        </div>  
                         <div class="card mb-4">
-                        <div class="card-body">
+                          <div class="card-body">
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <!-- <tr class="border-bottom">
                                 <td class="text-primary" colspan="2"><strong>Promotion</strong></td>
@@ -282,106 +289,10 @@
                               </tr>
                             </table>
                           </div>
-                          <!-- <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-12 text-primary">
-                                <strong><i class="fas fa-certificate fa-sm"></i> Promotion</strong>
-                              </div>
-                            </div> 
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <strong>Promo Code</strong>
-                              </div>
-                              <div class="col-md-8">
-                                <strong>Promo Description</strong>
-                              </div>                              
-                            </div>
-                            <br>
-                            <div class="row">
-                              <div class="col-md-4">
-                                UMRAH4ALL
-                              </div>
-                              <div class="col-md-8">
-                                Get 40% Discount. Maximum amount of RM4,000.00
-                              </div>                              
-                            </div>
-                            <br>
-                            <div class="row">
-                              <div class="col-md-4">
-                                ALNILE10
-                              </div>
-                              <div class="col-md-8">
-                                Get RM10 Discount
-                              </div>                              
-                            </div>  
-                            <br>
-                            <div class="row">
-                              <div class="col-md-4">
-                                ALNILE15
-                              </div>
-                              <div class="col-md-8">
-                                Get 15% Discount
-                              </div>                              
-                            </div> 
-                          </div> -->
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <img class="d-block w-100" src="img/elaf4.jpg">
-                            <!-- <div id="imgIndicator" class="carousel slide" data-ride="carousel">
-                              <ol class="carousel-indicators">
-                                <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
-                                <li data-target="#imgIndicator" data-slide-to="1"></li>
-                                <li data-target="#imgIndicator" data-slide-to="2"></li>
-                                <li data-target="#imgIndicator" data-slide-to="3"></li>
-                              </ol>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                  <img class="d-block w-100" src="img/elaf4.jpg" height="350px">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h5>Makkah</h5>
-                                    <p>Elaf Al Mashaer Hotel</p>
-                                  </div>
-                                </div>
-                                <div class="carousel-item">
-                                  <img class="d-block w-100" src="img/elaf2.jpg" height="350px">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h5>Makkah</h5>
-                                    <p>Elaf Al Mashaer Hotel</p>
-                                  </div>
-                                </div>
-                                <div class="carousel-item">
-                                  <img class="d-block w-100" src="img/elaf3.jpg" height="350px">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h5>Makkah</h5>
-                                    <p>Elaf Al Mashaer Hotel</p>
-                                  </div>
-                                </div>
-                                <div class="carousel-item">
-                                  <img class="d-block w-100" src="img/elaf1.jpg" height="350px">
-                                  <div class="carousel-caption d-none d-md-block">
-                                    <h5>Makkah</h5>
-                                    <p>Elaf Al Mashaer Hotel</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="carousel-control-next" href="#imgIndicator" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </div> -->
-                          </div>
-                        </div>
+                        </div>                
                         <div class="card mb-4">
                           <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Reviews (3 review)</strong>
+                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-success text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
                           </div>
                           <div class="card-body">
                             <div class="row">
@@ -391,19 +302,35 @@
                                 <br/><br/>
                                 <small class="text-muted">Posted by Anonymous on 3/1/17</small>
                                 <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
                                 <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars </small>
                                 <br/><br/>
                                 <small class="text-muted">Posted by Anonymous on 3/1/17</small>
                                 <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span> 5.0 stars </small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                                <hr>
-                                <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
+                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
                                   Leave a Review
-                                </a>
+                                </a> -->
+                                <div>
+                                  <nav>
+                                    <ul class="pagination pagination-sm justify-content-center">
+                                      <li class="page-item disabled">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                          <span aria-hidden="true">&laquo;</span>
+                                          <span class="sr-only">Previous</span>
+                                        </a>
+                                      </li>
+                                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                          <span aria-hidden="true">&raquo;</span>
+                                          <span class="sr-only">Next</span>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </nav>
+                                </div>                                
                               </div>
                             </div> 
                           </div>
@@ -466,7 +393,7 @@
               </div>
               <div>
                 <nav>
-                  <ul class="pagination justify-content-center">
+                  <ul class="pagination pagination-sm justify-content-center">
                     <li class="page-item disabled">
                       <a class="page-link" href="#" tabindex="-1">Previous</a>
                     </li>

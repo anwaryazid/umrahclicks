@@ -90,21 +90,13 @@
 
   <div id="wrapper">
 
-    <div id="menu" class="sidenav">
+    <div class="sidenav">
       <?php 
         include('menu.php');
       ?> 
     </div>    
 
     <div id="content-wrapper" class="d-flex flex-column">     
-
-      <!-- <nav class="navbar navbar-light bg-white topbar">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown no-arrow">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ahmad Bin Abu</span>
-          </li>
-        </ul>        
-      </nav> -->
 
       <div id="content" class="main">      
 

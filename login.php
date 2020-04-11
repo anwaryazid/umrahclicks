@@ -20,7 +20,7 @@
 
   <style>
     .container2 {
-      width: 100%;
+      width: 30%;
       padding-right: 2.5rem;
       padding-left: 2.5rem;
       margin-right: auto;
@@ -45,8 +45,7 @@
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
-        <div class="row">
-          <div class="col-lg-8 d-none d-lg-block">
+          <!-- <div class="col-lg-8 d-none d-lg-block">
             <div id="imgIndicator" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -73,11 +72,11 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-          </div>
-          <div class="col-lg-4">
+          </div> -->
+          <div class="">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-primary mb-4">UmrahClicks.my</h1>
+                <h1 class="h4 text-primary mb-4" style="font-weight: 700;">UmrahClicks.my</h1>
               </div>
               <form>
                 <div class="form-group text-md">
@@ -104,7 +103,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
 
