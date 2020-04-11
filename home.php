@@ -87,7 +87,7 @@
                 <div class="form-group row">
                   <div class="col-sm-5 mb-3 mb-sm-0">
                     <!-- <h3 class="h5 text-gray-900 mb-4">Country</h3> -->
-                    <label for="" class="col-form-label text-gray-900">Country</label>
+                    <label for="" class="col-form-label text-gray-800">Country</label>
                   </div>
                   <div class="col-sm-7">
                     <select class="form-control form-control-sm" id="country">
@@ -98,8 +98,8 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <!-- <h3 class="h5 text-gray-900 mb-4">Date Depart From</h3> -->
-                    <label for="" class="col-form-label text-gray-900">Date Depart From</label>
+                    <!-- <h3 class="h5 text-gray-800 mb-4">Date Depart From</h3> -->
+                    <label for="" class="col-form-label text-gray-800">Date Depart From</label>
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
@@ -118,8 +118,8 @@
                 </div> -->
                 <div class="form-group row">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <!-- <h3 class="h5 text-gray-900 mb-4">Adult</h3> -->
-                    <label for="" class="col-form-label text-gray-900">Adult</label>
+                    <!-- <h3 class="h5 text-gray-800 mb-4">Adult</h3> -->
+                    <label for="" class="col-form-label text-gray-800">Adult</label>
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
@@ -127,8 +127,8 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <label for="" class="col-form-label text-gray-900">Children</label>
-                    <!-- <h3 class="h5 text-gray-900 mb-4">Children</h3> -->
+                    <label for="" class="col-form-label text-gray-800">Children</label>
+                    <!-- <h3 class="h5 text-gray-800 mb-4">Children</h3> -->
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
