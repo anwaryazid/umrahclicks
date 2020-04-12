@@ -38,7 +38,7 @@
                     <!-- <a class="" href="#" onClick="alert('Remove');">
                       <i class="fa fa-trash"></i>
                     </a> -->
-                    <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Person',1,3);"><i class="fas fa-trash fa-sm"></i></button>
+                    <button class="btn btn-outline-danger btn-xs" type="button" title="Remove" onClick="showAlert('Person',1,3);"><i class="fas fa-trash fa-sm"></i></button>
                   </td>
                 </tr>
               </tbody>

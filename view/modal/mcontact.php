@@ -48,7 +48,7 @@
       </div>      
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Back</button>
-        <button class="btn btn-outline-success" type="button" data-dismiss="modal">Submit</button>
+        <button class="btn btn-outline-primary" type="button" data-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>

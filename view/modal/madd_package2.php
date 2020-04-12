@@ -45,7 +45,7 @@
                       <td class="text-right">6,200.00</td>
                       <td class="text-center">10</td>
                       <td class="text-center">
-                        <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
+                        <button class="btn btn-outline-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
                       </td>
                     </tr>
                     <tr>
@@ -53,7 +53,7 @@
                       <td class="text-right">7,200.00</td>
                       <td class="text-center">10</td>
                       <td class="text-center">
-                        <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
+                        <button class="btn btn-outline-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
                       </td>
                     </tr>
                   </tbody>
