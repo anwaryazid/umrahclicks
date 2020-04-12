@@ -76,7 +76,7 @@
           <div class="">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-primary mb-4" style="font-weight: 700;">UmrahClicks.my</h1>
+                <h1 class="h4 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h1>
               </div>
               <form>
                 <div class="form-group text-md">
