@@ -81,41 +81,51 @@
               <div class="text-center">
                 <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5>
               </div>
-              <form class="user">
+              <form>
+                <!-- <div class="form-group row text-md">
+
+                  <label for="" class="col-form-label text-gray-900">Country</label>
+                  <select class="form-control form-control-sm" id="country">
+                    <option value="">Select Country</option>
+                    <option value="Malaysia">Malaysia</option>
+                  </select>
+
+                  <label for="" class="col-form-label text-gray-900">Date Depart From</label>
+                  <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
+
+                  <label for="" class="col-form-label text-gray-900">Adult</label>
+                  <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
+
+                  <label for="" class="col-form-label text-gray-900">Children</label>
+                  <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
+
+                </div> -->
                 <div class="form-group row text-md">
-                  <div class="col-sm-5 mb-3 mb-sm-0">
-                    <label for="" class="col-form-label text-gray-800">Country</label>
-                  </div>
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Country</label>
                   <div class="col-sm-7">
                     <select class="form-control form-control-sm" id="country">
                       <option value="">Select Country</option>
                       <option value="Malaysia">Malaysia</option>
                     </select>
-                  </div>                  
+                  </div>                 
                 </div>
                 <div class="form-group row text-md">
-                  <div class="col-sm-5 mb-3 mb-sm-0">
-                    <label for="" class="col-form-label text-gray-800">Date Depart From</label>
-                  </div>
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Date Depart From</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
-                  </div>                  
+                  </div>               
                 </div>
                 <div class="form-group row text-md">
-                  <div class="col-sm-5 mb-3 mb-sm-0">
-                    <label for="" class="col-form-label text-gray-800">Adult</label>
-                  </div>
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Adult</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
-                  </div>                  
+                  </div>                 
                 </div>
                 <div class="form-group row text-md">
-                  <div class="col-sm-5 mb-3 mb-sm-0">
-                    <label for="" class="col-form-label text-gray-800">Children</label>
-                  </div>
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Children</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
-                  </div>                  
+                  </div>                
                 </div>
                 <a href="packages.php" class="btn btn-outline-primary btn-block" style="font-size: 0.9rem;">
                   <i class="fas fa-search fa-sm"></i> Search
@@ -127,8 +137,8 @@
                 <a class="small" href="packages.php">Packages</a> | 
                 <a class="small" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
               </div>
-              <hr>
-              <div class="text-center">
+              <hr class="d-none d-sm-block">
+              <div class="text-center d-none d-sm-block">
                 <a class="small" href="login.php">Login</a>
               </div>
             </div>
