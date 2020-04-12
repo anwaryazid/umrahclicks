@@ -245,8 +245,8 @@
                                 <td></td>
                               </tr>                              
                               <tr>
-                                <td><strong>Double Bed</strong><br/><small>(4 pax left)</small></td>
-                                <td><strong>MYR 6,200.00</strong></td>
+                                <td>Double Bed<br/><small>(4 pax left)</small></td>
+                                <td>MYR 6,200.00</td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                     Book Now
@@ -254,8 +254,8 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><strong>Triple Bed</strong><br/><small>(4 pax left)</small></td>
-                                <td><strong>MYR 7,200.00</strong></td>
+                                <td>Triple Bed<br/><small>(4 pax left)</small></td>
+                                <td>MYR 7,200.00</td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                     Book Now
@@ -263,8 +263,8 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><strong>Quadriple Bed</strong><br/><small>(2 pax left)</small></td>
-                                <td><strong>MYR 8,200.00</strong></td>
+                                <td>Quadriple Bed<br/><small>(2 pax left)</small></td>
+                                <td>MYR 8,200.00</td>
                                 <td>
                                   <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
                                     Book Now
@@ -346,7 +346,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_2" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
+                <a href="#agency_2" class="d-block card-header py-3 bg-white collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Andalusia Travel & Tours Sdn Bhd</h6> 
@@ -372,7 +372,7 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_3" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
+                <a href="#agency_3" class="d-block card-header py-3 bg-white collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
                   <div class="row">
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Ash-Har Travel & Tours Sdn Bhd</h6> 
