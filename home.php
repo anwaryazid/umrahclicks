@@ -79,7 +79,7 @@
           <div class="col-lg-4">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h1>
+                <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5>
               </div>
               <form class="user">
                 <div class="form-group row text-md">
