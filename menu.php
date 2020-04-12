@@ -54,14 +54,14 @@
   </li>
 
   <li class="nav-item <?php if ($page == 'reviews'){ ?>active<?php } ?>">
-    <a class="nav-link" href="index.php?page=reviews">
+    <a class="nav-link" href="index.php?page=reviews" title="Reviews">
       <i class="fa fa-fw fa-star"></i>
       <span>Reviews</span></a>
   </li>
 
-  <hr class="sidebar-divider">
+  <hr class="sidebar-divider d-none d-sm-block">
 
-  <div class="sidebar-heading">
+  <div class="sidebar-heading d-none d-sm-block">
     Administrator
   </div>
 
@@ -71,21 +71,13 @@
       <span>User Management</span></a>
   </li>
 
-  <!-- <li class="nav-item <?php if ($page == 'data-reference'){ ?>active<?php } ?>">
-    <a class="nav-link" href="#">
-      <i class="fa fa-fw fa-book"></i>
-      <span>Data Reference</span></a>
-  </li> -->
-
-  <li class="nav-item <?php if (strpos($page, 'ref') !== false){ ?>active<?php } ?>">
+  <li class="nav-item <?php if (strpos($page, 'ref') !== false){ ?>active<?php } ?> d-none d-sm-block">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#refData" aria-expanded="true" aria-controls="refData">
       <i class="fas fa-fw fa-book"></i>
       <span>Data Reference</span>
     </a>
     <div id="refData" class="collapse <?php if (strpos($page, 'ref') !== false){ ?>show<?php } else { ?>hide<?php } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <a class="collapse-item <?php if ($page == 'ref-user'){ ?>active<?php } ?>" href="index.php?page=ref-user">User Type</a> -->
-        <!-- <a class="collapse-item <?php if ($page == 'ref-group'){ ?>active<?php } ?>" href="index.php?page=ref-group">Group Type</a> -->
         <a class="collapse-item <?php if ($page == 'ref-country'){ ?>active<?php } ?>" href="index.php?page=ref-country">
           Country</a>
       </div>
