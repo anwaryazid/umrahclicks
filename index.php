@@ -59,7 +59,7 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-lg-inline text-gray-600 small">Ahmad Bin Abu</span>
+                  <span class="mr-2 d-lg-inline text-gray-800 small">Ahmad Bin Abu</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" >
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
