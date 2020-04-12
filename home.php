@@ -22,7 +22,6 @@
   
   <style>
     .container2 {
-      width: 100%;
       padding-right: 2.5rem;
       padding-left: 2.5rem;
       margin-right: auto;
@@ -37,6 +36,12 @@
     .box{
         height: 550px;        
     }    
+
+    @media screen and (max-width: 1200px) {
+      .container2 {
+        max-width: 650px;
+      }
+    } 
   </style>
 
 </head>
@@ -48,7 +53,7 @@
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
         <div class="row">
-          <div class="col-lg-8 d-none d-lg-block">
+          <div class="col-xl-8 col-md-12 d-none d-xl-block">
             <div id="imgIndicator" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
@@ -76,30 +81,12 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-xl-4 col-md-12">
             <div class="p-5">
               <div class="text-center">
                 <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5>
               </div>
               <form>
-                <!-- <div class="form-group row text-md">
-
-                  <label for="" class="col-form-label text-gray-900">Country</label>
-                  <select class="form-control form-control-sm" id="country">
-                    <option value="">Select Country</option>
-                    <option value="Malaysia">Malaysia</option>
-                  </select>
-
-                  <label for="" class="col-form-label text-gray-900">Date Depart From</label>
-                  <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
-
-                  <label for="" class="col-form-label text-gray-900">Adult</label>
-                  <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
-
-                  <label for="" class="col-form-label text-gray-900">Children</label>
-                  <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
-
-                </div> -->
                 <div class="form-group row text-md">
                   <label for="staticEmail" class="col-sm-5 col-form-label">Country</label>
                   <div class="col-sm-7">
@@ -153,7 +140,7 @@
     ?>
 
     <div class="row">
-      <div class="col-xl-3 col-md-6 mb-4">
+      <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <div class="card-header py-3 bg-white">
             <h6 class="m-0 font-weight-bold text-primary text-md">Jawrah Info</h6>
@@ -164,13 +151,13 @@
         </div>
       </div>
 
-      <div class="col-xl-3 col-md-6 mb-4">
+      <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 1</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf4.jpg" height="180px">
+            <img class="d-block w-100" src="img/elaf4.jpg">
             <br>
             <p>Al-Nile Tour & Travel Sdn Bhd</p>
           </div>
@@ -180,13 +167,13 @@
         </div>
       </div>
 
-      <div class="col-xl-3 col-md-6 mb-4">
+      <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 2</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf2.jpg" height="180px">
+            <img class="d-block w-100" src="img/elaf2.jpg">
             <br>
             <p>Ash-Har Travel & Tours Sdn Bhd</p>
           </div>
@@ -196,13 +183,13 @@
         </div>
       </div>
 
-      <div class="col-xl-3 col-md-6 mb-4">
+      <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 3</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf3.jpg" height="180px">
+            <img class="d-block w-100" src="img/elaf3.jpg">
             <br>
             <p>Andalusia Travel & Tours Sdn Bhd</p>
           </div>
