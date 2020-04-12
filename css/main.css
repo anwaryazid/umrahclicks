@@ -5396,7 +5396,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .close {
   float: right;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1;
   color: #000;
@@ -11023,4 +11023,75 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+  padding: .2rem .3rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}
+
+.table th {
+  text-align: center;   
+}
+    
+.fix-menu {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+
+.fix-topbar {
+  /* overflow: hidden; */
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  /* overflow-x: hidden; */
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 2; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+}       
+
+@media screen and (max-width: 769px) {
+  .fix-topbar {
+    left: 100px;
+    right: 0;
+  }
+  .main {
+    margin-left: 100px; 
+    margin-top: 94px;
+  }
+}
+
+@media screen and (min-width: 770px) {
+  .fix-topbar {
+    left: 224px;
+  }
+  .main {
+    margin-left: 224px; 
+    margin-top: 94px;
+  }
+}  
+
+#success-alert {
+  position: fixed;
+  top: 85px;
+  right: 10px;
+  z-index:9999; 
+}
+
+#danger-alert {
+  position: fixed;
+  top: 85px;
+  right: 10px;
+  z-index:9999; 
 }
