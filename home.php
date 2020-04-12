@@ -56,14 +56,14 @@
                 <li data-target="#imgIndicator" data-slide-to="2"></li>
               </ol>
               <div class="carousel-inner">
-                <div class="carousel-item active box">
-                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
+                <div class="carousel-item active">
+                  <img class="d-block caros w-100" src="img/kaabah.jpg">
                 </div>
-                <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
+                <div class="carousel-item">
+                  <img class="d-block caros w-100" src="img/kaabah.jpg">
                 </div>
-                <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg" height="550px">
+                <div class="carousel-item">
+                  <img class="d-block caros w-100" src="img/kaabah.jpg">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
@@ -80,55 +80,38 @@
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-primary mb-4" style="font-weight: 700;">UmrahClicks.my</h1>
-                <!-- <h1 class="h4 text-gray-900 mb-4">Umrah<span style="color:grey;">Clicks</span>.my</h1> -->
-                <!-- <img src="img/umrahclicks_black.png" style="width:80%"> -->
               </div>
               <form class="user">
-                <div class="form-group row">
+                <div class="form-group row text-md">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <!-- <h3 class="h5 text-gray-900 mb-4">Country</h3> -->
                     <label for="" class="col-form-label text-gray-800">Country</label>
                   </div>
                   <div class="col-sm-7">
                     <select class="form-control form-control-sm" id="country">
-                      <option value="">Please Select</option>
+                      <option value="">Select Country</option>
                       <option value="Malaysia">Malaysia</option>
                     </select>
                   </div>                  
                 </div>
-                <div class="form-group row">
+                <div class="form-group row text-md">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <!-- <h3 class="h5 text-gray-800 mb-4">Date Depart From</h3> -->
                     <label for="" class="col-form-label text-gray-800">Date Depart From</label>
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
                   </div>                  
                 </div>
-                <!-- <div class="date-picker">
-                  <div class="selected-date"></div>
-                  <div class="dates">
-                    <div class="month">
-                      <div class="arrows prev-mth">&lt;</div>
-                      <div class="mth"></div>
-                      <div class="arrows next-mth">&gt;</div>
-                    </div>
-                    <div class="days"></div>
-                  </div>
-                </div> -->
-                <div class="form-group row">
+                <div class="form-group row text-md">
                   <div class="col-sm-5 mb-3 mb-sm-0">
-                    <!-- <h3 class="h5 text-gray-800 mb-4">Adult</h3> -->
                     <label for="" class="col-form-label text-gray-800">Adult</label>
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
                   </div>                  
                 </div>
-                <div class="form-group row">
+                <div class="form-group row text-md">
                   <div class="col-sm-5 mb-3 mb-sm-0">
                     <label for="" class="col-form-label text-gray-800">Children</label>
-                    <!-- <h3 class="h5 text-gray-800 mb-4">Children</h3> -->
                   </div>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
