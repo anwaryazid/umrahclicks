@@ -307,7 +307,7 @@
                         </div>                
                         <div class="card mb-4">
                           <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-success text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
+                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
                           </div>
                           <div class="card-body">
                             <div class="row">
