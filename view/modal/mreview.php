@@ -32,7 +32,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-outline-success" href="#">Submit</a>
+          <a class="btn btn-outline-primary" href="#">Submit</a>
         </div>
       </div>
     </div>
