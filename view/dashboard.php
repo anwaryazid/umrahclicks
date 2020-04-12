@@ -123,7 +123,7 @@
                   <th>Quantity</th>
               </thead>
               <tbody>        
-              <tr class="text-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
+              <tr class="table-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
                   <td>Malaysia</td>
                   <td class="text-center">4</td>

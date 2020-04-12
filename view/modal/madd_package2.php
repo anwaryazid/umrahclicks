@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-2">
               <label for="" class="">&nbsp;</label>
-              <button class="btn btn-outline-primary btn-sm form-control form-control-sm" type="button" onClick="showAlert('Room',1,1);" >Add Room</button>
+              <button class="btn btn-outline-primary btn-sm form-control form-control-sm" type="button" onClick="showAlert('Room',1,4);" >Add Room</button>
             </div>
           </div>
           <div class="row text-md">

@@ -11,32 +11,81 @@
         <form>
           <div class="form-group row text-md">
             <div class="col-md-12">
-              <label for="message-text" class="col-form-label">Full Name</label>
+              <label for="" class="col-form-label">Full Name</label>
               <input class="form-control form-control-sm" id="rev_name">
               
-              <label for="message-text" class="col-form-label">User Name</label>
+              <label for="" class="col-form-label">User Name</label>
               <input class="form-control form-control-sm" id="rev_name">
               
-              <label for="message-text" class="col-form-label">Email Address</label>
+              <label for="" class="col-form-label">Email Address</label>
               <input class="form-control form-control-sm" id="rev_email">
               
-              <label for="message-text" class="col-form-label">User Type</label>
-              <select class="form-control form-control-sm" id="user_type">
-                <option value="">Please Select</option>
-                <option value="Administrator">Administrator</option>
-                <option value="Superuser">Superuser</option>
-                <option value="User">User</option>
-              </select>
+              <label for="" class="col-form-label">User Type</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                  Administrator
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
+                  <label class="form-check-label" for="exampleRadios2">
+                  Superuser
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
+                  <label class="form-check-label" for="exampleRadios2">
+                  User
+                  </label>
+                </div>
+              </div>              
               
-              <label for="message-text" class="col-form-label">User Access</label>
-              <select class="form-control form-control-sm" multiple>
-                <option>Dashboard</option>
-                <option>Agency</option>
-                <option>Packages</option>
-                <option>Advertisment</option>
-                <option>Promotion</option>
-                <option>Follow Up</option>
-              </select>
+              <label for="" class="col-form-label">User Access</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck1">
+                Dashboard
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck2">
+                Agency
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck1">
+                Packages
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck2">
+                Advertisment
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck1">
+                Promotion
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck2">
+                Follow Up
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label" for="defaultCheck1">
+                Reviews
+                </label>
+              </div>
+              
             </div>            
           </div>
         </form>
