@@ -1,5 +1,9 @@
+<?php include('view/modal/malert.php'); ?>
+
 <?php
   include('view/modal/madd_package.php');
+  include('view/modal/madd_package.php');
+  include('view/modal/madd_package2.php');
   include('view/modal/medit_package.php');
 ?>
 
@@ -7,15 +11,13 @@
 
 <hr>
 
-<?php include('view/modal/malert.php'); ?>
-
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary text-md">List of Packages <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addPackageModal">Add Packages</button></h6> 
+    <h6 class="m-0 font-weight-bold text-primary text-md">List of Packages <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addPackageModal">Add Package</button></h6> 
   </div>
   <div class="card-body">
     <div class="table-responsive text-md">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dt_ListPackage" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Packages ID</th>

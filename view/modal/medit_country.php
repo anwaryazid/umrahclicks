@@ -9,21 +9,20 @@
       </div>
       <div class="modal-body text-md">
         <form>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Country Code</label>
-            <input class="form-control form-control-sm" id="rev_name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Country Name</label>
-            <input class="form-control form-control-sm" id="rev_name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Currency Code</label>
-            <input class="form-control form-control-sm" id="rev_name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Currency Name</label>
-            <input class="form-control form-control-sm" id="rev_name">
+          <div class="row form-group text-md">
+            <div class="col-md-12">
+              <label for="message-text" class="col-form-label">Country Code</label>
+              <input class="form-control form-control-sm" id="rev_name">
+
+              <label for="message-text" class="col-form-label">Country Name</label>
+              <input class="form-control form-control-sm" id="rev_name">
+              
+              <label for="message-text" class="col-form-label">Currency Code</label>
+              <input class="form-control form-control-sm" id="rev_name">
+              
+              <label for="message-text" class="col-form-label">Currency Name</label>
+              <input class="form-control form-control-sm" id="rev_name">
+            </div>            
           </div>
         </form>
       </div>

@@ -2,6 +2,7 @@
 
   $(document).ready(function() {
     
+    $('#dt_ListAgency').DataTable();
 
   });
     

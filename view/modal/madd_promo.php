@@ -7,7 +7,7 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body" style="height: 495px; overflow-y: auto;">
+      <div class="modal-body">
         <form>
           <div class="form-group row text-md">
             <div class="col-md-6">
@@ -76,9 +76,6 @@
                 </div>
               </div>
 
-              <label for="" class="col-form-label">Created Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
               <label for="" class="col-form-label">Operator</label>
               <input type="text" class="form-control form-control-sm" >
 
@@ -89,7 +86,7 @@
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
         <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Promo',1,1);" >
-          Add
+          Add Promotion
         </a>
       </div>
     </div>

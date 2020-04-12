@@ -30,11 +30,11 @@
               <label for="" class="col-form-label">Website</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <label for="" class="col-form-label">Created Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
               <label for="" class="col-form-label">Operator</label>
               <input type="text" class="form-control form-control-sm" >
+
+              <label for="" class="col-form-label">Created Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
 
             </div>   
             <div class="col-md-6">
@@ -45,12 +45,12 @@
                 <label class="radio-inline"><input type="radio" name="status">&nbsp;Inactive</label>
               </div>      
               
-              <label for="" class="col-form-label">Company Status</label>
+              <!-- <label for="" class="col-form-label">Company Status</label>
               <select class="form-control form-control-sm" >
                 <option value="">Please Select</option>
                 <option value="">Active</option>
                 <option value="">Inactive</option>
-              </select>    
+              </select>     -->
 
               <label for="" class="col-form-label">Remarks</label>
               <input type="text" class="form-control form-control-sm" >
@@ -75,7 +75,11 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Price</label>
-              <input type="text" class="form-control form-control-sm" >              
+              <input type="text" class="form-control form-control-sm" >               
+              
+
+              <label for="" class="col-form-label">Updated Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
               
             </div>           
           </div>

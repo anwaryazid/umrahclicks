@@ -13,43 +13,40 @@
             <div class="col-md-6">
 
               <label for="" class="col-form-label">Name</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Mobile No.</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Email</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Agency Name</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Package</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Pax</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Confirmation Date</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
             </div>   
             <div class="col-md-6">
               
               <label for="" class="col-form-label">Call Date Customer</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" id="date_callCustomer">
 
               <label for="" class="col-form-label">Customer Remarks</label>
-              <input type="text" class="form-control form-control-sm" >
+              <textarea type="text" class="form-control form-control-sm"></textarea>
 
               <label for="" class="col-form-label">Call Date Agency</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" id="date_callAgency">
 
               <label for="" class="col-form-label">Agency Remarks</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Operator</label>
-              <input type="text" class="form-control form-control-sm" >
+              <textarea type="text" class="form-control form-control-sm"></textarea>
 
               <label for="" class="col-form-label">Follow Up Status</label>
               <select class="form-control form-control-sm" >
@@ -57,6 +54,9 @@
                 <option value="">Complete</option>
                 <option value="">Not Complete</option>
               </select>
+
+              <label for="" class="col-form-label">Operator</label>
+              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
             </div>           
           </div>

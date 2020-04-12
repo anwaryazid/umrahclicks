@@ -9,38 +9,35 @@
       </div>
       <div class="modal-body text-md">
         <form>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Full Name</label>
-            <input class="form-control form-control-sm" id="rev_name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">User Name</label>
-            <input class="form-control form-control-sm" id="rev_name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Email Address</label>
-            <input class="form-control form-control-sm" id="rev_email">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">User Type</label>
-            <select class="form-control form-control-sm" id="user_type">
-              <option value="">Please Select</option>
-              <option value="Administrator">Administrator</option>
-              <option value="Superuser">Superuser</option>
-              <option value="User">User</option>
-            </select>
-          </div>
-          <!-- <div class="form-group" style="display: none;"> -->
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">User Access</label>
-            <select class="form-control form-control-sm" multiple>
-              <option>Dashboard</option>
-              <option>Agency</option>
-              <option>Packages</option>
-              <option>Advertisment</option>
-              <option>Promotion</option>
-              <option>Follow Up</option>
-            </select>
+          <div class="form-group row text-md">
+            <div class="col-md-12">
+              <label for="message-text" class="col-form-label">Full Name</label>
+              <input class="form-control form-control-sm" id="rev_name">
+              
+              <label for="message-text" class="col-form-label">User Name</label>
+              <input class="form-control form-control-sm" id="rev_name">
+              
+              <label for="message-text" class="col-form-label">Email Address</label>
+              <input class="form-control form-control-sm" id="rev_email">
+              
+              <label for="message-text" class="col-form-label">User Type</label>
+              <select class="form-control form-control-sm" id="user_type">
+                <option value="">Please Select</option>
+                <option value="Administrator">Administrator</option>
+                <option value="Superuser">Superuser</option>
+                <option value="User">User</option>
+              </select>
+              
+              <label for="message-text" class="col-form-label">User Access</label>
+              <select class="form-control form-control-sm" multiple>
+                <option>Dashboard</option>
+                <option>Agency</option>
+                <option>Packages</option>
+                <option>Advertisment</option>
+                <option>Promotion</option>
+                <option>Follow Up</option>
+              </select>
+            </div>            
           </div>
         </form>
       </div>

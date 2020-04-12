@@ -2,6 +2,8 @@
 
     $(document).ready(function() {
       
+      $('#dt_ListPromo').DataTable();
+      
     });
     
   </script>

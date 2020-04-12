@@ -14,7 +14,7 @@
   </div>
   <div class="card-body">
     <div class="table-responsive text-md">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dt_ListFollowUp" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Name</th>

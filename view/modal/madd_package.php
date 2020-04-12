@@ -1,4 +1,4 @@
-<div class="modal fade" data-backdrop="static" id="addPackageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" data-backdrop="static" id="addPackageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -27,12 +27,6 @@
               <label for="" class="col-form-label">Package Name</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <!-- <label for="" class="col-form-label">Promo Code</label>
-              <select class="form-control form-control-sm" >
-                <option value="">Please Select</option>
-                <option value="">UMRAH4ALL</option>
-              </select> -->
-
               <label for="" class="col-form-label">Package Status</label>
               <select class="form-control form-control-sm" >
                 <option value="">Open</option>
@@ -52,12 +46,6 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Umrah Cost</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Package Pax</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Room For</label>
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Image</label>
@@ -90,10 +78,7 @@
               <label for="" class="col-form-label">Days in Madinah</label>
               <input type="text" class="form-control form-control-sm" >              
 
-              <label for="" class="col-form-label">Flight</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Direct / Transit</label>
+              <label for="" class="col-form-label">Flight Direct / Transit</label>
               <select class="form-control form-control-sm" >
                 <option value="">Direct</option>
                 <option value="">Transit</option>
@@ -120,9 +105,9 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Package',1,1);" >
-          Add
-        </a>
+        <a class="btn btn-outline-primary" href="#addPackage2Modal" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Package',1,1);" >
+          Add Package
+        </a>        
       </div>
     </div>
   </div>

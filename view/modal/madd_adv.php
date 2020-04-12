@@ -30,9 +30,6 @@
               <label for="" class="col-form-label">Website</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <label for="" class="col-form-label">Created Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
               <label for="" class="col-form-label">Operator</label>
               <input type="text" class="form-control form-control-sm" >
 
@@ -45,12 +42,12 @@
                 <label class="radio-inline"><input type="radio" name="status">&nbsp;Inactive</label>
               </div>      
               
-              <label for="" class="col-form-label">Company Status</label>
+              <!-- <label for="" class="col-form-label">Company Status</label>
               <select class="form-control form-control-sm" >
                 <option value="">Please Select</option>
                 <option value="">Active</option>
                 <option value="">Inactive</option>
-              </select>    
+              </select>    --> 
 
               <label for="" class="col-form-label">Remarks</label>
               <input type="text" class="form-control form-control-sm" >
@@ -84,7 +81,7 @@
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
         <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Advertisment',1,1);" >
-          Add
+          Add Advertisment
         </a>
       </div>
     </div>

@@ -12,7 +12,7 @@
           <div class="form-group row text-md">
             <div class="col-md-6">
               <label for="" class="col-form-label">Agency ID</label>
-              <input type="text" class="form-control form-control-sm form-control-plaintext"  value="612455-K">
+              <input type="text" class="form-control form-control-sm" value="612455-K" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Agency Name</label>
               <input type="text" class="form-control form-control-sm" >
@@ -55,13 +55,7 @@
                 <option value="">Inactive</option>
                 <option value="">Block</option>
                 <option value="">Full</option>
-              </select>
-
-              <label for="" class="col-form-label">Register Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Updated Date</label>
-              <input type="text" class="form-control form-control-sm" >
+              </select>              
 
               <label for="" class="col-form-label">LKU No.</label>
               <input type="text" class="form-control form-control-sm" >
@@ -70,13 +64,29 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Agency Info</label>
-              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>              
+              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>    
+              
+              <label for="" class="col-form-label">Company Rating</label>
+              <select class="form-control form-control-sm" >
+                <option value="">Please Select</option>
+                <option value="">1 star</option>
+                <option value="">2 star</option>
+                <option value="">3 star</option>
+                <option value="">4 star</option>
+                <option value="">5 star</option>
+              </select>
 
               <label for="" class="col-form-label">Contact Person</label>
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Contact Person No.</label>
               <input type="text" class="form-control form-control-sm" >
+
+              <label for="" class="col-form-label">Created Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
+
+              <label for="" class="col-form-label">Updated Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
 
             </div>           
           </div>

@@ -27,12 +27,6 @@
               <label for="" class="col-form-label">Package Name</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <!-- <label for="" class="col-form-label">Promo Code</label>
-              <select class="form-control form-control-sm" >
-                <option value="">Please Select</option>
-                <option value="">UMRAH4ALL</option>
-              </select> -->
-
               <label for="" class="col-form-label">Package Status</label>
               <select class="form-control form-control-sm" >
                 <option value="">Open</option>
@@ -54,12 +48,6 @@
               <label for="" class="col-form-label">Umrah Cost</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <label for="" class="col-form-label">Package Pax</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Room For</label>
-              <input type="text" class="form-control form-control-sm" >
-
               <label for="" class="col-form-label">Image</label>
               <div class="input-group">
                 <div class="custom-file">
@@ -68,6 +56,12 @@
                   <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
               </div>          
+
+              <label for="" class="col-form-label">Created Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
+
+              <label for="" class="col-form-label">Updated Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
 
             </div>   
             <div class="col-md-6">
@@ -115,6 +109,59 @@
               <textarea type="text" class="form-control form-control-sm" rows="4"></textarea>             
               
             </div>           
+          </div>
+          <hr>
+          <div class="form-group row text-md">
+            <div class="col-md-5">
+              <label for="" class="">Room Type</label>
+              <input type="text" class="form-control form-control-sm" >
+            </div>
+            <div class="col-md-3">
+              <label for="" class="">Price (RM)</label>
+              <input type="text" class="form-control form-control-sm" >
+            </div>
+            <div class="col-md-2">
+              <label for="" class="">Pax</label>
+              <input type="text" class="form-control form-control-sm" >   
+            </div>
+            <div class="col-md-2">
+              <label for="" class="">&nbsp;</label>
+              <button class="btn btn-outline-primary btn-sm form-control form-control-sm" type="button" onClick="showAlert('Room',1,1);" >Add Room</button>
+            </div>
+          </div>
+          <div class="row text-md">
+            <div class="col-md-12">
+              <div class="text-md">
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th width="45%">Room Type</th>
+                      <th width="30%">Price (RM)</th>
+                      <th width="15%">Pax</th>
+                      <th width="10%">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Double Bed</td>
+                      <td class="text-right">6,200.00</td>
+                      <td class="text-center">10</td>
+                      <td class="text-center">
+                        <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Triple Bed</td>
+                      <td class="text-right">7,200.00</td>
+                      <td class="text-center">10</td>
+                      <td class="text-center">
+                        <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+            </div>            
           </div>
         </form>
       </div>

@@ -11,20 +11,20 @@
         <form>
           <div class="form-group row text-md">
             <div class="col-md-6">
-              <label for="" class="col-form-label">Agency ID</label>
+              <label for="" class="col-form-label">Agency ID (Company Register No.)</label>
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">Agency Name</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" > 
 
               <label for="" class="col-form-label">Agency Logo</label>
               <div class="input-group">
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="inputGroupFile02"
-                    aria-describedby="inputGroupFileAddon01">
+                    aria-describedby="inputGroupFileAddon02">
                   <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                 </div>
-              </div>
+              </div>             
 
               <label for="" class="col-form-label">Address</label>
               <textarea type="text" class="form-control form-control-sm"  rows="2"></textarea>
@@ -47,6 +47,7 @@
               <label for="" class="col-form-label">Email Address</label>
               <input type="text" class="form-control form-control-sm" >
             </div>   
+
             <div class="col-md-6">
               <label for="" class="col-form-label">Agency Status</label>
               <select class="form-control form-control-sm" >
@@ -57,20 +58,25 @@
                 <option value="">Full</option>
               </select>
 
-              <label for="" class="col-form-label">Register Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Updated Date</label>
-              <input type="text" class="form-control form-control-sm" >
-
               <label for="" class="col-form-label">LKU No.</label>
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">LKU Expiry Date</label>
               <input type="text" class="form-control form-control-sm" >
+              
 
               <label for="" class="col-form-label">Agency Info</label>
-              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>              
+              <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>       
+              
+              <label for="" class="col-form-label">Company Rating</label>
+              <select class="form-control form-control-sm" >
+                <option value="">Please Select</option>
+                <option value="">1 star</option>
+                <option value="">2 star</option>
+                <option value="">3 star</option>
+                <option value="">4 star</option>
+                <option value="">5 star</option>
+              </select>
 
               <label for="" class="col-form-label">Contact Person</label>
               <input type="text" class="form-control form-control-sm" >
@@ -85,7 +91,7 @@
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
         <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Agency',1,1);" >
-          Add
+          Add Agency
         </a>
       </div>
     </div>

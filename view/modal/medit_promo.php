@@ -38,6 +38,15 @@
               <label for="" class="col-form-label">Promo Description</label>
               <textarea type="text" class="form-control form-control-sm"  rows="1"></textarea>
 
+              <label for="" class="col-form-label">Promo Image</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01"
+                    aria-describedby="inputGroupFileAddon01">
+                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+              </div>
+
               <label for="" class="col-form-label">Date From</label>
               <input type="text" class="form-control form-control-sm" >
 
@@ -66,21 +75,16 @@
                 <option value="">Amount</option>
               </select> -->
               <input type="text" class="form-control form-control-sm" >
-
-              <label for="" class="col-form-label">Promo Image</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01"
-                    aria-describedby="inputGroupFileAddon01">
-                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                </div>
-              </div>
-
-              <label for="" class="col-form-label">Created Date</label>
-              <input type="text" class="form-control form-control-sm" >
+              
 
               <label for="" class="col-form-label">Operator</label>
               <input type="text" class="form-control form-control-sm" >
+
+              <label for="" class="col-form-label">Created Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
+
+              <label for="" class="col-form-label">Updated Date</label>
+              <input type="text" class="form-control form-control-sm" value="2020/04/01" disabled style="background-color: white;">
 
             </div>           
           </div>

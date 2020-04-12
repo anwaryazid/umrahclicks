@@ -10,7 +10,7 @@
       <div class="modal-body">Are you sure you want to remove?</div>
       <div class="modal-footer">
         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">No</button>
-        <a class="btn btn-outline-primary" href="#" data-dismiss="modal" onClick="showAlert('Data',1,3);">Yes</a>
+        <a class="btn btn-outline-primary" href="#" data-dismiss="modal" onClick="showAlert('Data',2,3);">Yes</a>
       </div>
     </div>
   </div>
