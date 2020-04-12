@@ -20,7 +20,7 @@
 
   <style>
     .container2 {
-      width: 30%;
+      max-width: 450px;
       padding-right: 2.5rem;
       padding-left: 2.5rem;
       margin-right: auto;
@@ -35,6 +35,13 @@
     .box{
         height: 550px;        
     }    
+
+    /* @media screen and (min-width: 1200px) {
+      .container2 {
+        width: 40%;
+      }
+    }   */
+
   </style>
 
 </head>
