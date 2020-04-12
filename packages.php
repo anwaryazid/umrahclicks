@@ -145,7 +145,7 @@
                   <br>
                   Andalusia Travel & Tours Sdn Bhd
                 </div>
-                <div class="card-footer bg-white"">
+                <div class="card-footer bg-white">
                   <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
                 </div>
               </div>
@@ -186,48 +186,58 @@
                           <div class="card-body">
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
-                                <td width="35%"></td>
+                                <td></td>
+                                <td class="text-gray-900 d-none d-sm-block"></td>
                                 <td class="text-primary"><strong>Makkah</strong></td>
                                 <td class="text-primary"><strong>Madinah</strong></td>
                               </tr>
                               <tr>
-                                <td><strong>Hotel</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-bed"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
                                 <td>Elaf Al Mashaer</td>
                                 <td>Ramada Al Qibla</td>
                               </tr>
                               <tr>
-                                <td><strong>Days</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-sun"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
                                 <td>7 days</td>
                                 <td>7 days</td>
                               </tr>
                               <tr>
-                                <td><strong>Night</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-moon"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
                                 <td>7 night</td>
                                 <td>7 night</td>
                               </tr>
                               <tr class="border-bottom">
-                                <td><strong>Distance to Mosque</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-mosque"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
                                 <td>250 m</td>
                                 <td>250 m</td>
                               </tr>
                               <tr>
-                                <td><strong>Meal</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-utensils"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
                                 <td colspan="2">Provided</td>
                               </tr>
                               <tr class="border-bottom">
-                                <td><strong>Flight</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-plane"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
                                 <td colspan="2">Direct</td>
                               </tr>
                               <tr>
-                                <td><strong>1st Destinator</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-map-marker-alt"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
                                 <td colspan="2">Makkah</td>
                               </tr>
                               <tr>
-                                <td><strong>Ziarah</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-walking"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
                                 <td colspan="2"></td>
                               </tr>
                               <tr>
-                                <td><strong>Mutawif</strong></td>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-male"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
                                 <td colspan="2">Celebrity Mutawif</td>
                               </tr>
                             </table>
