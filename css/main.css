@@ -11064,7 +11064,7 @@ body.sidebar-toggled footer.sticky-footer {
   overflow-x: hidden; /* Disable horizontal scroll */
 }       
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 767px) {
   .fix-topbar {
     left: 100px;
     right: 0;
@@ -11075,7 +11075,7 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 768px) {
   .fix-topbar {
     left: 224px;
   }
