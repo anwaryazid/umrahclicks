@@ -4,7 +4,8 @@
     <!-- <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div> -->
-    <div class="sidebar-brand-text mx-3 text-primary"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</div>
+    <div class="sidebar-brand-text mx-3 text-primary"><i class="fas fa-fw fa-kaaba text-gray-900 "></i>&nbsp;UmrahClicks.my</div>
+    <div class="sidebar-brand-icon d-none d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba text-gray-900 "></i><span class="text-primary" style="font-size:0.7rem;">UmrahClicks</span></div>
   </a>
 
   <hr class="sidebar-divider my-0"> 
