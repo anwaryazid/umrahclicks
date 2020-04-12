@@ -8,7 +8,7 @@
 
 <div class="row">
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -17,14 +17,14 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=user-management">46</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-users fa-2x text-gray-300"></i>
+            <i class="fa fa-users fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-success shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -33,14 +33,14 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=agency">8</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-building fa-2x text-gray-300"></i>
+            <i class="fa fa-building fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-secondary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -49,14 +49,14 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=packages">15</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-archive fa-2x text-gray-300"></i>
+            <i class="fa fa-archive fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-info shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -65,14 +65,14 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=promo">24</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-thumbs-up fa-2x text-gray-300"></i>
+            <i class="fa fa-thumbs-up fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-warning shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -81,14 +81,14 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=advertisment">8</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-bullhorn fa-2x text-gray-300"></i>
+            <i class="fa fa-bullhorn fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-2 mb-4">
+  <div class="col-xl-2 col-sm-4 mb-4">
     <div class="card border-left-danger shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -97,7 +97,7 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="index.php?page=follow-up">19</a></div>
           </div>
           <div class="col-auto">
-            <i class="fa fa-exclamation fa-2x text-gray-300"></i>
+            <i class="fa fa-exclamation fa-2x text-gray-300 d-md-none d-lg-block"></i>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
                   <th>Quantity</th>
               </thead>
               <tbody>        
-              <tr class="table-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
+              <tr class="text-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
                   <td>Andalusia Travel & Tours Sdn Bhd</td>
                   <td>Malaysia</td>
                   <td class="text-center">4</td>
