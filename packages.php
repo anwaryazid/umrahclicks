@@ -30,7 +30,7 @@
     #content {
       margin-top: 75px;
     }
-
+    
   </style>
 
 </head>
@@ -139,34 +139,34 @@
               <div class="d-none d-xl-block">
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <img class="d-block w-100" src="img/smart1.jpg" height="" alt="Smart Umrah4all">
                     <br>
-                    Ash-Har Travel & Tours Sdn Bhd
+                    Smart Umrah4all Dot Com Travel & Services Sdn Bhd
                   </div>
-                  <div class="card-footer bg-white"">
-                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                  <div class="card-footer bg-white">
+                    <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
                   </div>
                 </div>
 
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <img class="d-block w-100" src="img/epl1.jpg" height="">
                     <br>
-                    Andalusia Travel & Tours Sdn Bhd
+                    EPL Travel & Tours Sdn Bhd
                   </div>
                   <div class="card-footer bg-white">
-                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                    <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
                   </div>
                 </div>
 
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <img class="d-block w-100" src="img/epl2.jpg" height="">
                     <br>
-                    Andalusia Travel & Tours Sdn Bhd
+                    EPL Travel & Tours Sdn Bhd
                   </div>
                   <div class="card-footer bg-white">
-                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                    <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
                   </div>
                 </div>
               </div>              
@@ -175,12 +175,12 @@
 
             <div class="col-lg-10 col-md-12">              
               <div class="card shadow mb-4">
-                <a href="#agency_1" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
+                <a href="#agency_1" class="d-block card-header py-3 bg-white text-primary" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">Al-Nile Tour & Travel Sdn Bhd</h6> 
-                      <div style="font-size: 13px;">
-                        Puchong, Selangor (LKU No : 6043) <br>
+                      <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
+                      <div class="text-primary" style="font-size: 13px;">
+                        Cyberjaya, Selangor (LKU No : KPK/LN - 9774) <br>
                         Package Gold <br>
                         Departure Date From 31 Mac 2020 to 11 April 2020
                       </div>                      
@@ -200,7 +200,7 @@
                       <div class="col-lg-6">
                         <div class="card mb-4">
                           <div class="card-body">
-                            <img class="d-block w-100" src="img/elaf4.jpg">
+                            <img class="d-block w-100" src="img/kaabah.jpg">
                           </div>
                         </div>
                         <div class="card mb-4">
@@ -320,7 +320,7 @@
                                 <td>Get 40% Discount. Maximum amount of RM4,000.00</td>
                               </tr>
                               <tr>
-                                <td>ALNILE10</td>
+                                <td>SMART10</td>
                                 <td>Get RM10 Discount</td>
                               </tr>
                             </table>
@@ -375,15 +375,15 @@
                 </div>
               </div>
               <div class="card shadow mb-4">
-                <a href="#agency_2" class="d-block card-header py-3 bg-white collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2">
+                <a href="#agency_2" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2" >
                   <div class="row">
                     <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">Andalusia Travel & Tours Sdn Bhd</h6> 
-                      <div style="font-size: 13px;">
-                        Klang, Selangor (LKU No : 6043) <br>
+                      <h6 class="m-0 font-weight-bold text-primary text-md">EPL Travel and Tours Sdn Bhd</h6> 
+                      <div class="text-primary" style="font-size: 13px;">
+                        Kajang, Selangor (LKU No : KP/LN 6441) <br>
                         Package Gold <br>
                         Departure Date From 31 Mac 2020 to 11 April 2020
-                      </div> 
+                      </div>                      
                     </div>
                     <div class="col-lg-3" style="font-size: 12px;">
                       Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
@@ -392,37 +392,185 @@
                       <br>
                       56 Reviews
                     </div>
-                  </div>                   
+                  </div>                  
                 </a>
-                <div class="collapse hide" id="agency_2">
-                  <div class="card-body">
-                    
-                  </div>
-                </div>
-              </div>
-              <div class="card shadow mb-4">
-                <a href="#agency_3" class="d-block card-header py-3 bg-white collapsed" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_3">
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">Ash-Har Travel & Tours Sdn Bhd</h6> 
-                      <div style="font-size: 13px;">
-                        Damansara, Selangor (LKU No : 6043) <br>
-                        Package Gold <br>
-                        Departure Date From 31 Mac 2020 to 11 April 2020
-                      </div> 
-                    </div>
-                    <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
-                      <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars
-                      <br>
-                      56 Reviews
-                    </div>
-                  </div>                   
-                </a>
-                <div class="collapse hide" id="agency_3">
-                  <div class="card-body">
-                    
+                <div class="collapse show" id="agency_2">
+                  <div class="card-body text-md">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <img class="d-block w-100" src="img/epl3.jpg">
+                          </div>
+                        </div>
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td></td>
+                                <td class="text-gray-900 d-none d-sm-block"></td>
+                                <td class="text-primary"><strong>Makkah</strong></td>
+                                <td class="text-primary"><strong>Madinah</strong></td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-bed"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
+                                <td>Elaf Al Mashaer</td>
+                                <td>Ramada Al Qibla</td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-sun"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
+                                <td>7 days</td>
+                                <td>7 days</td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-moon"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
+                                <td>7 night</td>
+                                <td>7 night</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-gray-900"><i class="fas fa-fw fa-mosque"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
+                                <td>250 m</td>
+                                <td>250 m</td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-utensils"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
+                                <td colspan="2">Provided</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-gray-900"><i class="fas fa-fw fa-plane"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
+                                <td colspan="2">Direct</td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-map-marker-alt"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
+                                <td colspan="2">Makkah</td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-walking"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
+                                <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td class="text-gray-900"><i class="fas fa-fw fa-male"></i></td>
+                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
+                                <td colspan="2">Celebrity Mutawif</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>     
+                      </div>
+                      <div class="col-lg-6">      
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <?php //include('view/modal/malert_booking.php'); ?>
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td class="text-primary"><strong>Room</strong></td>
+                                <td class="text-primary"><strong>Price</strong></td>
+                                <td></td>
+                              </tr>                              
+                              <tr>
+                                <td>Double Bed<br/><small>(4 pax left)</small></td>
+                                <td>MYR 6,200.00</td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Triple Bed<br/><small>(4 pax left)</small></td>
+                                <td>MYR 7,200.00</td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Quadriple Bed<br/><small>(2 pax left)</small></td>
+                                <td>MYR 8,200.00</td>
+                                <td>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
+                                    Book Now
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>  
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <!-- <tr class="border-bottom">
+                                <td class="text-primary" colspan="2"><strong>Promotion</strong></td>
+                              </tr>     -->                          
+                              <tr class="border-bottom">
+                                <td class="text-primary"><strong>Promo Code</strong></td>
+                                <td class="text-primary"><strong>Promo Description</strong></td>
+                              </tr>
+                              <tr>
+                                <td>UMRAH4ALL</td>
+                                <td>Get 40% Discount. Maximum amount of RM4,000.00</td>
+                              </tr>
+                              <tr>
+                                <td>SMART10</td>
+                                <td>Get RM10 Discount</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>                
+                        <div class="card mb-4">
+                          <div class="card-header" style="background-color: white;">
+                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars </small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars </small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                <hr>
+                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
+                                  Leave a Review
+                                </a> -->
+                                <nav>
+                                  <ul class="pagination pagination-sm justify-content-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                      </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </nav>                              
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>                    
                   </div>
                 </div>
               </div>
