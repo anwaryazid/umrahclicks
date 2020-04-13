@@ -1,11 +1,11 @@
-<ul class="navbar-nav bg-white sidebar sidebar-light accordion" id="accordionSidebar" style="border-right: solid 1px lightgrey;">
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="border-right: solid 1px lightgrey;">
 
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
     <!-- <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div> -->
-    <div class="sidebar-brand-text mx-3 text-primary"><i class="fas fa-fw fa-kaaba text-gray-900 "></i>&nbsp;UmrahClicks.my</div>
-    <div class="sidebar-brand-icon d-none d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba text-gray-900 "></i><span class="text-primary" style="font-size:0.7rem;">UmrahClicks</span></div>
+    <div class="sidebar-brand-text mx-3"><i class="fas fa-fw fa-kaaba"></i>&nbsp;UmrahClicks.my</div>
+    <div class="sidebar-brand-icon d-none d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba"></i><span style="font-size:0.7rem;">UmrahClicks</span></div>
   </a>
 
   <hr class="sidebar-divider my-0"> 
