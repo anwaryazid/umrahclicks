@@ -35,6 +35,9 @@
               <label for="" class="col-form-label">City</label>
               <input type="text" class="form-control form-control-sm" >
 
+              <label for="" class="col-form-label">State</label>
+              <input type="text" class="form-control form-control-sm" >
+
               <label for="" class="col-form-label">Country</label>
               <select class="form-control form-control-sm" id="country1">
                 <option value="">Please Select</option>
