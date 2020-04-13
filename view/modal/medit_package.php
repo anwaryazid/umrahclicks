@@ -7,7 +7,7 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body" style="height: 480px; overflow-y: auto;">
+      <div class="modal-body" style="max-height: 480px; overflow-y: auto;">
         <form>
           <div class="form-group row text-md">
             <div class="col-md-6">

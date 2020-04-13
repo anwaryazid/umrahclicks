@@ -29,7 +29,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-outline-success" href="#">Update</a>
+        <a class="btn btn-outline-success btn-sm" href="#">Update</a>
       </div>
     </div>
   </div>
