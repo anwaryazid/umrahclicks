@@ -173,7 +173,7 @@
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 2</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/epl1.jpg">
+            <img class="d-block w-100" src="img/epl1.JPG">
             <br>
             <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
@@ -189,7 +189,7 @@
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 3</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/epl2.jpg">
+            <img class="d-block w-100" src="img/epl2.JPG">
             <br>
             <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
