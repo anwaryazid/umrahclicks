@@ -62,8 +62,7 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">LKU Expiry Date</label>
-              <input type="text" class="form-control form-control-sm" >
-              
+              <input type="text" class="form-control form-control-sm" name="lku_expiry_date" id="lku_expiry_date" >              
 
               <label for="" class="col-form-label">Agency Info</label>
               <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>       

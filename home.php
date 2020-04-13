@@ -92,7 +92,7 @@
                   <div class="col-sm-7">
                     <select class="form-control form-control-sm" id="country">
                       <option value="">Select Country</option>
-                      <option value="Malaysia">Malaysia</option>
+                      <option value="Malaysia" selected>Malaysia</option>
                     </select>
                   </div>                 
                 </div>

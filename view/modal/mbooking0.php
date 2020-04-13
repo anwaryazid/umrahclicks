@@ -30,7 +30,7 @@
               <label for="" class="col-form-label">Country:</label>
               <select class="form-control form-control-sm" id="country">
                 <option value="">Please Select</option>
-                <option value="Malaysia">Malaysia</option>
+                <option value="Malaysia" selected>Malaysia</option>
               </select>
             </div>            
           </div>

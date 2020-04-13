@@ -27,7 +27,7 @@
               </div>
 
               <label for="" class="col-form-label">Address</label>
-              <textarea type="text" class="form-control form-control-sm"  rows="2"></textarea>
+              <textarea type="text" class="form-control form-control-sm" rows="2"></textarea>
 
               <label for="" class="col-form-label">Postcode</label>
               <input type="text" class="form-control form-control-sm" >
@@ -61,7 +61,7 @@
               <input type="text" class="form-control form-control-sm" >
 
               <label for="" class="col-form-label">LKU Expiry Date</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_lku_expiry_date" id="u_lku_expiry_date" >
 
               <label for="" class="col-form-label">Agency Info</label>
               <textarea type="text" class="form-control form-control-sm"  rows="3"></textarea>    

@@ -39,10 +39,10 @@
               <textarea type="text" class="form-control form-control-sm"  rows="1"></textarea>
 
               <label for="" class="col-form-label">Date From</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="promo_date_from" id="promo_date_from" >
 
               <label for="" class="col-form-label">Date To</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="promo_date_to" id="promo_date_to" >
 
             </div>   
             <div class="col-md-6">

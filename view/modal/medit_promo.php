@@ -48,10 +48,10 @@
               </div>
 
               <label for="" class="col-form-label">Date From</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_promo_date_from" id="u_promo_date_from" >
 
               <label for="" class="col-form-label">Date To</label>
-              <input type="text" class="form-control form-control-sm" > 
+              <input type="text" class="form-control form-control-sm" name="u_promo_date_to" id="u_promo_date_to" > 
 
             </div>   
             <div class="col-md-6">

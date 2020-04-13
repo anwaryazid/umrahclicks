@@ -66,10 +66,10 @@
               </div>
 
               <label for="" class="col-form-label">Date From</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_adv_date_from" id="u_adv_date_from" >
 
               <label for="" class="col-form-label">Date To</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_adv_date_to" id="u_adv_date_to" >
 
               <label for="" class="col-form-label">Remark</label>
               <input type="text" class="form-control form-control-sm" >

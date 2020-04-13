@@ -8,12 +8,17 @@
 
     $(function() {
 
-      $('#date_callAgency').datepicker({
+      $('#fu_date_callAgency').datepicker({
         'format': 'dd/mm/yyyy',
         'autoclose': true
       });
       
-      $('#date_callCustomer').datepicker({
+      $('#fu_date_callCustomer').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+
+      $('#fu_date_confirmation').datepicker({
         'format': 'dd/mm/yyyy',
         'autoclose': true
       });

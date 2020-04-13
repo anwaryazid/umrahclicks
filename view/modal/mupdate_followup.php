@@ -31,19 +31,19 @@
               <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
 
               <label for="" class="col-form-label">Confirmation Date</label>
-              <input type="text" class="form-control form-control-sm" value="" disabled style="background-color: white;">
+              <input type="text" class="form-control form-control-sm" name="fu_date_confirmation" id="fu_date_confirmation">
 
             </div>   
             <div class="col-md-6">
               
               <label for="" class="col-form-label">Call Date Customer</label>
-              <input type="text" class="form-control form-control-sm" id="date_callCustomer">
+              <input type="text" class="form-control form-control-sm" name="fu_date_callCustomer" id="fu_date_callCustomer">
 
               <label for="" class="col-form-label">Customer Remarks</label>
               <textarea type="text" class="form-control form-control-sm"></textarea>
 
               <label for="" class="col-form-label">Call Date Agency</label>
-              <input type="text" class="form-control form-control-sm" id="date_callAgency">
+              <input type="text" class="form-control form-control-sm" name="fu_date_callAgency" id="fu_date_callAgency">
 
               <label for="" class="col-form-label">Agency Remarks</label>
               <textarea type="text" class="form-control form-control-sm"></textarea>
