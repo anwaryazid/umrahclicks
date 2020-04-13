@@ -61,13 +61,13 @@
                 <li data-target="#imgIndicator" data-slide-to="2"></li>
               </ol>
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block caros w-100" src="img/kaabah.jpg">
+                <div class="carousel-item active box">
+                  <img class="d-block caros w-100" src="img/smart1.jpg">
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block caros w-100" src="img/kaabah.jpg">
+                <div class="carousel-item box">
+                  <img class="d-block caros w-100" src="img/smart2.jpg">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item box">
                   <img class="d-block caros w-100" src="img/kaabah.jpg">
                 </div>
               </div>
@@ -157,12 +157,12 @@
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 1</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf4.jpg">
+            <img class="d-block w-100" src="img/smart1.jpg">
             <br>
-            <p>Al-Nile Tour & Travel Sdn Bhd</p>
+            <p>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
@@ -173,12 +173,12 @@
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 2</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf2.jpg">
+            <img class="d-block w-100" src="img/epl1.jpg">
             <br>
-            <p>Ash-Har Travel & Tours Sdn Bhd</p>
+            <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
@@ -189,12 +189,12 @@
             <h6 class="m-0 font-weight-bold text-primary text-md">Package 3</h6>
           </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/elaf3.jpg">
+            <img class="d-block w-100" src="img/epl2.jpg">
             <br>
-            <p>Andalusia Travel & Tours Sdn Bhd</p>
+            <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.9rem;">View Packages &rarr;</a>
+            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
