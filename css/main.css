@@ -1836,9 +1836,17 @@ select.form-control:focus::-ms-value {
   border-width: 1px 0;
 }
 
-.form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
+.form-control-plaintext.form-control-xs, .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
   padding-right: 0;
   padding-left: 0;
+}
+
+.form-control-xs {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: .125rem .25rem !important;
+  font-size: .75rem !important;
+  line-height: 1.5;
+  border-radius: .2rem;
 }
 
 .form-control-sm {
@@ -3407,8 +3415,26 @@ input[type="button"].btn-block {
   border-radius: 0.2rem;
 }
 
+.input-group-xs > .form-control:not(textarea),
+.input-group-xs > .custom-select {
+  height: calc(1.5em + 0.5rem + 2px);
+}
+
+.input-group-xs > .form-control,
+.input-group-xs > .custom-select,
+.input-group-xs > .input-group-prepend > .input-group-text,
+.input-group-xs > .input-group-append > .input-group-text,
+.input-group-xs > .input-group-prepend > .btn,
+.input-group-xs > .input-group-append > .btn {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
 .input-group-lg > .custom-select,
-.input-group-sm > .custom-select {
+.input-group-sm > .custom-select,
+.input-group-xs > .custom-select {
   padding-right: 1.75rem;
 }
 
