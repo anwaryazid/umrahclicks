@@ -51,104 +51,125 @@
 
           <div class="row">
 
-            <div class="col-lg-2 d-none d-xl-block">
+            <div class="col-lg-2">
 
               <!-- Filter -->
               <div class="card mb-4">
-                <div class="card-header text-md" style="background-color: white;">
-                  Filter By:
-                </div>
-                <div class="card-body">
-                  <form class="">
-                    <div class="row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">Price</div>
-                      <div class="col-sm-12">
-                        <div class="input-group input-group-sm mb-3">                          
-                          <input type="text" class="form-control" id="f_price">
-                          <div class="input-group-append">
-                            <span class="input-group-text">MYR</span>
-                          </div>
+                <a href="#filter" class="d-block card-header py-3 bg-white collapse" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter">
+                  <h6 class="m-0 text-primary text-md"><i class="fas fa-filter fa-sm"></i>&nbsp;Filter By</h6>
+                </a>
+                <div class="collapse hide" id="filter">
+                  <div class="card-body">
+                    <form class="">
+                      <div class="form-row form-group" style="font-size: 13px;">
+                        <div class="col-12">Price Range (RM)</div>
+                        <div class="col">
+                          <input type="text" class="form-control form-control-sm" id="f_price_min" placeholder="Min">
+                          <!-- <div class="input-group input-group-sm mb-3">                          
+                            <input type="text" class="form-control" id="f_price_min" placeholder="Min">
+                            <div class="input-group-append">
+                              <span class="input-group-text">MYR</span>
+                            </div>
+                          </div> -->
                         </div>
-                      </div>                 
-                    </div>
-                    <div class="row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">Distance Makkah Hotel</div>
-                      <div class="col-sm-12">
-                        <div class="input-group input-group-sm mb-3">                          
-                          <input type="text" class="form-control" id="f_distance_Makkah">
-                          <div class="input-group-append">
-                            <span class="input-group-text">m</span>
+                        <div class="col">
+                          <input type="text" class="form-control form-control-sm" id="f_price_max" placeholder="Max">
+                          <!-- <div class="input-group input-group-sm mb-3">                          
+                            <input type="text" class="form-control" id="f_price_max" placeholder="Max">
+                            <div class="input-group-append">
+                              <span class="input-group-text">MYR</span>
+                            </div>
+                          </div> -->
+                        </div>                  
+                      </div>
+                      <div class="form-row" style="font-size: 13px;">
+                        <div class="col-sm-12">Distance Makkah Hotel</div>
+                        <div class="col-sm-12">
+                          <div class="input-group input-group-sm mb-3">                          
+                            <input type="text" class="form-control" id="f_distance_Makkah">
+                            <div class="input-group-append">
+                              <span class="input-group-text">m</span>
+                            </div>
                           </div>
-                        </div>
-                      </div>                  
-                    </div>
-                    <div class="row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">Distance Madinah Hotel</div>
-                      <div class="col-sm-12 input-group input-group-sm mb-3">                    
+                        </div>                  
+                      </div>
+                      <div class="form-row" style="font-size: 13px;">
+                        <div class="col-sm-12">Distance Madinah Hotel</div>
+                        <div class="col-sm-12 input-group input-group-sm mb-3">                    
                           <input type="text" class="form-control" id="f_distance_madinah">
                           <div class="input-group-append">
                             <span class="input-group-text">m</span>
                           </div>
-                      </div>                  
-                    </div>
-                    <div class="form-group row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">Agency</div>
-                      <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_agency">
-                      </div>                  
-                    </div>
-                    <div class="form-group row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">Promotion</div>
-                      <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_promo">
-                      </div>                  
-                    </div>
-                    <div class="form-group row" style="font-size: 13px;">
-                      <div class="col-sm-12 mb-3 mb-sm-0">City</div>
-                      <div class="col-sm-12">
-                        <input type="text" class="form-control form-control-sm" id="f_city">
-                      </div>                  
-                    </div>
-                    <a href="packages.php" class="btn btn-outline-primary btn-user btn-block btn-sm">
-                      <i class="fas fa-filter fa-sm"></i> Filter
-                    </a>
-                  </form>
-                </div>
+                        </div>                  
+                      </div>
+                      <div class="form-row form-group" style="font-size: 13px;">
+                        <!-- <label for="" class="col-sm-12 col-form-label">Agency</label> -->
+                        <div class="col-sm-12">Agency</div>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control form-control-sm" id="f_agency">
+                        </div>                  
+                      </div>
+                      <div class="form-row form-group" style="font-size: 13px;">
+                        <div class="col-sm-12">Promotion</div>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control form-control-sm" id="f_promo">
+                        </div>                  
+                      </div>
+                      <div class="form-row form-group" style="font-size: 13px;">
+                        <div class="col-sm-12">State</div>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control form-control-sm" id="f_state">
+                        </div>                  
+                      </div>
+                      <div class="form-group row" style="font-size: 13px;">
+                        <div class="col-sm-12">City</div>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control form-control-sm" id="f_city">
+                        </div>                  
+                      </div>
+                      <a href="packages.php" class="btn btn-outline-primary btn-user btn-block btn-sm">
+                        <i class="fas fa-filter fa-sm"></i> Filter
+                      </a>
+                    </form>
+                  </div>
+                </div>                
               </div>
 
               <!-- Advertisment -->
-              <div class="card mb-4">
-                <div class="card-body" style="font-size: 0.7rem;">
-                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
-                  <br>
-                  Ash-Har Travel & Tours Sdn Bhd
+              <div class="d-none d-xl-block">
+                <div class="card mb-4">
+                  <div class="card-body" style="font-size: 0.7rem;">
+                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <br>
+                    Ash-Har Travel & Tours Sdn Bhd
+                  </div>
+                  <div class="card-footer bg-white"">
+                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                  </div>
                 </div>
-                <div class="card-footer bg-white"">
-                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
-                </div>
-              </div>
 
-              <div class="card mb-4">
-                <div class="card-body" style="font-size: 0.7rem;">
-                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
-                  <br>
-                  Andalusia Travel & Tours Sdn Bhd
+                <div class="card mb-4">
+                  <div class="card-body" style="font-size: 0.7rem;">
+                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <br>
+                    Andalusia Travel & Tours Sdn Bhd
+                  </div>
+                  <div class="card-footer bg-white">
+                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                  </div>
                 </div>
-                <div class="card-footer bg-white">
-                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
-                </div>
-              </div>
 
-              <div class="card mb-4">
-                <div class="card-body" style="font-size: 0.7rem;">
-                  <img class="d-block w-100" src="img/elaf2.jpg" height="">
-                  <br>
-                  Andalusia Travel & Tours Sdn Bhd
+                <div class="card mb-4">
+                  <div class="card-body" style="font-size: 0.7rem;">
+                    <img class="d-block w-100" src="img/elaf2.jpg" height="">
+                    <br>
+                    Andalusia Travel & Tours Sdn Bhd
+                  </div>
+                  <div class="card-footer bg-white">
+                    <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
+                  </div>
                 </div>
-                <div class="card-footer bg-white">
-                  <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">View Packages &rarr;</a>
-                </div>
-              </div>
+              </div>              
 
             </div>
 
@@ -159,7 +180,7 @@
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Al-Nile Tour & Travel Sdn Bhd</h6> 
                       <div style="font-size: 13px;">
-                        Puchong (LKU No : 6043) <br>
+                        Puchong, Selangor (LKU No : 6043) <br>
                         Package Gold <br>
                         Departure Date From 31 Mac 2020 to 11 April 2020
                       </div>                      
@@ -325,27 +346,25 @@
                                 <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
                                   Leave a Review
                                 </a> -->
-                                <div>
-                                  <nav>
-                                    <ul class="pagination pagination-sm justify-content-center">
-                                      <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                          <span aria-hidden="true">&laquo;</span>
-                                          <span class="sr-only">Previous</span>
-                                        </a>
-                                      </li>
-                                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                      <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                          <span aria-hidden="true">&raquo;</span>
-                                          <span class="sr-only">Next</span>
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </nav>
-                                </div>                                
+                                <nav>
+                                  <ul class="pagination pagination-sm justify-content-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                      </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </nav>                              
                               </div>
                             </div> 
                           </div>
@@ -361,7 +380,7 @@
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Andalusia Travel & Tours Sdn Bhd</h6> 
                       <div style="font-size: 13px;">
-                        Klang (LKU No : 6043) <br>
+                        Klang, Selangor (LKU No : 6043) <br>
                         Package Gold <br>
                         Departure Date From 31 Mac 2020 to 11 April 2020
                       </div> 
@@ -387,7 +406,7 @@
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Ash-Har Travel & Tours Sdn Bhd</h6> 
                       <div style="font-size: 13px;">
-                        Damansara (LKU No : 6043) <br>
+                        Damansara, Selangor (LKU No : 6043) <br>
                         Package Gold <br>
                         Departure Date From 31 Mac 2020 to 11 April 2020
                       </div> 
