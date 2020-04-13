@@ -37,10 +37,10 @@
               <textarea type="text" class="form-control form-control-sm" rows="3"></textarea>
 
               <label for="" class="col-form-label">Date From</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_pck_date_from" id="u_pck_date_from" >
               
               <label for="" class="col-form-label">Date To</label>
-              <input type="text" class="form-control form-control-sm" >
+              <input type="text" class="form-control form-control-sm" name="u_pck_date_to" id="u_pck_date_to" >
 
               <label for="" class="col-form-label">Actual Cost</label>
               <input type="text" class="form-control form-control-sm" >

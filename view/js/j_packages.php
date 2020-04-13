@@ -9,5 +9,29 @@
       });
 
     });
+
+    $(function() {
+
+      $('#pck_date_from').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+
+      $('#pck_date_to').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+
+      $('#u_pck_date_from').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+
+      $('#u_pck_date_to').datepicker({
+        'format': 'dd/mm/yyyy',
+        'autoclose': true
+      });
+
+    });
     
   </script>
