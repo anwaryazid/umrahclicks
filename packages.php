@@ -51,7 +51,7 @@
 
           <div class="row">
 
-            <div class="col-lg-2">
+            <div class="col-xl-2 col-lg-3 col-md-4">
 
               <!-- Filter -->
               <div class="card mb-4">
@@ -62,30 +62,36 @@
                   <div class="card-body">
                     <form class="">
                       <div class="form-row form-group" style="font-size: 13px;">
-                        <div class="col-12">Price Range (RM)</div>
-                        <div class="col">
-                          <input type="text" class="form-control form-control-sm" id="f_price_min" placeholder="Min">
-                          <!-- <div class="input-group input-group-sm mb-3">                          
-                            <input type="text" class="form-control" id="f_price_min" placeholder="Min">
-                            <div class="input-group-append">
-                              <span class="input-group-text">MYR</span>
+                        <div class="col-sm-12">Price Range (RM)</div>
+                        <div class="col-sm-12 mb-2">
+                          <!-- <input type="text" class="form-control form-control-xs text-center" id="f_price_min" placeholder="Min"> -->
+                          <div class="input-group input-group-xs">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                             </div>
-                          </div> -->
+                            <input type="text" name="quant[1]" class="form-control text-center input-number" id="f_price_max" placeholder="Min" min="1" max="100000">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col">
-                          <input type="text" class="form-control form-control-sm" id="f_price_max" placeholder="Max">
-                          <!-- <div class="input-group input-group-sm mb-3">                          
-                            <input type="text" class="form-control" id="f_price_max" placeholder="Max">
-                            <div class="input-group-append">
-                              <span class="input-group-text">MYR</span>
+                        <div class="col-sm-12">
+                          <!-- <input type="text" class="form-control form-control-xs text-center" id="f_price_max" placeholder="Max"> -->
+                          <div class="input-group input-group-xs">   
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-max" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                             </div>
-                          </div> -->
-                        </div>                  
+                            <input type="text" name="quant[2]" class="form-control text-center input-number" id="f_price_max" placeholder="Max" min="1" max="100000">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                            </div>
+                          </div>
+                        </div>            
                       </div>
                       <div class="form-row" style="font-size: 13px;">
                         <div class="col-sm-12">Distance Makkah Hotel</div>
                         <div class="col-sm-12">
-                          <div class="input-group input-group-sm mb-3">                          
+                          <div class="input-group input-group-xs mb-3">                          
                             <input type="text" class="form-control" id="f_distance_Makkah">
                             <div class="input-group-append">
                               <span class="input-group-text">m</span>
@@ -95,7 +101,7 @@
                       </div>
                       <div class="form-row" style="font-size: 13px;">
                         <div class="col-sm-12">Distance Madinah Hotel</div>
-                        <div class="col-sm-12 input-group input-group-sm mb-3">                    
+                        <div class="col-sm-12 input-group input-group-xs mb-3">                    
                           <input type="text" class="form-control" id="f_distance_madinah">
                           <div class="input-group-append">
                             <span class="input-group-text">m</span>
@@ -106,25 +112,25 @@
                         <!-- <label for="" class="col-sm-12 col-form-label">Agency</label> -->
                         <div class="col-sm-12">Agency</div>
                         <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-sm" id="f_agency">
+                          <input type="text" class="form-control form-control-xs" id="f_agency">
                         </div>                  
                       </div>
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">Promotion</div>
                         <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-sm" id="f_promo">
+                          <input type="text" class="form-control form-control-xs" id="f_promo">
                         </div>                  
                       </div>
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">State</div>
                         <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-sm" id="f_state">
+                          <input type="text" class="form-control form-control-xs" id="f_state">
                         </div>                  
                       </div>
                       <div class="form-group row" style="font-size: 13px;">
                         <div class="col-sm-12">City</div>
                         <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-sm" id="f_city">
+                          <input type="text" class="form-control form-control-xs" id="f_city">
                         </div>                  
                       </div>
                       <a href="packages.php" class="btn btn-outline-primary btn-user btn-block btn-sm">
@@ -136,7 +142,7 @@
               </div>
 
               <!-- Advertisment -->
-              <div class="d-none d-xl-block">
+              <div class="d-none d-md-block">
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
                     <img class="d-block w-100" src="img/smart1.jpg" height="" alt="Smart Umrah4all">
@@ -173,22 +179,22 @@
 
             </div>
 
-            <div class="col-lg-10 col-md-12">              
+            <div class="col-xl-10 col-lg-9 col-md-8">              
               <div class="card shadow mb-4">
                 <a href="#agency_1" class="d-block card-header py-3 bg-white text-primary" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
                   <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-xl-9 col-lg-8">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
                       <div class="text-primary" style="font-size: 13px;">
-                        Cyberjaya, Selangor (LKU No : KPK/LN - 9774) <br>
+                        Cyberjaya (LKU No: KPK/LN 9774) <br>
                         Package Gold <br>
-                        Departure Date From 31 Mac 2020 to 11 April 2020
+                        Departure Date From 01/04/2020 to 10/04/2020
                       </div>                      
                     </div>
-                    <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+                    <div class="col-xl-3 col-lg-4" style="font-size: 12px;">
+                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4 stars
                       <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars
+                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3 stars
                       <br>
                       56 Reviews
                     </div>
@@ -380,15 +386,15 @@
                     <div class="col-lg-9">
                       <h6 class="m-0 font-weight-bold text-primary text-md">EPL Travel and Tours Sdn Bhd</h6> 
                       <div class="text-primary" style="font-size: 13px;">
-                        Kajang, Selangor (LKU No : KP/LN 6441) <br>
+                        Kajang (LKU No: KP/LN 6441) <br>
                         Package Gold <br>
-                        Departure Date From 31 Mac 2020 to 11 April 2020
+                        Departure Date From 01/04/2020 to 10/04/2020
                       </div>                      
                     </div>
                     <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4 stars
                       <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars
+                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3 stars
                       <br>
                       56 Reviews
                     </div>
@@ -646,6 +652,78 @@
         'format': 'dd/mm/yyyy',
         'autoclose': true
       });
+    });
+
+    $('.btn-number').click(function(e) {
+        e.preventDefault();
+
+        fieldName = $(this).attr('data-field');
+        type = $(this).attr('data-type');
+        var input = $("input[name='" + fieldName + "']");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if (type == 'minus') {
+
+                if (currentVal > input.attr('min')) {
+                    input.val(currentVal - 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('min')) {
+                    $(this).attr('disabled', true);
+                }
+
+            } else if (type == 'plus') {
+
+                if (currentVal < input.attr('max')) {
+                    input.val(currentVal + 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('max')) {
+                    $(this).attr('disabled', true);
+                }
+
+            }
+        } else {
+            input.val(0);
+        }
+    });
+    $('.input-number').focusin(function() {
+        $(this).data('oldValue', $(this).val());
+    });
+    $('.input-number').change(function() {
+
+        minValue = parseInt($(this).attr('min'));
+        maxValue = parseInt($(this).attr('max'));
+        valueCurrent = parseInt($(this).val());
+
+        name = $(this).attr('name');
+        if (valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the minimum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        if (valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the maximum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+
+
+    });
+    $(".input-number").keydown(function(e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
     });
   </script>
 
