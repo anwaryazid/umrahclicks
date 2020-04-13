@@ -150,7 +150,7 @@
 
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/epl1.jpg" height="">
+                    <img class="d-block w-100" src="img/epl1.JPG" height="">
                     <br>
                     EPL Travel & Tours Sdn Bhd
                   </div>
@@ -161,7 +161,7 @@
 
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/epl2.jpg" height="">
+                    <img class="d-block w-100" src="img/epl2.JPG" height="">
                     <br>
                     EPL Travel & Tours Sdn Bhd
                   </div>
