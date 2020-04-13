@@ -122,10 +122,10 @@
         </div>          
       </div>
       <div class="modal-footer">
-        <a class="btn btn-outline-secondary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-secondary btn-sm" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#paymentModal">
+        <a class="btn btn-outline-primary btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
           Book & Pay Now!
         </a>
       </div>

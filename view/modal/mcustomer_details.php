@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Back</button>
+        <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Back</button>
       </div>
     </div>
   </div>

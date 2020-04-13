@@ -71,7 +71,7 @@
         
       </div>
       <div class="modal-footer">
-        <a class="btn btn-outline-secondary" href="#" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-secondary btn-sm" href="#" data-toggle="modal" data-dismiss="modal" >
           Close
         </a>
       </div>

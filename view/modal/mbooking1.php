@@ -47,10 +47,10 @@
         </form>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-outline-secondary" href="#bookingModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-secondary btn-sm" href="#bookingModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-outline-primary" href="#paymentModal" data-toggle="modal" data-dismiss="modal" >
+        <a class="btn btn-outline-primary btn-sm" href="#paymentModal" data-toggle="modal" data-dismiss="modal" >
           Continue
         </a>
       </div>

@@ -84,8 +84,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Promo',1,1);" >
+        <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-outline-primary btn-sm" href="#" data-toggle="modal" data-dismiss="modal" onClick="showAlert('Promo',1,1);" >
           Add Promotion
         </a>
       </div>

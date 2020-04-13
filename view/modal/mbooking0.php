@@ -68,8 +68,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-outline-primary" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
+        <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-outline-primary btn-sm" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Continue
         </a>
       </div>
