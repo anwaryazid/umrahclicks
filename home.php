@@ -102,17 +102,45 @@
                     <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
                   </div>               
                 </div>
-                <div class="form-group row text-md">
+                <!-- <div class="form-group row text-md">
                   <label for="staticEmail" class="col-sm-5 col-form-label">Adult</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
                   </div>                 
-                </div>
+                </div>                
                 <div class="form-group row text-md">
                   <label for="staticEmail" class="col-sm-5 col-form-label">Children</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
                   </div>                
+                </div> -->
+                <div class="form-group row text-md">
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Adult</label>
+                  <div class="col-sm-7">
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
+                      </div>
+                      <input type="text" name="quant[1]" class="form-control text-center input-number" id="no_adult" placeholder="No. of Adult" min="0" max="200">
+                      <div class="input-group-append">
+                          <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                      </div>
+                    </div>
+                  </div>                 
+                </div>
+                <div class="form-group row text-md">
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Children</label>
+                  <div class="col-sm-7">
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
+                      </div>
+                      <input type="text" name="quant[2]" class="form-control text-center input-number" id="no_children" placeholder="No. of Children" min="0" max="200">
+                      <div class="input-group-append">
+                          <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                      </div>
+                    </div>
+                  </div>                 
                 </div>
                 <a href="packages.php" class="btn btn-outline-primary btn-block" style="font-size: 0.9rem;">
                   <i class="fas fa-search fa-sm"></i> Search
@@ -224,11 +252,77 @@
         'autoclose': true
       });
     });
-    /* jQuery('#date_Depart').datetimepicker({
-      timepicker: false,
-      datepicker: true,
-      format: 'd/m/Y'
-    }); */
+    $('.btn-number').click(function(e) {
+        e.preventDefault();
+
+        fieldName = $(this).attr('data-field');
+        type = $(this).attr('data-type');
+        var input = $("input[name='" + fieldName + "']");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if (type == 'minus') {
+
+                if (currentVal > input.attr('min')) {
+                    input.val(currentVal - 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('min')) {
+                    $(this).attr('disabled', true);
+                }
+
+            } else if (type == 'plus') {
+
+                if (currentVal < input.attr('max')) {
+                    input.val(currentVal + 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('max')) {
+                    $(this).attr('disabled', true);
+                }
+
+            }
+        } else {
+            input.val(0);
+        }
+    });
+    $('.input-number').focusin(function() {
+        $(this).data('oldValue', $(this).val());
+    });
+    $('.input-number').change(function() {
+
+        minValue = parseInt($(this).attr('min'));
+        maxValue = parseInt($(this).attr('max'));
+        valueCurrent = parseInt($(this).val());
+
+        name = $(this).attr('name');
+        if (valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the minimum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        if (valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the maximum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+
+
+    });
+    $(".input-number").keydown(function(e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
   </script>
 
 </body>
