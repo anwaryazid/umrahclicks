@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/main.css" rel="stylesheet">
+  <link href="css/main-dark-blue.min.css" rel="stylesheet">
   <!-- <link href="css/jquery.datetimepicker.min.css" rel="stylesheet"> -->
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
   
@@ -43,13 +43,11 @@
       }
     } 
   </style>
-
+  
 </head>
 
 <body class="">
-
   <div class="container2">   
-
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
         <div class="row">
@@ -84,36 +82,37 @@
           <div class="col-xl-4 col-md-12">
             <div class="p-5">
               <div class="text-center">
-                <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5>
+                <h3 class="h3 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h3>
+              </div>
+              <div class="alert alert-danger collapse" id="search-alert" style="font-size: 0.8rem;">
+                <span id="textAlertSearch"></span>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
               <form>
                 <div class="form-group row text-md">
                   <label for="staticEmail" class="col-sm-5 col-form-label">Country</label>
                   <div class="col-sm-7">
-                    <select class="form-control form-control-sm" id="country">
-                      <option value="">Select Country</option>
-                      <option value="Malaysia" selected>Malaysia</option>
+                    <select class="form-control form-control-sm text-center border-secondary" id="s_country" name="s_country">
+                      <option value="MY" selected>Malaysia</option>
+                      <option value="ID">Indonesia</option>
+                      <option value="SG">Singapore</option>
+                      <option value="BN">Brunei</option>
                     </select>
                   </div>                 
                 </div>
                 <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">Date Depart From</label>
+                  <label for="staticEmail" class="col-sm-5 col-form-label">Departure Date</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control form-control-sm" id="date_Depart" name="date_Depart" placeholder="dd/mm/yyyy">
+                    <div class="input-group input-group-sm">                          
+                      <input type="text" class="form-control form-control-sm text-center border-secondary" id="s_dateDepart" name="s_dateDepart" placeholder="dd-mm-yyyy">
+                      <!-- <div class="input-group-append">
+                        <span class="input-group-text input-group-addon primary">&nbsp;<i class="fas fa-calendar-alt fa-sm"></i>&nbsp;</span>
+                      </div> -->
+                    </div>
                   </div>               
                 </div>
-                <!-- <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">Adult</label>
-                  <div class="col-sm-7">
-                    <input type="text" class="form-control form-control-sm" id="no_adult" placeholder="No. of Adult">
-                  </div>                 
-                </div>                
-                <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">Children</label>
-                  <div class="col-sm-7">
-                    <input type="text" class="form-control form-control-sm" id="no_children" placeholder="No. of Children">
-                  </div>                
-                </div> -->
                 <div class="form-group row text-md">
                   <label for="staticEmail" class="col-sm-5 col-form-label">Adult</label>
                   <div class="col-sm-7">
@@ -121,8 +120,9 @@
                       <div class="input-group-prepend">
                           <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                       </div>
-                      <input type="text" name="quant[1]" class="form-control text-center input-number" id="no_adult" placeholder="No. of Adult" min="0" max="200">
+                      <input type="text" name="quant[1]" id="s_noAdult" class="form-control text-center input-number border-secondary" placeholder="No. of Adult" min="0" max="200">
                       <div class="input-group-append">
+                          <!-- <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button> -->
                           <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
@@ -135,22 +135,33 @@
                       <div class="input-group-prepend">
                           <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                       </div>
-                      <input type="text" name="quant[2]" class="form-control text-center input-number" id="no_children" placeholder="No. of Children" min="0" max="200">
+                      <input type="text" name="quant[2]" id="s_noChild" class="form-control text-center input-number border-secondary" placeholder="No. of Children" min="0" max="200">
                       <div class="input-group-append">
+                          <!-- <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button> -->
                           <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
                   </div>                 
                 </div>
-                <a href="packages.php" class="btn btn-outline-primary btn-block" style="font-size: 0.9rem;">
-                  <i class="fas fa-search fa-sm"></i> Search
-                </a>                
+                <div class="btn-group btn-block" role="group" aria-label="Basic example">
+                  <button type="reset" class="btn btn-outline-danger btn-sm"><i class="fas fa-undo fa-sm"></i> Reset</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm" onClick="searching();"><i class="fas fa-search fa-sm"></i> Search</button>
+                </div>
+                <div class="row">
+                  <div class="col-sm-5">
+                    
+                  </div>
+                  <div class="col-sm-7">
+                     
+                  </div>
+                </div>
+                               
               </form>
               <hr>
               <div class="text-center"> 
-                <a class="small" href="#" data-toggle="modal" data-target="#agenciesModal">Agencies</a> | 
-                <a class="small" href="packages.php">Packages</a> | 
-                <a class="small" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
+                <a class="small text-decoration-none" href="#" data-toggle="modal" data-target="#agenciesModal">List of Agencies</a> | 
+                <!-- <a class="small" href="search.php">Packages</a> |  -->
+                <a class="small text-decoration-none" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
               </div>
               <hr class="d-none d-sm-block">
               <div class="text-center d-none d-sm-block">
@@ -190,7 +201,7 @@
             <p>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
@@ -206,7 +217,7 @@
             <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
@@ -222,7 +233,7 @@
             <p>EPL Travel & Tours Sdn Bhd</p>
           </div>
           <div class="card-footer bg-white">
-            <a rel="nofollow" href="packages.php" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
           </div>
         </div>
       </div>
@@ -245,85 +256,7 @@
   <!-- <script src="js/jquery.datetimepicker.full.min.js"></script> -->
   <script src="js/bootstrap-datepicker.js"></script>
 
-  <script>
-    $(function() {
-      $('#date_Depart').datepicker({
-        'format': 'dd/mm/yyyy',
-        'autoclose': true
-      });
-    });
-    $('.btn-number').click(function(e) {
-        e.preventDefault();
-
-        fieldName = $(this).attr('data-field');
-        type = $(this).attr('data-type');
-        var input = $("input[name='" + fieldName + "']");
-        var currentVal = parseInt(input.val());
-        if (!isNaN(currentVal)) {
-            if (type == 'minus') {
-
-                if (currentVal > input.attr('min')) {
-                    input.val(currentVal - 1).change();
-                }
-                if (parseInt(input.val()) == input.attr('min')) {
-                    $(this).attr('disabled', true);
-                }
-
-            } else if (type == 'plus') {
-
-                if (currentVal < input.attr('max')) {
-                    input.val(currentVal + 1).change();
-                }
-                if (parseInt(input.val()) == input.attr('max')) {
-                    $(this).attr('disabled', true);
-                }
-
-            }
-        } else {
-            input.val(0);
-        }
-    });
-    $('.input-number').focusin(function() {
-        $(this).data('oldValue', $(this).val());
-    });
-    $('.input-number').change(function() {
-
-        minValue = parseInt($(this).attr('min'));
-        maxValue = parseInt($(this).attr('max'));
-        valueCurrent = parseInt($(this).val());
-
-        name = $(this).attr('name');
-        if (valueCurrent >= minValue) {
-            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the minimum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-        if (valueCurrent <= maxValue) {
-            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the maximum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-
-
-    });
-    $(".input-number").keydown(function(e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-            // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) ||
-            // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-            // let it happen, don't do anything
-            return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
-  </script>
+  <script src="js/home.js"></script>
 
 </body>
 
