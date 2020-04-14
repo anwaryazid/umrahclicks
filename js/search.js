@@ -10,6 +10,10 @@ function clearFilter() {
     goToURL = removeUrlParam(goToURL, 'priceMax');
     goToURL = removeUrlParam(goToURL, 'distMakkah');
     goToURL = removeUrlParam(goToURL, 'distMadinah');
+    goToURL = removeUrlParam(goToURL, 'agency');
+    goToURL = removeUrlParam(goToURL, 'promotion');
+    goToURL = removeUrlParam(goToURL, 'state');
+    goToURL = removeUrlParam(goToURL, 'city');
   
     window.open(goToURL, '_self');
 
@@ -23,7 +27,7 @@ function clearFilter() {
     $('#f_promo').val('');
     $('#f_state').val('');
     $('#f_city').val('');
-    
+
   }  
 }
 
