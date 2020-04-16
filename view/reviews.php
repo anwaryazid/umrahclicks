@@ -33,7 +33,7 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
             </td>
             <td class="text-center">5 star</td>
-            <td>Andalusia Travel & Tours Sdn Bhd / Package Gold</td>
+            <td>EPL Travel & Tours Sdn Bhd / Package Gold</td>
             <td>2020/01/14</td>
             <td class="text-center">
               <h6><span class="badge badge-success" style="display: block;">Show</span></h6>
@@ -48,7 +48,7 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
             </td>
             <td class="text-center">1 star</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>2020/01/14</td>
             <td class="text-center">
               <h6><span class="badge badge-danger" style="display: block;">Hide</span></h6>

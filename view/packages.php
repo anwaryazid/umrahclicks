@@ -33,7 +33,7 @@
           <tr>
             <td>Gold</td>
             <td>Package Gold</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>2020/03/24</td>
             <td>2020/04/24</td>
             <td class="text-center">
@@ -47,7 +47,7 @@
           <tr>
             <td>Gold</td>
             <td>Package Gold</td>
-            <td>Andalusia Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>2020/03/24</td>
             <td>2020/04/24</td>
             <td class="text-center">
@@ -61,7 +61,7 @@
           <tr>
             <td>Gold</td>
             <td>Package Gold</td>
-            <td>Ash-Har Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>2020/03/24</td>
             <td>2020/04/24</td>
             <td class="text-center">
@@ -75,7 +75,7 @@
           <tr>
             <td>Gold</td>
             <td>Package Gold</td>
-            <td>Batuta Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>2020/03/24</td>
             <td>2020/04/24</td>
             <td class="text-center">

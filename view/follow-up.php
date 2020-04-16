@@ -33,7 +33,7 @@
             <td>0172345678</td>
             <td>abu@gmail.com</td>
             <td>Package Gold</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>2020/03/02</td>
             <td>
               <h6><span class="badge badge-danger" style="display: block;">Not Complete</span></h6>              
@@ -47,7 +47,7 @@
             <td>0172345678</td>
             <td>ahmad@gmail.com</td>
             <td>Package Gold</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>2020/03/02</td>
             <td>
               <h6><span class="badge badge-primary" style="display: block;">Complete</span></h6>              

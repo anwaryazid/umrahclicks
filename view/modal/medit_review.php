@@ -27,7 +27,7 @@
 
             <label for="agency_review" class="col-sm-4 col-form-label">Agency</label>
             <div class="col-sm-8">
-              <input type="text" readonly class="form-control-plaintext" id="agency_review" value="Andalusia Travel & Tours Sdn Bhd" disabled>
+              <input type="text" readonly class="form-control-plaintext" id="agency_review" value="EPL Travel & Tours Sdn Bhd" disabled>
             </div>
 
             <label for="package_review" class="col-sm-4 col-form-label">Package</label>

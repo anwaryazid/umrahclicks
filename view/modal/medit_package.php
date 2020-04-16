@@ -15,10 +15,10 @@
               <label for="" class="col-form-label">Agency</label>
               <select class="form-control form-control-sm" >
                 <option value="">Please Select</option>
-                <option value="">Al-Nile Tour & Travel Sdn Bhd</option>
-                <option value="">Andalusia Travel & Tours Sdn Bhd</option>
-                <option value="">Ash-Har Travel & Tours Sdn Bhd</option>
-                <option value="">Batuta Travel & Tours Sdn Bhd</option>
+                <option value="">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</option>
+                <option value="">EPL Travel & Tours Sdn Bhd</option>
+                <option value="">EPL Travel & Tours Sdn Bhd</option>
+                <option value="">EPL Travel & Tours Sdn Bhd</option>
               </select>
 
               <label for="" class="col-form-label">Package ID</label>
@@ -48,7 +48,7 @@
               <label for="" class="col-form-label">Umrah Cost</label>
               <input type="text" class="form-control form-control-sm" >
 
-              <label for="" class="col-form-label">Image</label>
+              <label for="" class="col-form-label">Image Thumbnail</label>
               <div class="input-group">
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="inputGroupFile02"

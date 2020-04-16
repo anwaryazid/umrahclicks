@@ -29,7 +29,7 @@
         <tbody>          
           <tr>
             <td>616455-K</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>6043</td>
             <td>2020/03/28</td>
             <td class="text-center">
@@ -42,7 +42,7 @@
           </tr>
           <tr>
             <td>616435-K</td>
-            <td>Andalusia Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>6044</td>
             <td>2020/03/28</td>
             <td class="text-center">
@@ -55,7 +55,7 @@
           </tr>
           <tr>
             <td>612455-K</td>
-            <td>Ash-Har Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>6042</td>
             <td>2020/03/28</td>
             <td class="text-center">
@@ -68,7 +68,7 @@
           </tr>
           <tr>
             <td>616445-K</td>
-            <td>Batuta Travel & Tours Sdn Bhd</td>
+            <td>EPL Travel & Tours Sdn Bhd</td>
             <td>6041</td>
             <td>2020/03/28</td>
             <td class="text-center">

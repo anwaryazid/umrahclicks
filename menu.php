@@ -1,11 +1,12 @@
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="border-right: solid 1px lightgrey;">
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+  <!-- <a class="navbar-brand" href="home.php"><img class="d-block rounded-lg" src="img/umrahclicks-logo.JPG" height="40px" alt="UmrahClicks"></a> -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
     <!-- <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div> -->
-    <div class="sidebar-brand-text mx-3"><i class="fas fa-fw fa-kaaba"></i>&nbsp;UmrahClicks.my</div>
-    <div class="sidebar-brand-icon d-none d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba"></i><span style="font-size:0.7rem;">UmrahClicks</span></div>
+    <div class="sidebar-brand-text mx-3"><img class="d-block rounded-lg" src="img/umrahclicks-logo.JPG" height="40px" alt="UmrahClicks"></div>
+    <!-- <div class="sidebar-brand-icon d-none d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba"></i><span style="font-size:0.7rem;">UmrahClicks</span></div> -->
   </a>
 
   <hr class="sidebar-divider my-0"> 
@@ -54,11 +55,11 @@
       <span>Follow Up</span></a>
   </li>
 
-  <li class="nav-item <?php if ($page == 'reviews'){ ?>active<?php } ?>">
+  <!-- <li class="nav-item <?php if ($page == 'reviews'){ ?>active<?php } ?>">
     <a class="nav-link" href="index.php?page=reviews" title="Reviews">
       <i class="fa fa-fw fa-star"></i>
       <span>Reviews</span></a>
-  </li>
+  </li> -->
 
   <hr class="sidebar-divider d-none d-sm-block">
 

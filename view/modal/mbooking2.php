@@ -81,19 +81,19 @@
             2 childrens<br>
             Total pax : 5
             <hr>
-            <div class="row text-md">
+            <!-- <div class="row text-md">
               <div class="col-md-12">
                 <label for="" class="col-form-label">Promo Code</label>
                 <input type="text" class="form-control form-control-sm" >
               </div>
             </div>
-            <br>
+            <br> -->
             <div class="row">
               <div class="col-md-12">
                 <strong>Booking Deposit</strong>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-6">
                 <small>Original price <br>(RM200 x 5 pax)</small>
               </div>
@@ -108,7 +108,7 @@
               <div class="col-md-6">
                 <small>- RM 100.00</small>
               </div>
-            </div>
+            </div> -->
             <div class="row">
               <div class="col-md-6">
                 <small>Total amount to pay</small>
@@ -117,7 +117,7 @@
                 <!-- <small>RM 800.00</small> -->
               </div>
             </div>            
-            <h2 class="text-success">RM 900.00</h2>
+            <h2 class="text-primary">RM900.00</h2>
           </div>
         </div>          
       </div>

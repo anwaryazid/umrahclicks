@@ -30,11 +30,11 @@
         </thead>
         <tbody>          
           <tr>
-            <td>ALNILE10</td>
+            <td>SMART10</td>
             <td>Get 10% discount</td>
             <td>2020/05/09</td>
             <td>2020/05/15</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>Agency</td>
             <td>
               <h6><span class="badge badge-primary" style="display: block;">Active</span></h6>
@@ -45,11 +45,11 @@
             </td>
           </tr>
           <tr>
-            <td>ALNILE15</td>
+            <td>SMART15</td>
             <td>Get RM15 discount</td>
             <td>2020/05/09</td>
             <td>2020/05/15</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>Agency</td>
             <td>
               <h6><span class="badge badge-secondary" style="display: block;">Inactive</span></h6>

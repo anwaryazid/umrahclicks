@@ -30,7 +30,7 @@
         <tbody>          
           <tr>
             <td>616455-K</td>
-            <td>Al-Nile Tour & Travel Sdn Bhd</td>
+            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
             <td>2020/03/28</td>
             <td>2020/03/28</td>
             <td></td>

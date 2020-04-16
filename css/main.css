@@ -11124,3 +11124,9 @@ body.sidebar-toggled footer.sticky-footer {
   right: 10px;
   z-index:9999; 
 }
+
+div.transbox {
+  margin: 80px;
+  background-color: #ffffff;
+  opacity: 0.6;
+}

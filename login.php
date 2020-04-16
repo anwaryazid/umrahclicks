@@ -20,7 +20,7 @@
 
   <style>
     .container2 {
-      max-width: 450px;
+      max-width: 500px;
       padding-right: 2.5rem;
       padding-left: 2.5rem;
       margin-right: auto;
@@ -52,64 +52,37 @@
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
-          <!-- <div class="col-lg-8 d-none d-lg-block">
-            <div id="imgIndicator" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
-                <li data-target="#imgIndicator" data-slide-to="1"></li>
-                <li data-target="#imgIndicator" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active box">
-                  <img class="d-block caros" src="img/kaabah.jpg" >
-                </div>
-                <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg">
-                </div>
-                <div class="carousel-item box">
-                  <img class="d-block caros" src="img/kaabah.jpg">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#imgIndicator" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+        <div class="">
+          <div class="p-5">
+            <div class="text-center">
+              <img class="d-block w-100" src="img/umrahclicks-logo.JPG" height="" alt="UmrahClicks">
+              <!-- <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5> -->
             </div>
-          </div> -->
-          <div class="">
-            <div class="p-5">
-              <div class="text-center">
-                <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5>
+            <form>
+              <div class="form-group text-md">
+                <label for="" class="col-form-label text-gray-900">User Name</label>
+                <input type="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
+                <label for="" class="col-form-label text-gray-900">Password</label>
+                <input type="password" class="form-control form-control-sm" id="exampleInputPassword">
               </div>
-              <form>
-                <div class="form-group text-md">
-                  <label for="" class="col-form-label text-gray-900">User Name</label>
-                  <input type="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
-                  <label for="" class="col-form-label text-gray-900">Password</label>
-                  <input type="password" class="form-control form-control-sm" id="exampleInputPassword">
-                </div>
-                <a href="index.php?page=dashboard" class="btn btn-outline-primary btn-block">
-                  Login
-                </a>
-              </form>                  
-              <hr>
-              <div class="text-center">
-                <!-- <a class="small" href="forgot-password.php">Forgot Password?</a> -->
-                <a class="small" href="#" data-toggle="modal" data-target="#forgotModal">Forgot Password?</a>
-              </div>
-              <!-- <div class="text-center">
-                <a class="small" href="#" data-toggle="modal" data-target="#registerModal">Create an Account!</a>
-              </div> -->
-              <hr>
-              <div class="text-center">
-                <a class="small" href="home.php">Search Package</a>
-              </div>
+              <a href="index.php?page=dashboard" class="btn btn-primary btn-block">
+                Login
+              </a>
+            </form>                  
+            <hr>
+            <div class="text-center">
+              <!-- <a class="small" href="forgot-password.php">Forgot Password?</a> -->
+              <a class="small" href="#" data-toggle="modal" data-target="#forgotModal">Forgot Password?</a>
+            </div>
+            <!-- <div class="text-center">
+              <a class="small" href="#" data-toggle="modal" data-target="#registerModal">Create an Account!</a>
+            </div> -->
+            <hr>
+            <div class="text-center">
+              <a class="small" href="home.php">Search Package</a>
             </div>
           </div>
+        </div>
       </div>
     </div>
 

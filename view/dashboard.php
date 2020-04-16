@@ -124,17 +124,17 @@
               </thead>
               <tbody>        
               <tr class="text-danger" data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td>Malaysia</td>
                   <td class="text-center">4</td>
                 </tr>          
                 <tr data-toggle="modal" data-id="1" data-target="#customerModal" style="cursor: pointer;">
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td>Singapore</td>
                   <td class="text-center">2</td>
                 </tr>
                 <tr data-toggle="modal" data-id="2" data-target="#customerModal" style="cursor: pointer;">
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td>Malaysia</td>
                   <td class="text-center">1</td>
                 </tr>                              
@@ -169,13 +169,13 @@
                   <td class="text-center">40%</td>
                 </tr>
                 <tr>
-                  <td>ALNILE10</td>
+                  <td>SMART10</td>
                   <td>Get RM10 Discount</td>
                   <td>2020-03-01</td>
                   <td class="text-center">RM10</td>
                 </tr>
                 <tr>
-                  <td>ALNILE15</td>
+                  <td>SMART15</td>
                   <td>Get 15% Discount</td>
                   <td>2020-03-01</td>
                   <td class="text-center">15%</td>
@@ -204,25 +204,25 @@
               </thead>
               <tbody>                
                 <tr>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td>2020-03-01</td>
                   <td></td>
                   <td>5,000.00</td>
                 </tr>
                 <tr>
-                  <td>Batuta Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td>2020-03-01</td>
                   <td></td>
                   <td>5,000.00</td>
                 </tr>
                 <tr>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td>2020-03-01</td>
                   <td></td>
                   <td>5,000.00</td>
                 </tr>
                 <tr>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td>2020-03-01</td>
                   <td></td>
                   <td>5,000.00</td>
@@ -254,61 +254,61 @@
               <tbody>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">1</td>
                   <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">1</td>
                   <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">1</td>
                   <td class="text-center">1</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">2</td>
                   <td class="text-center">2</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">2</td>
                   <td class="text-center">2</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-center">3</td>
                   <td class="text-center">3</td>
                 </tr>
                 <tr>
                   <td>Malaysia</td>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-center">4</td>
                   <td class="text-center">4</td>
                 </tr>   
                 <tr>
                   <td>Malaysia</td>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-center">4</td>
                   <td class="text-center">4</td>
                 </tr> 
                 <tr>
                   <td>Malaysia</td>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-center">4</td>
                   <td class="text-center">4</td>
                 </tr> 
                 <tr>
                   <td>Malaysia</td>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-center">4</td>
                   <td class="text-center">4</td>
                 </tr>             
@@ -354,15 +354,15 @@
               <tbody>                
                 <tr>
                   <td rowspan="3">January</td>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-right">3,000</td>
                 </tr>
                 <tr>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-right">4,000</td>
                 </tr>
                 <tr>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-right">5,000</td>
                 </tr>
                 <tr>
@@ -371,15 +371,15 @@
                 </tr>
                 <tr>
                   <td rowspan="3">February</td>
-                  <td>Ash-Har Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-right">3,000</td>
                 </tr>
                 <tr>
-                  <td>Al-Nile Tour & Travel Sdn Bhd</td>
+                  <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
                   <td class="text-right">4,000</td>
                 </tr>
                 <tr>
-                  <td>Andalusia Travel & Tours Sdn Bhd</td>
+                  <td>EPL Travel & Tours Sdn Bhd</td>
                   <td class="text-right">5,000</td>
                 </tr>
                 <tr>

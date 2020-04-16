@@ -1,9 +1,43 @@
+$(document).ready(function () {
+
+  if (matchMedia) {
+    var mq = window.matchMedia("(max-width: 765px)");
+    mq.addListener(WidthChange);
+    WidthChange(mq);
+  }
+
+  function WidthChange(mq) {
+    if (mq.matches) {
+      $("#filter").removeClass('show');
+      $("#filter").addClass('hide');
+      $("#sort").removeClass('show');
+      $("#sort").addClass('hide');
+      $("#sort").collapse('hide');
+      $("#filter").collapse('hide');
+    }
+  }
+});
+
+function filterRating(y) {
+
+  var x = location.search;
+  var current_url = window.location.href;
+
+  if (x.length > 0 ) {
+    var goToURL = (current_url.includes('rating')) ? replaceUrlParam(current_url, 'rating', y): current_url + '&rating=' + y;
+  } else {
+    var goToURL = current_url + '?rating=' + y;
+  }
+  
+  window.open(goToURL, '_self');
+}
+
 function clearFilter() { 
 
   var current_url = window.location.href;
   var goToURL = current_url;
 
-  if (current_url.includes('filter')) {
+  if (current_url.includes('filter') || current_url.includes('promo')) {
 
     goToURL = removeUrlParam(goToURL, 'filter');
     goToURL = removeUrlParam(goToURL, 'priceMin');
@@ -11,9 +45,9 @@ function clearFilter() {
     goToURL = removeUrlParam(goToURL, 'distMakkah');
     goToURL = removeUrlParam(goToURL, 'distMadinah');
     goToURL = removeUrlParam(goToURL, 'agency');
-    goToURL = removeUrlParam(goToURL, 'promotion');
     goToURL = removeUrlParam(goToURL, 'state');
     goToURL = removeUrlParam(goToURL, 'city');
+    goToURL = removeUrlParam(goToURL, 'promo');
   
     window.open(goToURL, '_self');
 
@@ -24,11 +58,45 @@ function clearFilter() {
     $('#f_distance_makkah').val('');
     $('#f_distance_madinah').val('');
     $('#f_agency').val('');
-    $('#f_promo').val('');
     $('#f_state').val('');
     $('#f_city').val('');
 
+    $('#f_1star').removeClass('active');    
+    $('#f_2star').removeClass('active');    
+    $('#f_3star').removeClass('active');    
+    $('#f_4star').removeClass('active');    
+    $('#f_5star').removeClass('active');    
+
   }  
+}
+
+function filterPromo(name) {  
+
+  var x = location.search;
+  var current_url = window.location.href;
+
+  var goToURL = current_url;
+  // (current_url.includes('filter')) ? goToURL = goToURL: goToURL += '&filter=1';
+
+  if (current_url.includes('promo')) {
+    if (current_url.includes(name)) {
+      var str = findGetParameter('promo');
+      var newValue = removeValueParam(str, name);
+      if (newValue.length > 0){
+        goToURL = replaceUrlParam(goToURL, 'promo', newValue);
+      } else {
+        goToURL = removeUrlParam(goToURL, 'promo');
+      }
+    } else {
+      var str = findGetParameter('promo');
+      goToURL = replaceUrlParam(goToURL, 'promo', str+encodeURIComponent(",")+name);
+      // goToURL += encodeURIComponent(",")+name;
+    }
+  } else {
+    goToURL += '&promo='+name;
+  }
+
+  window.open(goToURL, '_self');
 }
 
 function filtering() {
@@ -36,12 +104,11 @@ function filtering() {
   var x = location.search;
   var current_url = window.location.href;
 
-  var priceMin = $('#f_price_min').val();
+  // var priceMin = $('#f_price_min').val();
   var priceMax = $('#f_price_max').val();
   var distMakkah = $('#f_distance_makkah').val();
   var distMadinah = $('#f_distance_madinah').val();
   var agency = $('#f_agency').val();
-  var promotion = $('#f_promo').val();
   var state = $('#f_state').val();
   var city = $('#f_city').val();
 
@@ -49,16 +116,15 @@ function filtering() {
 
   (current_url.includes('filter')) ? goToURL = goToURL: goToURL += '&filter=1';
 
-  if (priceMin.length == 0 && priceMax.length == 0 && distMakkah.length == 0 && distMadinah.length == 0 && agency.length == 0 && promotion.length == 0 && state.length == 0 && city.length == 0) {
+  if (priceMax.length == 0 && distMakkah.length == 0 && distMadinah.length == 0 && agency.length == 0 && state.length == 0 && city.length == 0) {
     goToURL = removeUrlParam(goToURL, 'filter');
   }
 
-  (priceMin.length > 0) ? (current_url.includes('priceMin')) ? goToURL = replaceUrlParam(goToURL, 'priceMin', priceMin): goToURL += '&priceMin=' + priceMin: goToURL = removeUrlParam(goToURL, 'priceMin');
+  // (priceMin.length > 0) ? (current_url.includes('priceMin')) ? goToURL = replaceUrlParam(goToURL, 'priceMin', priceMin): goToURL += '&priceMin=' + priceMin: goToURL = removeUrlParam(goToURL, 'priceMin');
   (priceMax.length > 0) ? (current_url.includes('priceMax')) ? goToURL = replaceUrlParam(goToURL, 'priceMax', priceMax): goToURL += '&priceMax=' + priceMax: goToURL = removeUrlParam(goToURL, 'priceMax');
   (distMakkah.length > 0) ? (current_url.includes('distMakkah')) ? goToURL = replaceUrlParam(goToURL, 'distMakkah', distMakkah): goToURL += '&distMakkah=' + distMakkah: goToURL = removeUrlParam(goToURL, 'distMakkah');
   (distMadinah.length > 0) ? (current_url.includes('distMadinah')) ? goToURL = replaceUrlParam(goToURL, 'distMadinah', distMadinah): goToURL += '&distMadinah=' + distMadinah: goToURL = removeUrlParam(goToURL, 'distMadinah');
   (agency.length > 0) ? (current_url.includes('agency')) ? goToURL = replaceUrlParam(goToURL, 'agency', agency): goToURL += '&agency=' + agency: goToURL = removeUrlParam(goToURL, 'agency');
-  (promotion.length > 0) ? (current_url.includes('promotion')) ? goToURL = replaceUrlParam(goToURL, 'promotion', promotion): goToURL += '&promotion=' + promotion: goToURL = removeUrlParam(goToURL, 'promotion');
   (state.length > 0) ? (current_url.includes('state')) ? goToURL = replaceUrlParam(goToURL, 'state', state): goToURL += '&state=' + state: goToURL = removeUrlParam(goToURL, 'state');
   (city.length > 0) ? (current_url.includes('city')) ? goToURL = replaceUrlParam(goToURL, 'city', city): goToURL += '&city=' + city: goToURL = removeUrlParam(goToURL, 'city');
 
@@ -149,21 +215,41 @@ function findGetParameter(parameterName) {
   return result;
 }
 
-$(document).ready(function () {
+function removeValueParam(str,value) {
+  var res = str.replace(value, "");
+  var after = res.replace(/^,|,$/g, '');
+  return after;
+}
 
-  document.getElementById("demo").innerHTML = calculate(100, 'MYR', 'SGD');
-
-  if (matchMedia) {
-    var mq = window.matchMedia("(max-width: 765px)");
-    mq.addListener(WidthChange);
-    WidthChange(mq);
+$(".input-distance").keydown(function(e) {
+  // Allow: backspace, delete, tab, escape, enter and .
+  if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+      // Allow: Ctrl+A
+      (e.keyCode == 65 && e.ctrlKey === true) ||
+      // Allow: home, end, left, right
+      (e.keyCode >= 35 && e.keyCode <= 39)) {
+      // let it happen, don't do anything
+      return;
   }
+  // Ensure that it is a number and stop the keypress
+  if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+      e.preventDefault();
+  }
+});
 
-  function WidthChange(mq) {
-    if (mq.matches) {
-      $("#filter").collapse('hide');
-      $("#sort").collapse('hide');
-    }
+$(".input-price").keydown(function(e) {
+  // Allow: backspace, delete, tab, escape, enter and .
+  if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+      // Allow: Ctrl+A
+      (e.keyCode == 65 && e.ctrlKey === true) ||
+      // Allow: home, end, left, right
+      (e.keyCode >= 35 && e.keyCode <= 39)) {
+      // let it happen, don't do anything
+      return;
+  }
+  // Ensure that it is a number and stop the keypress
+  if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+      e.preventDefault();
   }
 });
 
