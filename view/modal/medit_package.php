@@ -48,6 +48,9 @@
               <label for="" class="col-form-label">Umrah Cost</label>
               <input type="text" class="form-control form-control-sm" >
 
+              <label for="" class="col-form-label">Package Pax</label>
+              <input type="text" class="form-control form-control-sm" >
+
               <label for="" class="col-form-label">Image Thumbnail</label>
               <div class="input-group">
                 <div class="custom-file">
@@ -112,16 +115,16 @@
           </div>
           <hr>
           <div class="form-group row text-md">
-            <div class="col-md-5">
+            <div class="col-md-4">
               <label for="" class="">Room Type</label>
               <input type="text" class="form-control form-control-sm" >
             </div>
             <div class="col-md-3">
-              <label for="" class="">Price (RM)</label>
+              <label for="" class="">Actual Cost (RM)</label>
               <input type="text" class="form-control form-control-sm" >
             </div>
-            <div class="col-md-2">
-              <label for="" class="">Pax</label>
+            <div class="col-md-3">
+              <label for="" class="">Umrah Cost (RM)</label>
               <input type="text" class="form-control form-control-sm" >   
             </div>
             <div class="col-md-2">
@@ -135,9 +138,9 @@
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th width="45%">Room Type</th>
-                      <th width="30%">Price (RM)</th>
-                      <th width="15%">Pax</th>
+                      <th width="40%">Room Type</th>
+                      <th width="25%">Actual Cost (RM)</th>
+                      <th width="25%">Umrah Cost (RM)</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -145,7 +148,7 @@
                     <tr>
                       <td>Double Bed</td>
                       <td class="text-right">6,200.00</td>
-                      <td class="text-center">10</td>
+                      <td class="text-right">6,000.00</td>
                       <td class="text-center">
                         <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
                       </td>
@@ -153,7 +156,7 @@
                     <tr>
                       <td>Triple Bed</td>
                       <td class="text-right">7,200.00</td>
-                      <td class="text-center">10</td>
+                      <td class="text-right">7,000.00</td>
                       <td class="text-center">
                         <button class="btn btn-danger btn-xs" type="button" title="Remove" onClick="showAlert('Room',2,3);"><i class="fas fa-trash fa-sm"></i></button>
                       </td>

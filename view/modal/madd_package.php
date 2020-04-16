@@ -48,6 +48,9 @@
               <label for="" class="col-form-label">Umrah Cost</label>
               <input type="text" class="form-control form-control-sm" >
 
+              <label for="" class="col-form-label">Package Pax</label>
+              <input type="text" class="form-control form-control-sm" >
+
               <label for="" class="col-form-label">Image Thumbnail</label>
               <div class="input-group">
                 <div class="custom-file">

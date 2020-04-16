@@ -1,8 +1,8 @@
 <div class="modal" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-primary" id="exampleModalLabel">Summary of Booking Selection</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Payment Information</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -20,16 +20,11 @@
                   <img src="./img/paypal.png" width="32px">
                   <img src="./img/maestro.png" width="32px">
                   <img src="./img/western-union.png" width="32px">
-                  <img src="./img/visa.png" width="32px">
-                  <img src="./img/master-card.png" width="32px">
-                  <img src="./img/paypal.png" width="32px">
-                  <img src="./img/maestro.png" width="32px">
-                  <img src="./img/western-union.png" width="32px">
                 </div>              
               </div>
               <div class="form-group row text-md">
                 <div class="col-md-12">
-                  <label for="" class="col-form-label">Select payment method</label>
+                  <label for="" class="col-form-label">Payment Method</label>
                   <select class="form-control form-control-sm" id="country">
                     <option value="">Please Select</option>
                     <option value=""></option>
@@ -75,49 +70,35 @@
           </div>
           <div class="col-md-5 text-md">
             <strong>Package Detail</strong><br>
+            <span style="font-size: .8rem">
             Package Gold<br>
             Double Bed<br>
             3 adults<br>
             2 childrens<br>
             Total pax : 5
+            </span>
             <hr>
-            <!-- <div class="row text-md">
-              <div class="col-md-12">
-                <label for="" class="col-form-label">Promo Code</label>
-                <input type="text" class="form-control form-control-sm" >
-              </div>
-            </div>
-            <br> -->
             <div class="row">
               <div class="col-md-12">
                 <strong>Booking Deposit</strong>
               </div>
             </div>
-            <!-- <div class="row">
+            <div class="row">
               <div class="col-md-6">
-                <small>Original price <br>(RM200 x 5 pax)</small>
+                <small>Price <br></small>
               </div>
               <div class="col-md-6">
-                <small>RM 1,000.00</small>
+                <small>RM1,000.00</small>
               </div>
+              <div class="col-sm-12"><small>(RM300 x 5 pax)</small></div>
             </div>
+            <hr>
             <div class="row">
-              <div class="col-md-6">
-                <small>Promotion (10%)</small>
-              </div>
-              <div class="col-md-6">
-                <small>- RM 100.00</small>
-              </div>
-            </div> -->
-            <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <small>Total amount to pay</small>
               </div>
-              <div class="col-md-6">
-                <!-- <small>RM 800.00</small> -->
-              </div>
             </div>            
-            <h2 class="text-primary">RM900.00</h2>
+            <h3 class="text-danger">RM1,500.00</h3>
           </div>
         </div>          
       </div>
@@ -125,7 +106,7 @@
         <a class="btn btn-outline-secondary btn-sm" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-outline-primary btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
+        <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
           Book & Pay Now!
         </a>
       </div>

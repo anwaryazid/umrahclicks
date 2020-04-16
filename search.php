@@ -102,10 +102,9 @@ $rates = convert_currency('MYR', $currencyCode);
       ?> 
       <div id="content">    
         <div class="container-fluid ">
-
           <div class="row">
-            <div class="col-xl-2 col-lg-3 col-md-4">
-                            
+
+            <div class="col-xl-2 col-lg-3 col-md-4">                            
               <!-- Filter -->
               <div class="card mb-3 d-sm-none d-md-block">
                 <a href="#filter" class="d-block card-header py-3 bg-white collapse" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter">
@@ -253,7 +252,6 @@ $rates = convert_currency('MYR', $currencyCode);
                   </div>
                 </div>
               </div>
-
               <!-- Advertisment -->
               <div class="d-none d-md-block">
                 <div class="card mb-4">
@@ -289,17 +287,14 @@ $rates = convert_currency('MYR', $currencyCode);
                   </div>
                 </div>
               </div>              
-
             </div>
 
             <!-- Packages -->
             <div class="col-xl-10 col-lg-9 col-md-8">  
-
               <!-- Search Info -->
               <div class="alert alert-light bg-white text-primary" style="font-size: .7rem;">
                 Search result for Departure Date <br class="d-block d-sm-none"><span class="font-weight-bolder"><?php echo $dateFrom; ?> - <?php echo $dateTo; ?></span>
               </div>  
-
               <!-- Sort -->
               <div class="alert alert-light bg-white text-primary" style="font-size: .8rem;">
                 <div class="row">
@@ -389,7 +384,7 @@ $rates = convert_currency('MYR', $currencyCode);
                     </div>
                   </div>                  
                 </a>
-                <div class="collapse hide" id="agency_1">
+                <div class="collapse show" id="agency_1">
                   <div class="card-body text-md">
                     <div class="row">
                       <div class="col-xl-6 col-lg-12">
@@ -534,10 +529,10 @@ $rates = convert_currency('MYR', $currencyCode);
                               <tr class="border-bottom">
                                 <td class="text-primary"><strong>Room</strong></td>
                                 <td class="text-primary"><strong>Price</strong></td>
-                                <td></td>
+                                <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
                               </tr>                              
                               <tr class="border-bottom">
-                                <td class="align-middle">Double Bed <br><small>(4 pax left)</small></td>
+                                <td class="align-middle">Double Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = true;
@@ -560,21 +555,12 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle" width="120px">
-                                  <!-- <div class="input-group input-group-sm">
-                                    <div class="input-group-prepend" id="button-addon4">
-                                      <button class="btn btn-outline-secondary" type="button"><i class="fas fa-minus fa-sm"></i></button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm" size="2">
-                                    <div class="input-group-append" id="button-addon4">
-                                      <button class="btn btn-outline-secondary" type="button"><i class="fas fa-plus fa-sm"></i></button>
-                                    </div>
-                                  </div> -->
+                                <td class="align-middle text-center" width="120px">
                                   <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Triple Bed <br><small>(4 pax left)</small></td>
+                                <td class="align-middle">Triple Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = true;
@@ -597,12 +583,12 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle">
+                                <td class="align-middle text-center">
                                   <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Quadruple Bed <br><small class="text-danger">(0 pax left)</small></td>
+                                <td class="align-middle">Quadruple Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = true;
@@ -625,16 +611,19 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;" disabled>Book Now</button>
+                                <td class="align-middle text-center">
+                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
+                              <tr class="border-bottom" style="font-size: .8rem;">
+                                <td colspan="3">
+                                  <div class="alert alert-primary" role="alert" style="font-size: .8rem">
+                                    <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
+                                  </div>
+                                </td> 
+                              </tr>
                             </table>
-                            <?php if ($hasDiscount) { ?>
-                            <div class="alert text-center text-danger border-danger mt-3" style="font-size: .8rem;" role="alert">
-                              <strong>UMRAH4ALL : 20% off today only!</strong>
-                            </div>
-                            <?php } ?>
+                            
                           </div>
                         </div>
                         <!-- Image Hotel Makkah -->
@@ -937,10 +926,10 @@ $rates = convert_currency('MYR', $currencyCode);
                               <tr class="border-bottom">
                                 <td class="text-primary"><strong>Room</strong></td>
                                 <td class="text-primary"><strong>Price</strong></td>
-                                <td></td>
+                                <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
                               </tr>                              
                               <tr class="border-bottom">
-                                <td class="align-middle">Double Bed <small>(4 pax left)</small></td>
+                                <td class="align-middle">Double Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = false;
@@ -963,12 +952,12 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle">
+                                <td class="align-middle text-center">
                                   <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Triple Bed <small>(4 pax left)</small></td>
+                                <td class="align-middle">Triple Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = false;
@@ -991,12 +980,12 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle">
+                                <td class="align-middle text-center">
                                   <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Quadruple Bed <small class="text-danger">(0 pax left)</small></td>
+                                <td class="align-middle">Quadruple Bed</td>
                                 <td class="align-middle font-weight-bold text-primary">  
                                   <?php 
                                     $hasDiscount = false;
@@ -1019,16 +1008,18 @@ $rates = convert_currency('MYR', $currencyCode);
                                   }
                                   ?>
                                 </td>
-                                <td class="align-middle">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;" disabled>Book Now</button>
+                                <td class="align-middle text-center">
+                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
-                            </table>                            
-                            <?php if ($hasDiscount) { ?>
-                            <div class="alert alert-danger text-center mt-3" style="font-size: .8rem;" role="alert">
-                              <strong>UMRAH4ALL : 20% off today only!</strong>
-                            </div>
-                            <?php } ?>
+                              <tr class="border-bottom" style="font-size: .8rem;">
+                                <td colspan="3">
+                                  <div class="alert alert-primary" role="alert" style="font-size: .8rem">
+                                    <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
+                                  </div>
+                                </td> 
+                              </tr>
+                            </table>       
                           </div>
                         </div>
                         <!-- Image Hotel Makkah -->
