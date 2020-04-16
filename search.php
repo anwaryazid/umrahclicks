@@ -389,7 +389,7 @@ $rates = convert_currency('MYR', $currencyCode);
                     </div>
                   </div>                  
                 </a>
-                <div class="collapse show" id="agency_1">
+                <div class="collapse hide" id="agency_1">
                   <div class="card-body text-md">
                     <div class="row">
                       <div class="col-xl-6 col-lg-12">
