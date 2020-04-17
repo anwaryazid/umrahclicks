@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark shadow-sm" style="background-color: #417dc1">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-info shadow-sm">
   <!-- <a class="navbar-brand mb-0" href="home.php"><i class="fas fa-fw fa-kaaba"></i>&nbsp;UmrahClicks.my</a> -->
   <a class="navbar-brand" href="home.php"><img class="d-block rounded-lg" src="img/umrahclicks-logo.JPG" height="40px" alt="UmrahClicks"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,14 +22,14 @@
       <form class="form-inline">
         <i class="fas fa-plane-departure fa-sm mb-1 mt-1" style="font-size: 1.2rem;"></i>&nbsp;
         <span class="">Departure Date&nbsp;&nbsp;</span>
-        <input type="text" class="form-control mb-1 mt-1 form-control-sm border-white text-white text-center" style="background-color:#417dc1" id="t_dateDepart" value="<?php echo $dateDepart; ?>" size="10">&nbsp;&nbsp;
+        <input type="text" class="form-control mb-1 mt-1 form-control-sm bg-info border-white text-white text-center" id="t_dateDepart" value="<?php echo $dateDepart; ?>" size="10">&nbsp;&nbsp;
         <i class="fas fa-male fa-sm mb-1 mt-1" style="font-size: 1.2rem;"></i>
         <i class="fas fa-female fa-sm mb-1 mt-1" style="font-size: 1.2rem;"></i>&nbsp;
         <span class="">Adult&nbsp;&nbsp;</span>
-        <input type="text" class="form-control mb-1 mt-1 form-control-sm border-white text-white text-center input-number" style="background-color:#417dc1" id="t_noAdult" value="<?php echo $noAdult; ?>" size="2">&nbsp;&nbsp;
+        <input type="text" class="form-control mb-1 mt-1 form-control-sm bg-info border-white text-white text-center input-number" id="t_noAdult" value="<?php echo $noAdult; ?>" size="2">&nbsp;&nbsp;
         <i class="fas fa-child fa-sm mb-1 mt-1" style="font-size: 1.2rem;"></i>&nbsp;
         <span class="">Children&nbsp;&nbsp;</span>
-        <input type="text" class="form-control mb-1 mt-1 form-control-sm border-white text-white text-center input-number" style="background-color:#417dc1" id="t_noChild"  value="<?php echo $noChild; ?>" size="2">
+        <input type="text" class="form-control mb-1 mt-1 form-control-sm bg-info border-white text-white text-center input-number" id="t_noChild"  value="<?php echo $noChild; ?>" size="2">
         <span class="d-none d-sm-block">&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <button class="btn btn-outline-light mb-1 mt-1 btn-sm" type="button" onClick="searchingT()">&nbsp;<i class="fas fa-search fa-sm"></i>&nbsp;Search&nbsp;</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
