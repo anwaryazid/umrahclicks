@@ -66,7 +66,11 @@ function convert_currency($from,$to) {
   return $obj->{$from.'_'.$to};
 }
 
-$rates = convert_currency('MYR', $currencyCode);
+if ($currencyCode == 'MYR') {
+  $rates = 1;
+} else {
+  $rates = convert_currency('MYR', $currencyCode);
+}
 
 ?> 
 
@@ -276,6 +280,7 @@ $rates = convert_currency('MYR', $currencyCode);
                    
               <!-- Package 1 -->
               <?php
+              
                 $minAmount = 6000 * $rates;
                 $maxAmount = 8500 * $rates;
                 $hasDiscount = true;
@@ -348,7 +353,7 @@ $rates = convert_currency('MYR', $currencyCode);
                     </div>
                   </div>                  
                 </a>
-                <div class="collapse show" id="agency_1">
+                <div class="collapse hide" id="agency_1">
                   <div class="card-body text-md">
                     <div class="row">
                       <div class="col-xl-6 col-lg-12">
