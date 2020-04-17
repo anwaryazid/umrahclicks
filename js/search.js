@@ -141,7 +141,12 @@ function searchingT() {
   var noAdult = $('#t_noAdult').val();
   var noChild = $('#t_noChild').val();
 
-  var goToURL = 'search.php?';
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  const country = urlParams.get('country');
+
+  var goToURL = 'search.php?page=1&country='+country;
 
   if (dateDepart.length == 0 || noAdult.length == 0 || noChild.length == 0) {
     error = 'Please fill in the form.';
@@ -166,6 +171,8 @@ function searchingT() {
     if (noChild.length > 0) {
       goToURL += '&noChild='+noChild;
     }
+
+    goToURL += '&sort=priceLowToHigh';
   
     window.open(goToURL, '_self');
   } 
