@@ -102,8 +102,8 @@ require("lib/conn.php");
               </div>
               <form>
                 <?php $countryList = $conn->query("SELECT * FROM ref_country"); ?>  
-                <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">Country</label>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Country</label>
                   <div class="col-sm-7">
                     <input type="hidden" class="form-control form-control-sm text-center border-primary text-primary" id="s_country" name="s_country" value="MY">
                     <div class="dropdown">
@@ -123,8 +123,8 @@ require("lib/conn.php");
                     </div>
                   </div>
                 </div>            
-                <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">Departure Date</label>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Departure Date</label>
                   <div class="col-sm-7">
                     <div class="input-group input-group-sm">   
                       <input type="text" class="form-control form-control-sm text-center border-primary text-primary input-date" id="s_dateDepart" name="s_dateDepart" placeholder="DD/MM/YYYY">
@@ -134,8 +134,8 @@ require("lib/conn.php");
                     </div>
                   </div>               
                 </div>
-                <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">No. of Adult</label>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">No. of Adult</label>
                   <div class="col-sm-7">
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
@@ -148,8 +148,8 @@ require("lib/conn.php");
                     </div>
                   </div>                 
                 </div>
-                <div class="form-group row text-md">
-                  <label for="staticEmail" class="col-sm-5 col-form-label">No. of Children</label>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">No. of Children</label>
                   <div class="col-sm-7">
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
@@ -162,6 +162,65 @@ require("lib/conn.php");
                     </div>
                   </div>                 
                 </div>
+                <!-- <div class="row">
+                  <div class="col-sm-6">
+                    <?php $countryList = $conn->query("SELECT * FROM ref_country"); ?>  
+                    <div class="form-group">                  
+                      <label>Country</label>
+                      <input type="hidden" class="form-control form-control-sm text-center border-primary text-primary" id="s_country" name="s_country" value="MY">
+                      <div class="dropdown">
+                        <button class="btn btn-outline-primary btn-sm btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="img/flag/MY-sq-32.png" height="23" alt="" id="countryFlag">&nbsp; <span id="countryName">MALAYSIA</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100%;">
+                          <?php
+                          while($rows = $countryList->fetch_assoc())
+                          {
+                            $countryName = $rows['keterangan'];
+                            $countryKod = $rows['kod'];
+                            echo '<a class="dropdown-item" href="#" onClick="selectCountry(\''.$countryKod.'\',\''.$countryName.'\');"><img src="img/flag/'.$countryKod.'-sq-32.png" height="23" alt="">&nbsp;&nbsp;'.$countryName.'&nbsp;&nbsp;</a><div class="dropdown-divider"></div>';
+                          }
+                          ?>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">                  
+                    <label>Departure Date</label>
+                    <div class="input-group input-group-sm">   
+                      <input type="text" class="form-control form-control-sm text-center border-primary text-primary input-date" id="s_dateDepart" name="s_dateDepart" placeholder="DD/MM/YYYY">
+                      <div class="input-group-append">
+                        <span class="input-group-text input-group-addon bg-white text-primary border-primary">&nbsp;<i class="fas fa-plane-departure fa-sm"></i>&nbsp;</span>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label>No. of Adult</label>
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-warning btn-number border-primary" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
+                      </div>
+                      <input type="text" name="quant[1]" id="s_noAdult" class="form-control form-control-sm text-center input-number border-primary text-primary" value="1" min="1" max="200">
+                      <div class="input-group-append">
+                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">  
+                    <label>No. of Children</label>
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-warning btn-number border-primary" type="button" id="button-minus-min" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
+                      </div>
+                      <input type="text" name="quant[2]" id="s_noChild" class="form-control form-control-sm text-center input-number border-primary text-primary" value="0" min="0" max="200">
+                      <div class="input-group-append">
+                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
                 <hr>
                 <div class="btn-group btn-block" role="group">
                   <button type="reset" class="btn btn-sm btn-danger" style="width:50%" onclick="resetSearch();"><i class="fas fa-eraser fa-sm"></i> Clear</button>
