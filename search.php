@@ -113,31 +113,6 @@ $rates = convert_currency('MYR', $currencyCode);
                 <div class="collapse show" id="filter">
                   <div class="card-body">
                     <form class="">
-                      <!-- <div class="form-row form-group" style="font-size: 13px;">
-                        <div class="col-sm-12">Price Range (<?php echo $currency; ?>)</div>
-                        <div class="col-sm-12 mb-2">
-                          <div class="input-group input-group-xs">
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
-                            </div>
-                            <input type="text" value="<?php echo $priceMin; ?>" name="quant[1]" class="form-control text-center input-number border-secondary" id="f_price_min" placeholder="Min" min="1" max="100000">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
-                            </div>
-                          </div>
-                        </div>                        
-                        <div class="col-sm-12">
-                          <div class="input-group input-group-xs">   
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-max" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
-                            </div>
-                            <input type="text" value="<?php echo $priceMax; ?>" name="quant[2]" class="form-control text-center input-number border-secondary" id="f_price_max" placeholder="Max" min="1" max="100000">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
-                            </div>
-                          </div>
-                        </div>            
-                      </div> -->
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">Price</div>
                         <div class="col-sm-12">
@@ -219,32 +194,32 @@ $rates = convert_currency('MYR', $currencyCode);
                       <div class="mb-1" style="font-size: 13px;">
                         <span>Rating</span>
                       </div>
-                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='5') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(5);" id="f_5star">
+                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='5') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(5);" id="f_5star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                       </button>
-                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='4') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(4);" id="f_4star">
+                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='4') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(4);" id="f_4star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='3') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(3);" id="f_3star">
+                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='3') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(3);" id="f_3star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='2') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(2);" id="f_2star">
+                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='2') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(2);" id="f_2star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='1') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(1);" id="f_1star">
+                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='1') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(1);" id="f_1star">
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
@@ -299,10 +274,7 @@ $rates = convert_currency('MYR', $currencyCode);
               <div class="alert alert-light bg-white text-primary" style="font-size: .8rem;">
                 <div class="row">
                   <div class="col-auto">              
-                    <span class="align-middle"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</span>&nbsp; &nbsp;
-                    <!-- <br class="d-block d-xs-block d-md-block d-lg-none"> -->
-                    <!-- <button class="btn btn-sm text-primary" type="button" style="font-size: 12px;"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</button> -->
-                    <!-- <button class="btn btn-sm btn-outline-primary mt-1 <?php if ($sort == 'departureDate'){ ?>active<?php } ?>" type="button" onClick="sorting('departureDate');" style="font-size: 12px;"><span class="d-none d-sm-block">Departure</span> Date</button> -->
+                    <Sort class="align-middle"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</span>&nbsp;
                     <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'priceLowToHigh'){ ?>active<?php } ?>" type="button" onClick="sorting('priceLowToHigh');" style="font-size: 12px;">Lowest Price</span></button>
                     <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'latest'){ ?>active<?php } ?>" type="button" onClick="sorting('latest');" style="font-size: 12px;">Latest</span></button>
                     <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'popular'){ ?>active<?php } ?>" type="button" onClick="sorting('popular');" style="font-size: 12px;">Popular</button>
@@ -397,7 +369,7 @@ $rates = convert_currency('MYR', $currencyCode);
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
                                 <td></td>
-                                <td class="text-gray-900 d-none d-sm-block"></td>
+                                <td class="text-primary d-none d-sm-block"></td>
                                 <td class="text-primary"><strong>Makkah</strong></td>
                                 <td class="text-primary"><strong>Madinah</strong></td>
                               </tr>
@@ -465,16 +437,16 @@ $rates = convert_currency('MYR', $currencyCode);
                                 <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
                               </div>  
                               <div class="col-auto my-auto">  
-                                <button class="btn btn-sm btn-outline-primary active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
                               </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <div class="row" style="font-size: .8rem">
                               <div class="col-md-12">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
                                 <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
@@ -524,106 +496,118 @@ $rates = convert_currency('MYR', $currencyCode);
                           <div class="card-header text-center" style="background-color: white;">
                             <strong class="m-0 text-primary">Room & Price Information</strong>
                           </div>
-                          <div class="card-body">                            
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td class="text-primary"><strong>Room</strong></td>
-                                <td class="text-primary"><strong>Price</strong></td>
-                                <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
-                              </tr>                              
-                              <tr class="border-bottom">
-                                <td class="align-middle">Double Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
-                                  <?php 
-                                    $hasDiscount = true;
-                                    $amount = 6000 * $rates;
-                                    if ($hasDiscount) {
-                                      $discount = 0.2;                                     
-                                      $amountDiscount = $amount * $discount;
-                                      $amountAfterDiscount = $amount - $amountDiscount;
-                                      echo $currency.''.number_format($amountAfterDiscount, 2);
-                                    } else {
-                                      echo $currency.''.number_format($amount, 2);
-                                    }          
-                                  ?>
-                                  <?php
-                                  if ($hasDiscount) {
-                                  ?>
-                                  <br/>
-                                  <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
-                                  <?php
-                                  }
-                                  ?>
-                                </td>
-                                <td class="align-middle text-center" width="120px">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
-                                </td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="align-middle">Triple Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
-                                  <?php 
-                                    $hasDiscount = true;
-                                    $amount = 7200 * $rates;
-                                    if ($hasDiscount) {
-                                      $discount = 0.2;                                     
-                                      $amountDiscount = $amount * $discount;
-                                      $amountAfterDiscount = $amount - $amountDiscount;
-                                      echo $currency.''.number_format($amountAfterDiscount, 2);
-                                    } else {
-                                      echo $currency.''.number_format($amount, 2);
-                                    }          
-                                  ?>
-                                  <?php
-                                  if ($hasDiscount) {
-                                  ?>
-                                  <br/>
-                                  <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
-                                  <?php
-                                  }
-                                  ?>
-                                </td>
-                                <td class="align-middle text-center">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
-                                </td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="align-middle">Quadruple Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
-                                  <?php 
-                                    $hasDiscount = true;
-                                    $amount = 8500 * $rates;
-                                    if ($hasDiscount) {
-                                      $discount = 0.2;                                     
-                                      $amountDiscount = $amount * $discount;
-                                      $amountAfterDiscount = $amount - $amountDiscount;
-                                      echo $currency.''.number_format($amountAfterDiscount, 2);
-                                    } else {
-                                      echo $currency.''.number_format($amount, 2);
-                                    }          
-                                  ?>
-                                  <?php
-                                  if ($hasDiscount) {
-                                  ?>
-                                  <br/>
-                                  <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
-                                  <?php
-                                  }
-                                  ?>
-                                </td>
-                                <td class="align-middle text-center">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
-                                </td>
-                              </tr>
-                              <tr class="border-bottom" style="font-size: .8rem;">
-                                <td colspan="3">
-                                  <div class="alert alert-primary" role="alert" style="font-size: .8rem">
-                                    <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
-                                  </div>
-                                </td> 
-                              </tr>
-                            </table>
-                            
+                          <div class="card-body text-md"> 
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <table class="table table-borderless" width="100%" cellspacing="0">
+                                  <tr class="border-bottom">
+                                    <td class="text-primary"><strong>Room</strong></td>
+                                    <td class="text-primary"><strong>Price</strong></td>
+                                    <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
+                                  </tr>                              
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Double Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Double Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 6000 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center" width="120px">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Triple Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Triple Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 7200 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Quadruple Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Quadruple Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 8500 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom" style="font-size: .8rem;">
+                                    <td colspan="3">
+                                      <div class="alert alert-primary" role="alert" style="font-size: .8rem">
+                                        <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
+                                      </div>
+                                    </td> 
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>   
                           </div>
                         </div>
                         <!-- Image Hotel Makkah -->
@@ -783,7 +767,7 @@ $rates = convert_currency('MYR', $currencyCode);
                 </a>
                 <div class="collapse hide" id="agency_2">
                   <div class="card-body text-md">
-                  <div class="row">
+                    <div class="row">
                       <div class="col-xl-6 col-lg-12">
                         <!-- Package Details -->
                         <div class="card mb-4">
@@ -794,7 +778,7 @@ $rates = convert_currency('MYR', $currencyCode);
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
                                 <td></td>
-                                <td class="text-gray-900 d-none d-sm-block"></td>
+                                <td class="text-primary d-none d-sm-block"></td>
                                 <td class="text-primary"><strong>Makkah</strong></td>
                                 <td class="text-primary"><strong>Madinah</strong></td>
                               </tr>
@@ -862,12 +846,12 @@ $rates = convert_currency('MYR', $currencyCode);
                                 <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
                               </div>  
                               <div class="col-auto my-auto">  
-                                <button class="btn btn-sm btn-outline-primary active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
                               </div>
                             </div>
                             <hr>
@@ -929,8 +913,11 @@ $rates = convert_currency('MYR', $currencyCode);
                                 <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
                               </tr>                              
                               <tr class="border-bottom">
-                                <td class="align-middle">Double Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
+                                <td class="align-middle">
+                                  <span class="d-none d-sm-block">Double Bed</span>
+                                  <span class="d-block d-sm-none" style="font-size: .8rem">Double Bed</span>
+                                </td>
+                                <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">   
                                   <?php 
                                     $hasDiscount = false;
                                     $amount = 5500 * $rates;
@@ -957,8 +944,11 @@ $rates = convert_currency('MYR', $currencyCode);
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Triple Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
+                                <td class="align-middle">
+                                  <span class="d-none d-sm-block">Triple Bed</span>
+                                  <span class="d-block d-sm-none" style="font-size: .8rem">Triple Bed</span>
+                                </td>  
+                                <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">   
                                   <?php 
                                     $hasDiscount = false;
                                     $amount = 6500 * $rates;
@@ -985,8 +975,11 @@ $rates = convert_currency('MYR', $currencyCode);
                                 </td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="align-middle">Quadruple Bed</td>
-                                <td class="align-middle font-weight-bold text-primary">  
+                                <td class="align-middle">
+                                  <span class="d-none d-sm-block">Quadruple Bed</span>
+                                  <span class="d-block d-sm-none" style="font-size: .8rem">Quadruple Bed</span>
+                                </td>  
+                                <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">   
                                   <?php 
                                     $hasDiscount = false;
                                     $amount = 7500 * $rates;
@@ -1014,9 +1007,11 @@ $rates = convert_currency('MYR', $currencyCode);
                               </tr>
                               <tr class="border-bottom" style="font-size: .8rem;">
                                 <td colspan="3">
+                                  <?php if ($hasDiscount) { ?>
                                   <div class="alert alert-primary" role="alert" style="font-size: .8rem">
-                                    <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
+                                    Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> 
                                   </div>
+                                  <?php } ?>
                                 </td> 
                               </tr>
                             </table>       

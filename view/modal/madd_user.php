@@ -78,14 +78,7 @@
                 <label class="form-check-label" for="defaultCheck2">
                 Follow Up
                 </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <label class="form-check-label" for="defaultCheck1">
-                Reviews
-                </label>
-              </div>
-              
+              </div>              
             </div>            
           </div>
         </form>

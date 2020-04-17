@@ -1,17 +1,13 @@
 $(document).ready(function () {
 
   if (matchMedia) {
-    var mq = window.matchMedia("(max-width: 765px)");
+    var mq = window.matchMedia("(max-width: 575px)");
     mq.addListener(WidthChange);
     WidthChange(mq);
   }
 
   function WidthChange(mq) {
     if (mq.matches) {
-      $("#filter").removeClass('show');
-      $("#filter").addClass('hide');
-      $("#sort").removeClass('show');
-      $("#sort").addClass('hide');
       $("#sort").collapse('hide');
       $("#filter").collapse('hide');
     }

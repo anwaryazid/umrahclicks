@@ -176,9 +176,9 @@ require("lib/conn.php");
                 </div> 
               </div>
               <hr>
-              <!-- <div class="text-center d-none d-sm-block">
+              <div class="text-center d-none d-sm-block">
                 <a class="small" href="login.php">Login</a>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +191,7 @@ require("lib/conn.php");
     ?>
 
     <div class="row">
-      <div class="col-xl-3 col-md-12 mb-4">
+      <!-- <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <div class="card-header py-3 bg-white">
             <h6 class="m-0 font-weight-bold text-primary text-md">Jawrah Info</h6>
@@ -199,13 +199,23 @@ require("lib/conn.php");
           <div class="card-body">
           </div>
         </div>
+      </div> -->
+
+      <div class="col-xl-3 col-md-12 mb-4">
+        <div class="card shadow mb-4">
+          <div class="card-body" style="font-size: 0.8rem;">
+            <img class="d-block w-100" src="img/smart2-min.jpg">
+            <br>
+            <p>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</p>
+          </div>
+          <div class="card-footer bg-white">
+            <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+          </div>
+        </div>
       </div>
 
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
-          <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary text-md">Package 1</h6>
-          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/smart1-min.jpg">
             <br>
@@ -219,9 +229,6 @@ require("lib/conn.php");
 
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
-          <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary text-md">Package 2</h6>
-          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/epl1-min.JPG">
             <br>
@@ -235,9 +242,6 @@ require("lib/conn.php");
 
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
-          <!-- <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary text-md">Package 3</h6>
-          </div> -->
           <div class="card-body" style="font-size: 0.8rem;">
             <img class="d-block w-100" src="img/epl2-min.JPG">
             <br>
