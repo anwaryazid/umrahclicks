@@ -143,7 +143,7 @@ require("lib/conn.php");
                       </div>
                       <input type="text" name="quant[1]" id="s_noAdult" class="form-control form-control-sm text-center input-number border-primary text-primary" value="1" min="1" max="200">
                       <div class="input-group-append">
-                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                          <button class="btn btn-info btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
                   </div>                 
@@ -157,7 +157,7 @@ require("lib/conn.php");
                       </div>
                       <input type="text" name="quant[2]" id="s_noChild" class="form-control form-control-sm text-center input-number border-primary text-primary" value="0" min="0" max="200">
                       <div class="input-group-append">
-                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                          <button class="btn btn-info btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
                   </div>                 
@@ -204,7 +204,7 @@ require("lib/conn.php");
                       </div>
                       <input type="text" name="quant[1]" id="s_noAdult" class="form-control form-control-sm text-center input-number border-primary text-primary" value="1" min="1" max="200">
                       <div class="input-group-append">
-                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                          <button class="btn btn-info btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
                   </div>
@@ -216,7 +216,7 @@ require("lib/conn.php");
                       </div>
                       <input type="text" name="quant[2]" id="s_noChild" class="form-control form-control-sm text-center input-number border-primary text-primary" value="0" min="0" max="200">
                       <div class="input-group-append">
-                          <button class="btn btn-primary btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
+                          <button class="btn btn-info btn-number border-primary" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                       </div>
                     </div>
                   </div>
@@ -224,7 +224,7 @@ require("lib/conn.php");
                 <hr>
                 <div class="btn-group btn-block" role="group">
                   <button type="reset" class="btn btn-sm btn-danger" style="width:50%" onclick="resetSearch();"><i class="fas fa-eraser fa-sm"></i> Clear</button>
-                  <button type="button" class="btn btn-sm btn-primary" onClick="searching();" style="width:50%"><i class="fas fa-search fa-sm"></i> Search</button>
+                  <button type="button" class="btn btn-sm btn-info" onClick="searching();" style="width:50%"><i class="fas fa-search fa-sm"></i> Search</button>
                 </div>                               
               </form>
               <hr>

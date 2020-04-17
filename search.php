@@ -184,7 +184,7 @@ if ($currencyCode == 'MYR') {
                         </div>                  
                       </div>
                       <hr>
-                      <button class="btn btn-sm btn-outline-primary btn-block" type="button" onClick="filtering();"><i class="fas fa-filter fa-sm"></i> Filter</button>
+                      <button class="btn btn-sm btn-outline-info btn-block" type="button" onClick="filtering();"><i class="fas fa-filter fa-sm"></i> Filter</button>
                       <hr>
                       <button class="btn btn-outline-danger btn-sm btn-block" type="button" onClick="clearFilter();"><i class="fas fa-eraser fa-sm"></i> Clear All</button>
                       <hr>
@@ -192,8 +192,8 @@ if ($currencyCode == 'MYR') {
                         <span>Promotion</span>
                       </div>
                       <div>
-                        <button class="btn btn-sm btn-outline-primary btn-block <?php if (strpos($promo, 'umrah4all') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('umrah4all');" style="font-size: 12px;">Umrah4All</button>
-                        <button class="btn btn-sm btn-outline-primary btn-block <?php if (strpos($promo, 'smart10') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('smart10');" style="font-size: 12px;">Smart10</button>
+                        <button class="btn btn-sm btn-outline-info btn-block <?php if (strpos($promo, 'umrah4all') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('umrah4all');" style="font-size: 12px;">Umrah4All</button>
+                        <button class="btn btn-sm btn-outline-info btn-block <?php if (strpos($promo, 'smart10') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('smart10');" style="font-size: 12px;">Smart10</button>
                       </div>
                       <hr>
                       <div class="mb-1" style="font-size: 13px;">
@@ -272,9 +272,9 @@ if ($currencyCode == 'MYR') {
                 <div class="row">
                   <div class="col-auto">              
                     <Sort class="align-middle"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</span>&nbsp;
-                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'priceLowToHigh'){ ?>active<?php } ?>" type="button" onClick="sorting('priceLowToHigh');" style="font-size: 12px;">Lowest Price</span></button>
-                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'latest'){ ?>active<?php } ?>" type="button" onClick="sorting('latest');" style="font-size: 12px;">Latest</span></button>
-                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'popular'){ ?>active<?php } ?>" type="button" onClick="sorting('popular');" style="font-size: 12px;">Popular</button>
+                    <button class="btn btn-sm btn-outline-info <?php if ($sort == 'priceLowToHigh'){ ?>active<?php } ?>" type="button" onClick="sorting('priceLowToHigh');" style="font-size: 12px;">Lowest Price</span></button>
+                    <button class="btn btn-sm btn-outline-info <?php if ($sort == 'latest'){ ?>active<?php } ?>" type="button" onClick="sorting('latest');" style="font-size: 12px;">Latest</span></button>
+                    <button class="btn btn-sm btn-outline-info <?php if ($sort == 'popular'){ ?>active<?php } ?>" type="button" onClick="sorting('popular');" style="font-size: 12px;">Popular</button>
                   </div>
                 </div>
               </div>              
@@ -426,7 +426,7 @@ if ($currencyCode == 'MYR') {
                         <!-- Rating -->
                         <div class="card mb-4 d-none d-xl-block">
                           <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
+                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-info text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
                           </div>
                           <div class="card-body">
                             <div class="row h-100">
@@ -531,7 +531,7 @@ if ($currencyCode == 'MYR') {
                                       ?>
                                     </td>
                                     <td class="align-middle text-center" width="120px">
-                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                     </td>
                                   </tr>
                                   <tr class="border-bottom">
@@ -562,7 +562,7 @@ if ($currencyCode == 'MYR') {
                                       ?>
                                     </td>
                                     <td class="align-middle text-center">
-                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                     </td>
                                   </tr>
                                   <tr class="border-bottom">
@@ -593,7 +593,7 @@ if ($currencyCode == 'MYR') {
                                       ?>
                                     </td>
                                     <td class="align-middle text-center">
-                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                     </td>
                                   </tr>
                                   <tr class="border-bottom" style="font-size: .8rem;">
@@ -835,7 +835,7 @@ if ($currencyCode == 'MYR') {
                         <!-- Rating -->
                         <div class="card mb-4 d-none d-xl-block">
                           <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
+                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-info text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
                           </div>
                           <div class="card-body">
                             <div class="row h-100">
@@ -938,7 +938,7 @@ if ($currencyCode == 'MYR') {
                                   ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                  <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
@@ -969,7 +969,7 @@ if ($currencyCode == 'MYR') {
                                   ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                  <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom">
@@ -1000,7 +1000,7 @@ if ($currencyCode == 'MYR') {
                                   ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                  <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                 </td>
                               </tr>
                               <tr class="border-bottom" style="font-size: .8rem;">
