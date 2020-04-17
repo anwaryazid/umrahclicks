@@ -42,12 +42,12 @@ require("lib/conn.php");
         object-fit: cover;
     }
     .box{
-        height: 650px;        
+        height: 640px;        
     }    
 
     @media screen and (max-width: 1200px) {
       .container2 {
-        max-width: 650px;
+        max-width: 640px;
       }
     } 
   </style>
@@ -249,26 +249,19 @@ require("lib/conn.php");
       include('view/modal/magencies.php');
     ?>
 
+    <!-- Advertisment -->
     <div class="row">
-      <!-- <div class="col-xl-3 col-md-12 mb-4">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3 bg-white">
-            <h6 class="m-0 font-weight-bold text-primary text-md">Jawrah Info</h6>
-          </div>
-          <div class="card-body">
-          </div>
-        </div>
-      </div> -->
 
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/smart2-min.jpg">
-            <br>
-            <p>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</p>
-          </div>
-          <div class="card-footer bg-white">
-            <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <div class="text-center">
+              <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
+                <img class="d-block w-100" src="img/smart1-min.jpg" height="" alt="Smart Umrah4all">
+              </a>
+              <br>
+              Smart Umrah4all Dot Com Travel & Services Sdn Bhd
+            </div>
           </div>
         </div>
       </div>
@@ -276,25 +269,13 @@ require("lib/conn.php");
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/smart1-min.jpg">
-            <br>
-            <p>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</p>
-          </div>
-          <div class="card-footer bg-white">
-            <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-12 mb-4">
-        <div class="card shadow mb-4">
-          <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/epl1-min.JPG">
-            <br>
-            <p>EPL Travel & Tours Sdn Bhd</p>
-          </div>
-          <div class="card-footer bg-white">
-            <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <div class="text-center">
+              <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
+                <img class="d-block w-100" src="img/epl1-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
+              </a>
+              <br>
+              EPL Travel & Tours Sdn Bhd
+            </div> 
           </div>
         </div>
       </div>
@@ -302,12 +283,13 @@ require("lib/conn.php");
       <div class="col-xl-3 col-md-12 mb-4">
         <div class="card shadow mb-4">
           <div class="card-body" style="font-size: 0.8rem;">
-            <img class="d-block w-100" src="img/epl2-min.JPG">
-            <br>
-            <p>EPL Travel & Tours Sdn Bhd</p>
-          </div>
-          <div class="card-footer bg-white">
-            <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
+            <div class="text-center">
+              <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
+                <img class="d-block w-100" src="img/epl2-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
+              </a>
+              <br>
+              EPL Travel & Tours Sdn Bhd
+            </div> 
           </div>
         </div>
       </div>
