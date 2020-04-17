@@ -19,7 +19,6 @@ function updatePax (paxLeft, updatedValue) {
   var updatedValue = updatedValue;
   var updatedPax = paxLeft - updatedValue;
   $('#paxLeft').html(updatedPax);
-  // alert (updatedPax);
 }
 
 function filterRating(y) {
@@ -144,8 +143,8 @@ function searchingT() {
 
   var goToURL = 'search.php?';
 
-  if (dateDepart.length == 0) {
-    error = 'Please enter Date Departure.';
+  if (dateDepart.length == 0 || noAdult.length == 0 || noChild.length == 0) {
+    error = 'Please fill in the form.';
   }
 
   if (error.length > 0) {

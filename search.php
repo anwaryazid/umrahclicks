@@ -10,6 +10,7 @@ require("lib/conn.php");
 $dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
 $noAdult = (isset($_GET['noAdult'])) ?  $_GET['noAdult'] : '';
 $noChild = (isset($_GET['noChild'])) ?  $_GET['noChild'] : '';
+$pax = $noAdult + $noChild;
 
 /* Filter */
 $priceMin = (isset($_GET['priceMin'])) ?  $_GET['priceMin'] : '';
@@ -264,7 +265,7 @@ if ($currencyCode == 'MYR') {
             <div class="col-xl-10 col-lg-9 col-md-8">  
               <!-- Search Info -->
               <div class="alert alert-light bg-white text-primary" style="font-size: .7rem;">
-                Search result for Departure Date <br class="d-block d-sm-none"><span class="font-weight-bolder"><?php echo $dateFrom; ?> - <?php echo $dateTo; ?></span>
+                Search result for <span class="font-weight-bolder"><?php echo $pax; ?> pax</span>, Departure Date <br class="d-block d-sm-none"><span class="font-weight-bolder"><?php echo $dateFrom; ?> - <?php echo $dateTo; ?></span>
               </div>  
               <!-- Sort -->
               <div class="alert alert-light bg-white text-primary" style="font-size: .8rem;">
