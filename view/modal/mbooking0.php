@@ -11,7 +11,7 @@
         <form>
           <!-- <small class="text-primary">Please enter information person in charge</small> -->
           <div class="alert alert-primary" role="alert" style="font-size: .8rem">
-            Please enter information person in charge
+            Please enter person in charge information
           </div>
           <hr>
           <div class="form-group row text-md">

@@ -42,7 +42,7 @@ require("lib/conn.php");
         object-fit: cover;
     }
     .box{
-        height: 640px;        
+        height: 650px;        
     }    
 
     @media screen and (max-width: 1200px) {
@@ -50,11 +50,22 @@ require("lib/conn.php");
         max-width: 640px;
       }
     } 
+    .thumb-img {
+        max-width: 100%;
+        min-height: 100%;
+        display: block; /* remove extra space below image */
+        object-fit: cover;
+    }
+    .thumb{
+        min-height: 100px;        
+        max-height: 100px;        
+        max-width: 170px;        
+    }
   </style>
 
 </head>
 
-<body>
+<body style="background-color: #417dc1">
   <div class="container2">   
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -250,46 +261,45 @@ require("lib/conn.php");
     ?>
 
     <!-- Advertisment -->
+    
     <div class="row">
 
-      <div class="col-xl-3 col-md-12 mb-4">
+      <div class="col-sm-12">
         <div class="card shadow mb-4">
           <div class="card-body" style="font-size: 0.8rem;">
-            <div class="text-center">
-              <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
-                <img class="d-block w-100" src="img/smart1-min.jpg" height="" alt="Smart Umrah4all">
-              </a>
-              <br>
-              Smart Umrah4all Dot Com Travel & Services Sdn Bhd
+            <div class="row d-flex justify-content-center">
+              <h6>Advertisment</h6>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-12 mb-4">
-        <div class="card shadow mb-4">
-          <div class="card-body" style="font-size: 0.8rem;">
-            <div class="text-center">
-              <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
-                <img class="d-block w-100" src="img/epl1-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
-              </a>
-              <br>
-              EPL Travel & Tours Sdn Bhd
-            </div> 
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-12 mb-4">
-        <div class="card shadow mb-4">
-          <div class="card-body" style="font-size: 0.8rem;">
-            <div class="text-center">
-              <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
-                <img class="d-block w-100" src="img/epl2-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
-              </a>
-              <br>
-              EPL Travel & Tours Sdn Bhd
-            </div> 
+            <hr>
+            <div class="row d-flex justify-content-center">
+              <div class="col-auto">
+                <div class="text-center">
+                  <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
+                    <img class="d-block w-100" src="img/smart1-min.jpg" height="180px" alt="Smart Umrah4all" style="display: block; object-fit: cover;">
+                  </a>
+                  <br>
+                  Smart Umrah4all Dot Com Travel & Services Sdn Bhd
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="text-center">
+                  <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
+                    <img class="d-block w-100" src="img/epl1-min.JPG" height="180px" alt="EPL Travel & Tours Sdn Bhd" style="display: block; object-fit: cover;">
+                  </a>
+                  <br>
+                  EPL Travel & Tours Sdn Bhd
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="text-center">
+                  <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
+                    <img class="d-block w-100" src="img/epl2-min.JPG" height="180px" alt="EPL Travel & Tours Sdn Bhd" style="display: block; object-fit: cover;">
+                  </a>
+                  <br>
+                  EPL Travel & Tours Sdn Bhd
+                </div>
+              </div>
+            </div>            
           </div>
         </div>
       </div>

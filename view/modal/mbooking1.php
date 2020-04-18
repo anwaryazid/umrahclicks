@@ -3,14 +3,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-primary" id="exampleModalLabel">Booking Information</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
       </div>
       <div class="modal-body">
         <form>
           <div class="alert alert-primary" role="alert" style="font-size: .8rem">
-            Please enter information additional person
+            Please enter additional person information
           </div>
           <!-- <div class="row text-md">
             <div class="col-sm-12">

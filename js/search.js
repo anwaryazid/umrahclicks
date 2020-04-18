@@ -12,7 +12,38 @@ $(document).ready(function () {
       $("#filter").collapse('hide');
     }
   }
+
+  $('#onlinePayment').show();
+  $('#creditDebit').hide();
+
+  var btnOnlinePayment = document.getElementById("btnOnlinePayment");  
+  var btnOnlinePaymentCheck= document.getElementById("btnOnlinePaymentCheck");
+  var btnCreditDebit = document.getElementById("btnCreditDebit");  
+  var btnCreditDebitCheck= document.getElementById("btnCreditDebitCheck");
+
+  btnOnlinePayment.classList.add("active");
+  btnOnlinePaymentCheck.classList.add("fa-check");
+  btnCreditDebit.classList.remove("active");
+  btnCreditDebitCheck.classList.remove("fa-check");
 });
+
+function selectPaymentMethod (method) {
+  if (method == 1) {
+    $('#onlinePayment').show();
+    $('#creditDebit').hide();
+    btnOnlinePayment.classList.add("active");
+    btnOnlinePaymentCheck.classList.add("fa-check");
+    btnCreditDebit.classList.remove("active");
+    btnCreditDebitCheck.classList.remove("fa-check");
+  } else {
+    $('#onlinePayment').hide();
+    $('#creditDebit').show();
+    btnOnlinePayment.classList.remove("active");
+    btnOnlinePaymentCheck.classList.remove("fa-check");
+    btnCreditDebit.classList.add("active");
+    btnCreditDebitCheck.classList.add("fa-check");
+  }
+}
 
 function updatePax (paxLeft, updatedValue) {
   var paxLeft = paxLeft;

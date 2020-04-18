@@ -3,15 +3,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-primary" id="exampleModalLabel">Payment Information</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
       </div>
       <div class="modal-body" style="max-height: 480px; overflow-y: auto;">
         <div class="row">
           <div class="col-md-7">
             <form>
-              <div class="form-group row text-md">
+              <!-- <div class="form-group row text-md">
                 <div class="col-md-12">
                   <label for="" class="col-form-label">Available payment method</label>
                   <br>
@@ -21,55 +18,114 @@
                   <img src="./img/maestro.png" width="32px">
                   <img src="./img/western-union.png" width="32px">
                 </div>              
-              </div>
+              </div> -->
               <div class="form-group row text-md">
-                <div class="col-md-12">
-                  <label for="" class="col-form-label">Payment Method</label>
-                  <select class="form-control form-control-sm" id="country">
-                    <option value="">Please Select</option>
-                    <option value=""></option>
-                  </select>
-                </div>              
+                <label for="" class="col-sm-12 col-form-label mb-3">Payment Method</label>
+                <div class="col-auto">                  
+                  <button class="btn btn-sm btn-outline-primary" type="button" id="btnOnlinePayment" onClick="selectPaymentMethod(1);" style="font-size: 12px;">
+                    Online Banking <i id="btnOnlinePaymentCheck" class="fas fa-sm"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary" type="button" id="btnCreditDebit" onClick="selectPaymentMethod(2);" style="font-size: 12px;">
+                    Debit / Credit Card <i id="btnCreditDebitCheck" class="fas fa-sm"></i>
+                  </button>
+                </div>             
               </div>
-              <div class="form-group row text-md">
-                <div class="col-md-12">
-                  <label for="" class="col-form-label">Credit/debit card number</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control form-control-sm" >
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary btn-sm" type="button">
-                        <i class="fas fa-lock fa-sm"></i>
-                      </button>
+              <hr>
+              <div id="onlinePayment">
+                <div class="row text-md">
+                  <label for="" class="col-sm-12 col-form-label mb-3">Select Online Payment</label>
+                  <div class="col-sm-12">                    
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="cimb" value="cimb" checked>
+                      <label class="form-check-label" for="cimb">
+                        CIMB Clicks
+                      </label>
                     </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="maybank" value="maybank">
+                      <label class="form-check-label" for="maybank">
+                        Maybank2U
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="public" value="public">
+                      <label class="form-check-label" for="public">
+                        Public Bank
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="rhb" value="rhb">
+                      <label class="form-check-label" for="rhb">
+                        RHB Now
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="rakyat" value="rakyat">
+                      <label class="form-check-label" for="rakyat">
+                        Bank Rakyat
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="ambank" value="ambank">
+                      <label class="form-check-label" for="ambank">
+                        Ambank
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="bank" id="mybsn" value="mybsn">
+                      <label class="form-check-label" for="mybsn">
+                        MyBSN
+                      </label>
+                    </div>
+                    <!-- <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="cimbClicks" onClick="" style="font-size: 12px;">CIMB Clicks</button>
+                    <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="maybank2U" onClick="" style="font-size: 12px;">Maybank2U</button>
+                    <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="publicBank" onClick="" style="font-size: 12px;">Public Bank</button> -->
                   </div>
-                </div>              
+                </div>
               </div>
-              <div class="form-group row text-md">
-                <div class="col-md-12">
-                  <label for="" class="col-form-label">Card holder name</label>
-                  <input type="text" class="form-control form-control-sm" >
-                </div>              
-              </div>
-              <div class="form-group row text-md">
-                <div class="col-md-6">
-                  <label for="" class="col-form-label">Expiry date</label>
-                  <input type="text" class="form-control form-control-sm"  placeholder="mm/yy">
-                </div>   
-                <div class="col-md-6">
-                  <label for="" class="col-form-label">CVC/CVV</label>
-                  <div class="input-group">
+              <hr>
+              <div id="creditDebit">
+                <div class="form-group row text-md">
+                  <div class="col-sm-12">
+                    <label for="" class="col-form-label">Debit / Credit Card No.</label>
+                    <div class="input-group input-group-sm">
+                      <input type="text" class="form-control form-control-sm" >
+                      <div class="input-group-append">
+                        <span class="input-group-text input-group-addon bg-white text-primary">
+                          <img src="./img/visa.png" width="20px">&nbsp;<img src="./img/master-card.png" width="20px">
+                        </span>
+                      </div>
+                    </div>
+                  </div>              
+                </div>
+                <div class="form-group row text-md">
+                  <div class="col-sm-12">
+                    <label for="" class="col-form-label">Card Holder Name</label>
                     <input type="text" class="form-control form-control-sm" >
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary btn-sm" type="button">
-                        <i class="fas fa-lock fa-sm"></i>
-                      </button>
-                    </div>                    
-                  </div>
-                </div>            
-              </div>
+                  </div>              
+                </div>
+                <div class="form-group row text-md">
+                  <div class="col-sm-6">
+                    <label for="" class="col-form-label">Expiry Date</label>
+                    <input type="text" class="form-control form-control-sm"  placeholder="mm/yy">
+                  </div>   
+                  <div class="col-sm-6">
+                    <label for="" class="col-form-label">CVC/CVV</label>
+                    <div class="input-group input-group-sm">
+                      <input type="text" class="form-control form-control-sm" >
+                      <div class="input-group-append">
+                        <span class="input-group-text input-group-addon bg-white text-primary">
+                          <img src="./img/cvv.png" width="20px">
+                        </span>
+                      </div>                    
+                    </div>
+                  </div>            
+                </div>
+              </div>              
+            </form>
           </div>
           <div class="col-md-5 text-md">
-            <strong>Package Detail</strong><br>
+            <strong class="text-primary">Package Detail</strong><br>
             <span style="font-size: .8rem">
             Package Gold<br>
             Double Bed<br>
@@ -80,7 +136,7 @@
             <hr>
             <div class="row">
               <div class="col-md-12">
-                <strong>Booking Deposit</strong>
+                <strong class="text-primary">Booking Deposit</strong>
               </div>
             </div>
             <div class="row">
@@ -106,7 +162,7 @@
         <a class="btn btn-outline-secondary btn-sm" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
           Back
         </a>
-        <a class="btn btn-success btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
+        <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
           Book & Pay Now!
         </a>
       </div>
