@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- <a class="navbar-brand" href="home.php"><img class="d-block rounded-lg" src="img/umrahclicks-logo.JPG" height="40px" alt="UmrahClicks"></a> -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">

@@ -83,13 +83,18 @@
                   </div>
                 </div>
               </div>
-              <hr>
               <div id="creditDebit">
+                <div class="form-group row text-md">
+                  <div class="col-sm-12">
+                    <label for="" class="col-form-label">Card Holder Name</label>
+                    <input type="text" class="form-control form-control-sm" >
+                  </div>              
+                </div>
                 <div class="form-group row text-md">
                   <div class="col-sm-12">
                     <label for="" class="col-form-label">Debit / Credit Card No.</label>
                     <div class="input-group input-group-sm">
-                      <input type="text" class="form-control form-control-sm" >
+                      <input type="text" class="form-control form-control-sm input-number" >
                       <div class="input-group-append">
                         <span class="input-group-text input-group-addon bg-white text-primary">
                           <img src="./img/visa.png" width="20px">&nbsp;<img src="./img/master-card.png" width="20px">
@@ -97,13 +102,7 @@
                       </div>
                     </div>
                   </div>              
-                </div>
-                <div class="form-group row text-md">
-                  <div class="col-sm-12">
-                    <label for="" class="col-form-label">Card Holder Name</label>
-                    <input type="text" class="form-control form-control-sm" >
-                  </div>              
-                </div>
+                </div>                
                 <div class="form-group row text-md">
                   <div class="col-sm-6">
                     <label for="" class="col-form-label">Expiry Date</label>
@@ -112,7 +111,7 @@
                   <div class="col-sm-6">
                     <label for="" class="col-form-label">CVC/CVV</label>
                     <div class="input-group input-group-sm">
-                      <input type="text" class="form-control form-control-sm" >
+                      <input type="text" class="form-control form-control-sm input-number" >
                       <div class="input-group-append">
                         <span class="input-group-text input-group-addon bg-white text-primary">
                           <img src="./img/cvv.png" width="20px">
@@ -125,29 +124,22 @@
             </form>
           </div>
           <div class="col-md-5 text-md">
-            <strong class="text-primary">Package Detail</strong><br>
+            <hr class="d-block d-sm-none">
+            <strong class="text-primary">Booking Detail</strong><br>
             <span style="font-size: .8rem">
+            Smart Umrah4all Dot Com Travel & Services Sdn Bhd<br>
             Package Gold<br>
             Double Bed<br>
-            3 adults<br>
-            2 childrens<br>
-            Total pax : 5
+            3 adult(s)<br>
+            2 children(s)<br>
+            Total pax : 5<br>
+            Package Price : RM6,200.00
             </span>
             <hr>
-            <div class="row">
-              <div class="col-md-12">
-                <strong class="text-primary">Booking Deposit</strong>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <small>Price <br></small>
-              </div>
-              <div class="col-md-6">
-                <small>RM1,000.00</small>
-              </div>
-              <div class="col-sm-12"><small>(RM300 x 5 pax)</small></div>
-            </div>
+            <strong class="text-primary">Booking Deposit</strong><br>
+            <span style="font-size: .8rem">
+            Deposit : RM1,500.00 (RM300 x 5 pax)
+            </span>
             <hr>
             <div class="row">
               <div class="col-md-12">

@@ -297,7 +297,8 @@ $(".input-price").keydown(function(e) {
 $(function() {
   $('#t_dateDepart').datepicker({
     'format': 'dd-mm-yyyy',
-    'autoclose': true
+    'autoclose': true,
+    startDate: '+1d'
   });
 });
 

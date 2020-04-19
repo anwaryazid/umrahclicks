@@ -25,7 +25,7 @@
           <div class="col-md-8">
             <h6 class="font-weight-bold text-primary">EPL Travel and Tours Sdn Bhd</h6> 
             LKU No : KP/LN 6441<br>
-            TEL : +6019.993.9723 (Lutfi)0<br> 
+            TEL : +6019 993 9723 (Lutfi)<br> 
             EMAIL : ask.epltravel@gmail.com 
           </div>
           <div class="col-md-4" style="text-align: center;">

@@ -6,6 +6,12 @@ session_start();
 
 require("lib/conn.php"); 
 
+if(!isset($_GET['country'])) {
+  header("Location: home.php");
+}
+
+$country = (isset($_GET['country'])) ? $_GET['country'] : 'MY';  
+
 /* Search */
 $dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
 $noAdult = (isset($_GET['noAdult'])) ?  $_GET['noAdult'] : '';
@@ -29,7 +35,6 @@ $sort = (isset($_GET['sort'])) ?  $_GET['sort'] : '';
 $promo = (isset($_GET['promo'])) ?  $_GET['promo'] : '';  
 $rating = (isset($_GET['rating'])) ?  $_GET['rating'] : '';  
 
-$country = (isset($_GET['country'])) ?  $_GET['country'] : 'MY';  
 
 if ($country == 'MY') {
   $currency = 'RM';
@@ -101,12 +106,12 @@ if ($currencyCode == 'MYR') {
 
 <body id="page-top">
   <div id="wrapper">
-    <div id="content-wrapper" class="d-flex flex-column">       
+    <div id="content-wrapper" class="d-flex flex-column"><!-- style="background-color: #c5e3f6" -->       
       <?php
         include('top-menu.php');
       ?> 
       <div id="content">    
-        <div class="container-fluid ">
+        <div class="container-fluid">
           <div class="row">
 
             <div class="col-xl-2 col-lg-3 col-md-4">                            
