@@ -114,7 +114,7 @@
                       <input type="text" class="form-control form-control-sm input-number" >
                       <div class="input-group-append">
                         <span class="input-group-text input-group-addon bg-white text-primary">
-                          <img src="./img/cvv.png" width="20px">
+                          <img src="./img/cvc.png" width="25px">
                         </span>
                       </div>                    
                     </div>
