@@ -26,6 +26,31 @@
     })
 }(jQuery);
 
+function viewAlert(result, text) {
+  if (result == 1) {
+
+    document.getElementById("textAlertSuccess").innerHTML = text;
+    $('#success-alert').show('fade');
+
+    setTimeout(function () {
+      $('#success-alert').hide('fade');
+    }, 3000);
+
+  } else if (result == 2) {
+
+    document.getElementById("textAlertDanger").innerHTML = text;
+    $('#danger-alert').show('fade');
+
+    setTimeout(function () {
+      $('#danger-alert').hide('fade');
+    }, 3000);
+
+  } else {
+    alert('x');
+  }
+  
+}
+
 function showAlert(from, result, type) {
 
   /* 
@@ -40,7 +65,7 @@ function showAlert(from, result, type) {
 
   var typeText = '';
   if (type == 1) {
-    var typeText = 'registered.';
+    var typeText = 'added.';
   } else if (type == 2) {
     var typeText = 'updated.';
   } else if (type == 3) {
