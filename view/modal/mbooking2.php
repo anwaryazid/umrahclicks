@@ -8,17 +8,6 @@
         <div class="row">
           <div class="col-md-7">
             <form>
-              <!-- <div class="form-group row text-md">
-                <div class="col-md-12">
-                  <label for="" class="col-form-label">Available payment method</label>
-                  <br>
-                  <img src="./img/visa.png" width="32px">
-                  <img src="./img/master-card.png" width="32px">
-                  <img src="./img/paypal.png" width="32px">
-                  <img src="./img/maestro.png" width="32px">
-                  <img src="./img/western-union.png" width="32px">
-                </div>              
-              </div> -->
               <div class="form-group row text-md">
                 <label for="" class="col-sm-12 col-form-label mb-3">Payment Method</label>
                 <div class="col-auto">                  
@@ -38,43 +27,43 @@
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="cimb" value="cimb" checked>
                       <label class="form-check-label" for="cimb">
-                        CIMB Clicks
+                        <img src="./img/bank/cimb-clicks-logo-red.svg" height="12px">&nbsp;&nbsp;<small>CIMB Clicks</small>                    
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="maybank" value="maybank">
                       <label class="form-check-label" for="maybank">
-                        Maybank2U
+                        <img src="./img/bank/maybank2u.png" height="15px">&nbsp;&nbsp;<small>Maybank2U</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="public" value="public">
                       <label class="form-check-label" for="public">
-                        Public Bank
+                        <img src="./img/bank/pb_logo.png" height="15px">&nbsp;&nbsp;<small>Public Bank</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="rhb" value="rhb">
                       <label class="form-check-label" for="rhb">
-                        RHB Now
+                        <img src="./img/bank/logo-rhb.png" height="15px">&nbsp;&nbsp;<small>RHB Now</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="rakyat" value="rakyat">
                       <label class="form-check-label" for="rakyat">
-                        Bank Rakyat
+                        <img src="./img/bank/irakyat.png" height="30px">&nbsp;&nbsp;<small>Bank Rakyat</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="ambank" value="ambank">
                       <label class="form-check-label" for="ambank">
-                        Ambank
+                        <img src="./img/bank/ambank-png-4.png" height="15px">&nbsp;&nbsp;<small>Ambank</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="mybsn" value="mybsn">
                       <label class="form-check-label" for="mybsn">
-                        MyBSN
+                        <img src="./img/bank/bsn.png" height="15px">&nbsp;&nbsp;<small>MyBSN</small>
                       </label>
                     </div>
                     <!-- <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="cimbClicks" onClick="" style="font-size: 12px;">CIMB Clicks</button>
@@ -138,7 +127,7 @@
             <hr>
             <strong class="text-primary">Booking Deposit</strong><br>
             <span style="font-size: .8rem">
-            Deposit : RM1,500.00 (RM300 x 5 pax)
+            Deposit : RM1,500.00 <br><small>(RM300 x 5 pax)</small>
             </span>
             <hr>
             <div class="row">
