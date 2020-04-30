@@ -1,16 +1,30 @@
+.navbar {
+  padding-left: 9.5rem;
+  padding-right: 9.5rem;
+  margin-right: auto;
+  margin-left: auto; 
+}
+@media (max-width: 1300px) {
+  .navbar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-right: auto;
+    margin-left: auto; 
+  }
+}
 #content {
   margin-top: 85px;
 }
 .caros {
     max-width: 100%;
     min-height: 100%;
-    display: block; /* remove extra space below image */
+    display: block; 
     object-fit: cover;
 }
 .thumb-img {
     max-width: 100%;
     min-height: 100%;
-    display: block; /* remove extra space below image */
+    display: block; 
     object-fit: cover;
 }
 .thumb{
@@ -21,7 +35,7 @@
 .thumb-img-xs {
     max-width: 100%;
     min-height: 100%;
-    display: block; /* remove extra space below image */
+    display: block; 
     object-fit: cover;
 }
 .thumb-xs{
@@ -32,7 +46,7 @@
 .thumb-img-sm {
     max-width: 100%;
     min-height: 100%;
-    display: block; /* remove extra space below image */
+    display: block; 
     object-fit: cover;
 }
 .thumb-sm{
@@ -43,7 +57,7 @@
 .thumbnail-img {
     max-width: 100%;
     min-height: 100%;
-    display: block; /* remove extra space below image */
+    display: block; 
     object-fit: cover;
 }
 .thumbnail{
@@ -51,9 +65,6 @@
     max-height: 90px;         
     max-width: 680px;        
 } 
-.box{
-    max-height: 350px;        
-}
 select.form-control {
   -moz-appearance: none;
   -webkit-appearance: none;

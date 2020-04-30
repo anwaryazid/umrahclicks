@@ -9,38 +9,15 @@
       </div>
       <div class="modal-body">
         <div class="table-responsive text-md">
-          <table class="table table-bordered table-sm"  width="100%" cellspacing="0">
+          <table class="table table-bordered table-sm" id="dt_CustomerDetail" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>Name</th>
+                <th width="35%">Name</th>
                 <th>Mobile No.</th>
                 <th>Email</th>
-                <th>Outstanding <br>Days Customer</th>
-                <th>Outstanding <br>Days Agency</th>
+                <th>Outstanding <br>Days</th>
+                <!-- <th>Outstanding <br>Days Agency</th> -->
             </thead>
-            <tbody>
-              <tr>
-                <td>Muhammad Anwar Bin Mohd Yazid</td>
-                <td>0123456789</td>
-                <td>anwary@gmail.com</td>
-                <td class="text-center">6</td>
-                <td class="text-center">6</td>
-              </tr>
-              <tr>
-                <td>Mazura</td>
-                <td>01923466201</td>
-                <td>mazuraf@gmail.com</td>
-                <td class="text-center">2</td>
-                <td class="text-center">3</td>
-              </tr>
-              <tr>
-                <td>Zainab Binti Akil</td>
-                <td>01911021451</td>
-                <td>zainab_a@gmail.com</td>
-                <td class="text-center">2</td>
-                <td class="text-center">1</td>
-              </tr>
-            </tbody>
           </table>
         </div>
       </div>

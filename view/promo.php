@@ -1,80 +1,32 @@
 <?php
-  include('view/modal/madd_promo.php');
-  include('view/modal/medit_promo.php');
+  include('view/modal/mpromo.php');
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Promotion </h1> 
+<h1 class="h4 mb-2 text-gray-800">Promotion </h1> 
 
 <hr>
 
-<?php include('view/modal/malert.php'); ?>
-
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary text-md">List of Promotion <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addPromoModal">Add Promotion</button></h6> 
+    <h6 class="m-0 font-weight-bold text-primary text-md">List of Promotion <button style="float:right" class="btn btn-sm btn-primary text-xs" onclick="addPromo();">Add Promotion</button></h6> 
   </div>
   <div class="card-body">
     <div class="table-responsive text-md">
       <table class="table table-bordered" id="dt_ListPromo" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Promotion Code</th>
-            <th>Promotion Description</th>
+            <th>No.</th>
+            <th></th>
+            <th>Promo Code</th>
+            <th>Promo Description</th>
             <th>Date From</th>
             <th>Date To</th>
             <th>Promo From</th>
-            <th>Agency</th>
+            <th style="max-width: 200px;">Agency</th>
             <th>Status</th>
-            <th style="width: 65px;">Action</th>
+            <th style="max-width: 55px;">Action</th>
           </tr>
         </thead>
-        <tbody>          
-          <tr>
-            <td>SMART10</td>
-            <td>Get 10% discount</td>
-            <td>2020/05/09</td>
-            <td>2020/05/15</td>
-            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
-            <td>Agency</td>
-            <td>
-              <h6><span class="badge badge-primary" style="display: block;">Active</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>SMART15</td>
-            <td>Get RM15 discount</td>
-            <td>2020/05/09</td>
-            <td>2020/05/15</td>
-            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
-            <td>Agency</td>
-            <td>
-              <h6><span class="badge badge-secondary" style="display: block;">Inactive</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>UMRAH4ALL</td>
-            <td>Promotion 40% discount</td>
-            <td>2020/05/09</td>
-            <td>2020/05/15</td>
-            <td></td>
-            <td>Company</td>
-            <td>
-              <h6><span class="badge badge-primary" style="display: block;">Active</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPromoModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-        </tbody>
       </table>
     </div>
   </div>

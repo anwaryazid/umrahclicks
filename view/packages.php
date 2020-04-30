@@ -1,92 +1,35 @@
 <?php include('view/modal/malert.php'); ?>
 
 <?php
-  include('view/modal/madd_package.php');
-  include('view/modal/madd_package.php');
-  include('view/modal/madd_package2.php');
-  include('view/modal/medit_package.php');
+  include('view/modal/mpackage.php');
+  include('view/modal/mroom.php');
+  include('view/modal/mimage.php');
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Packages </h1> 
+<h1 class="h4 mb-2 text-gray-800">Packages </h1> 
 
 <hr>
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary text-md">List of Packages <button style="float:right" class="btn btn-sm btn-primary text-xs" data-toggle="modal" data-target="#addPackageModal">Add Package</button></h6> 
+    <h6 class="m-0 font-weight-bold text-primary text-md">List of Packages <button style="float:right" class="btn btn-sm btn-primary text-xs" onclick="addPackage();">Add Package</button></h6> 
   </div>
   <div class="card-body">
+    <!-- <button class="btn btn-sm btn-primary text-xs" type="button" onclick="addRoom(1);">Test</button> -->
     <div class="table-responsive text-md">
       <table class="table table-bordered" id="dt_ListPackage" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Packages ID</th>
+            <th>No.</th>
+            <th></th>
             <th>Packages Name</th>
-            <th>Agency</th>
+            <th style="width: 350px;">Agency</th>
             <th>Date From</th>
             <th>Date To</th>
             <th>Status</th>
-            <th style="width: 65px;">Action</th>
+            <th style="width: 55px;">Action</th>
           </tr>
         </thead>
-        <tbody>          
-          <tr>
-            <td>Gold</td>
-            <td>Package Gold</td>
-            <td>Smart Umrah4all Dot Com Travel & Services Sdn Bhd</td>
-            <td>2020/03/24</td>
-            <td>2020/04/24</td>
-            <td class="text-center">
-              <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gold</td>
-            <td>Package Gold</td>
-            <td>EPL Travel & Tours Sdn Bhd</td>
-            <td>2020/03/24</td>
-            <td>2020/04/24</td>
-            <td class="text-center">
-              <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gold</td>
-            <td>Package Gold</td>
-            <td>EPL Travel & Tours Sdn Bhd</td>
-            <td>2020/03/24</td>
-            <td>2020/04/24</td>
-            <td class="text-center">
-              <h6><span class="badge badge-primary" style="display: block;">Open</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gold</td>
-            <td>Package Gold</td>
-            <td>EPL Travel & Tours Sdn Bhd</td>
-            <td>2020/03/24</td>
-            <td>2020/04/24</td>
-            <td class="text-center">
-              <h6><span class="badge badge-secondary" style="display: block;">Close</span></h6>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-outline-success btn-xs" data-toggle="modal" data-target="#editPackageModal" title="Edit"><i class="fas fa-pencil-alt fa-sm"></i></button>
-              <button class="btn btn-outline-danger btn-xs" title="Remove" data-toggle="modal" data-target="#confirmDeleteModal"><i class="fas fa-trash fa-sm"></i></button>
-            </td>
-          </tr>
-        </tbody>
       </table>
     </div>
   </div>

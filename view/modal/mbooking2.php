@@ -86,7 +86,7 @@
                       <input type="text" class="form-control form-control-sm input-number" >
                       <div class="input-group-append">
                         <span class="input-group-text input-group-addon bg-white text-primary">
-                          <img src="./img/visa.png" width="20px">&nbsp;<img src="./img/master-card.png" width="20px">
+                          <img src="./img/card/visa.png" width="20px">&nbsp;<img src="./img/card/master-card.png" width="20px">
                         </span>
                       </div>
                     </div>

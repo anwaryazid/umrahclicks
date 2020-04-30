@@ -1,8 +1,106 @@
-/*!
- * Start Bootstrap - SB Admin 2 v4.0.7 (https://startbootstrap.com/template-overviews/sb-admin-2)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/master/LICENSE)
- */
+function viewProfile(userId) {
+  var id = userId;
+  $.ajax({
+    url:"process/profile_fetch_single.php",
+    method:"POST",
+    data:{id:id},
+    dataType:"json",
+    success:function(data)
+    {
+      $('#profileModal').modal('show');
+      $('#error_text_profile').text('');
+      $('#error_password_profile').text('');
+      $('#puserFullName').val(data.userFullName);
+      $('#puserEmail').val(data.userEmail);
+      $('#puserName').val(data.userName);
+      $('#puserStatus').val(data.userStatus);
+      $('#puserType').val(data.userType);
+      $('#userid').val(id);
+      $('.modal-title').text("Profile");
+      $('#action_profile').val("Update");
+      $('#operation_profile').val("Update");
+    }
+  })
+}
+
+function changePassword(userId) {
+  var id = userId;
+  $.ajax({
+    url:"process/profile_fetch_single.php",
+    method:"POST",
+    data:{id:id},
+    dataType:"json",
+    success:function(data)
+    {
+      $('#passwordModal').modal('show');
+      $('#error_text_password').text('');
+      $('#error_password_password').text('');
+      $('#cpuserFullName').val(data.userFullName);
+      $('#cpuserEmail').val(data.userEmail);
+      $('#cpuserName').val(data.userName);
+      $('#cpuserid').val(id);
+      $('.modal-title').text("Change Password");
+      $('#action_password').val("Update");
+      $('#operation_password').val("Update");
+    }
+  })
+}
+
+$(document).ready(function() {
+  $(document).on('submit', '#formPassword', function(event){
+    event.preventDefault();
+    var error_text_password = '';
+    var error_password_password = '';
+    var cpuserPassword = $('#cpuserPassword').val();
+    var cpuserNewPassword = $('#cpuserNewPassword').val();
+    var cpuserConfirmPassword = $('#cpuserConfirmPassword').val();
+    if(cpuserPassword == '' || cpuserNewPassword == '' || cpuserConfirmPassword == '') {
+      error_text_password = '* Please fill in the form';
+      $('#error_text_password').text(error_text_password);
+    }
+    else {
+      error_text_password = '';
+      $('#error_text_password').text(error_text_password);
+    }
+    if(cpuserConfirmPassword != cpuserNewPassword) {
+      error_password_password = 'Password not match';
+      $('#error_password_password').text(error_password_password);
+    }
+    else {
+      error_password_password = '';
+      $('#error_password_password').text(error_password_password);
+    }
+
+    if(error_text_password != '' || error_password_password != '') {
+      return false;
+    }
+    else {
+      $.ajax({
+        url:"process/password_update.php",
+        type:'POST',
+        dataType: "json",
+        data: $("#formPassword").serializeArray(),
+        async: false,
+        success: function(resp) 
+        {
+          if (resp.success == 'true') {
+            viewAlert(1,'Password succesfully changed');
+            $('#passwordModal').modal('hide');  
+          } else {
+            $('#error_text_password').text(resp.result);
+          }            
+        }
+      });
+    }
+  });
+});
+
+function f_menu_redirect(menu_id, menu2nd_id,) {
+
+  $('#mid').val(menu_id);
+  $('#m2id').val(menu2nd_id);
+  $('#form_menu').submit();
+}
 
 ! function(t) {
     "use strict";
@@ -29,21 +127,23 @@
 function viewAlert(result, text) {
   if (result == 1) {
 
-    document.getElementById("textAlertSuccess").innerHTML = text;
-    $('#success-alert').show('fade');
+    document.getElementById("textAlert").innerHTML = text;
+    document.getElementById("result-alert").classList.add("alert-success");
+    $('#result-alert').show('fade');
 
     setTimeout(function () {
-      $('#success-alert').hide('fade');
-    }, 3000);
+      $('#result-alert').hide('fade');
+    }, 5000);
 
   } else if (result == 2) {
 
-    document.getElementById("textAlertDanger").innerHTML = text;
-    $('#danger-alert').show('fade');
+    document.getElementById("textAlert").innerHTML = text;
+    document.getElementById("result-alert").classList.add("alert-danger");
+    $('#result-alert').show('fade');
 
     setTimeout(function () {
-      $('#danger-alert').hide('fade');
-    }, 3000);
+      $('#result-alert').hide('fade');
+    }, 5000);
 
   } else {
     alert('x');

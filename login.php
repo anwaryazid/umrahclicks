@@ -1,3 +1,9 @@
+<?php
+session_start();
+session_unset();
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +25,18 @@
   <link href="css/main-custom.css" rel="stylesheet">
 
   <style>
+    .bg {
+      /* The image used */
+      background-image: url("img/white-cloud.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
     .container2 {
       max-width: 500px;
       padding-right: 2.5rem;
@@ -36,12 +54,6 @@
         height: 550px;        
     }    
 
-    /* @media screen and (min-width: 1200px) {
-      .container2 {
-        width: 40%;
-      }
-    }   */
-
   </style>
 
 </head>
@@ -56,27 +68,36 @@
           <div class="p-5">
             <div class="text-center">
               <img class="d-block w-100" src="img/umrahclicks-logo.JPG" height="" alt="UmrahClicks">
-              <!-- <h5 class="h5 text-primary mb-4" style="font-weight: 700;"><i class="fas fa-fw fa-kaaba text-gray-900"></i>&nbsp;UmrahClicks.my</h5> -->
             </div>
-            <form>
-              <div class="form-group text-md">
-                <label for="" class="col-form-label text-gray-900">User Name</label>
-                <input type="email" class="form-control form-control-sm" id="exampleInputEmail" aria-describedby="emailHelp">
-                <label for="" class="col-form-label text-gray-900">Password</label>
-                <input type="password" class="form-control form-control-sm" id="exampleInputPassword">
-              </div>
-              <a href="index.php?page=dashboard" class="btn btn-primary btn-block">
-                Login
-              </a>
-            </form>                  
             <hr>
-            <div class="text-center">
-              <!-- <a class="small" href="forgot-password.php">Forgot Password?</a> -->
-              <a class="small" href="#" data-toggle="modal" data-target="#forgotModal">Forgot Password?</a>
+            <div class="alert alert-danger collapse" id="login-alert" style="font-size: 0.8rem;">
+              <span id="err_text"></span>
+              <button type="button" class="close align-middle" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <!-- <div class="text-center">
-              <a class="small" href="#" data-toggle="modal" data-target="#registerModal">Create an Account!</a>
-            </div> -->
+            <form id="formLogin" action="index.php" method="post" enctype="application/x-www-form-urlencoded">
+              <div class="row text-md">
+                <div class="form-group col-md-12">
+                  <label for="" class="col-form-label text-gray-900">User Name</label>
+                  <input type="text" class="form-control" id="username" name="username">
+                </div>
+              </div>
+              <div class="row text-md">
+                <div class="form-group col-md-12">  
+                  <label for="" class="col-form-label text-gray-900">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+              </div>
+              <div class="row text-md">
+                <div class="form-group col-md-12">  
+                  <input type="hidden" name="operation" id="operation" value="Login">
+                  <input type="hidden" name="mid" id="mid" value="1">
+                  <input type="hidden" name="m2id" id="m2id" value="0">
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+              </div>              
+            </form>           
             <hr>
             <div class="text-center">
               <a class="small" href="home.php">Search Package</a>
@@ -102,6 +123,55 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(document).on('submit', '#formLogin', function(event){
+        event.preventDefault();
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var err_text = "";
+        if(username == '' || password == '') {
+          err_text = "Please fill in the form."
+          $('#err_text').text(err_text);
+          $('#login-alert').show('fade');
+          setTimeout(function () {
+            $('#login-alert').hide('fade');
+          }, 6000);
+        }
+        else {
+          $.ajax({
+            url: "process/p_login.php",
+            type: "POST",
+            dataType: "json",
+            data: $("#formLogin").serializeArray(),
+            async: false,
+            success: function(resp) {
+              if (resp.success == 'true') {
+                document.getElementById("formLogin").submit();
+              } else {
+                $('#err_text').html(resp.result);
+                $('#login-alert').show('fade');
+                setTimeout(function () {
+                  $('#login-alert').hide('fade');
+                }, 6000);
+                return false;
+              }
+            },
+            error: function() {
+              $('#err_text').html('<strong>System Error!</strong> <br/>Please contact system administrator.');
+              $('#login-alert').show('fade');
+              setTimeout(function () {
+                $('#login-alert').hide('fade');
+              }, 6000);
+              return false;
+            }
+          });
+        }
+      });
+      
+    });
+  </script>
 
 </body>
 

@@ -2,7 +2,7 @@
   include('view/modal/medit_review.php');
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Reviews</h1> 
+<h1 class="h4 mb-2 text-gray-800">Reviews</h1> 
 
 <hr>
 

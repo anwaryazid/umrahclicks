@@ -2,14 +2,12 @@
   include('view/modal/mcountry.php');
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Country</h1> 
+<h1 class="h4 mb-2 text-gray-800">Country</h1> 
 
 <hr>
 
 <div class="row">
   <div class="col-md-12">
-
-    <?php include('view/modal/malert.php'); ?>
 
     <div class="card shadow mb-4">
       <div class="card-header py-3">
@@ -21,6 +19,7 @@
             <thead>
               <tr>
                 <th>No.</th>
+                <th></th>
                 <th>Country Code</th>
                 <th>Country Name</th>
                 <th>Currency Code</th>

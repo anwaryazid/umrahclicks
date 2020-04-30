@@ -1,3 +1,55 @@
+<?php
+
+date_default_timezone_set("Asia/Kuala_Lumpur");
+
+session_start();
+
+if(!isset($_GET['country']) && !isset($_GET['id'])) {
+  header("Location: home.php");
+}
+
+require("lib/conn.php"); 
+
+$country = (isset($_GET['country'])) ? $_GET['country'] : 'MY'; 
+$id = (isset($_GET['id'])) ? $_GET['id'] : '0'; 
+
+$dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
+$noAdult = (isset($_GET['noAdult'])) ?  $_GET['noAdult'] : '';
+$noChild = (isset($_GET['noChild'])) ?  $_GET['noChild'] : '';
+
+$result = $conn->query("SELECT * FROM ref_country WHERE kod = '$country'") or die(mysqli_error($conn));
+foreach($result as $row) {
+  $currency = $row["currency_symbol"];
+  $currencyCode = $row["currency_code"];
+}
+
+function convert_currency($from,$to) {
+
+  $from = urlencode($from);
+  $to = urlencode($to);
+  $url = "https://free.currconv.com/api/v7/convert?q=$from"."_"."$to&compact=ultra&apiKey=a59d7c336eddd151acdb";
+  $ch = curl_init();
+  $timeout = 0;
+  curl_setopt ($ch, CURLOPT_URL, $url);
+  curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_USERAGENT , 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0');
+  curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+  $rawdata = curl_exec($ch);
+  curl_close($ch);
+
+  $obj = json_decode($rawdata);
+
+  return $obj->{$from.'_'.$to};
+}
+
+if ($currencyCode == 'MYR') {
+  $rates = 1;
+} else {
+  $rates = convert_currency('MYR', $currencyCode);
+}
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,347 +63,312 @@
 
   <title>UmrahClicks.my</title>
 
-  <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
   <link href="css/main-custom.css" rel="stylesheet">
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-
-  <style>
-    .btn-group-xs > .btn, .btn-xs {
-      padding: .2rem .3rem;
-      font-size: .875rem;
-      line-height: .5;
-      border-radius: .2rem;
-    }
-
-    #content {
-      margin-top: 75px;
-    }
-    
-  </style>
+  <link href="css/search.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
   <div id="wrapper">
-
-    <div id="content-wrapper" class="d-flex flex-column"> 
+    <div id="content-wrapper" class="d-flex flex-column"><!-- style="background-color: #c5e3f6" -->       
       
+      <div id="content">    
       <?php
         include('top-menu.php');
       ?> 
+        <div class="container-fluid">
+          <div class="row justify-content-md-center">
 
-      <div id="content">  
-
-        <div class="container-fluid ">
-
-          <div class="row">
-
-            <div class="col-xl-2 col-lg-3 col-md-4">
-
-              <!-- Filter -->
-              <div class="card mb-4">
-                <a href="#filter" class="d-block card-header py-3 bg-white collapse" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter">
-                  <h6 class="m-0 text-primary text-md"><i class="fas fa-filter fa-sm"></i>&nbsp;Filter By</h6>
-                </a>
-                <div class="collapse hide" id="filter">
-                  <div class="card-body">
-                    <form class="">
-                      <div class="form-row form-group" style="font-size: 13px;">
-                        <div class="col-sm-12">Price Range (RM)</div>
-                        <div class="col-sm-12 mb-2">
-                          <!-- <input type="text" class="form-control form-control-xs text-center" id="f_price_min" placeholder="Min"> -->
-                          <div class="input-group input-group-xs">
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
-                            </div>
-                            <input type="text" name="quant[1]" class="form-control text-center input-number" id="f_price_max" placeholder="Min" min="1" max="100000">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-min" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-12">
-                          <!-- <input type="text" class="form-control form-control-xs text-center" id="f_price_max" placeholder="Max"> -->
-                          <div class="input-group input-group-xs">   
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-minus-max" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
-                            </div>
-                            <input type="text" name="quant[2]" class="form-control text-center input-number" id="f_price_max" placeholder="Max" min="1" max="100000">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary btn-number" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
-                            </div>
-                          </div>
-                        </div>            
-                      </div>
-                      <div class="form-row" style="font-size: 13px;">
-                        <div class="col-sm-12">Distance Makkah Hotel</div>
-                        <div class="col-sm-12">
-                          <div class="input-group input-group-xs mb-3">                          
-                            <input type="text" class="form-control" id="f_distance_Makkah">
-                            <div class="input-group-append">
-                              <span class="input-group-text">m</span>
-                            </div>
-                          </div>
-                        </div>                  
-                      </div>
-                      <div class="form-row" style="font-size: 13px;">
-                        <div class="col-sm-12">Distance Madinah Hotel</div>
-                        <div class="col-sm-12 input-group input-group-xs mb-3">                    
-                          <input type="text" class="form-control" id="f_distance_madinah">
-                          <div class="input-group-append">
-                            <span class="input-group-text">m</span>
-                          </div>
-                        </div>                  
-                      </div>
-                      <div class="form-row form-group" style="font-size: 13px;">
-                        <!-- <label for="" class="col-sm-12 col-form-label">Agency</label> -->
-                        <div class="col-sm-12">Agency</div>
-                        <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-xs" id="f_agency">
-                        </div>                  
-                      </div>
-                      <div class="form-row form-group" style="font-size: 13px;">
-                        <div class="col-sm-12">Promotion</div>
-                        <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-xs" id="f_promo">
-                        </div>                  
-                      </div>
-                      <div class="form-row form-group" style="font-size: 13px;">
-                        <div class="col-sm-12">State</div>
-                        <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-xs" id="f_state">
-                        </div>                  
-                      </div>
-                      <div class="form-group row" style="font-size: 13px;">
-                        <div class="col-sm-12">City</div>
-                        <div class="col-sm-12">
-                          <input type="text" class="form-control form-control-xs" id="f_city">
-                        </div>                  
-                      </div>
-                      <a href="packages.php" class="btn btn-outline-primary btn-user btn-block btn-sm">
-                        <i class="fas fa-filter fa-sm"></i> Filter
-                      </a>
-                    </form>
-                  </div>
-                </div>                
-              </div>
-
-              <!-- Advertisment -->
-              <div class="d-none d-md-block">
-                <div class="card mb-4">
-                  <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/smart1.jpg" height="" alt="Smart Umrah4all">
-                    <br>
-                    Smart Umrah4all Dot Com Travel & Services Sdn Bhd
-                  </div>
-                  <div class="card-footer bg-white">
-                    <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
-                  </div>
+            <!-- Packages -->
+            <div class="col-xl-10 col-lg-10 col-md-10">           
+                   
+              <!-- Package 1 -->
+              <?php              
+                $minAmount = 6000 * $rates;
+                $maxAmount = 8500 * $rates;
+                $hasDiscount = true;
+                if ($hasDiscount) {
+                  $discount = 0.2;                                     
+                  $amountMinDiscount = $minAmount * $discount;
+                  $amountMinAfterDiscount = $minAmount - $amountMinDiscount;
+                  $amountMaxDiscount = $maxAmount * $discount;
+                  $amountMaxAfterDiscount = $maxAmount - $amountMaxDiscount;
+                }
+              ?>
+              <div class="card mb-3">
+                <div class="thumb-xs d-block d-sm-none">
+                  <img class="thumb-img-xs float-left" src="img/kaabah-min.jpg" >
                 </div>
-
-                <div class="card mb-4">
-                  <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/epl1.JPG" height="">
-                    <br>
-                    EPL Travel & Tours Sdn Bhd
-                  </div>
-                  <div class="card-footer bg-white">
-                    <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
-                  </div>
-                </div>
-
-                <div class="card mb-4">
-                  <div class="card-body" style="font-size: 0.7rem;">
-                    <img class="d-block w-100" src="img/epl2.JPG" height="">
-                    <br>
-                    EPL Travel & Tours Sdn Bhd
-                  </div>
-                  <div class="card-footer bg-white">
-                    <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">Go to Page &rarr;</a>
-                  </div>
-                </div>
-              </div>              
-
-            </div>
-
-            <div class="col-xl-10 col-lg-9 col-md-8">              
-              <div class="card shadow mb-4">
-                <a href="#agency_1" class="d-block card-header py-3 bg-white text-primary" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_1" >
+                <div class="d-block card-header py-3 bg-white text-primary">
                   <div class="row">
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
+                      <img class="thumb-img" src="img/kaabah-min.jpg" >
+                    </div>
+                    <div class="col-lg-7">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
                       <div class="text-primary" style="font-size: 13px;">
-                        Cyberjaya (LKU No: KPK/LN 9774) <br>
-                        Package Gold <br>
-                        Departure Date From 01/04/2020 to 10/04/2020
-                      </div>                      
+                        Cyberjaya, Selangor (LKU No: KPK/LN 9774) <br>
+                        Package Gold <span class="badge badge-info align-text-middle">New!</span><br>
+                        Departure Date from 2 April 2020 to 10 April 2020<br>                        
+                        <?php if ($hasDiscount) { ?>
+                          <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
+                          <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
+                          <span class="badge badge-danger align-text-top">20% OFF</span>
+                        <?php } else { ?>
+                          <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
+                        <?php } ?>  
+                        <span class="badge badge-primary align-text-top">UMRAH4ALL</span>                               
+                      </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4 stars
-                      <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3 stars
-                      <br>
-                      56 Reviews
+                    <div class="col-auto justify-content-end">  
+                      <table cellpadding="1" cellspacing="3" style="font-size: 11px;">
+                        <tr>
+                          <td>Company Rating</td>
+                          <td class="text-center">:&nbsp;&nbsp;</td>
+                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
+                        </tr>
+                        <tr>
+                          <td>Customer Rating</td>
+                          <td>:</td>
+                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
+                        </tr>
+                        <tr>
+                          <td colspan="3">3 ratings</td>
+                        </tr>
+                      </table>                                       
                     </div>
-                  </div>                  
-                </a>
+                  </div>  
+                </div>
                 <div class="collapse show" id="agency_1">
                   <div class="card-body text-md">
-                    <div class="row">
-                      <div class="col-lg-6">
+                    <div class="row" >
+                      <div class="col-xl-6 col-lg-12">
+                        <!-- Room and Price Information -->
                         <div class="card mb-4">
-                          <div class="card-body">
-                            <img class="d-block w-100" src="img/kaabah.jpg">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Room & Price Information</strong>
+                          </div>
+                          <div class="card-body text-md"> 
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <table class="table table-borderless" width="100%" cellspacing="0">
+                                  <tr class="border-bottom">
+                                    <td class="text-primary"><strong>Room</strong></td>
+                                    <td class="text-primary"><strong>Price</strong></td>
+                                    <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
+                                  </tr>                              
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Double Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Double Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 6000 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center" width="120px">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Triple Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Triple Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 7200 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom">
+                                    <td class="align-middle">
+                                      <span class="d-none d-sm-block">Quadruple Bed</span>
+                                      <span class="d-block d-sm-none" style="font-size: .8rem">Quadruple Bed</span>
+                                    </td>
+                                    <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                      <?php 
+                                        $hasDiscount = true;
+                                        $amount = 8500 * $rates;
+                                        if ($hasDiscount) {
+                                          $discount = 0.2;                                     
+                                          $amountDiscount = $amount * $discount;
+                                          $amountAfterDiscount = $amount - $amountDiscount;
+                                          echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        } else {
+                                          echo $currency.''.number_format($amount, 2);
+                                        }          
+                                      ?>
+                                      <?php
+                                      if ($hasDiscount) {
+                                      ?>
+                                      <br/>
+                                      <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                      <?php
+                                      }
+                                      ?>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border-bottom" style="font-size: .8rem;">
+                                    <td colspan="3">
+                                      <div class="alert alert-primary" role="alert" style="font-size: .8rem">
+                                        <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
+                                      </div>
+                                    </td> 
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>   
                           </div>
                         </div>
+                        <!-- Package Details -->
                         <div class="card mb-4">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Package Detail</strong>
+                          </div>
                           <div class="card-body">
                             <table class="table table-borderless"  width="100%" cellspacing="0">
                               <tr class="border-bottom">
                                 <td></td>
-                                <td class="text-gray-900 d-none d-sm-block"></td>
+                                <td class="text-primary d-none d-sm-block"></td>
                                 <td class="text-primary"><strong>Makkah</strong></td>
                                 <td class="text-primary"><strong>Madinah</strong></td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-bed"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
                                 <td>Elaf Al Mashaer</td>
                                 <td>Ramada Al Qibla</td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-sun"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
                                 <td>7 days</td>
                                 <td>7 days</td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-moon"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
                                 <td>7 night</td>
                                 <td>7 night</td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="text-gray-900"><i class="fas fa-fw fa-mosque"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
                                 <td>250 m</td>
                                 <td>250 m</td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-utensils"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
                                 <td colspan="2">Provided</td>
                               </tr>
                               <tr class="border-bottom">
-                                <td class="text-gray-900"><i class="fas fa-fw fa-plane"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
                                 <td colspan="2">Direct</td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-map-marker-alt"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
                                 <td colspan="2">Makkah</td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-walking"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
                                 <td colspan="2"></td>
                               </tr>
                               <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-male"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
+                                <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
                                 <td colspan="2">Celebrity Mutawif</td>
                               </tr>
                             </table>
                           </div>
-                        </div>     
-                      </div>
-                      <div class="col-lg-6">      
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <?php //include('view/modal/malert_booking.php'); ?>
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td class="text-primary"><strong>Room</strong></td>
-                                <td class="text-primary"><strong>Price</strong></td>
-                                <td></td>
-                              </tr>                              
-                              <tr>
-                                <td>Double Bed<br/><small>(4 pax left)</small></td>
-                                <td>MYR 6,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Triple Bed<br/><small>(4 pax left)</small></td>
-                                <td>MYR 7,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Quadriple Bed<br/><small>(2 pax left)</small></td>
-                                <td>MYR 8,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>  
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <!-- <tr class="border-bottom">
-                                <td class="text-primary" colspan="2"><strong>Promotion</strong></td>
-                              </tr>     -->                          
-                              <tr class="border-bottom">
-                                <td class="text-primary"><strong>Promo Code</strong></td>
-                                <td class="text-primary"><strong>Promo Description</strong></td>
-                              </tr>
-                              <tr>
-                                <td>UMRAH4ALL</td>
-                                <td>Get 40% Discount. Maximum amount of RM4,000.00</td>
-                              </tr>
-                              <tr>
-                                <td>SMART10</td>
-                                <td>Get RM10 Discount</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>                
-                        <div class="card mb-4">
+                        </div>                        
+                        <!-- Rating -->
+                        <!-- <div class="card mb-4 d-none d-xl-block">
                           <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
+                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong>
                           </div>
                           <div class="card-body">
-                            <div class="row">
+                            <div class="row h-100">
+                              <div class="col-auto text-center my-auto">
+                                <span class="text-primary">4.5 out of 5</span><br/>
+                                <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
+                              </div>  
+                              <div class="col-auto my-auto">  
+                                <button class="btn btn-sm btn-outline-primary active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row" style="font-size: .8rem">
                               <div class="col-md-12">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars </small>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
                                 <br/><br/>
-                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                <small class="text-muted">Posted by Abu on 3/1/17</small>
                                 <hr>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars </small>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
                                 <br/><br/>
-                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                <small class="text-muted">Posted by Bakar on 3/1/17</small>
                                 <hr>
-                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
-                                  Leave a Review
-                                </a> -->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Ela on 3/1/17</small>
+                                <hr>
                                 <nav>
                                   <ul class="pagination pagination-sm justify-content-center">
                                     <li class="page-item disabled">
@@ -374,205 +391,83 @@
                               </div>
                             </div> 
                           </div>
-                        </div>
+                        </div> -->
                       </div>
-                    </div>                    
-                  </div>
-                </div>
-              </div>
-              <div class="card shadow mb-4">
-                <a href="#agency_2" class="d-block card-header py-3 bg-white" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="agency_2" >
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <h6 class="m-0 font-weight-bold text-primary text-md">EPL Travel and Tours Sdn Bhd</h6> 
-                      <div class="text-primary" style="font-size: 13px;">
-                        Kajang (LKU No: KP/LN 6441) <br>
-                        Package Gold <br>
-                        Departure Date From 01/04/2020 to 10/04/2020
-                      </div>                      
-                    </div>
-                    <div class="col-lg-3" style="font-size: 12px;">
-                      Customer Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4 stars
-                      <br>
-                      Company Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3 stars
-                      <br>
-                      56 Reviews
-                    </div>
-                  </div>                  
-                </a>
-                <div class="collapse show" id="agency_2">
-                  <div class="card-body text-md">
-                    <div class="row">
-                      <div class="col-lg-6">
+                      <div class="col-xl-6 col-lg-12">                          
+                        <!-- Image Hotel Makkah -->
                         <div class="card mb-4">
-                          <div class="card-body">
-                            <img class="d-block w-100" src="img/epl3.jpg">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Hotel Elaf Al Mashaer, Makkah</strong>
                           </div>
-                        </div>
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td></td>
-                                <td class="text-gray-900 d-none d-sm-block"></td>
-                                <td class="text-primary"><strong>Makkah</strong></td>
-                                <td class="text-primary"><strong>Madinah</strong></td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-bed"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
-                                <td>Elaf Al Mashaer</td>
-                                <td>Ramada Al Qibla</td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-sun"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
-                                <td>7 days</td>
-                                <td>7 days</td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-moon"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
-                                <td>7 night</td>
-                                <td>7 night</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-gray-900"><i class="fas fa-fw fa-mosque"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
-                                <td>250 m</td>
-                                <td>250 m</td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-utensils"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
-                                <td colspan="2">Provided</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-gray-900"><i class="fas fa-fw fa-plane"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
-                                <td colspan="2">Direct</td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-map-marker-alt"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
-                                <td colspan="2">Makkah</td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-walking"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
-                                <td colspan="2"></td>
-                              </tr>
-                              <tr>
-                                <td class="text-gray-900"><i class="fas fa-fw fa-male"></i></td>
-                                <td class="text-gray-900 d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
-                                <td colspan="2">Celebrity Mutawif</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>     
-                      </div>
-                      <div class="col-lg-6">      
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <?php //include('view/modal/malert_booking.php'); ?>
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td class="text-primary"><strong>Room</strong></td>
-                                <td class="text-primary"><strong>Price</strong></td>
-                                <td></td>
-                              </tr>                              
-                              <tr>
-                                <td>Double Bed<br/><small>(4 pax left)</small></td>
-                                <td>MYR 6,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Triple Bed<br/><small>(4 pax left)</small></td>
-                                <td>MYR 7,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Quadriple Bed<br/><small>(2 pax left)</small></td>
-                                <td>MYR 8,200.00</td>
-                                <td>
-                                  <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#bookingModal">
-                                    Book Now
-                                  </a>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>  
-                        <div class="card mb-4">
-                          <div class="card-body">
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <!-- <tr class="border-bottom">
-                                <td class="text-primary" colspan="2"><strong>Promotion</strong></td>
-                              </tr>     -->                          
-                              <tr class="border-bottom">
-                                <td class="text-primary"><strong>Promo Code</strong></td>
-                                <td class="text-primary"><strong>Promo Description</strong></td>
-                              </tr>
-                              <tr>
-                                <td>UMRAH4ALL</td>
-                                <td>Get 40% Discount. Maximum amount of RM4,000.00</td>
-                              </tr>
-                              <tr>
-                                <td>SMART10</td>
-                                <td>Get RM10 Discount</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>                
-                        <div class="card mb-4">
-                          <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Reviews (3 review)</strong> <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#reviewModal">Leave a Review</button>
-                          </div>
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars </small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.0 stars </small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                                <hr>
-                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#reviewModal">
-                                  Leave a Review
-                                </a> -->
-                                <nav>
-                                  <ul class="pagination pagination-sm justify-content-center">
-                                    <li class="page-item disabled">
-                                      <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                      <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </nav>                              
+                          <div class="card-body">                                     
+                            <div id="imgIndicator" class="carousel slide mb-3" data-ride="carousel">
+                              <ol class="carousel-indicators">
+                                <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
+                                <li data-target="#imgIndicator" data-slide-to="1"></li>
+                                <li data-target="#imgIndicator" data-slide-to="2"></li>
+                                <li data-target="#imgIndicator" data-slide-to="3"></li>
+                              </ol>
+                              <div class="carousel-inner">
+                                <div class="carousel-item box active">
+                                  <img class="d-block caros" src="img/elaf/elaf1-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/elaf/standard-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/elaf/junior-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/elaf/quadruple-min.jpg">
+                                </div>
                               </div>
-                            </div> 
+                              <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#imgIndicator" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Image Hotel Madinah -->
+                        <div class="card mb-4">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Hotel Ramada Al Qibla, Madinah</strong>
+                          </div>
+                          <div class="card-body">                                     
+                            <div id="imgIndicator2" class="carousel slide mb-3" data-ride="carousel">
+                              <ol class="carousel-indicators">
+                                <li data-target="#imgIndicator2" data-slide-to="0" class="active"></li>
+                                <li data-target="#imgIndicator2" data-slide-to="1"></li>
+                                <li data-target="#imgIndicator2" data-slide-to="2"></li>
+                                <li data-target="#imgIndicator2" data-slide-to="3"></li>
+                              </ol>
+                              <div class="carousel-inner">
+                                <div class="carousel-item box active">
+                                  <img class="d-block caros" src="img/ramada/ramada1-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/ramada/standard-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/ramada/junior-min.jpg">
+                                </div>
+                                <div class="carousel-item box">
+                                  <img class="d-block w-100 caros" src="img/ramada/quadruple-min.jpg">
+                                </div>
+                              </div>
+                              <a class="carousel-control-prev" href="#imgIndicator2" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#imgIndicator2" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -580,26 +475,7 @@
                   </div>
                 </div>
               </div>
-              <div class="alert alert-light text-center text-md" role="alert">
-                No packages has been found. 
-              </div>
-              <div>
-                <nav>
-                  <ul class="pagination pagination-sm justify-content-center">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+
             </div>
           </div>
         </div>
@@ -609,7 +485,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; UmrahClicks.my 2020</span>
+            <span>Copyright &copy; UmrahClicks.my <?php echo date('Y'); ?></span>
           </div>
         </div>
       </footer>
@@ -622,7 +498,7 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Review Modal-->
+  <!-- Rating Modal-->
   
 
   <!-- Include Modal-->
@@ -630,7 +506,7 @@
     include('view/modal/mbooking0.php');
     include('view/modal/mbooking1.php');
     include('view/modal/mbooking2.php');
-    include('view/modal/mreview.php');
+    include('view/modal/mrating.php');
     
   ?>
 
@@ -641,91 +517,11 @@
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/main.js"></script>
-
   <script src="js/bootstrap-datepicker.js"></script>
 
-  <script>
-    $(function() {
-      $('#date_Depart').datepicker({
-        'format': 'dd/mm/yyyy',
-        'autoclose': true
-      });
-    });
-
-    $('.btn-number').click(function(e) {
-        e.preventDefault();
-
-        fieldName = $(this).attr('data-field');
-        type = $(this).attr('data-type');
-        var input = $("input[name='" + fieldName + "']");
-        var currentVal = parseInt(input.val());
-        if (!isNaN(currentVal)) {
-            if (type == 'minus') {
-
-                if (currentVal > input.attr('min')) {
-                    input.val(currentVal - 1).change();
-                }
-                if (parseInt(input.val()) == input.attr('min')) {
-                    $(this).attr('disabled', true);
-                }
-
-            } else if (type == 'plus') {
-
-                if (currentVal < input.attr('max')) {
-                    input.val(currentVal + 1).change();
-                }
-                if (parseInt(input.val()) == input.attr('max')) {
-                    $(this).attr('disabled', true);
-                }
-
-            }
-        } else {
-            input.val(0);
-        }
-    });
-    $('.input-number').focusin(function() {
-        $(this).data('oldValue', $(this).val());
-    });
-    $('.input-number').change(function() {
-
-        minValue = parseInt($(this).attr('min'));
-        maxValue = parseInt($(this).attr('max'));
-        valueCurrent = parseInt($(this).val());
-
-        name = $(this).attr('name');
-        if (valueCurrent >= minValue) {
-            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the minimum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-        if (valueCurrent <= maxValue) {
-            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-        } else {
-            alert('Sorry, the maximum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-
-
-    });
-    $(".input-number").keydown(function(e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-            // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) ||
-            // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-            // let it happen, don't do anything
-            return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
-  </script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
 
 </body>
 

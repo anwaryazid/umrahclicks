@@ -4,13 +4,19 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 
 session_start();
 
-require("lib/conn.php"); 
-
 if(!isset($_GET['country'])) {
   header("Location: home.php");
 }
 
-$country = (isset($_GET['country'])) ? $_GET['country'] : 'MY';  
+require("lib/conn.php"); 
+
+$country = (isset($_GET['country'])) ? $_GET['country'] : 'MY'; 
+
+$result = $conn->query("SELECT * FROM ref_country WHERE kod = '$country'") or die(mysqli_error($conn));
+foreach($result as $row) {
+  $currency = $row["currency_symbol"];
+  $currencyCode = $row["currency_code"];
+}
 
 /* Search */
 $dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
@@ -34,24 +40,6 @@ $dateTo = date('j F Y', strtotime($dateDepart. ' + 3 days'));
 $sort = (isset($_GET['sort'])) ?  $_GET['sort'] : '';  
 $promo = (isset($_GET['promo'])) ?  $_GET['promo'] : '';  
 $rating = (isset($_GET['rating'])) ?  $_GET['rating'] : '';  
-
-
-if ($country == 'MY') {
-  $currency = 'RM';
-  $currencyCode = 'MYR';
-} else if ($country == 'ID') {
-  $currency = 'Rp';
-  $currencyCode = 'IDR';
-} else if ($country == 'SG') {
-  $currency = 'SGD';
-  $currencyCode = 'SGD';
-} else if ($country == 'BN') {
-  $currency = 'BND';
-  $currencyCode = 'BND';
-} else {
-  $currency = 'RM';
-  $currencyCode = 'MYR';
-}
 
 function convert_currency($from,$to) {
 
@@ -93,11 +81,9 @@ if ($currencyCode == 'MYR') {
 
   <title>UmrahClicks.my</title>
 
-  <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
   <link href="css/main-custom.css" rel="stylesheet">
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
   <link href="css/search.css" rel="stylesheet">
@@ -107,12 +93,13 @@ if ($currencyCode == 'MYR') {
 <body id="page-top">
   <div id="wrapper">
     <div id="content-wrapper" class="d-flex flex-column"><!-- style="background-color: #c5e3f6" -->       
+      
+      <div id="content">    
       <?php
         include('top-menu.php');
       ?> 
-      <div id="content">    
         <div class="container-fluid">
-          <div class="row">
+          <div class="row justify-content-md-center">
 
             <div class="col-xl-2 col-lg-3 col-md-4">                            
               <!-- Filter -->
@@ -128,16 +115,16 @@ if ($currencyCode == 'MYR') {
                         <div class="col-sm-12">
                           <div class="input-group input-group-xs">  
                             <div class="input-group-prepend">
-                              <span class="input-group-text input-group-addon bg-white text-primary border-secondary">&nbsp;<strong><?php echo $currency; ?></strong>&nbsp;</span>
+                              <span class="input-group-text input-group-addon bg-white text-primary border-secondary border-right-0">&nbsp;<strong><?php echo $currency; ?></strong>&nbsp;</span>
                             </div>  
-                            <input type="text" value="<?php echo $priceMax; ?>" class="form-control form-control-xs border-secondary text-center input-number text-primary" id="f_price_max">
+                            <input type="text" value="<?php echo $priceMax; ?>" class="form-control form-control-xs border-secondary border-left-0 input-number text-primary" id="f_price_max">
                           </div>
                         </div>                 
                         </div>
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">Distance Makkah Hotel</div>
                         <div class="col-sm-12">
-                          <select class="form-control form-control-xs border-secondary text-center text-primary" id="f_distance_makkah">
+                          <select class="form-control form-control-xs border-secondary text-primary" id="f_distance_makkah">
                             <option value=""></option>
                             <option value="1" <?php if($distMakkah == 1) {?> selected <?php } ?>>< 50m</option>
                             <option value="2" <?php if($distMakkah == 2) {?> selected <?php } ?>>50 - 100m</option>
@@ -149,7 +136,7 @@ if ($currencyCode == 'MYR') {
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">Distance Madinah Hotel</div>
                         <div class="col-sm-12">
-                          <select class="form-control form-control-xs border-secondary text-center text-primary" id="f_distance_madinah">
+                          <select class="form-control form-control-xs border-secondary text-primary" id="f_distance_madinah">
                             <option value=""></option>
                             <option value="1" <?php if($distMadinah == 1) {?> selected <?php } ?>>< 50m</option>
                             <option value="2" <?php if($distMadinah == 2) {?> selected <?php } ?>>50 - 100m</option>
@@ -161,14 +148,14 @@ if ($currencyCode == 'MYR') {
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">Agency</div>
                         <div class="col-sm-12">
-                          <input type="text" value="<?php echo $agency; ?>" class="form-control form-control-xs border-secondary text-center text-primary" id="f_agency" onkeyup="this.value = this.value.toUpperCase();">
+                          <input type="text" value="<?php echo $agency; ?>" class="form-control form-control-xs border-secondary text-primary" id="f_agency" onkeyup="this.value = this.value.toUpperCase();">
                         </div>                  
                       </div>                   
                       <?php $stateList = $conn->query("SELECT * FROM ref_state WHERE kod NOT IN ('15','98','99') ORDER BY keterangan")?>  
                       <div class="form-row form-group" style="font-size: 13px;">
                         <div class="col-sm-12">State</div>
                         <div class="col-sm-12">
-                          <select class="form-control form-control-xs text-center border-secondary text-primary" id="f_state" name="f_state">
+                          <select class="form-control form-control-xs border-secondary text-primary" id="f_state" name="f_state">
                             <option value="" selected></option>
                             <?php
                             while($rows = $stateList->fetch_assoc())
@@ -185,7 +172,7 @@ if ($currencyCode == 'MYR') {
                       <div class="form-group row" style="font-size: 13px;">
                         <div class="col-sm-12">City</div>
                         <div class="col-sm-12">
-                          <input type="text" value="<?php echo $city; ?>" class="form-control form-control-xs border-secondary text-center text-primary" id="f_city" onkeyup="this.value = this.value.toUpperCase();">
+                          <input type="text" value="<?php echo $city; ?>" class="form-control form-control-xs border-secondary text-primary" id="f_city" onkeyup="this.value = this.value.toUpperCase();">
                         </div>                  
                       </div>
                       <hr>
@@ -204,32 +191,32 @@ if ($currencyCode == 'MYR') {
                       <div class="mb-1" style="font-size: 13px;">
                         <span>Rating</span>
                       </div>
-                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='5') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(5);" id="f_5star">
+                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='5') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(5);" id="f_5star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                       </button>
-                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='4') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(4);" id="f_4star">
+                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='4') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(4);" id="f_4star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='3') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(3);" id="f_3star">
+                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='3') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(3);" id="f_3star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='2') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(2);" id="f_2star">
+                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='2') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(2);" id="f_2star">
                         <i class="fas fa-star fa-sm"></i>
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
-                      <button class="btn btn-sm btn-outline-warning btn-block text-left border-0 <?php if ($rating=='1') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(1);" id="f_1star">
+                      <button class="btn btn-sm btn-outline-primary btn-block text-left border-0 <?php if ($rating=='1') { ?>active<?php } ?>" type="button" style="font-size: 12px;" onClick="filterRating(1);" id="f_1star">
                         <i class="fas fa-star fa-sm"></i>
                         <span>++</span>
                       </button>
@@ -237,12 +224,12 @@ if ($currencyCode == 'MYR') {
                   </div>
                 </div>
               </div>
-              <!-- Advertisment -->
-              <div class="d-none d-md-block">
+              <!-- Advertisement -->
+              <!-- <div class="d-none d-md-block">
                 <div class="card mb-4">
                   <div class="card-body" style="font-size: 0.7rem;">
                     <div class="text-center">
-                      Advertisment
+                      Advertisement
                     </div>
                     <hr>
                     <div class="text-center">
@@ -263,17 +250,72 @@ if ($currencyCode == 'MYR') {
                     <hr>
                   </div>
                 </div>
-              </div>              
+              </div> -->
+              <!-- <?php
+              require_once('lib/conn.php');  
+              $query = "SELECT * FROM advertisement
+              WHERE 
+              ad_status = '1' AND ad_companyStatus = '1'
+              AND CURDATE() >= ad_dateFrom AND CURDATE() <= ad_dateTo
+              ORDER BY RAND()
+              LIMIT 3";
+              $advertList = $conn->query($query) or die(mysqli_error($conn));
+              $numrows = mysqli_num_rows($advertList);
+              if ($numrows > 0) {
+              ?>
+              <div class="d-none d-md-block">
+                <div class="card mb-4">
+                  <div class="card-body" style="font-size: 0.7rem;">
+                    <div class="text-center">
+                      Advertisement
+                    </div>
+                    <hr>
+                    <?php                    
+                    foreach($advertList as $row) {
+                    ?>                    
+                    <div class="text-center">
+                      <a rel="nofollow" href="<?= $row['ad_website']; ?>" target="_blank" style="font-size: 0.8rem;">
+                        <img class="d-block w-100" src="upload/advertisement/<?= $row['ad_image']; ?>"" height="" alt="<?= $row['ad_companyName']; ?>">
+                      </a>
+                      <br>
+                      <?= $row['ad_companyName']; ?>
+                    </div>                    
+                    <hr>
+                    <?php
+                    }
+                    ?>
+                    <div class="text-center">
+                      <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
+                        <img class="d-block w-100" src="img/smart1-min.jpg" height="" alt="Smart Umrah4all Dot Com Travel & Services Sdn Bhd">
+                      </a>
+                      <br>
+                      Smart Umrah4all Dot Com Travel & Services Sdn Bhd
+                    </div>                    
+                    <hr>
+                    <div class="text-center">
+                      <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
+                        <img class="d-block w-100" src="img/epl1-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
+                      </a>
+                      <br>
+                      EPL Travel & Tours Sdn Bhd
+                    </div>                    
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <?php
+              }
+              ?>  -->            
             </div>
 
             <!-- Packages -->
-            <div class="col-xl-10 col-lg-9 col-md-8">  
+            <div class="col-xl-8 col-lg-9 col-md-8">  
               <!-- Search Info -->
-              <div class="alert alert-light bg-white text-primary" style="font-size: .7rem;">
+              <div class="alert alert-light bg-white text-primary border" style="font-size: .7rem;">
                 Search result for <span class="font-weight-bolder"><?php echo $pax; ?> pax</span>, Departure Date <br class="d-block d-sm-none"><span class="font-weight-bolder"><?php echo $dateFrom; ?> - <?php echo $dateTo; ?></span>
               </div>  
               <!-- Sort -->
-              <div class="alert alert-light bg-white text-primary" style="font-size: .8rem;">
+              <div class="alert alert-light bg-white text-primary border" style="font-size: .8rem;">
                 <div class="row">
                   <div class="col-auto">              
                     <Sort class="align-middle"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</span>&nbsp;
@@ -285,8 +327,7 @@ if ($currencyCode == 'MYR') {
               </div>              
                    
               <!-- Package 1 -->
-              <?php
-              
+              <?php              
                 $minAmount = 6000 * $rates;
                 $maxAmount = 8500 * $rates;
                 $hasDiscount = true;
@@ -307,193 +348,45 @@ if ($currencyCode == 'MYR') {
                     <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
                       <img class="thumb-img" src="img/kaabah-min.jpg" >
                     </div>
-                    <div class="col-xl-7 col-lg-8">
+                    <div class="col-lg-7">
                       <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
                       <div class="text-primary" style="font-size: 13px;">
-                        Cyberjaya (LKU No: KPK/LN 9774) <br>
+                        Cyberjaya, Selangor (LKU No: KPK/LN 9774) <br>
                         Package Gold <span class="badge badge-info align-text-middle">New!</span><br>
-                        Departure Date from 2 April 2020 to 10 April 2020<br>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <?php if ($hasDiscount) { ?>
-                              <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
-                              <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
-                              <span class="badge badge-danger align-text-top">20% OFF</span>
-                            <?php } else { ?>
-                              <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
-                            <?php } ?>  
-                            <span class="badge badge-primary align-text-top">UMRAH4ALL</span>                        
-                          </div>                        
-                        </div>                        
-                      </div>   
-                      <table class="d-none d-lg-block d-xl-none" cellpadding="1" cellspacing="3" style="font-size: 11px;">
-                        <tr>
-                          <td>Customer Rating</td>
-                          <td class="text-center">:&nbsp;&nbsp;</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
-                          <td>3 ratings</td>
-                        </tr>
-                        <tr>
-                          <td>Company Rating</td>
-                          <td>:</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
-                          <td></td>
-                        </tr>
-                      </table>                 
+                        Departure Date from 2 April 2020 to 10 April 2020<br>                        
+                        <?php if ($hasDiscount) { ?>
+                          <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
+                          <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
+                          <span class="badge badge-danger align-text-top">20% OFF</span>
+                        <?php } else { ?>
+                          <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
+                        <?php } ?>  
+                        <span class="badge badge-primary align-text-top">UMRAH4ALL</span>                               
+                      </div>
                     </div>
-                    <div class="col-xl-3 d-lg-none d-xl-block" style="font-size: 11px;">
-                      <table cellpadding="1" cellspacing="3">
-                        <tr>
-                          <td>Customer Rating</td>
-                          <td class="text-center">:&nbsp;&nbsp;</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
-                          <td>3 ratings</td>
-                        </tr>
+                    <div class="col-auto justify-content-end">  
+                      <table cellpadding="1" cellspacing="3" style="font-size: 11px;">
                         <tr>
                           <td>Company Rating</td>
+                          <td class="text-center">:&nbsp;&nbsp;</td>
+                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
+                        </tr>
+                        <tr>
+                          <td>Customer Rating</td>
                           <td>:</td>
                           <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
-                          <td></td>
                         </tr>
-                      </table>           
+                        <tr>
+                          <td colspan="3">3 ratings</td>
+                        </tr>
+                      </table>                                       
                     </div>
                   </div>                  
                 </a>
                 <div class="collapse hide" id="agency_1">
                   <div class="card-body text-md">
-                    <div class="row">
+                    <div class="row" >
                       <div class="col-xl-6 col-lg-12">
-                        <!-- Package Details -->
-                        <div class="card mb-4">
-                          <div class="card-header text-center" style="background-color: white;">
-                            <strong class="m-0 text-primary">Package Detail</strong>
-                          </div>
-                          <div class="card-body">
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td></td>
-                                <td class="text-primary d-none d-sm-block"></td>
-                                <td class="text-primary"><strong>Makkah</strong></td>
-                                <td class="text-primary"><strong>Madinah</strong></td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
-                                <td>Elaf Al Mashaer</td>
-                                <td>Ramada Al Qibla</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
-                                <td>7 days</td>
-                                <td>7 days</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
-                                <td>7 night</td>
-                                <td>7 night</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
-                                <td>250 m</td>
-                                <td>250 m</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
-                                <td colspan="2">Provided</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
-                                <td colspan="2">Direct</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
-                                <td colspan="2">Makkah</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
-                                <td colspan="2"></td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
-                                <td colspan="2">Celebrity Mutawif</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>                        
-                        <!-- Rating -->
-                        <div class="card mb-4 d-none d-xl-block">
-                          <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
-                          </div>
-                          <div class="card-body">
-                            <div class="row h-100">
-                              <div class="col-auto text-center my-auto">
-                                <span class="text-primary">4.5 out of 5</span><br/>
-                                <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
-                              </div>  
-                              <div class="col-auto my-auto">  
-                                <button class="btn btn-sm btn-outline-warning active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row" style="font-size: .8rem">
-                              <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Abu on 3/1/17</small>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Bakar on 3/1/17</small>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Ela on 3/1/17</small>
-                                <hr>
-                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#ratingModal">
-                                  Leave a Rating
-                                </a> -->
-                                <nav>
-                                  <ul class="pagination pagination-sm justify-content-center">
-                                    <li class="page-item disabled">
-                                      <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                      <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </nav>                              
-                              </div>
-                            </div> 
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-6 col-lg-12">  
                         <!-- Room and Price Information -->
                         <div class="card mb-4">
                           <div class="card-header text-center" style="background-color: white;">
@@ -613,6 +506,134 @@ if ($currencyCode == 'MYR') {
                             </div>   
                           </div>
                         </div>
+                        <!-- Package Details -->
+                        <div class="card mb-4">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Package Detail</strong>
+                          </div>
+                          <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td></td>
+                                <td class="text-primary d-none d-sm-block"></td>
+                                <td class="text-primary"><strong>Makkah</strong></td>
+                                <td class="text-primary"><strong>Madinah</strong></td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
+                                <td>Elaf Al Mashaer</td>
+                                <td>Ramada Al Qibla</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
+                                <td>7 days</td>
+                                <td>7 days</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
+                                <td>7 night</td>
+                                <td>7 night</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
+                                <td>250 m</td>
+                                <td>250 m</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
+                                <td colspan="2">Provided</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
+                                <td colspan="2">Direct</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
+                                <td colspan="2">Makkah</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
+                                <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
+                                <td colspan="2">Celebrity Mutawif</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>                        
+                        <!-- Rating -->
+                        <!-- <div class="card mb-4 d-none d-xl-block">
+                          <div class="card-header" style="background-color: white;">
+                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong>
+                          </div>
+                          <div class="card-body">
+                            <div class="row h-100">
+                              <div class="col-auto text-center my-auto">
+                                <span class="text-primary">4.5 out of 5</span><br/>
+                                <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
+                              </div>  
+                              <div class="col-auto my-auto">  
+                                <button class="btn btn-sm btn-outline-primary active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row" style="font-size: .8rem">
+                              <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Abu on 3/1/17</small>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Bakar on 3/1/17</small>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Ela on 3/1/17</small>
+                                <hr>
+                                <nav>
+                                  <ul class="pagination pagination-sm justify-content-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                      </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </nav>                              
+                              </div>
+                            </div> 
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="col-xl-6 col-lg-12">                          
                         <!-- Image Hotel Makkah -->
                         <div class="card mb-4">
                           <div class="card-header text-center" style="background-color: white;">
@@ -717,10 +738,10 @@ if ($currencyCode == 'MYR') {
                     <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
                       <img class="thumb-img" src="img/epl3-min.jpg" >
                     </div>
-                    <div class="col-xl-7 col-lg-8">
+                    <div class="col-lg-7">
                       <h6 class="m-0 font-weight-bold text-primary text-md">EPL Travel and Tours Sdn Bhd</h6> 
                       <div class="text-primary" style="font-size: 13px;">
-                        Kajang (LKU No: KP/LN 6441) <br>
+                        Kajang, Selangor (LKU No: KP/LN 6441) <br>
                         Package Gold <br>
                         Departure Date from 1 April 2020 to 10 April 2020<br>
                         <div class="row">
@@ -734,37 +755,24 @@ if ($currencyCode == 'MYR') {
                             <?php } ?>                          
                           </div>                        
                         </div> 
-                      </div>   
-                      <table class="d-none d-lg-block d-xl-none" cellpadding="1" cellspacing="3" style="font-size: 11px;">
-                        <tr>
-                          <td>Customer Rating</td>
-                          <td class="text-center">:&nbsp;&nbsp;</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
-                          <td>3 ratings</td>
-                        </tr>
-                        <tr>
-                          <td>Company Rating</td>
-                          <td>:</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
-                          <td></td>
-                        </tr>
-                      </table>                 
+                      </div>                   
                     </div>
-                    <div class="col-xl-3 d-lg-none d-xl-block" style="font-size: 11px;">
-                      <table cellpadding="1" cellspacing="3">
-                        <tr>
-                          <td>Customer Rating</td>
-                          <td class="text-center">:&nbsp;&nbsp;</td>
-                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
-                          <td>3 ratings</td>
-                        </tr>
+                    <div class="col-auto justify-content-end">  
+                      <table cellpadding="1" cellspacing="3" style="font-size: 11px;">
                         <tr>
                           <td>Company Rating</td>
+                          <td class="text-center">:&nbsp;&nbsp;</td>
+                          <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
+                        </tr>
+                        <tr>
+                          <td>Customer Rating</td>
                           <td>:</td>
                           <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
-                          <td></td>
                         </tr>
-                      </table>           
+                        <tr>
+                          <td colspan="3">3 ratings</td>
+                        </tr>
+                      </table>                                       
                     </div>
                   </div>               
                 </a>
@@ -772,137 +780,6 @@ if ($currencyCode == 'MYR') {
                   <div class="card-body text-md">
                     <div class="row">
                       <div class="col-xl-6 col-lg-12">
-                        <!-- Package Details -->
-                        <div class="card mb-4">
-                          <div class="card-header text-center" style="background-color: white;">
-                            <strong class="m-0 text-primary">Package Detail</strong>
-                          </div>
-                          <div class="card-body">
-                            <table class="table table-borderless"  width="100%" cellspacing="0">
-                              <tr class="border-bottom">
-                                <td></td>
-                                <td class="text-primary d-none d-sm-block"></td>
-                                <td class="text-primary"><strong>Makkah</strong></td>
-                                <td class="text-primary"><strong>Madinah</strong></td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
-                                <td>Elaf Al Mashaer</td>
-                                <td>Ramada Al Qibla</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
-                                <td>7 days</td>
-                                <td>7 days</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
-                                <td>7 night</td>
-                                <td>7 night</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
-                                <td>250 m</td>
-                                <td>250 m</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
-                                <td colspan="2">Provided</td>
-                              </tr>
-                              <tr class="border-bottom">
-                                <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
-                                <td colspan="2">Direct</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
-                                <td colspan="2">Makkah</td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
-                                <td colspan="2"></td>
-                              </tr>
-                              <tr>
-                                <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
-                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
-                                <td colspan="2">Celebrity Mutawif</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>                        
-                        <!-- Rating -->
-                        <div class="card mb-4 d-none d-xl-block">
-                          <div class="card-header" style="background-color: white;">
-                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <!-- <button style="float:right" class="btn btn-sm btn-outline-primary text-xs" data-toggle="modal" data-target="#ratingModal">Leave a Rating</button> -->
-                          </div>
-                          <div class="card-body">
-                            <div class="row h-100">
-                              <div class="col-auto text-center my-auto">
-                                <span class="text-primary">4.5 out of 5</span><br/>
-                                <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
-                              </div>  
-                              <div class="col-auto my-auto">  
-                                <button class="btn btn-sm btn-outline-warning active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
-                                <button class="btn btn-sm btn-outline-warning" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
-                              </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Abu on 3/1/17</small>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Bakar on 3/1/17</small>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
-                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
-                                <br/><br/>
-                                <small class="text-muted">Posted by Ela on 3/1/17</small>
-                                <hr>
-                                <!-- <a class="btn btn-sm btn-outline-success" href="#" data-toggle="modal" data-target="#ratingModal">
-                                  Leave a Rating
-                                </a> -->
-                                <nav>
-                                  <ul class="pagination pagination-sm justify-content-center">
-                                    <li class="page-item disabled">
-                                      <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                      </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                      <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </nav>                              
-                              </div>
-                            </div> 
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-6 col-lg-12">  
                         <!-- Room and Price Information -->
                         <div class="card mb-4">
                           <div class="card-header text-center" style="background-color: white;">
@@ -1020,6 +897,134 @@ if ($currencyCode == 'MYR') {
                             </table>       
                           </div>
                         </div>
+                        <!-- Package Details -->
+                        <div class="card mb-4">
+                          <div class="card-header text-center" style="background-color: white;">
+                            <strong class="m-0 text-primary">Package Detail</strong>
+                          </div>
+                          <div class="card-body">
+                            <table class="table table-borderless"  width="100%" cellspacing="0">
+                              <tr class="border-bottom">
+                                <td></td>
+                                <td class="text-primary d-none d-sm-block"></td>
+                                <td class="text-primary"><strong>Makkah</strong></td>
+                                <td class="text-primary"><strong>Madinah</strong></td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
+                                <td>Elaf Al Mashaer</td>
+                                <td>Ramada Al Qibla</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
+                                <td>7 days</td>
+                                <td>7 days</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
+                                <td>7 night</td>
+                                <td>7 night</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
+                                <td>250 m</td>
+                                <td>250 m</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
+                                <td colspan="2">Provided</td>
+                              </tr>
+                              <tr class="border-bottom">
+                                <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
+                                <td colspan="2">Direct</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
+                                <td colspan="2">Makkah</td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
+                                <td colspan="2"></td>
+                              </tr>
+                              <tr>
+                                <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
+                                <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
+                                <td colspan="2">Celebrity Mutawif</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>                        
+                        <!-- Rating -->
+                        <!-- <div class="card mb-4 d-none d-xl-block">
+                          <div class="card-header" style="background-color: white;">
+                            <strong class="m-0 text-primary">Ratings (3 ratings)</strong> <
+                          </div>
+                          <div class="card-body">
+                            <div class="row h-100">
+                              <div class="col-auto text-center my-auto">
+                                <span class="text-primary">4.5 out of 5</span><br/>
+                                <small><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></small>
+                              </div>  
+                              <div class="col-auto my-auto">  
+                                <button class="btn btn-sm btn-outline-primary active" type="button" style="font-size: 12px;" onClick="viewRating(1,0);" id="v_allStar">&nbsp;All&nbsp;</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,5);" id="v_5star">5 Star (3)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,4);" id="v_4star">4 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,3);" id="v_3star">3 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,2);" id="v_2star">2 Star (0)</button>                
+                                <button class="btn btn-sm btn-outline-primary" type="button" style="font-size: 12px;" onClick="viewRating(1,1);" id="v_1star">1 Star (0)</button>                
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 4 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Abu on 3/1/17</small>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Bakar on 3/1/17</small>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non!</p>
+                                <small class="text-muted">Rating : <span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span> 5 stars</small>
+                                <br/><br/>
+                                <small class="text-muted">Posted by Ela on 3/1/17</small>
+                                <hr>
+                                <nav>
+                                  <ul class="pagination pagination-sm justify-content-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                      </a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </nav>                              
+                              </div>
+                            </div> 
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="col-xl-6 col-lg-12"> 
                         <!-- Image Hotel Makkah -->
                         <div class="card mb-4">
                           <div class="card-header text-center" style="background-color: white;">
@@ -1103,8 +1108,7 @@ if ($currencyCode == 'MYR') {
               </div>
 
               <!-- If Not Found -->
-              <div class="alert alert-light bg-white text-primary text-center" style="font-size: .9rem;">
-              <!-- <div class="alert alert-light text-center text-md" role="alert"> -->
+              <div class="alert alert-light bg-white text-primary text-center" style="font-size: .8rem;">
                 No package has been found. 
               </div>
 
@@ -1135,7 +1139,7 @@ if ($currencyCode == 'MYR') {
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; UmrahClicks.my 2020</span>
+            <span>Copyright &copy; UmrahClicks.my <?php echo date('Y'); ?></span>
           </div>
         </div>
       </footer>

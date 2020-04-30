@@ -11111,6 +11111,13 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }  
 
+#result-alert {
+  position: fixed;
+  top: 85px;
+  right: 10px;
+  z-index:9999; 
+}
+
 #success-alert {
   position: fixed;
   top: 85px;

@@ -71,7 +71,7 @@ function clearFilter() {
   var current_url = window.location.href;
   var goToURL = current_url;
 
-  if (current_url.includes('filter') || current_url.includes('promo')) {
+  if (current_url.includes('filter') || current_url.includes('promo') || current_url.includes('rating')) {
 
     goToURL = removeUrlParam(goToURL, 'filter');
     goToURL = removeUrlParam(goToURL, 'priceMin');
@@ -82,6 +82,7 @@ function clearFilter() {
     goToURL = removeUrlParam(goToURL, 'state');
     goToURL = removeUrlParam(goToURL, 'city');
     goToURL = removeUrlParam(goToURL, 'promo');
+    goToURL = removeUrlParam(goToURL, 'rating');
   
     window.open(goToURL, '_self');
 

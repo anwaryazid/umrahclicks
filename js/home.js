@@ -1,16 +1,15 @@
 function resetSearch() {
-  selectCountry('MY','MALAYSIA');
+  selectCountry('MY','MALAYSIA','MY.png');
 }
 
-function selectCountry(kod,name) {
+function selectCountry(kod,name,image) {
   
   $('#s_country').val(kod);
   $('#countryName').html(name);
 
-  srcFlag = 'img/flag/'+kod+'-sq-32.png';
+  srcFlag = 'upload/flag/'+image;
 
   document.getElementById('countryFlag').src=srcFlag;
-  // document.getElementById('calIcon').className='fas fa-calendar-check fa-sm fa-1x';
 
 }
 
@@ -104,7 +103,7 @@ $('.btn-number').click(function(e) {
                 input.val(currentVal - 1).change();
             }
             if (parseInt(input.val()) == input.attr('min')) {
-                $(this).attr('disabled', true);
+                // $(this).attr('disabled', true);
             }
 
         } else if (type == 'plus') {
@@ -113,7 +112,7 @@ $('.btn-number').click(function(e) {
                 input.val(currentVal + 1).change();
             }
             if (parseInt(input.val()) == input.attr('max')) {
-                $(this).attr('disabled', true);
+                // $(this).attr('disabled', true);
             }
 
         }

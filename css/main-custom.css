@@ -10316,7 +10316,7 @@ a:focus {
     display: block;
     width: 100%;
     text-align: left;
-    padding: .85rem;
+    padding: .75rem;
     width: 14rem;
   }
   .sidebar .nav-item .nav-link i {
@@ -11110,6 +11110,9 @@ body.sidebar-toggled footer.sticky-footer {
     margin-left: 224px; 
     margin-top: 94px;
   }
+  .footer {
+    margin-left: 224px; 
+  }
 }  
 
 #success-alert {
@@ -11126,9 +11129,22 @@ body.sidebar-toggled footer.sticky-footer {
   z-index:9999; 
 }
 
+#result-alert {
+  position: fixed;
+  top: 85px;
+  right: 10px;
+  z-index:9999; 
+}
+
 #searchT-alert {
   position: fixed;
   top: 75px;
   right: 10px;
   z-index:9999; 
+}
+
+select.form-control {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
