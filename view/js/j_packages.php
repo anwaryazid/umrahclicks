@@ -47,6 +47,7 @@
           "visible":false
         },
       ],
+      autoWidth: false
     });
 
     var dt_Image = $('#dt_Image').DataTable({
@@ -69,6 +70,7 @@
           "visible":false
         },
       ],
+      autoWidth: false
     });
 
     $(document).on('submit', '#formPackage', function(event){
@@ -489,6 +491,12 @@
     $('#dt_Image').DataTable().ajax.url("process/image_fetch.php?id="+pckge_id).load();
     $('.modal-title').text("Hotel Image");
     $('#imageModal').modal('show');
+  }
+
+  function getUmrahCost(cost) {
+    var actual = cost;
+    var umrahCost = cost - 300;
+    $('#room_umrahCost').val(umrahCost);
   }
   
 </script>
