@@ -24,7 +24,7 @@
           "orderable":false
         },
         {
-          "targets":[0,9],
+          "targets":[0,4,5,6,9],
           "className":"text-center"
         },
         {
@@ -158,14 +158,12 @@
 
     $('#promo_dateFrom').datepicker({
       'format': 'yyyy-mm-dd',
-      'autoclose': true,
-      startDate: '+1d'
+      'autoclose': true
     });
 
     $('#promo_dateTo').datepicker({
       'format': 'yyyy-mm-dd',
-      'autoclose': true,
-      startDate: '+1d'
+      'autoclose': true
     });
 
   });
