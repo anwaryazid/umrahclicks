@@ -6,6 +6,7 @@ $query = '';
 $output = array();
 
 $query .= 'SELECT
+COUNT(e.id) AS rooms,
 a.*,
 b.agency_name AS agency_name,
 c.`desc` AS package_flight,
@@ -14,7 +15,9 @@ FROM
 package a
 LEFT JOIN agency b ON b.id = a.agency_id
 LEFT JOIN ref_package_flight c ON c.id = a.package_flight_id
-LEFT JOIN ref_package_meal d ON d.id = a.package_meal_id ';
+LEFT JOIN ref_package_meal d ON d.id = a.package_meal_id
+LEFT JOIN package_room e ON e.package_id	= a.id
+ ';
 if(isset($_POST["search"]["value"])) {
  $query .= 'WHERE a.package_name LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
@@ -23,7 +26,7 @@ if(isset($_POST["order"])) {
  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
 }
 else {
- $query .= 'ORDER BY package_dateFrom DESC, package_status DESC ';
+ $query .= 'GROUP BY a.id ORDER BY package_dateFrom DESC, package_status DESC ';
 }
 if($_POST["length"] != -1) {
  $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
@@ -49,6 +52,7 @@ foreach($result as $row)
   $sub_array[] = $row["agency_name"];
   $sub_array[] = $row["package_dateFrom"];
   $sub_array[] = $row["package_dateTo"];
+  $sub_array[] = $row["rooms"];
   $sub_array[] = $agency_status;
   $sub_array[] = '<button type="button" name="update" onclick="viewPackage('.$row["id"].')" class="btn btn-outline-success btn-xs"><i class="fas fa-pencil-alt fa-sm"></i></button>
   <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  

@@ -26,6 +26,7 @@
             <th style="width: 350px;">Agency</th>
             <th>Date From</th>
             <th>Date To</th>
+            <th>Rooms</th>
             <th>Status</th>
             <th style="width: 55px;">Action</th>
           </tr>
