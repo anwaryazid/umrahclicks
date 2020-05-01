@@ -17,7 +17,7 @@
             </div>
             <div class="form-group col-md-3">
               <label class="col-form-label">Actual Cost (RM) <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="room_actualCost" name="room_actualCost" >
+              <input type="text" class="form-control form-control-sm mb-2" id="room_actualCost" name="room_actualCost" onchange="getUmrahCost(this.value);" >
             </div>
             <div class="form-group col-md-3">
               <label class="col-form-label">Umrah Cost (RM) <small><span class="text-danger">*</span></small></label>
@@ -40,8 +40,8 @@
                     <th>No.</th>
                     <th>Room Type</th>
                     <!-- <th>Room Image</th> -->
-                    <th>Actual Cost (RM)</th>
-                    <th>Umrah Cost (RM)</th>
+                    <th width="20%">Actual Cost (RM)</th>
+                    <th width="20%">Umrah Cost (RM)</th>
                     <th style="width:45px;">Action</th>
                   </tr>
                 </thead>
