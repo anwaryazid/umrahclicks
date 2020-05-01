@@ -21,9 +21,9 @@
             <th>User Name</th>
             <th>Email Address</th>
             <th>User Type</th>
-            <th style="width: 175px;">User Access</th>
+            <th>User Access</th>
             <th style="width: 75px;">Status</th>
-            <th style="width: 75px;">Action</th>
+            <th style="min-width: 85px;">Action</th>
           </tr>
         </thead>
       </table>
