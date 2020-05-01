@@ -11083,12 +11083,12 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 2; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%; 
+  position: fixed;
+  z-index: 9999;
+  top: 0; 
   left: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-x: hidden;
 }       
 
 @media screen and (max-width: 767px) {
@@ -11099,6 +11099,9 @@ body.sidebar-toggled footer.sticky-footer {
   .main {
     margin-left: 100px; 
     margin-top: 94px;
+  }
+  .footer {
+    margin-left: 100px; 
   }
 }
 

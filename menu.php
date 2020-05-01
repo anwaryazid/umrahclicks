@@ -24,7 +24,7 @@
   foreach($result as $row) {
     if ($row['menuOrder'] == 20) {
   ?>
-    <hr class="sidebar-divider d-none d-sm-block">
+    <hr class="sidebar-divider">
     <div class="sidebar-heading d-none d-sm-block">
       Administrator
     </div>
@@ -32,13 +32,13 @@
     }
     if ($row['sub_menu']  > 0) {
   ?>
-    <li class="nav-item <?php if ($mid == $row['mid']){ ?>active<?php } ?> d-none d-sm-block">
+    <li class="nav-item <?php if ($mid == $row['mid']){ ?>active<?php } ?>">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#refData" aria-expanded="true" aria-controls="refData">
         <i class="fa fa-fw <?= $row['menuIcon'] ?>"></i>
         <span><?= $row['menuName'] ?></span></a>
       </a>
       <div id="refData" class="collapse <?php if ($mid == $row['mid']){ ?>show<?php } else { ?>hide<?php } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
+        <div class="bg-white py-2 collapse-inner rounded" style="z-index: 99999;" >
           <?php
             $resultm2 = $conn->query("SELECT * FROM menu2nd WHERE mid = '".$row['mid']."'") or die(mysqli_error($conn));
             foreach($resultm2 as $row2) {
