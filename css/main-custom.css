@@ -11085,7 +11085,7 @@ body.sidebar-toggled footer.sticky-footer {
 .sidenav {
   height: 100%; 
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
   top: 0; 
   left: 0;
   overflow-x: hidden;
