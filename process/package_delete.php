@@ -16,7 +16,9 @@ if(isset($_POST["id"])) {
     unlink('../upload/hotel/'.$image);
   }
  
-  $result = $conn->query("DELETE FROM package WHERE id = '".$_POST["id"]."' LIMIT 1") or die(mysqli_error($conn));
+  $result = $conn->query("DELETE FROM package_room WHERE package_id = '".$_POST["id"]."'") or die(mysqli_error($conn));
+  $result = $conn->query("DELETE FROM package_image WHERE package_id = '".$_POST["id"]."'") or die(mysqli_error($conn));
+  $result = $conn->query("DELETE FROM package WHERE id = '".$_POST["id"]."'") or die(mysqli_error($conn));
 
   if(!empty($result))  {
   echo 'deleted';
