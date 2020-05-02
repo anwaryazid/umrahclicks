@@ -225,33 +225,7 @@ if ($currencyCode == 'MYR') {
                 </div>
               </div>
               <!-- Advertisement -->
-              <!-- <div class="d-none d-md-block">
-                <div class="card mb-4">
-                  <div class="card-body" style="font-size: 0.7rem;">
-                    <div class="text-center">
-                      Advertisement
-                    </div>
-                    <hr>
-                    <div class="text-center">
-                      <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
-                        <img class="d-block w-100" src="img/smart1-min.jpg" height="" alt="Smart Umrah4all Dot Com Travel & Services Sdn Bhd">
-                      </a>
-                      <br>
-                      Smart Umrah4all Dot Com Travel & Services Sdn Bhd
-                    </div>                    
-                    <hr>
-                    <div class="text-center">
-                      <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
-                        <img class="d-block w-100" src="img/epl1-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
-                      </a>
-                      <br>
-                      EPL Travel & Tours Sdn Bhd
-                    </div>                    
-                    <hr>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <?php
+              <?php
               require_once('lib/conn.php');  
               $query = "SELECT * FROM advertisement
               WHERE 
@@ -284,28 +258,12 @@ if ($currencyCode == 'MYR') {
                     <?php
                     }
                     ?>
-                    <div class="text-center">
-                      <a rel="nofollow" href="http://umrahclicks.com/" target="_blank" style="font-size: 0.8rem;">
-                        <img class="d-block w-100" src="img/smart1-min.jpg" height="" alt="Smart Umrah4all Dot Com Travel & Services Sdn Bhd">
-                      </a>
-                      <br>
-                      Smart Umrah4all Dot Com Travel & Services Sdn Bhd
-                    </div>                    
-                    <hr>
-                    <div class="text-center">
-                      <a rel="nofollow" href="http://epltravel.blogspot.com/" target="_blank" style="font-size: 0.8rem;">
-                        <img class="d-block w-100" src="img/epl1-min.JPG" height="" alt="EPL Travel & Tours Sdn Bhd">
-                      </a>
-                      <br>
-                      EPL Travel & Tours Sdn Bhd
-                    </div>                    
-                    <hr>
                   </div>
                 </div>
               </div>
               <?php
               }
-              ?>  -->            
+              ?>             
             </div>
 
             <!-- Packages -->
