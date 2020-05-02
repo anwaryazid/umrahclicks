@@ -17,8 +17,8 @@
           <tr>
             <th>No.</th>
             <th></th>
-            <th style="max-width: 150px;">Company Reg. No.</th>
-            <th>Company Name</th>
+            <th>Company Reg. No.</th>
+            <th style="max-width: 350px;">Company Name</th>
             <th>Date From</th>
             <th>Date To</th>
             <th>Remarks</th>
