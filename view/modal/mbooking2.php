@@ -27,43 +27,43 @@
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="cimb" value="cimb" checked>
                       <label class="form-check-label" for="cimb">
-                        <img src="./img/bank/cimb-clicks-logo-red.svg" height="12px">&nbsp;&nbsp;<small>CIMB Clicks</small>                    
+                        <img src="./img/bank/cimb.png" height="20px">&nbsp;&nbsp;<small>CIMB Clicks</small>                    
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="maybank" value="maybank">
                       <label class="form-check-label" for="maybank">
-                        <img src="./img/bank/maybank2u.png" height="15px">&nbsp;&nbsp;<small>Maybank2U</small>
+                        <img src="./img/bank/maybank.png" height="20px">&nbsp;&nbsp;<small>Maybank2U</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="public" value="public">
                       <label class="form-check-label" for="public">
-                        <img src="./img/bank/pb_logo.png" height="15px">&nbsp;&nbsp;<small>Public Bank</small>
+                        <img src="./img/bank/bankislam.png" height="20px">&nbsp;&nbsp;<small>Bank Islam</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="rhb" value="rhb">
                       <label class="form-check-label" for="rhb">
-                        <img src="./img/bank/logo-rhb.png" height="15px">&nbsp;&nbsp;<small>RHB Now</small>
+                        <img src="./img/bank/rhb.png" height="20px">&nbsp;&nbsp;<small>RHB Now</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="rakyat" value="rakyat">
                       <label class="form-check-label" for="rakyat">
-                        <img src="./img/bank/irakyat.png" height="30px">&nbsp;&nbsp;<small>Bank Rakyat</small>
+                        <img src="./img/bank/bankrakyat.png" height="20px">&nbsp;&nbsp;<small>Bank Rakyat</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="ambank" value="ambank">
                       <label class="form-check-label" for="ambank">
-                        <img src="./img/bank/ambank-png-4.png" height="15px">&nbsp;&nbsp;<small>Ambank</small>
+                        <img src="./img/bank/ambank.png" height="20px">&nbsp;&nbsp;<small>Ambank</small>
                       </label>
                     </div>
                     <div class="form-check mb-3">
                       <input class="form-check-input" type="radio" name="bank" id="mybsn" value="mybsn">
                       <label class="form-check-label" for="mybsn">
-                        <img src="./img/bank/bsn.png" height="15px">&nbsp;&nbsp;<small>MyBSN</small>
+                        <img src="./img/bank/bsn.png" height="20px">&nbsp;&nbsp;<small>MyBSN</small>
                       </label>
                     </div>
                     <!-- <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="cimbClicks" onClick="" style="font-size: 12px;">CIMB Clicks</button>
