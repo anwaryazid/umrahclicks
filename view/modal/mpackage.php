@@ -51,7 +51,7 @@
               <textarea type="text" class="form-control form-control-sm mb-2" rows="1" id="package_remark" name="package_remark"></textarea>
 
               <label class="col-form-label">Image Thumbnail </label>
-              <input type="file" class="form-control form-control-sm mb-2" id="package_thumbnail" name="package_thumbnail" aria-describedby="package_thumbnail">              
+              <input type="file" class="form-control-file form-control-sm mb-2" id="package_thumbnail" name="package_thumbnail" aria-describedby="package_thumbnail">              
               <span id="package_thumbnail_input"></span>
               <span id="package_uploaded_image"></span>
             </div> 

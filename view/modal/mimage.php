@@ -12,7 +12,7 @@
           <div class="row text-md">
             <div class="form-group col-md-4">
               <label class="col-form-label">Hotel Image</label>
-              <input type="file" class="form-control form-control-sm mb-2" id="hotel_img" name="hotel_img" aria-describedby="hotel_img">              
+              <input type="file" class="form-control-file form-control-sm mb-2" id="hotel_img" name="hotel_img" aria-describedby="hotel_img">              
               <span id="hotel_img_input"></span>
               <small><span id="error_text_image" class="text-danger"></span></small> 
             </div>

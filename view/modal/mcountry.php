@@ -38,7 +38,7 @@
             </div>
             <div class="form-group col-md-8">
               <label class="col-form-label">Country Flag Image</label>
-              <input type="file" class="form-control form-control-sm mb-2" id="countryImg" name="countryImg" aria-describedby="countryImg">
+              <input type="file" class="form-control-file form-control-sm mb-2" id="countryImg" name="countryImg" aria-describedby="countryImg">
               <span id="country_uploaded_image"></span>
               <small><span id="error_text_img" class="text-danger"></span></small>
             </div>

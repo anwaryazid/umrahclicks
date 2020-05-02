@@ -63,7 +63,7 @@
               <input type="text" class="form-control form-control-sm mb-2" id="ad_price" name="ad_price">  
 
               <label class="col-form-label">Image Advertisement <small><span class="text-danger">*</span></small></label>
-              <input type="file" class="form-control form-control-sm mb-2" id="ad_image" name="ad_image" aria-describedby="ad_image">              
+              <input type="file" class="form-control-file form-control-sm mb-2" id="ad_image" name="ad_image" aria-describedby="ad_image">              
               <span id="ad_image_input"></span>
               <span id="ad_uploaded_image"></span>
             </div>           

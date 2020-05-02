@@ -91,7 +91,7 @@
               </select>
 
               <label class="col-form-label">Agency Logo </label>
-              <input type="file" class="form-control form-control-sm mb-2 mb-2" id="agency_image" name="agency_image" aria-describedby="agency_image">              
+              <input type="file" class="form-control-file form-control-sm mb-2 mb-2" id="agency_image" name="agency_image" aria-describedby="agency_image">              
               <span id="agency_image_input"></span>
 
               <label class="col-form-label">LKU No. <small><span class="text-danger">*</span></small></label>
