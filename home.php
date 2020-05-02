@@ -68,7 +68,7 @@ require("lib/conn.php");
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active box">
-                  <img class="d-block caros w-100" src="img/smart1-min.jpg">
+                  <img class="d-block caros w-100" src="img/kaabah-min.jpg">
                 </div>
                 <div class="carousel-item box">
                   <img class="d-block caros w-100" src="img/smart2-min.jpg">
