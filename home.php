@@ -145,7 +145,7 @@ require("lib/conn.php");
                           <div class="input-group-prepend">
                             <button class="btn btn-outline-primary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[1]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                           </div>
-                          <input type="text" name="quant[1]" id="s_noAdult" class="form-control form-control-sm text-center input-number border-left-0 border-right-0 border-primary text-primary" min="0" max="200" placeholder="ADULT">
+                          <input type="text" name="quant[1]" id="s_noAdult" class="form-control form-control-sm text-center input-number border-left-0 border-right-0 border-primary text-primary" min="1" max="200" placeholder="ADULT" value="1">
                           <div class="input-group-append">
                             <button class="btn btn-outline-primary btn-number" type="button" id="button-plus-max" data-type="plus" data-field="quant[1]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                           </div>
@@ -157,7 +157,7 @@ require("lib/conn.php");
                           <div class="input-group-prepend">
                             <button class="btn btn-outline-primary btn-number" type="button" id="button-minus-min" data-type="minus" data-field="quant[2]">&nbsp;<i class="fas fa-minus fa-sm"></i>&nbsp;</button>
                           </div>
-                          <input type="text" name="quant[2]" id="s_noChild" class="form-control form-control-sm text-center input-number border-left-0 border-right-0  border-primary text-primary" min="0" max="200" placeholder="CHILDREN">
+                          <input type="text" name="quant[2]" id="s_noChild" class="form-control form-control-sm text-center input-number border-left-0 border-right-0  border-primary text-primary" min="0" max="200" placeholder="CHILDREN" value="0">
                           <div class="input-group-append">
                             <button class="btn btn-outline-primary btn-number" type="button" id="button-plus-max" data-type="plus" data-field="quant[2]">&nbsp;<i class="fas fa-plus fa-sm"></i>&nbsp;</button>
                           </div>

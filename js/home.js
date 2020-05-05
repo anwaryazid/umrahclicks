@@ -43,7 +43,10 @@ function searching() {
   var goToURL = 'search.php?page=1';
 
   if (country.length == 0 || dateDepart.length == 0 || noAdult.length == 0|| noChild.length == 0) {
-    error = 'Please fill in the form.';
+    if (dateDepart.length == 0)
+      error = 'Please pick a Departure Date'
+    else
+      error = 'Please fill in the form.';
   }
 
   if (error.length > 0) {
