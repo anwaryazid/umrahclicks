@@ -1,9 +1,9 @@
 <ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">    
+  <div class="sidebar-brand d-flex align-items-center justify-content-center">    
     <div class="sidebar-brand-text mx-3"><img class="d-block rounded-lg" src="img/umrahclicks-logo.JPG" height="40px" alt="UmrahClicks"></div>
     <div class="sidebar-brand-icon d-block d-sm-block d-md-none"><i class="fas fa-fw fa-kaaba"></i><span style="font-size:0.7rem;">UmrahClicks</span></div>
-  </a>
+  </div>
 
   <hr class="sidebar-divider my-0"> 
 
