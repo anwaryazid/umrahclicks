@@ -25,6 +25,7 @@
             $_SESSION['userEmail'] = $row['userEmail'];
             $_SESSION['userType'] = $row['userType'];
             $_SESSION['userAccess'] = $row['userAccess'];
+            $_SESSION['firstTimeLogin'] = $row['firstTimeLogin'];
           } else {
             $output["success"] = "false";
             $output["result"] = "<strong>Login Error!</strong> <br/>Please contact system administrator.";

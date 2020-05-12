@@ -23,28 +23,7 @@ function viewProfile(userId) {
   })
 }
 
-function changePassword(userId) {
-  var id = userId;
-  $.ajax({
-    url:"process/profile_fetch_single.php",
-    method:"POST",
-    data:{id:id},
-    dataType:"json",
-    success:function(data)
-    {
-      $('#passwordModal').modal('show');
-      $('#error_text_password').text('');
-      $('#error_password_password').text('');
-      $('#cpuserFullName').val(data.userFullName);
-      $('#cpuserEmail').val(data.userEmail);
-      $('#cpuserName').val(data.userName);
-      $('#cpuserid').val(id);
-      $('.modal-title').text("Change Password");
-      $('#action_password').val("Update");
-      $('#operation_password').val("Update");
-    }
-  })
-}
+
 
 $(document).ready(function() {
   $(document).on('submit', '#formPassword', function(event){
@@ -212,4 +191,22 @@ $(document).ready(function() {
     }
   });
 
+});
+
+
+$(".input-number").keydown(function(e) {
+  // Allow: backspace, delete, tab, escape, enter and .
+  if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 109, 189, 190]) !== -1 ||
+      // Allow: Ctrl+A
+      (e.keyCode == 65 && e.ctrlKey === true) ||
+      // Allow: home, end, left, right
+      (e.keyCode >= 35 && e.keyCode <= 39)) {
+      // let it happen, don't do anything
+      return;
+  }
+  // Ensure that it is a number and stop the keypress
+  if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 189)) {
+    alert("Please enter only numbers");
+    e.preventDefault();
+  }
 });

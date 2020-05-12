@@ -55,6 +55,36 @@
 
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <script type="text/javascript">
+
+    
+    function changePassword() {
+      var id = <?= $_SESSION['userId'] ?>;
+      $.ajax({
+        url:"process/profile_fetch_single.php",
+        method:"POST",
+        data:{id:id},
+        dataType:"json",
+        success:function(data)
+        {
+          $('#passwordModal').modal('show');
+          $('#error_text_password').text('');
+          $('#error_password_password').text('');
+          $('#cpuserFullName').val(data.userFullName);
+          $('#cpuserEmail').val(data.userEmail);
+          $('#cpuserName').val(data.userName);
+          $('#cpuserid').val(id);
+          $('.modal-title').text("Change Password");
+          $('#action_password').val("Update");
+          $('#operation_password').val("Update");
+        }
+      })
+    }
+    if (<?= $_SESSION['firstTimeLogin'] ?> == 1) {
+      window.onload = changePassword;
+    }
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -144,7 +174,7 @@
     include('view/modal/mlogout.php');
     include('view/modal/mprofile.php');
     include('view/modal/mpassword.php');
-  ?>
+  ?>  
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
