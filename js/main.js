@@ -200,7 +200,7 @@ $(".input-number").keydown(function(e) {
       // Allow: Ctrl+A
       (e.keyCode == 65 && e.ctrlKey === true) ||
       // Allow: home, end, left, right
-      (e.keyCode >= 35 && e.keyCode <= 39)) {
+      (e.keyCode >= 35 && e.keyCode <= 40)) {
       // let it happen, don't do anything
       return;
   }
