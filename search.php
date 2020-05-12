@@ -39,7 +39,43 @@ $dateTo = date('j F Y', strtotime($dateDepart. ' + 3 days'));
 
 $sort = (isset($_GET['sort'])) ?  $_GET['sort'] : '';  
 $promo = (isset($_GET['promo'])) ?  $_GET['promo'] : '';  
-$rating = (isset($_GET['rating'])) ?  $_GET['rating'] : '';  
+$rating = (isset($_GET['rating'])) ?  $_GET['rating'] : ''; 
+
+$orderBy = 'ORDER BY ';
+if ($sort == 'price') {
+  $orderBy .= 'price_min ASC';
+} else if ($sort == 'latest') {
+  $orderBy .= 'createdDate DESC';
+} else  {
+  $orderBy .= 'price_min ASC';
+}
+
+$dateFromSearch = date('Y-m-d', strtotime($dateDepart. ' - 3 days'));
+$dateToSearch = date('Y-m-d', strtotime($dateDepart. ' + 3 days'));
+$qPackage = "SELECT
+    b.agency_name,
+    b.agency_city,
+    b.agency_state,
+    LCASE(c.keterangan) AS state,
+    b.agency_LKUNo,
+    DATE_FORMAT(package_dateFrom, '%e %M %Y') AS dateFrom,
+    DATE_FORMAT(package_dateTo, '%e %M %Y') AS dateTo,
+    b.agency_rating,
+    MIN(d.room_umrahCost) AS price_min,
+    MAX(d.room_umrahCost) AS price_max,
+    a.*
+  FROM package a
+  LEFT JOIN agency b ON b.id = a.agency_id
+  LEFT JOIN ref_state c ON c.id = b.agency_state
+  LEFT JOIN package_room d ON d.package_id = a.id
+  WHERE 1=1
+  AND a.package_pax >= '$pax'
+  AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
+  AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
+  GROUP BY a.id
+  $orderBy";
+$packageList = $conn->query($qPackage) or die(mysqli_error($conn));
+$numPackage = mysqli_num_rows($packageList);
 
 function convert_currency($from,$to) {
 
@@ -195,9 +231,24 @@ if ($currencyCode == 'MYR') {
                       <div class="mb-1" style="font-size: 13px;">
                         <span>Promotion</span>
                       </div>
+                      <?php
+                      $qPromo = "SELECT *
+                      FROM promo
+                      WHERE 
+                      promo_status = '1'
+                      AND CURDATE() >= promo_dateFrom AND CURDATE() <= promo_dateTo
+                      ORDER BY promo_dateTo ASC ";
+                      $promoList = $conn->query($qPromo) or die(mysqli_error($conn));
+                      ?>
                       <div>
-                        <button class="btn btn-sm btn-outline-primary btn-block <?php if (strpos($promo, 'umrah4all') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('umrah4all');" style="font-size: 12px;">Umrah4All</button>
-                        <button class="btn btn-sm btn-outline-primary btn-block <?php if (strpos($promo, 'smart10') !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('smart10');" style="font-size: 12px;">Smart10</button>
+                        <?php
+                        while($rows = $promoList->fetch_assoc())
+                        {
+                        ?>
+                        <button class="btn btn-sm btn-outline-primary btn-block <?php if (strpos($promo, $rows["promo_code"]) !== false){ ?>active<?php } ?>" type="button" onClick="filterPromo('<?= $rows["promo_code"] ?>');" style="font-size: 12px;"><?= $rows["promo_code"] ?></button>
+                        <?php
+                        }
+                        ?>
                       </div>
                       <hr>
                       <div class="mb-1" style="font-size: 13px;">
@@ -237,7 +288,6 @@ if ($currencyCode == 'MYR') {
                 </div>
               </div>
               <?php
-              require_once('lib/conn.php');  
               $query = "SELECT * FROM advertisement
               WHERE 
               ad_status = '1' AND ad_companyStatus = '1'
@@ -289,17 +339,24 @@ if ($currencyCode == 'MYR') {
                 <div class="row">
                   <div class="col-auto">              
                     <Sort class="align-middle"><i class="fas fa-sort-amount-down-alt fa-sm"></i>&nbsp;Sort by</span>&nbsp;
-                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'priceLowToHigh'){ ?>active<?php } ?>" type="button" onClick="sorting('priceLowToHigh');" style="font-size: 12px;">Lowest Price</span></button>
+                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'price'){ ?>active<?php } ?>" type="button" onClick="sorting('price');" style="font-size: 12px;">Lowest Price</span></button>
                     <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'latest'){ ?>active<?php } ?>" type="button" onClick="sorting('latest');" style="font-size: 12px;">Latest</span></button>
-                    <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'popular'){ ?>active<?php } ?>" type="button" onClick="sorting('popular');" style="font-size: 12px;">Popular</button>
+                    <!-- <button class="btn btn-sm btn-outline-primary <?php if ($sort == 'popular'){ ?>active<?php } ?>" type="button" onClick="sorting('popular');" style="font-size: 12px;">Popular</button> -->
                   </div>
                 </div>
               </div>    
-                   
-              <?php              
-                $minAmount = 6000 * $rates;
-                $maxAmount = 8500 * $rates;
-                $hasDiscount = true;
+
+              <?php 
+              
+              ?>  
+
+              <?php
+              if ($numPackage > 0) {
+              while($rows = $packageList->fetch_assoc())
+              {
+                $minAmount = $rows['price_min'] * $rates;
+                $maxAmount = $rows['price_max'] * $rates;
+                $hasDiscount = false;
                 if ($hasDiscount) {
                   $discount = 0.2;                                     
                   $amountMinDiscount = $minAmount * $discount;
@@ -307,33 +364,36 @@ if ($currencyCode == 'MYR') {
                   $amountMaxDiscount = $maxAmount * $discount;
                   $amountMaxAfterDiscount = $maxAmount - $amountMaxDiscount;
                 }
-              ?>
+                $now = time(); // or your date as well
+                $dateCreated = strtotime($rows['createdDate']);
+                $datediff = $now - $dateCreated;
+                $new = round($datediff / (60 * 60 * 24));
+              ?>              
 
               <!-- Packages -->
-              <div class="card mb-3 text-md">
-                <div class="card-body">
-                  <div class="thumb-xs d-block d-sm-none">
-                    <img class="thumb-img-xs float-left" src="img/kaabah-min.jpg" >
-                  </div>
-                  <a href="#" onclick="viewPackage(1);" class="d-block bg-white text-primary" role="button">
+              <a href="#" onclick="viewPackage(<?= $rows['id'] ?>);" class="d-block bg-white text-primary" role="button">
+                <div class="card mb-3 text-md">
+                  <div class="card-body">
+                    <div class="thumb-xs d-block d-sm-none">
+                      <img class="thumb-img-xs float-left" src="upload/package/<?= $rows['package_thumbnail'] ?>" >
+                    </div>                  
                     <div class="row">
                       <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
-                        <img class="thumb-img" src="img/kaabah-min.jpg" >
+                        <img class="thumb-img" src="upload/package/<?= $rows['package_thumbnail'] ?>" >
                       </div>
                       <div class="col-lg-7">
-                        <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
+                        <h6 class="m-0 font-weight-bold text-primary text-md"><?= $rows['agency_name'] ?></h6> 
                         <div class="text-primary" style="font-size: 13px;">
-                          Cyberjaya, Selangor (LKU No: KPK/LN 9774) <br>
-                          Package Gold <span class="badge badge-info align-text-middle">New!</span><br>
-                          Departure Date from 2 April 2020 to 10 April 2020<br>                        
+                          <?= $rows['agency_city'] ?>, <?= ucfirst($rows['state']) ?> (LKU No: KPK/LN <?= $rows['agency_LKUNo'] ?>) <br>
+                          <?= $rows['package_name'] ?> <?php if($new <= 30) { ?><span class="badge badge-info align-text-middle">New!</span> <?php } ?>  <br>
+                          Departure Date from <?= $rows['dateFrom'] ?> to <?= $rows['dateTo'] ?><br>                        
                           <?php if ($hasDiscount) { ?>
                             <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
                             <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
-                            <span class="badge badge-danger align-text-top">20% OFF</span>
+                            <span class="badge badge-primary align-text-top">UMRAH4ALL</span> <span class="badge badge-danger align-text-top">20% OFF</span>
                           <?php } else { ?>
                             <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
-                          <?php } ?>  
-                          <span class="badge badge-primary align-text-top">UMRAH4ALL</span>                               
+                          <?php } ?>                                                        
                         </div>
                       </div>
                       <div class="col-auto justify-content-end">  
@@ -341,7 +401,15 @@ if ($currencyCode == 'MYR') {
                           <tr>
                             <td>Company Rating</td>
                             <td class="text-center">:&nbsp;&nbsp;</td>
-                            <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
+                            <td>
+                              <span class="text-warning">
+                              <?php
+                              for ($x = 1; $x <= $rows['agency_rating']; $x++) {
+                                echo "<i class='fas fa-star fa-sm'></i>";
+                              }
+                              ?>
+                              </span>
+                            </td>
                           </tr>
                           <tr>
                             <td>Customer Rating</td>
@@ -353,18 +421,26 @@ if ($currencyCode == 'MYR') {
                           </tr>
                         </table>                                       
                       </div>
-                    </div>                  
-                  </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
+              </a>
+
+              <?php
+              }
+              }
+              else {
+              ?>              
               <!-- If Not Found -->
               <div class="alert alert-light bg-white text-primary text-center" style="font-size: .8rem;">
                 No package has been found. 
               </div>
+              <?php
+              }
+              ?>
 
               <!-- Pagination -->
-              <div>
+              <!-- <div>
                 <nav>
                   <ul class="pagination pagination-sm justify-content-center">
                     <li class="page-item disabled">                      
@@ -380,7 +456,7 @@ if ($currencyCode == 'MYR') {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

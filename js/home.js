@@ -74,7 +74,7 @@ function searching() {
       goToURL += '&noChild='+noChild;
     }
     
-    goToURL += '&sort=priceLowToHigh';
+    goToURL += '&sort=price';
   
     window.open(goToURL, '_self');
   } 
