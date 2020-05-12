@@ -12,11 +12,11 @@
       },
       "columnDefs":[
         {
-          "targets":[0,8],
+          "targets":[0,7],
           "orderable":false
         },
         {
-          "targets":[0,4,5,6,7,8],
+          "targets":[0,4,5,6,7],
           "className":"text-center"
         },
         {
