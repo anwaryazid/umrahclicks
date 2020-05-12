@@ -105,6 +105,19 @@ function clearFilter() {
   }  
 }
 
+function viewPackage(id) {
+  // alert('hello');
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  var country = urlParams.get('country');
+  var dateDepart = urlParams.get('dateDepart');
+  var noAdult = urlParams.get('noAdult');
+  var noChild = urlParams.get('noChild');
+  var packageId = id;
+  var goToURL = 'packages.php?county='+country+'&dateDepart='+dateDepart+'&noAdult='+noAdult+'&noChild='+noChild+'&package='+packageId;
+  window.open(goToURL, '_blank');
+}
+
 function filterPromo(name) {  
 
   var x = location.search;
@@ -337,26 +350,6 @@ $('.btn-number').click(function(e) {
 $('.input-number').focusin(function() {
     $(this).data('oldValue', $(this).val());
 });
-/* $('.input-number').change(function() {
-
-    minValue = parseInt($(this).attr('min'));
-    maxValue = parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
-
-    name = $(this).attr('name');
-    if (valueCurrent >= minValue) {
-        $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the minimum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-    if (valueCurrent <= maxValue) {
-        $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the maximum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-}); */
 $(".input-number").keydown(function(e) {
     // Allow: backspace, delete, tab, escape, enter and .
     if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
