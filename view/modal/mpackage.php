@@ -44,7 +44,7 @@
               <input type="text" class="form-control form-control-sm mb-2" name="package_dateTo" id="package_dateTo" >
 
               <label class="col-form-label">Package Pax <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" name="package_pax" id="package_pax" >              
+              <input type="text" class="form-control form-control-sm mb-2 input-number" name="package_pax" id="package_pax" >              
             </div>
             <div class="form-group col-md-4">
               <label class="col-form-label">Remarks</label>
@@ -84,27 +84,53 @@
               <label class="col-form-label">Makkah Hotel <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm mb-2" id="makkah_hotel" name="makkah_hotel" >
 
+              <?php $distanceMakkahList = $conn->query("SELECT * FROM ref_distance")?>  
               <label class="col-form-label">Distance Makkah Hotel (m) <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="makkah_distance" name="makkah_distance" >
+              <!-- <input type="text" class="form-control form-control-sm mb-2" id="makkah_distance" name="makkah_distance" > -->
+              <select class="form-control form-control-sm mb-2" id="makkah_distance" name="makkah_distance">
+                <option value="" selected></option>
+                <?php
+                while($rows = $distanceMakkahList->fetch_assoc())
+                {
+                  $desc = $rows['desc'];
+                  $id = $rows['id'];
+                  ($distMakkah == $id) ? $selected = "selected" : $selected = "";
+                  echo "<option value='$id' $selected>$desc</option>";
+                }
+                ?>
+              </select>
 
               <label class="col-form-label">Days in Makkah <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="makkah_days" name="makkah_days" >
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="makkah_days" name="makkah_days" >
 
               <label class="col-form-label">Night in Makkah <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="makkah_night" name="makkah_night" >
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="makkah_night" name="makkah_night" >
             </div>
             <div class="form-group col-md-4">
               <label class="col-form-label">Madinah Hotel <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm mb-2" id="madinah_hotel" name="madinah_hotel" >
 
+              <?php $distanceMadinahList = $conn->query("SELECT * FROM ref_distance")?>  
               <label class="col-form-label">Distance Madinah Hotel (m) <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="madinah_distance" name="madinah_distance" >              
+              <!-- <input type="text" class="form-control form-control-sm mb-2" id="madinah_distance" name="madinah_distance" > -->
+              <select class="form-control form-control-sm mb-2" name="madinah_distance" id="madinah_distance">
+                <option value="" selected></option>
+                <?php
+                while($rows = $distanceMadinahList->fetch_assoc())
+                {
+                  $desc = $rows['desc'];
+                  $id = $rows['id'];
+                  ($distMadinah == $id) ? $selected = "selected" : $selected = "";
+                  echo "<option value='$id' $selected>$desc</option>";
+                }
+                ?>
+              </select>
 
               <label class="col-form-label">Days in Madinah <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="madinah_days" name="madinah_days" >    
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="madinah_days" name="madinah_days" >    
 
               <label class="col-form-label">Night in Madinah <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="madinah_night" name="madinah_night" > 
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="madinah_night" name="madinah_night" > 
             </div>                       
           </div>
           <hr id="createdUpdatedHR">

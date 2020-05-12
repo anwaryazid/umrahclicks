@@ -18,7 +18,7 @@
               <input type="text" class="form-control form-control-sm mb-2" id="ad_companyName" name="ad_companyName">              
 
               <label class="col-form-label">Tel. No.</label>
-              <input type="text" class="form-control form-control-sm mb-2" id="ad_companyTelNo" name="ad_companyTelNo">   
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="ad_companyTelNo" name="ad_companyTelNo">   
               
               <label class="col-form-label">Email Address</label>
               <input type="text" class="form-control form-control-sm mb-2" id="ad_companyEmail" name="ad_companyEmail">
@@ -27,7 +27,7 @@
               <input type="text" class="form-control form-control-sm mb-2" id="ad_contactPerson" name="ad_contactPerson">
 
               <label class="col-form-label">Contact Person No. <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="ad_contactPersonNo" name="ad_contactPersonNo">
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="ad_contactPersonNo" name="ad_contactPersonNo">
 
               <label class="col-form-label">Website <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm mb-2" id="ad_website" name="ad_website">
@@ -60,7 +60,7 @@
               <input type="text" class="form-control form-control-sm mb-2" name="ad_dateTo" id="ad_dateTo" >
 
               <label class="col-form-label">Price (RM) <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="ad_price" name="ad_price">  
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="ad_price" name="ad_price">  
 
               <label class="col-form-label">Image Advertisement <small><span class="text-danger">*</span></small></label>
               <input type="file" class="form-control-file form-control-sm mb-2" id="ad_image" name="ad_image" aria-describedby="ad_image">              

@@ -57,8 +57,6 @@
               <label class="col-form-label">Date To <small><span class="text-danger">*</span></small></label>
               <input class="form-control form-control-sm mb-2" id="promo_dateTo" name="promo_dateTo">
 
-              
-
             </div>
             <div class="form-group col-md-6">
 
@@ -70,7 +68,7 @@
               </select>
 
               <label class="col-form-label">Pax (Quantity) </label>
-              <input class="form-control form-control-sm mb-2" id="promo_pax" name="promo_pax">
+              <input class="form-control form-control-sm mb-2 input-number" id="promo_pax" name="promo_pax">
 
               <label class="col-form-label">Promo Variable <small><span class="text-danger">*</span></small></label>
               <select  class="form-control form-control-sm mb-2" id="promo_variable" name="promo_variable">
@@ -86,7 +84,7 @@
               </select>
 
               <label class="col-form-label">Variable Amount <small><span class="text-danger">*</span></small></label>
-              <input class="form-control form-control-sm mb-2" id="promo_variableAmount" name="promo_variableAmount">
+              <input class="form-control form-control-sm mb-2 input-number" id="promo_variableAmount" name="promo_variableAmount">
 
               <label class="col-form-label">Operator </label>
               <input class="form-control form-control-sm mb-2 bg-white text-dark" id="promo_operator" name="promo_operator" disabled value="<?php echo $_SESSION['userName']; ?>">

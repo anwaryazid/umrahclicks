@@ -30,7 +30,7 @@
               <input class="form-control form-control-sm mb-2" id="agency_address2" name="agency_address2">
 
               <label class="col-form-label">Postcode </label>
-              <input class="form-control form-control-sm mb-2" id="agency_postcode" name="agency_postcode">
+              <input class="form-control form-control-sm mb-2 input-number" id="agency_postcode" name="agency_postcode">
 
               <label class="col-form-label">City </label>
               <input class="form-control form-control-sm mb-2" id="agency_city" name="agency_city">
@@ -70,7 +70,7 @@
               </select>
 
               <label class="col-form-label">Contact No. <small><span class="text-danger">*</span></small></label>
-              <input class="form-control form-control-sm mb-2" id="agency_contactNo" name="agency_contactNo">
+              <input class="form-control form-control-sm mb-2 input-number" id="agency_contactNo" name="agency_contactNo">
 
               <label class="col-form-label">Email Address <small><span class="text-danger">*</span></small></label>
               <input class="form-control form-control-sm mb-2" id="agency_email" name="agency_email">           
@@ -117,7 +117,7 @@
               <input class="form-control form-control-sm mb-2" id="agency_contactPerson" name="agency_contactPerson">
 
               <label class="col-form-label">Contact Person No.</label>
-              <input class="form-control form-control-sm mb-2" id="agency_contactPersonNo" name="agency_contactPersonNo">         
+              <input class="form-control form-control-sm mb-2 input-number" id="agency_contactPersonNo" name="agency_contactPersonNo">         
 
             </div> 
             

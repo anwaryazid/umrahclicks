@@ -181,5 +181,5 @@
     $('#operation').val("Add");
     $('#agencyModal').modal('show');
   }
-    
+
 </script>
