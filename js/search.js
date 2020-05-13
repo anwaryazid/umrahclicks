@@ -123,6 +123,17 @@ function filterPromo(name) {
   var x = location.search;
   var current_url = window.location.href;
 
+  if (x.length > 0 ) {
+    var goToURL = (current_url.includes('promo')) ? replaceUrlParam(current_url, 'promo', name): current_url + '&promo=' + name;
+  } else {
+    var goToURL = current_url + '?promo=' + name;
+  }
+  
+  window.open(goToURL, '_self');
+
+  /* var x = location.search;
+  var current_url = window.location.href;
+
   var goToURL = current_url;
   // (current_url.includes('filter')) ? goToURL = goToURL: goToURL += '&filter=1';
 
@@ -144,7 +155,7 @@ function filterPromo(name) {
     goToURL += '&promo='+name;
   }
 
-  window.open(goToURL, '_self');
+  window.open(goToURL, '_self'); */
 }
 
 function filtering() {

@@ -9,6 +9,7 @@ if(!isset($_GET['country'])) {
 }
 
 require("lib/conn.php"); 
+require("lib/SqlFormatter.php"); 
 
 $country = (isset($_GET['country'])) ? $_GET['country'] : 'MY'; 
 
@@ -30,7 +31,7 @@ $priceMax = (isset($_GET['priceMax'])) ?  $_GET['priceMax'] : '';
 $distMakkah = (isset($_GET['distMakkah'])) ?  $_GET['distMakkah'] : '';
 $distMadinah = (isset($_GET['distMadinah'])) ?  $_GET['distMadinah'] : '';
 $agency = (isset($_GET['agency'])) ?  $_GET['agency'] : '';
-$promotion = (isset($_GET['promotion'])) ?  $_GET['promotion'] : '';
+$promo = (isset($_GET['promo'])) ?  $_GET['promo'] : '';
 $state = (isset($_GET['state'])) ?  $_GET['state'] : '';
 $city = (isset($_GET['city'])) ?  $_GET['city'] : '';  
 
@@ -40,6 +41,26 @@ $dateTo = date('j F Y', strtotime($dateDepart. ' + 3 days'));
 $sort = (isset($_GET['sort'])) ?  $_GET['sort'] : '';  
 $promo = (isset($_GET['promo'])) ?  $_GET['promo'] : '';  
 $rating = (isset($_GET['rating'])) ?  $_GET['rating'] : ''; 
+
+$where = '';
+$where .= (isset($_GET['priceMax'])) ? " AND price_max <= ".$_GET['priceMax'] : "";
+$where .= (isset($_GET['distMakkah'])) ?  " AND makkah_distance = '".$_GET['distMakkah']."'" : "";
+$where .= (isset($_GET['distMadinah'])) ?  " AND madinah_distance = '".$_GET['distMadinah']."'" : "";
+$where .= (isset($_GET['agency'])) ?  " AND agency_name LIKE '%".$_GET['agency']."%'" : "";
+$where .= (isset($_GET['state'])) ?  " AND agency_state = '".$_GET['state']."'" : "";
+$where .= (isset($_GET['city'])) ?  " AND agency_city LIKE '%".$_GET['city']."%'" : "";
+$where .= (isset($_GET['rating'])) ?  " AND agency_rating >= ".$_GET['rating']."" : "";
+
+if (isset($_GET['promo'])) {
+  $qGetPromo = "SELECT * FROM promo WHERE promo_code = '".$_GET['promo']."' LIMIT 1";
+  $result = $conn->query($qGetPromo) or die(mysqli_error($conn));
+  foreach($result as $row) {
+    $agency_promo = $row["promo_agency"];
+  }
+  if ($agency_promo != 0) {
+    $where .= " AND agency_id = '".$agency_promo."'";
+  }
+}
 
 $orderBy = 'ORDER BY ';
 if ($sort == 'price') {
@@ -64,32 +85,41 @@ $start_from = ($paging-1)*$record_per_page;
 $dateFromSearch = date('Y-m-d', strtotime($dateDepart. ' - 3 days'));
 $dateToSearch = date('Y-m-d', strtotime($dateDepart. ' + 3 days'));
 $qPackage = "SELECT
-    b.agency_name,
-    b.agency_city,
-    b.agency_state,
-    LCASE(c.keterangan) AS state,
-    b.agency_LKUNo,
-    DATE_FORMAT(package_dateFrom, '%e %M %Y') AS dateFrom,
-    DATE_FORMAT(package_dateTo, '%e %M %Y') AS dateTo,
-    b.agency_rating,
-    MIN(d.room_umrahCost) AS price_min,
-    MAX(d.room_umrahCost) AS price_max,
-    a.*
-  FROM package a
-  LEFT JOIN agency b ON b.id = a.agency_id
-  LEFT JOIN ref_state c ON c.id = b.agency_state
-  LEFT JOIN package_room d ON d.package_id = a.id
-  WHERE 1=1
-  AND a.package_pax >= '$pax'
-  AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
-  AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
-  GROUP BY a.id
-  $orderBy
-  LIMIT $start_from, $record_per_page";
+b.agency_name,
+b.agency_city,
+b.agency_state,
+LCASE( c.keterangan ) AS state,
+b.agency_LKUNo,
+DATE_FORMAT( package_dateFrom, '%e %M %Y' ) AS dateFrom,
+DATE_FORMAT( package_dateTo, '%e %M %Y' ) AS dateTo,
+b.agency_rating,
+e.price_min AS price_min,
+d.price_max AS price_max,	
+a.* 
+FROM
+package a
+LEFT JOIN agency b ON b.id = a.agency_id
+LEFT JOIN ref_state c ON c.id = b.agency_state
+INNER JOIN (
+  SELECT MAX( room_umrahCost ) AS price_max, package_id
+  FROM package_room
+  GROUP BY package_id
+) d ON a.id = d.package_id
+INNER JOIN (
+  SELECT MIN( room_umrahCost ) AS price_min, package_id
+  FROM package_room
+  GROUP BY package_id
+) e ON a.id = e.package_id
+WHERE 1=1
+AND a.package_pax >= '$pax'
+AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
+AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
+$where
+GROUP BY a.id
+$orderBy
+LIMIT $start_from, $record_per_page";
 $packageList = $conn->query($qPackage) or die(mysqli_error($conn));
 $numPackages = mysqli_num_rows($packageList);
-
-// var_dump($qPackage);
 
 function convert_currency($from,$to) {
 
@@ -115,6 +145,8 @@ if ($currencyCode == 'MYR') {
 } else {
   $rates = convert_currency('MYR', $currencyCode);
 }
+
+// echo SqlFormatter::format($qPackage);
 
 ?> 
 
@@ -381,7 +413,7 @@ if ($currencyCode == 'MYR') {
               ?>              
 
               <!-- Packages -->
-              <a href="#" onclick="viewPackage(<?= $rows['id'] ?>);" class="d-block bg-white text-primary" role="button">
+              <a href="" onclick="viewPackage(<?= $rows['id'] ?>);" class="d-block bg-white text-primary" role="button">
                 <div class="card mb-3 text-md">
                   <div class="card-body">
                     <div class="thumb-xs d-block d-sm-none">
@@ -452,27 +484,37 @@ if ($currencyCode == 'MYR') {
               <?php
               if ($numPackages > 0) {
               $qAllPackage = "SELECT
-                  b.agency_name,
-                  b.agency_city,
-                  b.agency_state,
-                  LCASE(c.keterangan) AS state,
-                  b.agency_LKUNo,
-                  DATE_FORMAT(package_dateFrom, '%e %M %Y') AS dateFrom,
-                  DATE_FORMAT(package_dateTo, '%e %M %Y') AS dateTo,
-                  b.agency_rating,
-                  MIN(d.room_umrahCost) AS price_min,
-                  MAX(d.room_umrahCost) AS price_max,
-                  a.*
-                FROM package a
-                LEFT JOIN agency b ON b.id = a.agency_id
-                LEFT JOIN ref_state c ON c.id = b.agency_state
-                LEFT JOIN package_room d ON d.package_id = a.id
-                WHERE 1=1
-                AND a.package_pax >= '$pax'
-                AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
-                AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
-                GROUP BY a.id
-                $orderBy";
+              b.agency_name,
+              b.agency_city,
+              b.agency_state,
+              LCASE( c.keterangan ) AS state,
+              b.agency_LKUNo,
+              DATE_FORMAT( package_dateFrom, '%e %M %Y' ) AS dateFrom,
+              DATE_FORMAT( package_dateTo, '%e %M %Y' ) AS dateTo,
+              b.agency_rating,
+              e.price_min AS price_min,
+              d.price_max AS price_max,	
+              a.* 
+            FROM
+              package a
+              LEFT JOIN agency b ON b.id = a.agency_id
+              LEFT JOIN ref_state c ON c.id = b.agency_state
+              INNER JOIN (
+                SELECT MAX( room_umrahCost ) AS price_max, package_id
+                FROM package_room
+                GROUP BY package_id
+              ) d ON a.id = d.package_id
+              INNER JOIN (
+                SELECT MIN( room_umrahCost ) AS price_min, package_id
+                FROM package_room
+                GROUP BY package_id
+              ) e ON a.id = e.package_id
+              WHERE 1=1
+              AND a.package_pax >= '$pax'
+              AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
+              AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
+              GROUP BY a.id
+              $orderBy";
               $allPackageList = $conn->query($qAllPackage) or die(mysqli_error($conn));
               $total_records = mysqli_num_rows($allPackageList);
               $total_pages = ceil($total_records/$record_per_page);
