@@ -238,6 +238,20 @@ function sorting(y) {
   window.open(goToURL, '_self');
 }
 
+function paging(y) {
+
+  var x = location.search;
+  var current_url = window.location.href;
+
+  if (x.length > 0 ) {
+    var goToURL = (current_url.includes('page')) ? replaceUrlParam(current_url, 'page', y): current_url + '&page=' + y;
+  } else {
+    var goToURL = current_url + '?page=' + y;
+  }
+  
+  window.open(goToURL, '_self');
+}
+
 function replaceUrlParam(url, paramName, paramValue)
 {
     if (paramValue == null) {

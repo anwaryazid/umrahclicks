@@ -50,6 +50,17 @@ if ($sort == 'price') {
   $orderBy .= 'price_min ASC';
 }
 
+/* Pagination */
+$record_per_page = 10;
+$paging = '';
+// $page = (isset($_GET['page'])) ?  $_GET['page'] : 1;
+if(isset($_GET["page"])) {
+ $paging = $_GET["page"];
+} else {
+ $paging = 1;
+}
+$start_from = ($paging-1)*$record_per_page;
+
 $dateFromSearch = date('Y-m-d', strtotime($dateDepart. ' - 3 days'));
 $dateToSearch = date('Y-m-d', strtotime($dateDepart. ' + 3 days'));
 $qPackage = "SELECT
@@ -73,9 +84,12 @@ $qPackage = "SELECT
   AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
   AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
   GROUP BY a.id
-  $orderBy";
+  $orderBy
+  LIMIT $start_from, $record_per_page";
 $packageList = $conn->query($qPackage) or die(mysqli_error($conn));
-$numPackage = mysqli_num_rows($packageList);
+$numPackages = mysqli_num_rows($packageList);
+
+// var_dump($qPackage);
 
 function convert_currency($from,$to) {
 
@@ -346,12 +360,8 @@ if ($currencyCode == 'MYR') {
                 </div>
               </div>    
 
-              <?php 
-              
-              ?>  
-
               <?php
-              if ($numPackage > 0) {
+              if ($numPackages > 0) {
               while($rows = $packageList->fetch_assoc())
               {
                 $minAmount = $rows['price_min'] * $rates;
@@ -439,24 +449,59 @@ if ($currencyCode == 'MYR') {
               }
               ?>
 
+              <?php
+              if ($numPackages > 0) {
+              $qAllPackage = "SELECT
+                  b.agency_name,
+                  b.agency_city,
+                  b.agency_state,
+                  LCASE(c.keterangan) AS state,
+                  b.agency_LKUNo,
+                  DATE_FORMAT(package_dateFrom, '%e %M %Y') AS dateFrom,
+                  DATE_FORMAT(package_dateTo, '%e %M %Y') AS dateTo,
+                  b.agency_rating,
+                  MIN(d.room_umrahCost) AS price_min,
+                  MAX(d.room_umrahCost) AS price_max,
+                  a.*
+                FROM package a
+                LEFT JOIN agency b ON b.id = a.agency_id
+                LEFT JOIN ref_state c ON c.id = b.agency_state
+                LEFT JOIN package_room d ON d.package_id = a.id
+                WHERE 1=1
+                AND a.package_pax >= '$pax'
+                AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
+                AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
+                GROUP BY a.id
+                $orderBy";
+              $allPackageList = $conn->query($qAllPackage) or die(mysqli_error($conn));
+              $total_records = mysqli_num_rows($allPackageList);
+              $total_pages = ceil($total_records/$record_per_page);
+              ?>
+
               <!-- Pagination -->
-              <!-- <div>
+              <div>
                 <nav>
                   <ul class="pagination pagination-sm justify-content-center">
-                    <li class="page-item disabled">                      
-                      <a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+                    <li class="page-item <?php if ($paging == 1) { ?>disabled<?php } ?>">                      
+                      <a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
                     </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item ">
-                      <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">                      
+                    <?php
+                    for($i=1; $i<=$total_pages; $i++) {
+                    ?>     
+                    <li class="page-item <?php if ($paging == $i) { ?>active<?php } ?>"><a class="page-link" href="#" onClick="paging('<?= $i ?>');"><?= $i ?></a></li>
+                    <?php
+                    }
+                    ?>
+                    <li class="page-item <?php if ($paging == $total_pages) { ?>disabled<?php } ?>">                      
                       <a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                   </ul>
                 </nav>
-              </div> -->
+              </div>
+
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>
