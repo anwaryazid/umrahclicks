@@ -189,7 +189,7 @@ $numPackages = mysqli_num_rows($packageList);
                                 <tr class="border-bottom">
                                   <td class="text-primary"><strong>Room</strong></td>
                                   <td class="text-primary"><strong>Price</strong></td>
-                                  <!-- <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td> -->
+                                  <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
                                 </tr>             
                                 <?php $rooms = $conn->query("SELECT * FROM package_room WHERE package_id = '".$package."'")?> 
                                 <?php
