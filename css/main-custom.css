@@ -11112,6 +11112,7 @@ body.sidebar-toggled footer.sticky-footer {
   .main {
     margin-left: 224px; 
     margin-top: 94px;
+    min-height: 560px;
   }
   .footer {
     margin-left: 224px; 

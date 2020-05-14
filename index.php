@@ -101,7 +101,7 @@
 
       <div id="content" class="main">     
         
-      <?php include('view/modal/malert.php'); ?>
+        <?php include('view/modal/malert.php'); ?>
 
         <div class="fix-topbar">
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow-sm ">
