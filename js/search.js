@@ -114,7 +114,7 @@ function viewPackage(id) {
   var noAdult = urlParams.get('noAdult');
   var noChild = urlParams.get('noChild');
   var packageId = id;
-  var goToURL = 'packages.php?county='+country+'&dateDepart='+dateDepart+'&noAdult='+noAdult+'&noChild='+noChild+'&package='+packageId;
+  var goToURL = 'package.php?county='+country+'&dateDepart='+dateDepart+'&noAdult='+noAdult+'&noChild='+noChild+'&package='+packageId;
   window.open(goToURL, '_blank');
 }
 
@@ -196,11 +196,12 @@ function searchingT() {
   var dateDepart = $('#t_dateDepart').val();
   var noAdult = $('#t_noAdult').val();
   var noChild = $('#t_noChild').val();
+  var country = $('#t_country').val();
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
-  const country = urlParams.get('country');
+  // const country = urlParams.get('country');
 
   var goToURL = 'search.php?page=1&country='+country;
 

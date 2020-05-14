@@ -9,6 +9,8 @@ if(!isset($_GET['country']) && !isset($_GET['package'])) {
 }
 
 require("lib/conn.php"); 
+require("lib/function.php"); 
+require("lib/SqlFormatter.php"); 
 
 $country = (isset($_GET['country'])) ? $_GET['country'] : 'MY'; 
 $id = (isset($_GET['id'])) ? $_GET['id'] : '0'; 
@@ -16,30 +18,12 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : '0';
 $dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
 $noAdult = (isset($_GET['noAdult'])) ?  $_GET['noAdult'] : '';
 $noChild = (isset($_GET['noChild'])) ?  $_GET['noChild'] : '';
+$package = (isset($_GET['package'])) ?  $_GET['package'] : '';
 
 $result = $conn->query("SELECT * FROM ref_country WHERE kod = '$country'") or die(mysqli_error($conn));
 foreach($result as $row) {
   $currency = $row["currency_symbol"];
   $currencyCode = $row["currency_code"];
-}
-
-function convert_currency($from,$to) {
-
-  $from = urlencode($from);
-  $to = urlencode($to);
-  $url = "https://free.currconv.com/api/v7/convert?q=$from"."_"."$to&compact=ultra&apiKey=a59d7c336eddd151acdb";
-  $ch = curl_init();
-  $timeout = 0;
-  curl_setopt ($ch, CURLOPT_URL, $url);
-  curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_USERAGENT , 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0');
-  curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-  $rawdata = curl_exec($ch);
-  curl_close($ch);
-
-  $obj = json_decode($rawdata);
-
-  return $obj->{$from.'_'.$to};
 }
 
 if ($currencyCode == 'MYR') {
@@ -48,6 +32,36 @@ if ($currencyCode == 'MYR') {
   $rates = convert_currency('MYR', $currencyCode);
 }
 
+$qPackage = "SELECT
+b.agency_name,
+b.agency_city,
+b.agency_state,
+LCASE( c.keterangan ) AS state,
+b.agency_LKUNo,
+DATE_FORMAT( package_dateFrom, '%e %M %Y' ) AS dateFrom,
+DATE_FORMAT( package_dateTo, '%e %M %Y' ) AS dateTo,
+b.agency_rating,
+e.price_min AS price_min,
+d.price_max AS price_max,	
+a.* 
+FROM
+package a
+LEFT JOIN agency b ON b.id = a.agency_id
+LEFT JOIN ref_state c ON c.id = b.agency_state
+INNER JOIN (
+  SELECT MAX( room_umrahCost ) AS price_max, package_id
+  FROM package_room
+  GROUP BY package_id
+) d ON a.id = d.package_id
+INNER JOIN (
+  SELECT MIN( room_umrahCost ) AS price_min, package_id
+  FROM package_room
+  GROUP BY package_id
+) e ON a.id = e.package_id
+WHERE 1=1
+AND a.id = '$package'";
+$packageList = $conn->query($qPackage) or die(mysqli_error($conn));
+$numPackages = mysqli_num_rows($packageList);
 ?> 
 
 <!DOCTYPE html>
@@ -81,16 +95,21 @@ if ($currencyCode == 'MYR') {
         include('top-menu.php');
       ?> 
         <div class="container-fluid">
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center">            
 
             <!-- Packages -->
-            <div class="col-xl-10 col-lg-10 col-md-10">           
+            <div class="col-xl-10 col-lg-10 col-md-10">   
+              
+              <small class="d-none"><?= SqlFormatter::format($qPackage); ?></small>
                    
               <!-- Package 1 -->
-              <?php              
-                $minAmount = 6000 * $rates;
-                $maxAmount = 8500 * $rates;
-                $hasDiscount = true;
+              <?php
+              if ($numPackages > 0) {
+              while($rows = $packageList->fetch_assoc())
+              {
+                $minAmount = $rows['price_min'] * $rates;
+                $maxAmount = $rows['price_max'] * $rates;
+                $hasDiscount = false;
                 if ($hasDiscount) {
                   $discount = 0.2;                                     
                   $amountMinDiscount = $minAmount * $discount;
@@ -98,31 +117,34 @@ if ($currencyCode == 'MYR') {
                   $amountMaxDiscount = $maxAmount * $discount;
                   $amountMaxAfterDiscount = $maxAmount - $amountMaxDiscount;
                 }
-              ?>
+                $now = time(); // or your date as well
+                $dateCreated = strtotime($rows['createdDate']);
+                $datediff = $now - $dateCreated;
+                $new = round($datediff / (60 * 60 * 24));
+              ?> 
               <div class="card mb-3">
                 <div class="card-body text-md">
                   <div class="thumb-xs d-block d-sm-none">
-                    <img class="thumb-img-xs float-left" src="img/kaabah-min.jpg" >
+                    <img class="thumb-img-xs float-left" src="upload/package/<?= $rows['package_thumbnail'] ?>" >
                   </div>
                   <div class="d-block bg-white text-primary">
                     <div class="row">
                       <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
-                        <img class="thumb-img" src="img/kaabah-min.jpg" >
+                        <img class="thumb-img" src="upload/package/<?= $rows['package_thumbnail'] ?>" >
                       </div>
                       <div class="col-lg-7">
-                        <h6 class="m-0 font-weight-bold text-primary text-md">Smart Umrah4all Dot Com Travel & Services Sdn Bhd</h6> 
+                        <h6 class="m-0 font-weight-bold text-primary text-md"><?= $rows['agency_name'] ?></h6> 
                         <div class="text-primary" style="font-size: 13px;">
-                          Cyberjaya, Selangor (LKU No: KPK/LN 9774) <br>
-                          Package Gold <span class="badge badge-info align-text-middle">New!</span><br>
-                          Departure Date from 2 April 2020 to 10 April 2020<br>                        
+                          <?= $rows['agency_city'] ?>, <?= ucfirst($rows['state']) ?> (LKU No: KPK/LN <?= $rows['agency_LKUNo'] ?>) <br>
+                          <?= $rows['package_name'] ?> <?php if($new <= 30) { ?><span class="badge badge-info align-text-middle">New!</span> <?php } ?>  <br>
+                          Departure Date from <?= $rows['dateFrom'] ?> to <?= $rows['dateTo'] ?><br>                        
                           <?php if ($hasDiscount) { ?>
                             <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
                             <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
-                            <span class="badge badge-danger align-text-top">20% OFF</span>
+                            <span class="badge badge-primary align-text-top">UMRAH4ALL</span> <span class="badge badge-danger align-text-top">20% OFF</span>
                           <?php } else { ?>
                             <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
-                          <?php } ?>  
-                          <span class="badge badge-primary align-text-top">UMRAH4ALL</span>                               
+                          <?php } ?>                                                        
                         </div>
                       </div>
                       <div class="col-auto justify-content-end">  
@@ -130,7 +152,15 @@ if ($currencyCode == 'MYR') {
                           <tr>
                             <td>Company Rating</td>
                             <td class="text-center">:&nbsp;&nbsp;</td>
-                            <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star-half fa-sm"></i></span></td>
+                            <td>
+                              <span class="text-warning">
+                              <?php
+                              for ($x = 1; $x <= $rows['agency_rating']; $x++) {
+                                echo "<i class='fas fa-star fa-sm'></i>";
+                              }
+                              ?>
+                              </span>
+                            </td>
                           </tr>
                           <tr>
                             <td>Customer Rating</td>
@@ -159,30 +189,36 @@ if ($currencyCode == 'MYR') {
                                 <tr class="border-bottom">
                                   <td class="text-primary"><strong>Room</strong></td>
                                   <td class="text-primary"><strong>Price</strong></td>
-                                  <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td>
-                                </tr>                              
+                                  <!-- <td class="text-primary text-center" style="font-size: .8rem"><strong>10 pax left</strong></td> -->
+                                </tr>             
+                                <?php $rooms = $conn->query("SELECT * FROM package_room WHERE package_id = '".$package."'")?> 
+                                <?php
+                                while($room = $rooms->fetch_assoc())
+                                {
+                                ?>
                                 <tr class="border-bottom">
                                   <td class="align-middle">
-                                    <span class="d-none d-sm-block">Double Bed</span>
-                                    <span class="d-block d-sm-none" style="font-size: .8rem">Double Bed</span>
+                                    <span class="d-none d-sm-block"><?= ucfirst($room['room_type']) ?></span>
+                                    <span class="d-block d-sm-none" style="font-size: .8rem"><?= ucfirst($room['room_type']) ?></span>
                                   </td>
-                                  <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
+                                  <td class="align-middle font-weight-bold text-primary">  
                                     <?php 
-                                      $hasDiscount = true;
-                                      $amount = 6000 * $rates;
+                                      $hasDiscount = false;
+                                      $amount = $room['room_umrahCost'] * $rates;
                                       if ($hasDiscount) {
                                         $discount = 0.2;                                     
                                         $amountDiscount = $amount * $discount;
                                         $amountAfterDiscount = $amount - $amountDiscount;
-                                        echo $currency.''.number_format($amountAfterDiscount, 2);
+                                        $finalAmount = $currency.''.number_format($amountAfterDiscount, 2);
                                       } else {
-                                        echo $currency.''.number_format($amount, 2);
+                                        $finalAmount = $currency.''.number_format($amount, 2);
                                       }          
                                     ?>
+                                    <span class="d-none d-sm-block"><?= $finalAmount ?></span>
+                                    <span class="d-block d-sm-none" style="font-size: .8rem"><?= $finalAmount ?></span>
                                     <?php
                                     if ($hasDiscount) {
                                     ?>
-                                    <br/>
                                     <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
                                     <?php
                                     }
@@ -192,75 +228,21 @@ if ($currencyCode == 'MYR') {
                                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                   </td>
                                 </tr>
-                                <tr class="border-bottom">
-                                  <td class="align-middle">
-                                    <span class="d-none d-sm-block">Triple Bed</span>
-                                    <span class="d-block d-sm-none" style="font-size: .8rem">Triple Bed</span>
-                                  </td>
-                                  <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
-                                    <?php 
-                                      $hasDiscount = true;
-                                      $amount = 7200 * $rates;
-                                      if ($hasDiscount) {
-                                        $discount = 0.2;                                     
-                                        $amountDiscount = $amount * $discount;
-                                        $amountAfterDiscount = $amount - $amountDiscount;
-                                        echo $currency.''.number_format($amountAfterDiscount, 2);
-                                      } else {
-                                        echo $currency.''.number_format($amount, 2);
-                                      }          
-                                    ?>
-                                    <?php
-                                    if ($hasDiscount) {
-                                    ?>
-                                    <br/>
-                                    <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
-                                    <?php
-                                    }
-                                    ?>
-                                  </td>
-                                  <td class="align-middle text-center">
+                                <!-- <tr>
+                                  <td colspan="2" class="align-middle text-center">
                                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
                                   </td>
-                                </tr>
-                                <tr class="border-bottom">
-                                  <td class="align-middle">
-                                    <span class="d-none d-sm-block">Quadruple Bed</span>
-                                    <span class="d-block d-sm-none" style="font-size: .8rem">Quadruple Bed</span>
-                                  </td>
-                                  <td class="align-middle font-weight-bold text-primary" style="font-size: .8rem">  
-                                    <?php 
-                                      $hasDiscount = true;
-                                      $amount = 8500 * $rates;
-                                      if ($hasDiscount) {
-                                        $discount = 0.2;                                     
-                                        $amountDiscount = $amount * $discount;
-                                        $amountAfterDiscount = $amount - $amountDiscount;
-                                        echo $currency.''.number_format($amountAfterDiscount, 2);
-                                      } else {
-                                        echo $currency.''.number_format($amount, 2);
-                                      }          
-                                    ?>
-                                    <?php
-                                    if ($hasDiscount) {
-                                    ?>
-                                    <br/>
-                                    <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
-                                    <?php
-                                    }
-                                    ?>
-                                  </td>
-                                  <td class="align-middle text-center">
-                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
-                                  </td>
-                                </tr>
-                                <tr class="border-bottom" style="font-size: .8rem;">
+                                </tr> -->
+                                <?php                            
+                                }
+                                ?>       
+                                <!-- <tr class="border-bottom" style="font-size: .8rem;">
                                   <td colspan="3">
                                     <div class="alert alert-primary" role="alert" style="font-size: .8rem">
                                       <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
                                     </div>
                                   </td> 
-                                </tr>
+                                </tr> -->
                               </table>
                             </div>
                           </div>   
@@ -282,51 +264,83 @@ if ($currencyCode == 'MYR') {
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-bed"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Hotel</span></td>
-                              <td>Elaf Al Mashaer</td>
-                              <td>Ramada Al Qibla</td>
+                              <td><?= ucfirst($rows['makkah_hotel']) ?></td>
+                              <td><?= ucfirst($rows['madinah_hotel']) ?></td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-sun"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Days</span></td>
-                              <td>7 days</td>
-                              <td>7 days</td>
+                              <td><?= $rows['makkah_days'] ?> days</td>
+                              <td><?= $rows['madinah_days'] ?> days</td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-moon"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Night</span></td>
-                              <td>7 night</td>
-                              <td>7 night</td>
+                              <td><?= $rows['makkah_night'] ?> night</td>
+                              <td><?= $rows['madinah_night'] ?> night</td>
                             </tr>
                             <tr class="border-bottom">
                               <td class="text-primary"><i class="fas fa-fw fa-mosque"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Distance to Mosque</span></td>
-                              <td>250 m</td>
-                              <td>250 m</td>
+                              <td>
+                                <?php $distanceMakkah = $conn->query("SELECT * FROM ref_distance WHERE id = '".$rows['makkah_distance']."' LIMIT 1")?> 
+                                <?php
+                                while($row = $distanceMakkah->fetch_assoc())
+                                {
+                                  echo $row['desc'];
+                                }
+                                ?>
+                              </td>
+                              <td>
+                                <?php $distanceMadinah = $conn->query("SELECT * FROM ref_distance WHERE id = '".$rows['madinah_distance']."' LIMIT 1")?> 
+                                <?php
+                                while($row = $distanceMadinah->fetch_assoc())
+                                {
+                                  echo $row['desc'];
+                                }
+                                ?>
+                              </td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-utensils"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Meal</span></td>
-                              <td colspan="2">Provided</td>
+                              <td colspan="2">
+                                <?php $meal = $conn->query("SELECT * FROM ref_package_meal WHERE id = '".$rows['package_meal_id']."' LIMIT 1")?> 
+                                <?php
+                                while($row = $meal->fetch_assoc())
+                                {
+                                  echo $row['desc'];
+                                }
+                                ?>
+                              </td>
                             </tr>
                             <tr class="border-bottom">
                               <td class="text-primary"><i class="fas fa-fw fa-plane"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Flight</span></td>
-                              <td colspan="2">Direct</td>
+                              <td colspan="2">
+                                <?php $flight = $conn->query("SELECT * FROM ref_package_flight WHERE id = '".$rows['package_flight_id']."' LIMIT 1")?> 
+                                <?php
+                                while($row = $flight->fetch_assoc())
+                                {
+                                  echo $row['desc'];
+                                }
+                                ?>
+                              </td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-map-marker-alt"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">1st Destination</span></td>
-                              <td colspan="2">Makkah</td>
+                              <td colspan="2"><?= ucfirst($rows['package_1stDestination']) ?></td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-walking"></i></td>
                               <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Ziarah</span></td>
-                              <td colspan="2"></td>
+                              <td colspan="2"><?= $rows['package_ziarah'] ?></td>
                             </tr>
                             <tr>
                               <td class="text-primary"><i class="fas fa-fw fa-male"></i></td>
-                              <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawif</span></td>
-                              <td colspan="2">Celebrity Mutawif</td>
+                              <td class="text-primary d-none d-sm-block"><span class="d-none d-sm-block">Mutawwif</span></td>
+                              <td colspan="2"><?= ucfirst($rows['package_mutawwif']) ?></td>
                             </tr>
                           </table>
                         </div>
@@ -395,32 +409,36 @@ if ($currencyCode == 'MYR') {
                     </div>
                     <div class="col-xl-6 col-lg-12">                          
                       <!-- Image Hotel Makkah -->
+                      <?php 
+                      $imageMakkah = $conn->query("SELECT * FROM package_image WHERE package_id = '".$package."' AND img_for = '1' ORDER BY createdDate DESC");
+                      $numimageMakkah = mysqli_num_rows($imageMakkah);
+                      ?> 
+                      <?php
+                      if ($numimageMakkah > 0) {
+                      ?>
                       <div class="card mb-4">
                         <div class="card-header text-center" style="background-color: white;">
-                          <strong class="m-0 text-primary">Hotel Elaf Al Mashaer, Makkah</strong>
+                          <strong class="m-0 text-primary"><?= ucfirst($rows['makkah_hotel']) ?>, Makkah</strong>
                         </div>
-                        <div class="card-body">                                     
+                        <div class="card-body">                                  
                           <div id="imgIndicator" class="carousel slide mb-3" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#imgIndicator" data-slide-to="0" class="active"></li>
-                              <li data-target="#imgIndicator" data-slide-to="1"></li>
-                              <li data-target="#imgIndicator" data-slide-to="2"></li>
-                              <li data-target="#imgIndicator" data-slide-to="3"></li>
-                            </ol>
                             <div class="carousel-inner">
-                              <div class="carousel-item box active">
-                                <img class="d-block caros" src="img/elaf/elaf1-min.jpg">
+                              <?php
+                              $j = 0;
+                              while($row = $imageMakkah->fetch_assoc())
+                              {
+                              ?>
+                              <div class="carousel-item box <?php if ($j == 0) { ?>active<?php } ?>">
+                                <img class="d-block caros" src="upload/hotel/<?= $row['hotel_img'] ?>">
                               </div>
-                              <div class="carousel-item box">
-                                <img class="d-block w-100 caros" src="img/elaf/standard-min.jpg">
-                              </div>
-                              <div class="carousel-item box">
-                                <img class="d-block w-100 caros" src="img/elaf/junior-min.jpg">
-                              </div>
-                              <div class="carousel-item box">
-                                <img class="d-block w-100 caros" src="img/elaf/quadruple-min.jpg">
-                              </div>
+                              <?php
+                              $j++;
+                              }
+                              ?>
                             </div>
+                            <?php
+                            if ($numimageMakkah <= 2) {
+                            ?>
                             <a class="carousel-control-prev" href="#imgIndicator" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="sr-only">Previous</span>
@@ -429,13 +447,67 @@ if ($currencyCode == 'MYR') {
                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                               <span class="sr-only">Next</span>
                             </a>
+                            <?php
+                            }
+                            ?>
                           </div>
                         </div>
                       </div>
+                      <?php
+                      }
+                      ?>
+                      
                       <!-- Image Hotel Madinah -->
+                      <?php 
+                      $imageMadinah = $conn->query("SELECT * FROM package_image WHERE package_id = '".$package."' AND img_for = '2' ORDER BY createdDate DESC");
+                      $numimageMadinah = mysqli_num_rows($imageMadinah);
+                      ?> 
+                      <?php
+                      if ($numimageMadinah > 0) {
+                      ?>
                       <div class="card mb-4">
                         <div class="card-header text-center" style="background-color: white;">
-                          <strong class="m-0 text-primary">Hotel Ramada Al Qibla, Madinah</strong>
+                          <strong class="m-0 text-primary"><?= ucfirst($rows['madinah_hotel']) ?>, Madinah</strong>
+                        </div>
+                        <div class="card-body">                                  
+                          <div id="imgIndicator2" class="carousel slide mb-3" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <?php
+                              $j = 0;
+                              while($row = $imageMadinah->fetch_assoc())
+                              {
+                              ?>
+                              <div class="carousel-item box <?php if ($j == 0) { ?>active<?php } ?>">
+                                <img class="d-block caros" src="upload/hotel/<?= $row['hotel_img'] ?>">
+                              </div>
+                              <?php
+                              $j++;
+                              }
+                              ?>
+                            </div>
+                            <?php
+                            if ($numimageMadinah <= 2) {
+                            ?>
+                            <a class="carousel-control-prev" href="#imgIndicator2" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#imgIndicator2" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                            <?php
+                            }
+                            ?>
+                          </div>
+                        </div>
+                      </div>
+                      <?php
+                      }
+                      ?>
+                      <!-- <div class="card mb-4">
+                        <div class="card-header text-center" style="background-color: white;">
+                          <strong class="m-0 text-primary"><?= ucfirst($rows['madinah_hotel']) ?>, Madinah</strong>
                         </div>
                         <div class="card-body">                                     
                           <div id="imgIndicator2" class="carousel slide mb-3" data-ride="carousel">
@@ -469,11 +541,23 @@ if ($currencyCode == 'MYR') {
                             </a>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>                    
                 </div>
               </div>
+              <?php
+              }
+              }
+              else {
+              ?>              
+              <!-- If Not Found -->
+              <div class="alert alert-light bg-white text-primary text-center" style="font-size: .8rem;">
+                No package has been found. 
+              </div>
+              <?php
+              }
+              ?>
 
             </div>
           </div>

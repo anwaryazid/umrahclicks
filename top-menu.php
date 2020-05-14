@@ -36,7 +36,8 @@
         <div class="input-group input-group-sm mb-1 mt-1">
           <input type="text" class="form-control form-control-sm bg-info border-white text-white text-center input-number" id="t_noChild"  value="<?php echo $noChild; ?>" size="2">
         </div>
-        <span class="d-none d-sm-block">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <input type="hidden" class="form-control form-control-sm bg-info border-white text-white text-center" id="t_country"  value="<?php echo $country; ?>" size="2">
+        <span class="d-none d-sm-block">&nbsp;&nbsp;&nbsp;&nbsp;</span>        
         <button class="btn btn-outline-light mb-1 mt-1 btn-sm" type="button" onClick="searchingT()">&nbsp;<i class="fas fa-search fa-sm"></i>&nbsp;Search&nbsp;</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <img src="img/flag/<?php echo $country; ?>-sq-32.png" height="23" alt="">
