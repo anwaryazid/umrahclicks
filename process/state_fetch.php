@@ -36,7 +36,7 @@ foreach($result as $row)
   $sub_array[] = $row["abb_negeri"];
   $sub_array[] = $row["country"];
   $sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-outline-success btn-xs update"><i class="fas fa-pencil-alt fa-sm"></i></button>
-  <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
+  <button class="btn btn-outline-danger btn-xs delete '.$_POST['delete'].'" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
   $data[] = $sub_array;
   // $action = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-outline-success btn-xs update"><i class="fas fa-pencil-alt fa-sm"></i></button>
   // <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>'; 

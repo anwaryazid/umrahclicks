@@ -8,7 +8,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary text-md">List of Users <button style="float:right" class="btn btn-sm btn-primary text-xs" onclick="addUser();">Add User</button></h6> 
+    <h6 class="m-0 font-weight-bold text-primary text-md">List of Users <button style="float:right" class="btn btn-sm btn-primary text-xs <?= $create ?>" onclick="addUser();">Add User</button></h6> 
   </div>
   <div class="card-body">
     <div class="table-responsive text-md">
@@ -21,7 +21,7 @@
             <th>User Name</th>
             <th>Email Address</th>
             <th>User Type</th>
-            <th>User Access</th>
+            <th>Group Type</th>
             <th style="width: 75px;">Status</th>
             <th style="min-width: 85px;">Action</th>
           </tr>

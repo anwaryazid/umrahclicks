@@ -2,18 +2,26 @@
 
 include("../lib/conn.php");
 include("../lib/function.php");
+require("../lib/SqlFormatter.php");
 $query = '';
 $output = array();
+session_start();
+
+$where = "";
+
+if($_SESSION['userType'] == 4) {
+  $where = "WHERE promo_agency = '".$_SESSION['userAgency']."' ";
+}
 
 $query .= 'SELECT a.*, b.desc AS dpromo_from, c.desc AS dpromo_variable, d.agency_name AS agency_name
 FROM promo a
 LEFT JOIN ref_promo_from b ON b.id = a.promo_from
 LEFT JOIN ref_promo_variable c ON c.id = a.promo_variable
-LEFT JOIN agency d  ON d.id = a.promo_agency';
+LEFT JOIN agency d  ON d.id = a.promo_agency '.$where;
 if(isset($_POST["search"]["value"])) {
- $query .= ' WHERE promo_code LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'AND (promo_code LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR promo_desc LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 if(isset($_POST["order"])) {
  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
@@ -53,7 +61,7 @@ foreach($result as $row)
   $sub_array[] = $row["agency_name"];
   $sub_array[] = $promo_status;
   $sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-outline-success btn-xs update"><i class="fas fa-pencil-alt fa-sm"></i></button>
-  <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';
+  <button class="btn btn-outline-danger btn-xs delete '.$_POST['delete'].'" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';
   $data[] = $sub_array;
   $i++;
 }

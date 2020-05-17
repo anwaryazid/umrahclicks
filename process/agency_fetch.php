@@ -4,21 +4,30 @@ include("../lib/conn.php");
 include("../lib/function.php");
 $query = '';
 $output = array();
+session_start();
 
-$query .= 'SELECT agency.*,ref_country.keterangan AS country FROM agency LEFT JOIN ref_country ON ref_country.id = agency.agency_country ';
+$where = "";
+
+if($_SESSION['userType'] == 4) {
+  $where = "WHERE agency.id = '".$_SESSION['userAgency']."' ";
+}
+
+$query .= 'SELECT agency.*,ref_country.keterangan AS country FROM agency LEFT JOIN ref_country ON ref_country.id = agency.agency_country '.$where;
 if(isset($_POST["search"]["value"])) {
- $query .= 'WHERE agency.agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR agency.agency_regNo LIKE "%'.$_POST["search"]["value"].'%" ';
+  $query .= 'AND (agency.agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
+  $query .= 'OR agency.agency_regNo LIKE "%'.$_POST["search"]["value"].'%") ';  
 }
 if(isset($_POST["order"])) {
- $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
 }
 else {
- $query .= 'ORDER BY agency.agency_name ASC ';
+  $query .= 'ORDER BY agency.agency_name ASC ';
 }
 if($_POST["length"] != -1) {
- $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+  $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
+
+// var_dump($query);
 
 $result = $conn->query($query) or die(mysqli_error($conn));
 $data = array();
@@ -46,7 +55,7 @@ foreach($result as $row)
   $sub_array[] = $row["agency_LKUExpiryDate"];
   $sub_array[] = $agency_status;
   $sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-outline-success btn-xs update"><i class="fas fa-pencil-alt fa-sm"></i></button>
-  <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
+  <button class="btn btn-outline-danger btn-xs delete '.$_POST['delete'].'" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
   $data[] = $sub_array;
   $i++;
 }

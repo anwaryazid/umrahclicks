@@ -15,22 +15,18 @@ $filtered_rows = mysqli_num_rows($result);
 
 $i = 1;
 
+if($_POST['create'] == 'd-none' && $_POST['update'] == 'd-none') {
+  $del = "d-none";
+}
+
 foreach($result as $row)
 {
-  // $image = '';
-  // if($row["room_img"] != '')  {
-  //   $image = '<img src="upload/room/'.$row["room_img"].'" class="img-thumbnail border-0" width="130" />';
-  // }
-  // else  {
-  //   $image = '';
-  // }
   $sub_array = array();
   $sub_array[] = $i;
   $sub_array[] = $row["room_type"];
-  // $sub_array[] = $image;
   $sub_array[] = $row["room_actualCost"];
   $sub_array[] = $row["room_umrahCost"];
-  $sub_array[] = '<button class="btn btn-outline-danger btn-xs delete-room" name="delete-room" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
+  $sub_array[] = '<button class="btn btn-outline-danger btn-xs delete-room '.$del.'" name="delete-room" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
   $data[] = $sub_array;
   $i++;
 }

@@ -8,7 +8,10 @@
       "order":[],
       "ajax":{
         url:"process/package_fetch.php",
-        type:"POST"
+        type:"POST",
+        data:{
+          delete:'<?= $delete ?>'
+        },
       },
       "columnDefs":[
         {
@@ -35,7 +38,11 @@
       "serverSide":true,
       "ajax":{
         url:"process/room_fetch.php?id=0",
-        type:"POST"
+        type:"POST",
+        data:{
+          create:'<?= $create ?>',
+          update:'<?= $update ?>'
+        },
       },
       "columnDefs":[
         {
@@ -58,7 +65,11 @@
       "serverSide":true,
       "ajax":{
         url:"process/image_fetch.php?id=0",
-        type:"POST"
+        type:"POST",
+        data:{
+          create:'<?= $create ?>',
+          update:'<?= $update ?>'
+        },
       },
       "columnDefs":[
         {
@@ -203,6 +214,11 @@
         $('#id').val(id);
         $('#action').val("Update");
         $('#operation').val("Update");
+        if('<?= $update ?>' == 'd-none') {
+          $('#action').hide();
+        } else {
+          $('#action').show();
+        }
       }
       })
     });
@@ -408,6 +424,11 @@
     $('#package_uploaded_image').html('');
     $('#action').val("Add");
     $('#operation').val("Add");
+    if('<?= $create ?>' == 'd-none') {
+      $('#action').hide();
+    } else {
+      $('#action').show();
+    }
     $('#packageModal').modal('show');
   }
 
@@ -464,6 +485,11 @@
       $('#id').val(id);
       $('#action').val("Update");
       $('#operation').val("Update");
+      if('<?= $update ?>' == 'd-none') {
+        $('#action').hide();
+      } else {
+        $('#action').show();
+      }
     }
     })
   }
@@ -479,6 +505,11 @@
     $('#dt_ListRoom').DataTable().ajax.url("process/room_fetch.php?id="+pckge_id).load();
     $('.modal-title').text("Room");
     $('#roomModal').modal('show');
+    if('<?= $update ?>' == '' || '<?= $create ?>' == '') {
+      $('#formRoom').show();
+    } else {
+      $('#formRoom').hide();
+    }
   }
 
   function viewImage(pckge_id) {
@@ -491,6 +522,11 @@
     $('#dt_Image').DataTable().ajax.url("process/image_fetch.php?id="+pckge_id).load();
     $('.modal-title').text("Hotel Image");
     $('#imageModal').modal('show');
+    if('<?= $update ?>' == '' || '<?= $create ?>' == '') {
+      $('#formImage').show();
+    } else {
+      $('#formImage').hide();
+    }
   }
 
   function getUmrahCost(cost) {

@@ -140,11 +140,37 @@
         </div>   
 
         <form action="index.php" id="form_menu" method="post">
-          <input type="hidden" name="mid" id="mid" value="<?= $pg_address ?>">
-          <input type="hidden" name="m2id" id="m2id" value="<?= $pg_address ?>">
+          <input type="hidden" name="mid" id="mid" value="<?= $mid ?>">
+          <input type="hidden" name="m2id" id="m2id" value="<?= $m2id ?>">
         </form>
         
         <div class="container-fluid">
+
+          <?php
+
+          $type = '';
+          $qType = "SELECT 
+          groupTypeAccess 
+          FROM 
+          group_access 
+          WHERE 
+          groupID = '".$_SESSION['groupType']."' 
+          AND groupMenuAccess = '".$_POST['mid']."' ";
+          $typeAccess = $conn->query($qType) or die(mysqli_error($conn));
+          foreach($typeAccess as $type) {
+            $type = $type['groupTypeAccess'];
+          }
+
+          $create = '';
+          $update = '';
+          $delete = '';
+          if(strpos($type, '1') !== false) { $create = ''; } else { $create = 'd-none'; }
+          if(strpos($type, '2') !== false) { $update = ''; } else { $update = 'd-none'; }
+          if(strpos($type, '3') !== false) { $delete = ''; } else { $delete = 'd-none'; }
+
+          // echo SqlFormatter::format($qType);
+
+          ?>
 
           <?php
             include("view/$pg_address.php");   
@@ -184,7 +210,7 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
 
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -192,10 +218,8 @@
 
   <script src="js/bootstrap-datepicker.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
-
   <?php
+    include("js/j_main.php");
     include("view/js/j_$pg_address.php");
   ?>  
 

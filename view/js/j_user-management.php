@@ -1,19 +1,23 @@
 <script type="text/javascript">
 
   function selectUserType(type) {
-    // alert(type);
-    // $('#selectUserType').val(type);
     if (type == 3) {
-      $('#divUserAccess').show();
+      // $('#divUserAccess').show();
+      $('#divUserAgency').hide();
+    } else if (type == 4) {
+      // $('#divUserAccess').hide();
+      $('#divUserAgency').show();
     } else {
-      $('#divUserAccess').hide();
+      // $('#divUserAccess').hide();
+      $('#divUserAgency').hide();
     }
-    document.getElementById("selUserType").value = type;
+    // document.getElementById("selUserType").value = type;
   }
 
   $(document).ready(function() {
 
-    $('#divUserAccess').hide();
+    // $('#divUserAccess').hide();
+    $('#divUserAgency').hide();
 
     var dataTable = $('#dt_ListUser').DataTable({
       "processing":true,
@@ -21,7 +25,11 @@
       "order":[],
       "ajax":{
         url:"process/user_fetch.php",
-        type:"POST"
+        type:"POST",
+        data:{
+          delete:'<?= $delete ?>',
+          update:'<?= $update ?>'
+        },
       },
       "columnDefs":[
         {
@@ -49,8 +57,10 @@
       var userEmail = $('#userEmail').val();
       var userPassword = $('#userPassword').val();
       var userConfirmPassword = $('#userConfirmPassword').val();
-      var selUserType = $('#selUserType').val();
-      if(userFullName == '' || userStatus == '' || userName == '' || selUserType == '' ) {
+      var userAgency = $('#userAgency').val();
+      var userType = $('#userType').val();
+      var groupType = $('#groupType').val();
+      if(userFullName == '' || userStatus == '' || userName == '' || userType == '' || groupType == '' ) {
         error_text = '* Please fill in required field';
         $('#error_text').text(error_text);
       }
@@ -65,6 +75,13 @@
       else {
         error_password = '';
         $('#error_password').text(error_password);
+      }
+
+      if (userType == 4) {
+        if(userAgency == '') {
+          error_text = '* Please select agency for this type of user';
+          $('#error_text').text(error_text);
+        }
       }
 
       if(error_text != '' || error_password != '') {
@@ -106,32 +123,33 @@
         $('#createdUpdatedHR').show();
         $('#createdUpdated').show();
         $('#divPassword').hide();
-        if (data.selUserType == '3') {
-          var access = data.userAccess;
-          var accessArr = access.split(', ');
-          accessArr.forEach(val => {
-            document.getElementById(val).checked = true;
-          });
-          $('#divUserAccess').show();
-        } else {
-          $('#divUserAccess').hide();
-        }
+
         $('#userFullName').val(data.userFullName);
         $('#userStatus').val(data.userStatus);
         $('#userName').val(data.userName);
         $('#userEmail').val(data.userEmail);
-        $('#selUserType').val(data.selUserType);
+        $('#userAgency').val(data.userAgency);
+        $('#userType').val(data.userType);
+        $('#groupType').val(data.groupType);
         $('#createdBy').val(data.createdBy);
         $('#createdDate').val(data.createdDate);
         $('#updatedBy').val(data.updatedBy);
         $('#updatedDate').val(data.updatedDate);
-        document.getElementById(data.typeUser).checked = true;
         // alert(data.userAccess);
-                
+        if(data.userType == 4) {
+          $('#divUserAgency').show();
+        } else {
+          $('#divUserAgency').hide();
+        } 
         $('.modal-title').text("View User");
         $('#id').val(id);
         $('#action').val("Update");
         $('#operation').val("Update");
+        if('<?= $update ?>' == 'd-none') {
+          $('#action').hide();
+        } else {
+          $('#action').show();
+        }
         $('#userModal').modal('show');
       }
       })
@@ -193,13 +211,19 @@
     $('#createdUpdated').hide();
     $('#createdUpdatedHR').hide();
     $('#divPassword').show();
-    $('#divUserAccess').hide();
+    // $('#divUserAccess').hide();
+    $('#divUserAgency').hide();
     $('#formUser')[0].reset();
     $('#error_text').text('');
     $('#error_password').text('');
     $('.modal-title').text("Add User");
     $('#action').val("Add");
     $('#operation').val("Add");
+    if('<?= $create ?>' == 'd-none') {
+      $('#action').hide();
+    } else {
+      $('#action').show();
+    }
     $('#userModal').modal('show');
   }
     

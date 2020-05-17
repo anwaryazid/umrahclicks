@@ -38,4 +38,8 @@ function convert_currency($from,$to) {
   return $obj->{$from.'_'.$to};
 }
 
+function pre($data) {
+  print '<pre>' . print_r($data, true) . '</pre>';
+}
+
 ?>

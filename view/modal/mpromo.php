@@ -7,10 +7,24 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
+      <?php
+
+      $whereAgency = "";
+      $wherePromo = "";
+
+      if($_SESSION['userType'] == 4) {
+        if (strlen($_SESSION['userAgency']) > 0) {
+        $wherePromo = "WHERE id = '2'";
+        $whereAgency = "WHERE id = '".$_SESSION['userAgency']."'";
+        }
+      }
+
+      ?>
       <?php 
-      require_once('lib/conn.php');  
-      $agency = $conn->query("SELECT * FROM agency ORDER BY agency_name");
-      $promoFrom = $conn->query("SELECT * FROM ref_promo_from ORDER BY id");
+      require_once('lib/conn.php'); 
+
+      $agency = $conn->query("SELECT * FROM agency ".$whereAgency." ORDER BY agency_name");
+      $promoFrom = $conn->query("SELECT * FROM ref_promo_from ".$wherePromo." ORDER BY id");
       $promoVar = $conn->query("SELECT * FROM ref_promo_variable ORDER BY id");
       ?>
       <form method="post" id="formPromo" enctype="multipart/form-data">

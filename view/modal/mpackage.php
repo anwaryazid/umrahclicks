@@ -11,12 +11,25 @@
         <div class="modal-body" style="max-height: 480px; overflow-y: auto;">        
           <div class="row text-md">
             <div class="form-group col-md-4">
+            
+              <?php
+
+              $whereAgency = "";
+
+              if($_SESSION['userType'] == 4) {
+                if (strlen($_SESSION['userAgency']) > 0) {
+                  $whereAgency = "WHERE id = '".$_SESSION['userAgency']."'";
+                }
+              }
+
+              ?>
+
               <label class="col-form-label">Agency <small><span class="text-danger">*</span></small> </label>
               <select  class="form-control form-control-sm mb-2" id="agency_id" name="agency_id">
                 <option value=""></option>
                 <?php
                 require_once('lib/conn.php');  
-                $agency = $conn->query("SELECT * FROM agency ORDER BY agency_name");
+                $agency = $conn->query("SELECT * FROM agency ".$whereAgency." ORDER BY agency_name");
                 while($rows = $agency->fetch_assoc())
                 {
                   $desc = $rows['agency_name'];
@@ -165,8 +178,8 @@
         </div>
         <div class="modal-footer">
           <div class="mr-auto">
-            <button class="btn btn-outline-primary btn-sm" type="button" id="btnRoom" onclick="viewRoom(this.value)">Add Room</button>
-            <button class="btn btn-outline-primary btn-sm" type="button" id="btnImage" onclick="viewImage(this.value)">Add Image</button>
+            <button class="btn btn-outline-primary btn-sm" type="button" id="btnRoom" onclick="viewRoom(this.value)">View Room</button>
+            <button class="btn btn-outline-primary btn-sm" type="button" id="btnImage" onclick="viewImage(this.value)">View Image</button>
           </div>
           <small><span id="error_text" class="text-danger"></span></small>
           <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>

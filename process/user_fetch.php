@@ -5,8 +5,13 @@ include("../lib/function.php");
 $query = '';
 $output = array();
 
-$query .= 'SELECT user.*, ref_user_type.userType AS typeUser FROM user
-LEFT JOIN ref_user_type ON ref_user_type.id = user.userType ';
+$query .= 'SELECT
+a.*,
+ref_user_type.userType AS typeUser,
+group_type.groupName AS groupUser 
+FROM	`user` a
+LEFT JOIN ref_user_type ON ref_user_type.id = a.userType
+LEFT JOIN group_type ON group_type.id = a.groupType ';
 if(isset($_POST["search"]["value"])) {
  $query .= 'WHERE userFullName LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR userName LIKE "%'.$_POST["search"]["value"].'%" ';
@@ -36,7 +41,7 @@ foreach($result as $row)
     $userStatus = '<span class="badge badge-secondary" style="display: block;">Inactive</span>';
   }
   $userAccess = '';
-  if ($row["userType"] == 3) {
+  if ($row["userType"] == 3 || $row["userType"] == 4) {
     $access = explode (",", $row["userAccess"]);
     foreach ($access as $key => $value) {
       $acc = $conn->query("SELECT menuName FROM menu WHERE mid = '$value' ") or die(mysqli_error($conn));
@@ -55,11 +60,11 @@ foreach($result as $row)
   $sub_array[] = $row["userName"];
   $sub_array[] = $row["userEmail"];
   $sub_array[] = $row["typeUser"];
-  $sub_array[] = rtrim($userAccess, ', ');
+  $sub_array[] = $row["groupUser"];
   $sub_array[] = $userStatus;
   $sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-outline-success btn-xs update"><i class="fas fa-pencil-alt fa-sm"></i></button>
-  <button class="btn btn-outline-warning btn-xs reset" name="reset_password" id="'.$row["id"].'" value="Reset Password"><i class="fas fa-unlock fa-sm"></i></button>
-  <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';
+  <button class="btn btn-outline-warning btn-xs reset '.$_POST['update'].'" name="reset_password" id="'.$row["id"].'" value="Reset Password"><i class="fas fa-unlock fa-sm"></i></button>
+  <button class="btn btn-outline-danger btn-xs delete '.$_POST['delete'].'" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';
   $data[] = $sub_array;
   $i++;
 }

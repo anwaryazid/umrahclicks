@@ -8,7 +8,10 @@
       "order":[],
       "ajax":{
         url:"process/state_fetch.php",
-        type:"POST"
+        type:"POST",
+        data:{
+          delete:'<?= $delete ?>'
+        },
       },
       "columnDefs":[
         {
@@ -89,6 +92,11 @@
         // $('#user_uploaded_image').html(data.user_image);
         $('#action').val("Update");
         $('#operation').val("Update");
+        if('<?= $update ?>' == 'd-none') {
+          $('#action').hide();
+        } else {
+          $('#action').show();
+        }
       }
       })
     });
@@ -116,9 +124,7 @@
       {
       return false; 
       }
-    });
-
-    
+    });    
   });
 
   function addState() {
@@ -134,6 +140,11 @@
     $('.modal-title').text("Add State");
     $('#action').val("Add");
     $('#operation').val("Add");
+    if('<?= $create ?>' == 'd-none') {
+      $('#action').hide();
+    } else {
+      $('#action').show();
+    }
     $('#stateModal').modal('show');
   }
   

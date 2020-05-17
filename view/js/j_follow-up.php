@@ -106,6 +106,11 @@
           $('#id').val(id);
           $('#action').val("Update");
           $('#operation').val("Update");
+          if('<?= $update ?>' == 'd-none') {
+            $('#action').hide();
+          } else {
+            $('#action').show();
+          }
         }
         })
       });

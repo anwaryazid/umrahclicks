@@ -10,10 +10,20 @@
   <?php
 
   require("lib/conn.php");
+  require("lib/SqlFormatter.php");
   $where = '';
-  if ($_SESSION['userType'] == '3') {
+  /* if ($_SESSION['userType'] == '3' || $_SESSION['userType'] == '4') {
     $where = "WHERE menu.mid IN (".$_SESSION['userAccess'].")";
+  } */
+  $menu = '';
+  $qMenu = "SELECT GROUP_CONCAT(groupMenuAccess SEPARATOR ',') AS groupMenuAccess FROM group_access WHERE groupID = '".$_SESSION['groupType']."' ";
+  // echo SqlFormatter::format($qMenu);
+  $menuAccess = $conn->query($qMenu) or die(mysqli_error($conn));
+  foreach($menuAccess as $menu) {
+    $menu = $menu['groupMenuAccess'];
   }
+  // echo $menu;
+  $where = "WHERE menu.mid IN (".$menu.")";
   $query = "SELECT menu.*, COUNT(menu2nd.m2id) AS sub_menu
   FROM menu
   LEFT JOIN menu2nd ON menu2nd.mid = menu.mid

@@ -1,5 +1,5 @@
 <div class="modal fade" data-backdrop="static" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-primary">User</h5>
@@ -10,11 +10,11 @@
       <form method="post" id="formUser" enctype="multipart/form-data">
         <div class="modal-body text-md" style="max-height: 480px; overflow-y: auto;">
           <div class="row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label class="col-form-label">Name <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm" id="userFullName" name="userFullName">
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label class="col-form-label">Status <small><span class="text-danger">*</span></small></label>
               <select  class="form-control form-control-sm" id="userStatus" name="userStatus">
                 <option value=""></option>
@@ -23,12 +23,12 @@
               </select>
             </div>
             
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label class="col-form-label">User Name <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm" id="userName" name="userName">
             </div>       
             
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label class="col-form-label">Email Address</label>
               <input type="text" class="form-control form-control-sm" id="userEmail" name="userEmail">
             </div>
@@ -48,7 +48,7 @@
           </div>
           
           <div class="row">
-            <div class="form-group col-md-6">
+            <!-- <div class="form-group col-md-6">
               <label class="col-form-label">User Type <small><span class="text-danger">*</span></small></label>
               <div>
                 <?php 
@@ -71,9 +71,64 @@
               </div>
               <input type="hidden" class="form-control form-control-sm" id="selUserType" name="selUserType" >
               <small><span id="error_userType" class="text-danger"></span></small>
-            </div>                            
+            </div> -->   
             
-            <div class="form-group col-md-6" id="divUserAccess">
+            <div class="form-group col-md-6">
+              <label for="" class="col-form-label">User Type <small><span class="text-danger">*</span></small></label>
+              <select  class="form-control form-control-sm mb-2" id="userType" name="userType" onchange="selectUserType(this.value)">
+                <option value=""></option>
+                <?php
+                require_once('lib/conn.php');  
+                $agency = $conn->query("SELECT * FROM ref_user_type ORDER BY id");
+                while($rows = $agency->fetch_assoc())
+                {
+                  $desc = $rows['userType'];
+                  $id = $rows['id'];
+                  echo "<option value='$id'>$desc</option>";
+                }
+                ?>
+              </select> 
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="" class="col-form-label">Group Type <small><span class="text-danger">*</span></small></label>
+              <select  class="form-control form-control-sm mb-2" id="groupType" name="groupType">
+                <option value=""></option>
+                <?php
+                require_once('lib/conn.php');  
+                $agency = $conn->query("SELECT * FROM group_type ORDER BY id");
+                while($rows = $agency->fetch_assoc())
+                {
+                  $desc = $rows['groupName'];
+                  $id = $rows['id'];
+                  echo "<option value='$id'>$desc</option>";
+                }
+                ?>
+              </select> 
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6" id="divUserAgency">
+              <label for="" class="col-form-label">User Agency <small><span class="text-danger">*</span></small></label>
+              <select  class="form-control form-control-sm mb-2" id="userAgency" name="userAgency">
+                <option value=""></option>
+                <?php
+                require_once('lib/conn.php');  
+                $agency = $conn->query("SELECT * FROM agency ORDER BY agency_name");
+                while($rows = $agency->fetch_assoc())
+                {
+                  $desc = $rows['agency_name'];
+                  $id = $rows['id'];
+                  echo "<option value='$id'>$desc</option>";
+                }
+                ?>
+              </select> 
+            </div>
+          </div>
+              
+            
+            <!-- <div class="form-group col-md-6" id="divUserAccess">
               <label for="" class="col-form-label">User Access</label>
               <?php 
               require_once('lib/conn.php');  
@@ -84,7 +139,7 @@
               {
               ?>
               <div class="form-check col-md-12">
-                <input class="form-check-input" type="checkbox" name="userAccess[]" id="<?php echo $rows['menuName'] ?>" value="<?php echo $rows['mid'] ?>">
+                <input class="form-check-input" type="checkbox" name="userAccess[]" id="<?php echo $rows['menuPath'] ?>" value="<?php echo $rows['mid'] ?>">
                 <label class="form-check-label" for="<?php echo $rows['menuName'] ?>">
                 <?php echo $rows['menuName'] ?>
                 </label>
@@ -92,8 +147,25 @@
               <?php
               }
               ?>            
+            </div> -->
+
+            <!-- <div class="form-group col-md-6" id="divUserAgency">
+              <label for="" class="col-form-label">User Agency</label>
+              <select  class="form-control form-control-sm mb-2" id="userAgency" name="userAgency">
+                <option value=""></option>
+                <?php
+                require_once('lib/conn.php');  
+                $agency = $conn->query("SELECT * FROM agency ORDER BY agency_name");
+                while($rows = $agency->fetch_assoc())
+                {
+                  $desc = $rows['agency_name'];
+                  $id = $rows['id'];
+                  echo "<option value='$id'>$desc</option>";
+                }
+                ?>
+              </select>           
             </div>
-          </div> 
+          </div> -->
           
           <hr id="createdUpdatedHR">
           <div class="row text-md" id="createdUpdated">

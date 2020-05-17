@@ -18,7 +18,7 @@
           </div>  
           
           <div class="row text-md">
-            <div class="form-group col-md-6">              
+            <div class="form-group col-md-6">            
 
               <label class="col-form-label">Agency Name <small><span class="text-danger">*</span></small></label>
               <input class="form-control form-control-sm mb-2" id="agency_name" name="agency_name">
@@ -81,8 +81,8 @@
               <label class="col-form-label">Agency ID (Company Register No.) <small><span class="text-danger">*</span></small></label>
               <input class="form-control form-control-sm mb-2" id="agency_regNo" name="agency_regNo">
 
-              <label class="col-form-label">Agency Status <small><span class="text-danger">*</span></small></label>
-              <select  class="form-control form-control-sm mb-2" id="agency_status" name="agency_status">
+              <label class="col-form-label <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>">Agency Status <small><span class="text-danger">*</span></small></label>
+              <select  class="form-control form-control-sm mb-2 <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>" id="agency_status" name="agency_status">
                 <option value=" "></option>
                 <option value="0">Inactive</option>
                 <option value="1">Active</option>
@@ -103,8 +103,8 @@
               <label class="col-form-label">Agency Info </label>
               <input class="form-control form-control-sm mb-2" id="agency_info" name="agency_info">
 
-              <label class="col-form-label">Company Rating </label>
-              <select class="form-control form-control-sm mb-2" id="agency_rating" name="agency_rating">
+              <label class="col-form-label <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>">Company Rating </label>
+              <select class="form-control form-control-sm mb-2 <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>" id="agency_rating" name="agency_rating">
                 <option value=" " selected></option>
                 <option value="1">1 star</option>
                 <option value="2">2 star</option>
@@ -123,7 +123,7 @@
             
           </div> 
           <hr id="createdUpdatedHR">
-          <div class="row text-md" id="createdUpdated">
+          <div class="row text-md <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>" id="createdUpdated">
             <div class="form-group col-md-6">    
               <div class="row">
                 <label class="col-form-label col-sm-4" >Created By</label>
@@ -157,7 +157,7 @@
           <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
           <input type="hidden" name="id" id="id" />
           <input type="hidden" name="operation" id="operation" />
-          <input type="submit" name="action" id="action" class="btn btn-outline-primary btn-sm" value="Add" />
+          <input type="submit" name="action" id="action" class="btn btn-outline-primary btn-sm " value="Add" />
         </div>
       </form>
     </div>

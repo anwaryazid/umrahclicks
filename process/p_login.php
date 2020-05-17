@@ -24,7 +24,8 @@
             $_SESSION['userFullName'] = $row['userFullName'];
             $_SESSION['userEmail'] = $row['userEmail'];
             $_SESSION['userType'] = $row['userType'];
-            $_SESSION['userAccess'] = $row['userAccess'];
+            $_SESSION['groupType'] = $row['groupType'];
+            $_SESSION['userAgency'] = $row['userAgency'];
             $_SESSION['firstTimeLogin'] = $row['firstTimeLogin'];
           } else {
             $output["success"] = "false";

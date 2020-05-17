@@ -12,22 +12,24 @@ if(isset($_POST["id"])) {
   $output["userStatus"] = $row["userStatus"];
   $output["userName"] = $row["userName"];
   $output["userEmail"] = $row["userEmail"];
+  $output["userAgency"] = $row["userAgency"];
   $output["userPassword"] = $row["userPassword"];
-  $output["selUserType"] = $row["userType"];
+  $output["userType"] = $row["userType"];
+  $output["groupType"] = $row["groupType"];
   $output["typeUser"] = $row["typeUser"];
   $output["createdBy"] = $row["createdBy"];
   $output["createdDate"] = $row["createdDate"];
   $output["updatedBy"] = $row["updatedBy"];
   $output["updatedDate"] = $row["updatedDate"];
-  $userAccess = '';
+  /* $userAccess = '';
   $access = explode (",", $row["userAccess"]);
   foreach ($access as $key => $value) {
-    $acc = $conn->query("SELECT menuName FROM menu WHERE mid = '$value' ") or die(mysqli_error($conn));
+    $acc = $conn->query("SELECT menuPath FROM menu WHERE mid = '$value' ") or die(mysqli_error($conn));
     foreach($acc as $rows) {
-      $userAccess .= $rows['menuName'].', ';
+      $userAccess .= $rows['menuPath'].', ';
     }
   }
-  $output["userAccess"] = rtrim($userAccess, ', ');
+  $output["userAccess"] = rtrim($userAccess, ', '); */
  }
  $conn->close();
  echo json_encode($output);

@@ -17,6 +17,10 @@ $filtered_rows = mysqli_num_rows($result);
 
 $i = 1;
 
+if($_POST['create'] == 'd-none' && $_POST['update'] == 'd-none') {
+  $del = "d-none";
+}
+
 foreach($result as $row)
 {
   $hotel_img = '';
@@ -31,7 +35,7 @@ foreach($result as $row)
   $sub_array[] = $hotel_img;
   $sub_array[] = $row["img_title"];
   $sub_array[] = $row["image_for"];
-  $sub_array[] = '<button class="btn btn-outline-danger btn-xs delete-image" name="delete-image" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
+  $sub_array[] = '<button class="btn btn-outline-danger btn-xs delete-image '.$del.'" name="delete-image" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
   $data[] = $sub_array;
   $i++;
 }

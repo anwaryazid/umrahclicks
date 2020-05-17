@@ -16,7 +16,10 @@
       "order":[],
       "ajax":{
         url:"process/promo_fetch.php",
-        type:"POST"
+        type:"POST",
+        data:{
+          delete:'<?= $delete ?>'
+        },
       },
       "columnDefs":[
         {
@@ -123,6 +126,11 @@
         $('#id').val(id);
         $('#action').val("Update");
         $('#operation').val("Update");
+        if('<?= $update ?>' == 'd-none') {
+          $('#action').hide();
+        } else {
+          $('#action').show();
+        }
       }
       })
     });
@@ -177,6 +185,11 @@
     $('.modal-title').text("Add Promotion");
     $('#action').val("Add");
     $('#operation').val("Add");
+    if('<?= $create ?>' == 'd-none') {
+      $('#action').hide();
+    } else {
+      $('#action').show();
+    }
     $('#promoModal').modal('show');
   }
     

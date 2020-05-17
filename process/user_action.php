@@ -7,7 +7,10 @@ $user_name =  $_SESSION['userName'];
 
 if(isset($_POST["operation"])) {
 
-  if($_POST["operation"] == "Add") {
+  // var_dump($_POST);
+  // exit;
+
+  if($_POST["operation"] == "Add") {    
 
     $updatedDate = date('Y-m-d H:i:s');
     $userFullName = $_POST["userFullName"];
@@ -15,9 +18,15 @@ if(isset($_POST["operation"])) {
     $userName = $_POST["userName"];
     $userEmail = $_POST["userEmail"];
     $userPassword = password_hash($_POST["userPassword"], PASSWORD_DEFAULT);
-    $selUserType = $_POST["selUserType"];
-    $userAccess = '';
-    if ($selUserType == 3) {
+    $userType = $_POST["userType"];
+    $groupType = $_POST["groupType"];
+    $userAgency = 'NULL';
+    if ($userType == 4) {
+      $userAgency = $_POST["userAgency"];
+    }
+    /* $userAccess = '';
+    $userAgency = 'NULL';
+    if ($userType == 3) {
       if (isset($_POST["userAccess"])) {
         $access = $_POST["userAccess"];
         foreach ($access as $key => $value) {
@@ -27,12 +36,16 @@ if(isset($_POST["operation"])) {
       } else {
         $userAccess = '';
       }
+    } else if ($userType == 4) {
+      $userAgency = $_POST["userAgency"];
+      $userAccess = '1,2,3,4';
     } else {
       $userAccess = '';
-    }
+      $userAgency = 'NULL';
+    } */
 
-    $query = "INSERT INTO user (userFullName,userStatus,userName,userEmail,userPassword,userType,userAccess,createdDate,createdBy) 
-    VALUES ('$userFullName','$userStatus','$userName','$userEmail','$userPassword','$selUserType','$userAccess','$updatedDate','$user_name')";
+    $query = "INSERT INTO user (userFullName,userStatus,userName,userEmail,userPassword,userType,groupType,userAgency,createdDate,createdBy) 
+    VALUES ('$userFullName','$userStatus','$userName',".(($userEmail=='')?"NULL":("'".$userEmail."'")).",'$userPassword','$userType','$groupType',$userAgency,'$updatedDate','$user_name')";
 
     $result = $conn->query($query) or die(mysqli_error($conn));
 
@@ -48,10 +61,14 @@ if(isset($_POST["operation"])) {
     $userStatus = $_POST["userStatus"];
     $userName = $_POST["userName"];
     $userEmail = $_POST["userEmail"];
-    $selUserType = $_POST["selUserType"];
-    $userAccess = '';
+    $userType = $_POST["userType"];
+    $groupType = $_POST["groupType"];
+    $userAgency = 'NULL';
+    if ($userType == 4) {
+      $userAgency = $_POST["userAgency"];
+    }
     $updatedDate = date('Y-m-d H:i:s');    
-    if ($selUserType == 3) {
+    /* if ($userType == 3) {
       if (isset($_POST["userAccess"])) {
         $access = $_POST["userAccess"];
         foreach ($access as $key => $value) {
@@ -61,18 +78,23 @@ if(isset($_POST["operation"])) {
       } else {
         $userAccess = '';
       }
+    } else if ($userType == 4) {
+      $userAgency = $_POST["userAgency"];
+      $userAccess = '1,2,3,4';
     } else {
       $userAccess = '';
-    }
+      $userAgency = 'NULL';
+    } */
 
     $query = "UPDATE user 
     SET 
     userFullName = '$userFullName',
     userStatus = '$userStatus',
     userName = '$userName',
-    userEmail = '$userEmail',
-    userType = '$selUserType',
-    userAccess = '$userAccess',
+    userEmail = ".(($userEmail=='')?"NULL":("'".$userEmail."'")).",
+    userType = '$userType',
+    groupType = '$groupType',
+    userAgency = $userAgency,
     updatedDate = '$updatedDate',
     updatedBy = '$user_name'
     WHERE id = '$id'";

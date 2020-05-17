@@ -3,8 +3,20 @@
 
   function getCount($t) {
     require("lib/conn.php"); 
+
+    $where = "";
+
+    if($_SESSION['userType'] == 4) {
+      if ($t == 'agency') {
+        $where = "WHERE id = '".$_SESSION['userAgency']."'";
+      } else if ($t == 'promo') {
+        $where = "WHERE promo_agency = '".$_SESSION['userAgency']."'";
+      } else if ($t == 'package')  {
+        $where = "WHERE agency_id = '".$_SESSION['userAgency']."'";
+      }
+    }
     
-    $result = $conn->query("SELECT COUNT(*) AS count FROM ".$t."") or die(mysqli_error($conn));
+    $result = $conn->query("SELECT COUNT(*) AS count FROM ".$t." ".$where."") or die(mysqli_error($conn));
 
     while($row = mysqli_fetch_array($result)) {
       $count = $row['count'];
@@ -12,15 +24,31 @@
 
     echo $count;
   }
+
 ?>
 
-<h1 class="h4 mb-2 text-gray-800">Dashboard </h1>
+<h1 class="h4 mb-2 text-gray-800">Dashboard</h1>
 
 <hr>
 
-<div class="row">  
+<?php
 
-    <?php if (strpos($_SESSION['userAccess'], '7') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+$menu = '';
+$qMenu = "SELECT GROUP_CONCAT(groupMenuAccess SEPARATOR ',') AS groupMenuAccess FROM group_access WHERE groupID = '".$_SESSION['groupType']."' ";
+$menuAccess = $conn->query($qMenu) or die(mysqli_error($conn));
+foreach($menuAccess as $menu) {
+  $menu = $menu['groupMenuAccess'];
+}
+
+// echo SqlFormatter::format($qMenu);
+
+// echo $menu;
+
+?>
+
+<div class="row">      
+
+    <?php if (strpos($menu, '7')) { ?>
     <!-- Users -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
@@ -39,7 +67,7 @@
     </div>
     <?php } ?>
   
-    <?php if (strpos($_SESSION['userAccess'], '2') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+    <?php if (strpos($menu, '2')) { ?>
     <!-- Agency -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-success shadow h-100 py-2">
@@ -58,7 +86,7 @@
     </div>
     <?php } ?>
   
-    <?php if (strpos($_SESSION['userAccess'], '3') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+    <?php if (strpos($menu, '3')) { ?>
     <!-- Packages -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-secondary shadow h-100 py-2">
@@ -77,7 +105,7 @@
     </div>
     <?php } ?>
   
-    <?php if (strpos($_SESSION['userAccess'], '4') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+    <?php if (strpos($menu, '4')) { ?>
     <!-- Promotion -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-info shadow h-100 py-2">
@@ -96,7 +124,7 @@
     </div>
     <?php } ?>
   
-    <?php if (strpos($_SESSION['userAccess'], '5') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+    <?php if (strpos($menu, '5')) { ?>
     <!-- Advertisement -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-warning shadow h-100 py-2">
@@ -115,7 +143,7 @@
     </div>
     <?php } ?>
   
-    <?php if (strpos($_SESSION['userAccess'], '6') || $_SESSION['userType'] == '1' || $_SESSION['userType'] == '2') { ?>
+    <?php if (strpos($menu, '6')) { ?>
     <!-- Follow Up -->
     <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
       <div class="card border-left-danger shadow h-100 py-2">
@@ -133,10 +161,9 @@
       </div>
     </div>
     <?php } ?>
-
 </div>
 
-<div class="row">
+<div class="row <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>">
   <div class="col-xl-6">
     <div class="card shadow mb-4">
       <a href="#d1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="d1">

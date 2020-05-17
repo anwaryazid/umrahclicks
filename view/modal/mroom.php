@@ -53,7 +53,7 @@
       <div class="modal-footer">
         <div class="mr-auto">
           <button class="btn btn-outline-primary btn-sm" type="button" id="btnPackage2" onclick="viewPackage(this.value)">Back to Package</button>
-          <button class="btn btn-outline-primary btn-sm" type="button" id="btnImage2" onclick="viewImage(this.value)">Add Image</button>
+          <button class="btn btn-outline-primary btn-sm" type="button" id="btnImage2" onclick="viewImage(this.value)">View Image</button>
         </div>
         <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
       </div>

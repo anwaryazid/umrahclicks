@@ -2,8 +2,18 @@
 
 include("../lib/conn.php");
 include("../lib/function.php");
+require("../lib/SqlFormatter.php");
+
+session_start();
+
 $query = '';
 $output = array();
+
+$where = "";
+
+if($_SESSION['userType'] == 4) {
+  $where = "WHERE b.id = '".$_SESSION['userAgency']."' ";
+}
 
 $query .= 'SELECT
 a.*,
@@ -15,10 +25,10 @@ package a
 LEFT JOIN agency b ON b.id = a.agency_id
 LEFT JOIN ref_package_flight c ON c.id = a.package_flight_id
 LEFT JOIN ref_package_meal d ON d.id = a.package_meal_id
- ';
+ '.$where;
 if(isset($_POST["search"]["value"])) {
- $query .= 'WHERE a.package_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'AND (a.package_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 if(isset($_POST["order"])) {
  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
@@ -29,6 +39,8 @@ else {
 if($_POST["length"] != -1) {
  $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
+
+// echo SqlFormatter::format($query);
 
 $result = $conn->query($query) or die(mysqli_error($conn));
 $data = array();
@@ -52,7 +64,7 @@ foreach($result as $row)
   $sub_array[] = $row["package_dateTo"];
   $sub_array[] = $agency_status;
   $sub_array[] = '<button type="button" name="update" onclick="viewPackage('.$row["id"].')" class="btn btn-outline-success btn-xs"><i class="fas fa-pencil-alt fa-sm"></i></button>
-  <button class="btn btn-outline-danger btn-xs delete" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
+  <button class="btn btn-outline-danger btn-xs delete '.$_POST['delete'].'" name="delete" id="'.$row["id"].'"><i class="fas fa-trash fa-sm"></i></button>';  
   $data[] = $sub_array;
   $i++;
 }
