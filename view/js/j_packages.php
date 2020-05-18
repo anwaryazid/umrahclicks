@@ -456,6 +456,7 @@
       $('#package_dateFrom').val(data.package_dateFrom);
       $('#package_dateTo').val(data.package_dateTo);
       $('#package_pax').val(data.package_pax);
+      $('#package_promo').val(data.package_promo);
       $('#package_flight_id').val(data.package_flight_id);
       $('#package_meal_id').val(data.package_meal_id);
       $('#package_mutawwif').val(data.package_mutawwif);

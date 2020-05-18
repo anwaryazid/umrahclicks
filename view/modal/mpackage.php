@@ -19,6 +19,7 @@
               if($_SESSION['userType'] == 4) {
                 if (strlen($_SESSION['userAgency']) > 0) {
                   $whereAgency = "WHERE id = '".$_SESSION['userAgency']."'";
+                  $whereAgencyPromo = "WHERE promo_agency = '".$_SESSION['userAgency']."'";
                 }
               }
 
@@ -47,7 +48,22 @@
                 <option value=""></option>
                 <option value="1">Open</option>
                 <option value="0">Close</option>
-              </select>              
+              </select>  
+
+              <label class="col-form-label">Promo Code</label>
+              <select  class="form-control form-control-sm mb-2" id="package_promo" name="package_promo">
+                <option value=""></option>
+                <?php
+                require_once('lib/conn.php');  
+                $agency = $conn->query("SELECT * FROM promo ".$whereAgencyPromo." ORDER BY createdDate DESC");
+                while($rows = $agency->fetch_assoc())
+                {
+                  $desc = $rows['promo_code'];
+                  $id = $rows['id'];
+                  echo "<option value='$id'>$desc</option>";
+                }
+                ?>
+              </select>            
             </div>
             <div class="form-group col-md-4">
               <label class="col-form-label">Date From <small><span class="text-danger">*</span></small></label>

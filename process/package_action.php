@@ -40,6 +40,7 @@ if(isset($_POST["operation"])) {
     $package_dateFrom = $_POST["package_dateFrom"];
     $package_dateTo = $_POST["package_dateTo"];
     $package_pax = $_POST["package_pax"];
+    $package_promo = $_POST["package_promo"];
     $package_flight_id = $_POST["package_flight_id"];
     $package_meal_id = $_POST["package_meal_id"];
     $package_mutawwif = $_POST["package_mutawwif"];
@@ -56,12 +57,12 @@ if(isset($_POST["operation"])) {
     $updatedDate = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO package 
-    (agency_id,package_name,package_status,package_remark,package_dateFrom,package_dateTo,package_pax,
+    (agency_id,package_name,package_status,package_remark,package_dateFrom,package_dateTo,package_pax,package_promo
     package_flight_id,package_meal_id,package_mutawwif,package_1stDestination,package_ziarah,makkah_hotel,makkah_distance,
     makkah_days,makkah_night,madinah_hotel,madinah_distance,madinah_days,madinah_night,
     package_thumbnail,createdBy,createdDate) 
     VALUES 
-    ('$agency_id','$package_name','$package_status','$package_remark','$package_dateFrom','$package_dateTo','$package_pax',
+    ('$agency_id','$package_name','$package_status','$package_remark','$package_dateFrom','$package_dateTo','$package_pax','$package_promo',
     '$package_flight_id','$package_meal_id','$package_mutawwif','$package_1stDestination','$package_ziarah','$makkah_hotel','$makkah_distance',
     '$makkah_days','$makkah_night','$madinah_hotel','$madinah_distance','$madinah_days','$madinah_night',
     '$package_thumbnail','$user_name','$updatedDate')";
@@ -84,6 +85,7 @@ if(isset($_POST["operation"])) {
     $package_dateFrom = $_POST["package_dateFrom"];
     $package_dateTo = $_POST["package_dateTo"];
     $package_pax = $_POST["package_pax"];
+    $package_promo = $_POST["package_promo"];
     $package_flight_id = $_POST["package_flight_id"];
     $package_meal_id = $_POST["package_meal_id"];
     $package_mutawwif = $_POST["package_mutawwif"];
@@ -126,6 +128,7 @@ if(isset($_POST["operation"])) {
     package_dateFrom = '$package_dateFrom',
     package_dateTo = '$package_dateTo',
     package_pax = '$package_pax',
+    package_promo = '$package_promo',
     package_flight_id = '$package_flight_id',
     package_meal_id = '$package_meal_id',
     package_mutawwif = '$package_mutawwif',

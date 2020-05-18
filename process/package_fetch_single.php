@@ -14,6 +14,7 @@ if(isset($_POST["id"])) {
   $output["package_dateFrom"] = $row["package_dateFrom"];
   $output["package_dateTo"] = $row["package_dateTo"];
   $output["package_pax"] = $row["package_pax"];
+  $output["package_promo"] = $row["package_promo"];
   $output["package_flight_id"] = $row["package_flight_id"];
   $output["package_meal_id"] = $row["package_meal_id"];
   $output["package_mutawwif"] = $row["package_mutawwif"];
