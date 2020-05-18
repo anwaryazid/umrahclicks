@@ -57,7 +57,7 @@ if(isset($_POST["operation"])) {
     $updatedDate = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO package 
-    (agency_id,package_name,package_status,package_remark,package_dateFrom,package_dateTo,package_pax,package_promo
+    (agency_id,package_name,package_status,package_remark,package_dateFrom,package_dateTo,package_pax,package_promo,
     package_flight_id,package_meal_id,package_mutawwif,package_1stDestination,package_ziarah,makkah_hotel,makkah_distance,
     makkah_days,makkah_night,madinah_hotel,madinah_distance,madinah_days,madinah_night,
     package_thumbnail,createdBy,createdDate) 
