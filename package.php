@@ -43,6 +43,9 @@ DATE_FORMAT( package_dateTo, '%e %M %Y' ) AS dateTo,
 b.agency_rating,
 e.price_min AS price_min,
 d.price_max AS price_max,	
+f.promo_code,
+f.promo_variable,
+f.promo_variableAmount,
 a.* 
 FROM
 package a
@@ -58,6 +61,7 @@ INNER JOIN (
   FROM package_room
   GROUP BY package_id
 ) e ON a.id = e.package_id
+LEFT JOIN promo f ON f.id = a.package_promo
 WHERE 1=1
 AND a.id = '$package'";
 $packageList = $conn->query($qPackage) or die(mysqli_error($conn));
@@ -109,13 +113,28 @@ $numPackages = mysqli_num_rows($packageList);
               {
                 $minAmount = $rows['price_min'] * $rates;
                 $maxAmount = $rows['price_max'] * $rates;
-                $hasDiscount = false;
+                if (strlen($rows['package_promo']) > 0) {
+                  $hasDiscount = true;
+                } else {
+                  $hasDiscount = false;
+                }                
                 if ($hasDiscount) {
-                  $discount = 0.2;                                     
-                  $amountMinDiscount = $minAmount * $discount;
-                  $amountMinAfterDiscount = $minAmount - $amountMinDiscount;
-                  $amountMaxDiscount = $maxAmount * $discount;
-                  $amountMaxAfterDiscount = $maxAmount - $amountMaxDiscount;
+                  // Percent
+                  if($rows['promo_variable'] == 1) {
+                    $discount = $rows['promo_variableAmount'] / 100;                                     
+                    $amountMinDiscount = $minAmount * $discount;
+                    $amountMinAfterDiscount = $minAmount - $amountMinDiscount;
+                    $amountMaxDiscount = $maxAmount * $discount;
+                    $amountMaxAfterDiscount = $maxAmount - $amountMaxDiscount;
+                  } 
+                  // Amount
+                  else {
+                    $discount = $rows['promo_variableAmount'];                                     
+                    // $amountMinDiscount = $minAmount - $discount;
+                    $amountMinAfterDiscount = $minAmount - $discount;
+                    // $amountMaxDiscount = $maxAmount - $discount;
+                    $amountMaxAfterDiscount = $maxAmount - $discount;
+                  }                  
                 }
                 $now = time(); // or your date as well
                 $dateCreated = strtotime($rows['createdDate']);
@@ -136,12 +155,12 @@ $numPackages = mysqli_num_rows($packageList);
                         <h6 class="m-0 font-weight-bold text-primary text-md"><?= $rows['agency_name'] ?></h6> 
                         <div class="text-primary" style="font-size: 13px;">
                           <?= $rows['agency_city'] ?>, <?= ucfirst($rows['state']) ?> (LKU No: KPK/LN <?= $rows['agency_LKUNo'] ?>) <br>
-                          <?= $rows['package_name'] ?> <?php if($new <= 30) { ?><span class="badge badge-info align-text-middle">New!</span> <?php } ?>  <br>
+                          <?= $rows['package_name'] ?> <?php if($new <= 30) { ?><span class="badge badge-success align-text-middle">NEW!</span> <?php } ?> <?php if($hasDiscount) { ?><span class="badge badge-info align-text-middle"><?= $rows['promo_code'] ?></span> <?php } ?> <br>
                           Departure Date from <?= $rows['dateFrom'] ?> to <?= $rows['dateTo'] ?><br>                        
                           <?php if ($hasDiscount) { ?>
                             <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
                             <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
-                            <span class="badge badge-primary align-text-top">UMRAH4ALL</span> <span class="badge badge-danger align-text-top">20% OFF</span>
+                            <span class="badge badge-danger align-text-top"><?php if($rows['promo_variable'] == 2) { ?>RM<?php } ?><?= number_format($rows['promo_variableAmount']); ?><?php if($rows['promo_variable'] == 1) { ?>%<?php } ?> OFF</span>
                           <?php } else { ?>
                             <h6 class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($minAmount, 2) ?> - <?php echo $currency . '' .number_format($maxAmount, 2) ?></h6> 
                           <?php } ?>                                                        

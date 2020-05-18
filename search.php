@@ -406,8 +406,7 @@ if ($currencyCode == 'MYR') {
                     $amountMinAfterDiscount = $minAmount - $discount;
                     // $amountMaxDiscount = $maxAmount - $discount;
                     $amountMaxAfterDiscount = $maxAmount - $discount;
-                  }
-                  
+                  }                  
                 }
                 $now = time(); // or your date as well
                 $dateCreated = strtotime($rows['createdDate']);
