@@ -16,10 +16,10 @@
               <small><span id="error_text_room" class="text-danger"></span></small>  
             </div>
             <div class="form-group col-md-3">
-              <label class="col-form-label">Actual Cost (RM) <small><span class="text-danger">*</span></small></label>
-              <input type="text" class="form-control form-control-sm mb-2" id="room_actualCost" name="room_actualCost" onchange="getUmrahCost(this.value);" >
+              <label class="col-form-label"><?php if($_SESSION['userType'] != 4) { ?>Actual<?php } ?> Cost (RM) <small><span class="text-danger">*</span></small></label>
+              <input type="text" class="form-control form-control-sm mb-2 input-number" id="room_actualCost" name="room_actualCost" onchange="getUmrahCost(this.value);" >
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 <?php if($_SESSION['userType'] == 4) { ?>d-none<?php } ?>">
               <label class="col-form-label">Umrah Cost (RM) <small><span class="text-danger">*</span></small></label>
               <input type="text" class="form-control form-control-sm mb-2" id="room_umrahCost" name="room_umrahCost" >
             </div>
@@ -39,9 +39,8 @@
                   <tr>
                     <th>No.</th>
                     <th>Room Type</th>
-                    <!-- <th>Room Image</th> -->
-                    <th width="20%">Actual Cost (RM)</th>
-                    <th width="20%">Umrah Cost (RM)</th>
+                    <th><?php if($_SESSION['userType'] != 4) { ?>Actual<?php } ?> Cost (RM)</th>
+                    <th>Umrah Cost (RM)</th>
                     <th style="width:45px;">Action</th>
                   </tr>
                 </thead>

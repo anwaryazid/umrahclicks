@@ -50,7 +50,7 @@
           "className":"text-center"
         },
         {
-          "targets":[0],
+          "targets":[0<?php if($_SESSION['userType'] == 4) { ?>,3<?php } ?>],
           "visible":false
         },
       ],
