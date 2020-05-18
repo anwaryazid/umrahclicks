@@ -113,7 +113,7 @@ $numPackages = mysqli_num_rows($packageList);
               {
                 $minAmount = $rows['price_min'] * $rates;
                 $maxAmount = $rows['price_max'] * $rates;
-                if (strlen($rows['package_promo']) > 0) {
+                if ($rows['package_promo'] != 0) {
                   $hasDiscount = true;
                 } else {
                   $hasDiscount = false;
@@ -135,6 +135,8 @@ $numPackages = mysqli_num_rows($packageList);
                     // $amountMaxDiscount = $maxAmount - $discount;
                     $amountMaxAfterDiscount = $maxAmount - $discount;
                   }                  
+                } else {
+
                 }
                 $now = time(); // or your date as well
                 $dateCreated = strtotime($rows['createdDate']);
@@ -156,7 +158,7 @@ $numPackages = mysqli_num_rows($packageList);
                         <div class="text-primary" style="font-size: 13px;">
                           <?= $rows['agency_city'] ?>, <?= ucfirst($rows['state']) ?> (LKU No: KPK/LN <?= $rows['agency_LKUNo'] ?>) <br>
                           <?= $rows['package_name'] ?> <?php if($new <= 30) { ?><span class="badge badge-success align-text-middle">NEW!</span> <?php } ?> <?php if($hasDiscount) { ?><span class="badge badge-info align-text-middle"><?= $rows['promo_code'] ?></span> <?php } ?> <br>
-                          Departure Date from <?= $rows['dateFrom'] ?> to <?= $rows['dateTo'] ?><br>                        
+                          Departure Date from <?= $rows['dateFrom'] ?> to <?= $rows['dateTo'] ?><br>                
                           <?php if ($hasDiscount) { ?>
                             <span class="text-secondary"><small><del><?php echo $currency . '' .number_format($minAmount, 2) ?>-<?php echo $currency . '' .number_format($maxAmount, 2) ?></del></small></span>&nbsp;<br class="d-block d-sm-none">
                             <span class="m-0 font-weight-bold text-primary text-md"><?php echo $currency . '' .number_format($amountMinAfterDiscount, 2) ?>-<?php echo $currency . '' .number_format($amountMaxAfterDiscount, 2) ?></span>&nbsp;<br class="d-block d-sm-none">
