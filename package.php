@@ -222,23 +222,37 @@ $numPackages = mysqli_num_rows($packageList);
                                   </td>
                                   <td class="align-middle font-weight-bold text-primary">  
                                     <?php 
+                                    $amount = $room['room_umrahCost'] * $rates;
+                                    if (strlen($rows['package_promo']) > 0) {
+                                      $hasDiscount = true;
+                                    } else {
                                       $hasDiscount = false;
-                                      $amount = $room['room_umrahCost'] * $rates;
-                                      if ($hasDiscount) {
-                                        $discount = 0.2;                                     
+                                    }                
+                                    if ($hasDiscount) {
+                                      // Percent
+                                      if($rows['promo_variable'] == 1) {
+                                        $discount = $rows['promo_variableAmount'] / 100;                                     
+                                        // $discount = 0.2;                                     
                                         $amountDiscount = $amount * $discount;
                                         $amountAfterDiscount = $amount - $amountDiscount;
                                         $finalAmount = $currency.''.number_format($amountAfterDiscount, 2);
-                                      } else {
-                                        $finalAmount = $currency.''.number_format($amount, 2);
-                                      }          
+                                      } 
+                                      // Amount
+                                      else {
+                                        $discount = $rows['promo_variableAmount'];  
+                                        $amountAfterDiscount = $amount - $discount;
+                                        $finalAmount = $currency.''.number_format($amountAfterDiscount, 2);
+                                      }                  
+                                    } else {
+                                      $finalAmount = $currency.''.number_format($amount, 2);
+                                    }          
                                     ?>
                                     <span class="d-none d-sm-block"><?= $finalAmount ?></span>
                                     <span class="d-block d-sm-none" style="font-size: .8rem"><?= $finalAmount ?></span>
                                     <?php
                                     if ($hasDiscount) {
                                     ?>
-                                    <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger badge-pill">20% OFF</span></small>
+                                    <small class="text-secondary"><del><?php echo $currency.''.number_format($amount, 2); ?></del> &nbsp;<span class="badge badge-danger align-text-middle"><?php if($rows['promo_variable'] == 2) { ?>RM<?php } ?><?= number_format($rows['promo_variableAmount']); ?><?php if($rows['promo_variable'] == 1) { ?>%<?php } ?> OFF</span></small>
                                     <?php
                                     }
                                     ?>
