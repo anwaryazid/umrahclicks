@@ -103,12 +103,12 @@ package a
 LEFT JOIN agency b ON b.id = a.agency_id
 LEFT JOIN ref_state c ON c.id = b.agency_state
 INNER JOIN (
-  SELECT MAX( room_umrahCost ) AS price_max, package_id
+  SELECT MAX( room_actualCost ) AS price_max, package_id
   FROM package_room
   GROUP BY package_id
 ) d ON a.id = d.package_id
 INNER JOIN (
-  SELECT MIN( room_umrahCost ) AS price_min, package_id
+  SELECT MIN( room_actualCost ) AS price_min, package_id
   FROM package_room
   GROUP BY package_id
 ) e ON a.id = e.package_id
@@ -129,9 +129,6 @@ if ($currencyCode == 'MYR') {
 } else {
   $rates = convert_currency('MYR', $currencyCode);
 }
-
-// echo SqlFormatter::format($qPackage);
-
 ?> 
 
 <!DOCTYPE html>
@@ -452,17 +449,17 @@ if ($currencyCode == 'MYR') {
                                 echo "<i class='fas fa-star fa-sm'></i>";
                               }
                               ?>
-                              </span>
+                              </span> (<?= $rows['agency_rating'] ?>/5 stars)
                             </td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                             <td>Customer Rating</td>
                             <td>:</td>
                             <td><span class="text-warning"><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i><i class="fas fa-star fa-sm"></i></span></td>
                           </tr>
                           <tr>
                             <td colspan="3">3 ratings</td>
-                          </tr>
+                          </tr> -->
                         </table>                                       
                       </div>
                     </div>
