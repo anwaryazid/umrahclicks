@@ -225,7 +225,7 @@ $numPackages = mysqli_num_rows($packageList);
                                   <td class="align-middle font-weight-bold text-primary">  
                                     <?php 
                                     $amount = $room['room_umrahCost'] * $rates;
-                                    if (strlen($rows['package_promo']) > 0) {
+                                    if ($rows['package_promo'] != 0) {
                                       $hasDiscount = true;
                                     } else {
                                       $hasDiscount = false;
