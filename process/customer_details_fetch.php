@@ -6,13 +6,22 @@ $query = '';
 $output = array();
 
 $query .= "SELECT
-DATEDIFF(CURDATE(),follow_up.confirm_date) AS outstanding_date,
-follow_up.* 
+DATEDIFF( CURDATE( ), a.confirm_date ) AS outstanding_date,
+a.*,
+b.guest_name,
+b.guest_no,
+b.guest_email,
+b.guest_pax,
+c.agency_name,
+d.package_name
 FROM
-follow_up 
+follow_up a
+LEFT JOIN guest_transaction b ON b.id = a.guest_id
+LEFT JOIN agency c ON c.id = b.agency_id
+LEFT JOIN package d ON d.id = b.package_id
+LEFT JOIN ref_country e ON e.id = c.agency_country 
 WHERE
-fp_status = '0' 
-AND agency_id = '".$_GET['id']."' ";
+a.fp_status = '0' AND b.agency_id = '".$_GET['id']."' ";
 $result = $conn->query($query) or die(mysqli_error($conn));
 $data = array();
 $filtered_rows = mysqli_num_rows($result);
@@ -21,7 +30,7 @@ foreach($result as $row)
 {
   $sub_array = array();
   $sub_array[] = $row["guest_name"];
-  $sub_array[] = $row["guest_phoneNo"];
+  $sub_array[] = $row["guest_no"];
   $sub_array[] = $row["guest_email"];
   $sub_array[] = $row["outstanding_date"];
   // $sub_array[] = $row["outstanding_date"];

@@ -13,19 +13,177 @@ $(document).ready(function () {
     }
   }
 
-  $('#onlinePayment').show();
-  $('#creditDebit').hide();
+  $(document).on('submit', '#formBooking', function(event){
+    
+    event.preventDefault();
+    var error_text = '';
+    var guest_name = $('#guest_name').val();
+    var guest_email = $('#guest_email').val();
+    var guest_no = $('#guest_no').val();
+    var add_guest = $('#add_guest').val();
+    var dataValid = true;
 
-  var btnOnlinePayment = document.getElementById("btnOnlinePayment");  
-  var btnOnlinePaymentCheck= document.getElementById("btnOnlinePaymentCheck");
-  var btnCreditDebit = document.getElementById("btnCreditDebit");  
-  var btnCreditDebitCheck= document.getElementById("btnCreditDebitCheck");
+    $('input[name^="add_guest"]').each(function() {
+      if($(this).val() == '') {
+        dataValid = false;
+      }
+    });
 
-  btnOnlinePayment.classList.add("active");
-  btnOnlinePaymentCheck.classList.add("fa-check");
-  btnCreditDebit.classList.remove("active");
-  btnCreditDebitCheck.classList.remove("fa-check");
+    if (dataValid){
+      if(guest_name == '' || guest_email == '' || guest_no == '') {
+        error_text = '* Please fill in required field';
+        $('#error_text').text(error_text);
+      }
+      else {
+        error_text = '';
+        $('#error_text').text(error_text);
+      }
+    } else {
+      error_text = '* Please fill in required field';
+      $('#error_text').text(error_text);
+    }    
+
+    if(error_text != '') {
+      return false;
+    }
+    else {
+      $.ajax({
+        url:"process/booking_action.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          $('#bookingModal').modal('hide');
+          $('#formBooking')[0].reset();
+          if (data.includes("added")) {
+            var guestID = data.split('-').pop();
+            // viewAlert(1,'Data succesfully added');
+            makePayment(guestID);
+          }
+        }
+      });
+    }
+  });
+
+  $(document).on('submit', '#formPayment', function(event){
+    
+    event.preventDefault();
+    var error_text_payment = '';
+    var bank = $('#bank').val();
+    var id = $('#id').val();
+
+    if(bank == '' || id == '') {
+      error_text_payment = '* Please fill in required field';
+      $('#error_text_payment').text(error_text_payment);
+    }
+    else {
+      error_text_payment = '';
+      $('#error_text_payment').text(error_text_payment);
+    }  
+
+    if(error_text_payment != '') {
+      return false;
+    }
+    else {
+      $.ajax({
+        url:"process/payment_action.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          $('#bookingModal').modal('hide');
+          $('#paymentModal').modal('hide');
+          $('#formPayment')[0].reset();
+          $('#formBooking')[0].reset();
+          if (data.includes("paid")) {
+            $('#confirmModal').modal('show');
+          }
+        }
+      });
+    }
+  });
+
+  $(document).on('click', '.cancel', function(){
+    var id = $(this).attr("id");
+    if(confirm("Are you sure you want to cancel?"))
+    {
+      $('#bookingModal').modal('hide');
+    }
+    else
+    {
+      return false; 
+    }
+  });
+
+  $(document).on('click', '.cancel-payment', function(){
+    var id = $('#id').val();
+    if(confirm("Are you sure you want to cancel?"))
+    {
+      // send email 
+      $('#paymentModal').modal('hide');
+      $.ajax({
+        url:"process/booking_cancel_action.php",
+        method:'POST',
+        data:{id:id},
+        dataType:"json",
+        success:function(data)
+        {
+          $('#paymentModal').modal('hide');
+        }
+      });
+    }
+    else
+    {
+      return false; 
+    }
+  });
 });
+
+function booking(agency, package, room, price, promo) {
+  // alert('Agency : ' + agency + '\r\nPackage : ' + package + '\r\nRoom : ' + room + '\r\nPromo : ' + promo);
+  $('#formPayment')[0].reset();
+  $('#formBooking')[0].reset();
+  $('#error_text').text('');
+  $('#agency_id').val(agency);
+  $('#package_id').val(package);
+  $('#package_room_id').val(room);
+  $('#promo_id').val(promo);
+  $('#guest_booking_price').val(price);
+  $('#bookingModal').modal('show');
+}
+
+function makePayment(id) { 
+  var id = id;
+  $.ajax({
+  url:"process/booking_fetch_single.php",
+  method:"POST",
+  data:{id:id},
+  dataType:"json",
+  success:function(data)
+  {
+    $('#error_text').text('');
+    $('#bookingModal').modal('hide');
+    $('#paymentModal').modal('show');
+    $('#v_guest_name').val(data.guest_name);
+    $('#v_guest_no').val(data.guest_no);
+    $('#v_guest_email').val(data.guest_email);
+    $('#v_guest_pax').val(data.guest_pax);
+    $('#v_guest_deposit').val('RM'+data.guest_deposit);
+    $('#v_guest_booking_price').val('RM'+data.guest_booking_price);
+    $('#v_country').val(data.country);
+    $('#v_agency').val(data.agency);
+    $('#v_package').val(data.package+' ('+data.room+')');
+    $('#v_actualPrice').val(data.actualPrice);
+    $('#v_promo').val(data.promo);
+    $('#amount').val(data.guest_deposit);
+    $('#id').val(id);
+  }
+  })
+}
 
 function selectPaymentMethod (method) {
   if (method == 1) {
@@ -344,31 +502,28 @@ $(function() {
 
 $('.btn-number').click(function(e) {
     e.preventDefault();
-
     fieldName = $(this).attr('data-field');
     type = $(this).attr('data-type');
     var input = $("input[name='" + fieldName + "']");
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
-        if (type == 'minus') {
-
-            if (currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('min')) {
-                // $(this).attr('disabled', true);
-            }
-
-        } else if (type == 'plus') {
-
-            if (currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('max')) {
-                // $(this).attr('disabled', true);
-            }
-
+      if (type == 'minus') {
+        if (currentVal > input.attr('min')) {
+            input.val(currentVal - 1).change();
         }
+        if (parseInt(input.val()) == input.attr('min')) {
+            // $(this).attr('disabled', true);
+        }
+
+      } else if (type == 'plus') {
+        if (currentVal < input.attr('max')) {
+            input.val(currentVal + 1).change();
+        }
+        if (parseInt(input.val()) == input.attr('max')) {
+            // $(this).attr('disabled', true);
+        }
+
+      }
     } else {
         input.val(0);
     }
@@ -382,7 +537,7 @@ $(".input-number").keydown(function(e) {
         // Allow: Ctrl+A
         (e.keyCode == 65 && e.ctrlKey === true) ||
         // Allow: home, end, left, right
-        (e.keyCode >= 35 && e.keyCode <= 39)) {
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
         // let it happen, don't do anything
         return;
     }

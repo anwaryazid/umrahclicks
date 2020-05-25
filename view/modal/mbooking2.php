@@ -1,152 +1,98 @@
-<div class="modal" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal" data-backdrop="static" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-primary" id="exampleModalLabel">Payment Information</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel">Payment</h5>
       </div>
-      <div class="modal-body" style="max-height: 480px; overflow-y: auto;">
-        <div class="row">
-          <div class="col-md-7">
-            <form>
-              <div class="form-group row text-md">
-                <label for="" class="col-sm-12 col-form-label mb-3">Payment Method</label>
-                <div class="col-auto">                  
-                  <button class="btn btn-sm btn-outline-primary" type="button" id="btnOnlinePayment" onClick="selectPaymentMethod(1);" style="font-size: 12px;">
-                    Online Banking <i id="btnOnlinePaymentCheck" class="fas fa-sm"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-primary" type="button" id="btnCreditDebit" onClick="selectPaymentMethod(2);" style="font-size: 12px;">
-                    Debit / Credit Card <i id="btnCreditDebitCheck" class="fas fa-sm"></i>
-                  </button>
-                </div>             
-              </div>
+      <form method="post" id="formPayment">
+        <div class="modal-body" style="max-height: 490px; overflow-y: auto;">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="text-primary"><i class='fas fa-info-circle fa-sm'></i>&nbsp;&nbsp;Booking Summary</h6>
               <hr>
-              <div id="onlinePayment">
-                <div class="row text-md">
-                  <label for="" class="col-sm-12 col-form-label mb-3">Select Online Payment</label>
-                  <div class="col-sm-12">                    
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="cimb" value="cimb" checked>
-                      <label class="form-check-label" for="cimb">
-                        <img src="./img/bank/cimb.png" height="20px">&nbsp;&nbsp;<small>CIMB Clicks</small>                    
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="maybank" value="maybank">
-                      <label class="form-check-label" for="maybank">
-                        <img src="./img/bank/maybank.png" height="20px">&nbsp;&nbsp;<small>Maybank2U</small>
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="public" value="public">
-                      <label class="form-check-label" for="public">
-                        <img src="./img/bank/bankislam.png" height="20px">&nbsp;&nbsp;<small>Bank Islam</small>
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="rhb" value="rhb">
-                      <label class="form-check-label" for="rhb">
-                        <img src="./img/bank/rhb.png" height="20px">&nbsp;&nbsp;<small>RHB Now</small>
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="rakyat" value="rakyat">
-                      <label class="form-check-label" for="rakyat">
-                        <img src="./img/bank/bankrakyat.png" height="20px">&nbsp;&nbsp;<small>Bank Rakyat</small>
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="ambank" value="ambank">
-                      <label class="form-check-label" for="ambank">
-                        <img src="./img/bank/ambank.png" height="20px">&nbsp;&nbsp;<small>Ambank</small>
-                      </label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="bank" id="mybsn" value="mybsn">
-                      <label class="form-check-label" for="mybsn">
-                        <img src="./img/bank/bsn.png" height="20px">&nbsp;&nbsp;<small>MyBSN</small>
-                      </label>
-                    </div>
-                    <!-- <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="cimbClicks" onClick="" style="font-size: 12px;">CIMB Clicks</button>
-                    <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="maybank2U" onClick="" style="font-size: 12px;">Maybank2U</button>
-                    <button class="btn btn-sm btn-outline-primary btn-block border-0 text-left" type="button" id="publicBank" onClick="" style="font-size: 12px;">Public Bank</button> -->
+              <div class="row text-md"  style="font-size: .7rem">
+                <label for="" class="col-sm-4 col-form-label">Customer Name</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_name">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Email Address</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_email">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Mobile Number</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_no">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Country</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_country">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Package Agency</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_agency">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Package Name</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_package">
+                </div>              
+
+                <label for="" class="col-sm-4 col-form-label">Package Price</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_booking_price">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Pax</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_pax">
+                </div>
+
+                <label for="" class="col-sm-4 col-form-label">Booking Deposit<br><small>(RM300 x <?= $pax ?> pax)</small></label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_deposit">                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="text-primary"><img src="./img/bank/fpx.png" height="16px">Internet Banking </h6>
+              <hr>
+              <div class="row text-md mb-2">
+                <div class="col-md-12">
+                  <label for="" class="col-form-label">Select Bank <small><span class="text-danger">*</span></small></label>
+                  <select class="form-control form-control-sm" name="bank" id="bank">
+                    <option value=""></option>
+                    <option value="CIMB Clicks">CIMB Clicks</option>
+                    <option value="Maybank2u">Maybank2u</option>
+                  </select> 
+                </div>                        
+              </div>
+              <div class="row text-md" style="font-size: .7rem">
+                <div class="col-md-12">
+                  <div class="alert alert-primary" role="alert">
+                    By clicking the "Book & Pay Now!" button below, you have agreed to the FPX terms and conditions
                   </div>
                 </div>
               </div>
-              <div id="creditDebit">
-                <div class="form-group row text-md">
-                  <div class="col-sm-12">
-                    <label for="" class="col-form-label">Card Holder Name</label>
-                    <input type="text" class="form-control form-control-sm" >
-                  </div>              
-                </div>
-                <div class="form-group row text-md">
-                  <div class="col-sm-12">
-                    <label for="" class="col-form-label">Debit / Credit Card No.</label>
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control form-control-sm input-number" >
-                      <div class="input-group-append">
-                        <span class="input-group-text input-group-addon bg-white text-primary">
-                          <img src="./img/card/visa.png" width="20px">&nbsp;<img src="./img/card/master-card.png" width="20px">
-                        </span>
-                      </div>
-                    </div>
-                  </div>              
-                </div>                
-                <div class="form-group row text-md">
-                  <div class="col-sm-6">
-                    <label for="" class="col-form-label">Expiry Date</label>
-                    <input type="text" class="form-control form-control-sm"  placeholder="mm/yy">
-                  </div>   
-                  <div class="col-sm-6">
-                    <label for="" class="col-form-label">CVC/CVV</label>
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control form-control-sm input-number" >
-                      <div class="input-group-append">
-                        <span class="input-group-text input-group-addon bg-white text-primary">
-                          <img src="./img/cvc.png" width="25px">
-                        </span>
-                      </div>                    
-                    </div>
-                  </div>            
-                </div>
-              </div>              
-            </form>
-          </div>
-          <div class="col-md-5 text-md">
-            <hr class="d-block d-sm-none">
-            <strong class="text-primary">Booking Detail</strong><br>
-            <span style="font-size: .8rem">
-            Smart Umrah4all Dot Com Travel & Services Sdn Bhd<br>
-            Package Gold<br>
-            Double Bed<br>
-            3 adult(s)<br>
-            2 children(s)<br>
-            Total pax : 5<br>
-            Package Price : RM6,200.00
-            </span>
-            <hr>
-            <strong class="text-primary">Booking Deposit</strong><br>
-            <span style="font-size: .8rem">
-            Deposit : RM1,500.00 <br><small>(RM300 x 5 pax)</small>
-            </span>
-            <hr>
-            <div class="row">
-              <div class="col-md-12">
-                <small>Total amount to pay</small>
-              </div>
-            </div>            
-            <h3 class="text-danger">RM1,500.00</h3>
-          </div>
-        </div>          
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-secondary btn-sm" href="#addPersonModal" data-toggle="modal" data-dismiss="modal" >
-          Back
-        </a>
-        <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
-          Book & Pay Now!
-        </a>
-      </div>
+            </div>
+          </div> 
+        </div>       
+        <div class="modal-footer">
+          <small><span id="error_text_payment" class="text-danger"></span></small>
+          <input type="hidden" name="amount" id="amount" > 
+          <input type="hidden" name="id" id="id" > 
+          <input type="hidden" name="operation" id="operation" value="Pay" />          
+          <button class="btn btn-outline-secondary btn-sm cancel-payment" type="button">Cancel</button>
+          <input type="submit" name="action" id="action" class="btn btn-outline-primary btn-sm" value="Book & Pay Now!" />
+          <!-- <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#paymentModal">
+            Book & Pay Now!
+          </a> -->
+        </div>      
+      </form>
+
     </div>
   </div>
 </div>

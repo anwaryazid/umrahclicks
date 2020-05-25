@@ -6,19 +6,21 @@ $query = '';
 $output = array();
 
 $query .= "SELECT
-DATEDIFF(CURDATE(),follow_up.confirm_date) AS outstanding_date,
-follow_up.agency_id,
-agency.agency_name,
-ref_country.keterangan AS country,
+DATEDIFF( CURDATE( ), a.confirm_date ) AS outstanding_date,
+b.agency_id,
+c.agency_name,
+e.keterangan AS country,
 COUNT( * ) AS qty 
 FROM
-follow_up
-LEFT JOIN agency ON agency.id = follow_up.agency_id
-LEFT JOIN ref_country ON ref_country.id = agency.agency_country 
+follow_up a
+LEFT JOIN guest_transaction b ON b.id = a.guest_id
+LEFT JOIN agency c ON c.id = b.agency_id
+LEFT JOIN package d ON d.id = b.package_id
+LEFT JOIN ref_country e ON e.id = c.agency_country 
 WHERE
-fp_status = '0' 
+a.fp_status = '0' 
 GROUP BY
-agency_id 
+b.agency_id 
 ORDER BY
 qty DESC ";
 $result = $conn->query($query) or die(mysqli_error($conn));

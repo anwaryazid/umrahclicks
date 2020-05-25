@@ -19,6 +19,7 @@ $dateDepart = (isset($_GET['dateDepart'])) ?  $_GET['dateDepart'] : '';
 $noAdult = (isset($_GET['noAdult'])) ?  $_GET['noAdult'] : '';
 $noChild = (isset($_GET['noChild'])) ?  $_GET['noChild'] : '';
 $package = (isset($_GET['package'])) ?  $_GET['package'] : '';
+$pax = $noAdult + $noChild;
 
 $result = $conn->query("SELECT * FROM ref_country WHERE kod = '$country'") or die(mysqli_error($conn));
 foreach($result as $row) {
@@ -42,7 +43,8 @@ DATE_FORMAT( package_dateFrom, '%e %M %Y' ) AS dateFrom,
 DATE_FORMAT( package_dateTo, '%e %M %Y' ) AS dateTo,
 b.agency_rating,
 e.price_min AS price_min,
-d.price_max AS price_max,	
+d.price_max AS price_max,
+f.id AS promo_id,
 f.promo_code,
 f.promo_variable,
 f.promo_variableAmount,
@@ -198,6 +200,7 @@ $numPackages = mysqli_num_rows($packageList);
                   <hr>
                   <div class="row" >
                     <div class="col-xl-6 col-lg-12">
+                      <!-- <?= SqlFormatter::format($qPackage); ?> -->
                       <!-- Room and Price Information -->
                       <div class="card mb-4">
                         <div class="card-header text-center" style="background-color: white;">
@@ -225,6 +228,7 @@ $numPackages = mysqli_num_rows($packageList);
                                   <td class="align-middle font-weight-bold text-primary">  
                                     <?php 
                                     $amount = $room['room_actualCost'] * $rates;
+                                    $amountPay = $room['room_actualCost'] * $rates;
                                     if ($rows['package_promo'] != 0) {
                                       $hasDiscount = true;
                                     } else {
@@ -238,14 +242,17 @@ $numPackages = mysqli_num_rows($packageList);
                                         $amountDiscount = $amount * $discount;
                                         $amountAfterDiscount = $amount - $amountDiscount;
                                         $finalAmount = $currency.''.number_format($amountAfterDiscount, 2);
+                                        $amountPay = $amountAfterDiscount;
                                       } 
                                       // Amount
                                       else {
                                         $discount = $rows['promo_variableAmount'];  
                                         $amountAfterDiscount = $amount - $discount;
                                         $finalAmount = $currency.''.number_format($amountAfterDiscount, 2);
+                                        $amountPay = $amountAfterDiscount;
                                       }                  
                                     } else {
+                                      $amountPay = $amount;
                                       $finalAmount = $currency.''.number_format($amount, 2);
                                     }          
                                     ?>
@@ -260,24 +267,12 @@ $numPackages = mysqli_num_rows($packageList);
                                     ?>
                                   </td>
                                   <td class="align-middle text-center" width="120px">
-                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
+                                    <button class="btn btn-sm btn-primary" style="font-size: 12px;" onclick="booking('<?= $rows['agency_id'] ?>','<?= $rows['id'] ?>','<?= $room['id'] ?>','<?= $amountPay ?>','<?= $rows['promo_id'] ?>')">Book Now</button>
                                   </td>
                                 </tr>
-                                <!-- <tr>
-                                  <td colspan="2" class="align-middle text-center">
-                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#bookingModal" style="font-size: 12px;">Book Now</button>
-                                  </td>
-                                </tr> -->
                                 <?php                            
                                 }
                                 ?>       
-                                <!-- <tr class="border-bottom" style="font-size: .8rem;">
-                                  <td colspan="3">
-                                    <div class="alert alert-primary" role="alert" style="font-size: .8rem">
-                                      <?php if ($hasDiscount) { ?>Promo : <strong class="text-primary">20% off today only! (Code: UMRAH4ALL)</strong> <?php } ?>
-                                    </div>
-                                  </td> 
-                                </tr> -->
                               </table>
                             </div>
                           </div>   
@@ -614,16 +609,15 @@ $numPackages = mysqli_num_rows($packageList);
 
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Rating Modal-->
-  
+  </a>  
 
   <!-- Include Modal-->
   <?php
     include('view/modal/mbooking0.php');
     include('view/modal/mbooking1.php');
     include('view/modal/mbooking2.php');
+    include('view/modal/mconfirm.php');
+    include('view/modal/mcancel.php');
     include('view/modal/mrating.php');
     
   ?>

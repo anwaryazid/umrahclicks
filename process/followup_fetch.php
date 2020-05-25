@@ -5,14 +5,22 @@ include("../lib/function.php");
 $query = '';
 $output = array();
 
-$query .= 'SELECT a.*, b.agency_name AS agency_name, c.package_name AS package_name
+$query .= 'SELECT 
+a.*,
+b.guest_name,
+b.guest_no,
+b.guest_email,
+b.guest_pax,
+c.agency_name,
+d.package_name
 FROM follow_up a
-LEFT JOIN agency b ON b.id = a.agency_id
-LEFT JOIN package c ON c.id = a.package_id';
+LEFT JOIN guest_transaction b ON b.id = a.guest_id
+LEFT JOIN agency c ON c.id = b.agency_id
+LEFT JOIN package d ON d.id = b.package_id';
 if(isset($_POST["search"]["value"])) {
  $query .= ' WHERE guest_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR package_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= ' OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= ' OR package_name LIKE "%'.$_POST["search"]["value"].'%" ';
 }
 if(isset($_POST["order"])) {
  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';

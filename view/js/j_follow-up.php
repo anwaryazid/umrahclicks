@@ -121,12 +121,14 @@
 
       $('#cust_callDate').datepicker({
         'format': 'yyyy-mm-dd',
-        'autoclose': true
+        'autoclose': true,
+        startDate: '-1d'
       });
       
       $('#agency_callDate').datepicker({
         'format': 'yyyy-mm-dd',
-        'autoclose': true
+        'autoclose': true,
+        startDate: '-1d'
       });
       
     });

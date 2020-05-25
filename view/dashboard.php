@@ -15,6 +15,10 @@
         $where = "WHERE agency_id = '".$_SESSION['userAgency']."'";
       }
     }
+
+    if ($t == 'follow_up')  {
+      $where = "WHERE fp_status = '0'";
+    }
     
     $result = $conn->query("SELECT COUNT(*) AS count FROM ".$t." ".$where."") or die(mysqli_error($conn));
 
