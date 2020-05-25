@@ -155,7 +155,7 @@ $numPackages = mysqli_num_rows($packageList);
                       <div class="col-auto d-none d-lg-block d-xl-block thumb float-lg-left">
                         <img class="thumb-img" src="upload/package/<?= $rows['package_thumbnail'] ?>" >
                       </div>
-                      <div class="col-lg-7">
+                      <div class="col-lg-6">
                         <h6 class="m-0 font-weight-bold text-primary text-md"><?= $rows['agency_name'] ?></h6> 
                         <div class="text-primary" style="font-size: 13px;">
                           <?= $rows['agency_city'] ?>, <?= ucfirst($rows['state']) ?> (LKU No: KPK/LN <?= $rows['agency_LKUNo'] ?>) <br>
