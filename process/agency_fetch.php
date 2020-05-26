@@ -2,6 +2,7 @@
 
 include("../lib/conn.php");
 include("../lib/function.php");
+require("../lib/SqlFormatter.php");
 $query = '';
 $output = array();
 session_start();
@@ -10,6 +11,8 @@ $where = "";
 
 if($_SESSION['userType'] == 4) {
   $where = "WHERE agency.id = '".$_SESSION['userAgency']."' ";
+} else {
+  $where = "WHERE 1=1 ";
 }
 
 $query .= 'SELECT agency.*,ref_country.keterangan AS country FROM agency LEFT JOIN ref_country ON ref_country.id = agency.agency_country '.$where;
@@ -26,6 +29,8 @@ else {
 if($_POST["length"] != -1) {
   $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
+
+// echo SqlFormatter::format($query);
 
 // var_dump($query);
 

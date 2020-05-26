@@ -13,12 +13,15 @@
         $where = "WHERE promo_agency = '".$_SESSION['userAgency']."'";
       } else if ($t == 'package')  {
         $where = "WHERE agency_id = '".$_SESSION['userAgency']."'";
+      } else if ($t == 'follow_up')  {
+        $where = "LEFT JOIN guest_transaction ON guest_transaction.id = follow_up.guest_id
+        WHERE fp_status = '0' AND guest_transaction.agency_id = '".$_SESSION['userAgency']."' ";
       }
-    }
-
-    if ($t == 'follow_up')  {
-      $where = "WHERE fp_status = '0'";
-    }
+    } else {
+      if ($t == 'follow_up')  {
+        $where = "WHERE fp_status = '0'";
+      }
+    }    
     
     $result = $conn->query("SELECT COUNT(*) AS count FROM ".$t." ".$where."") or die(mysqli_error($conn));
 

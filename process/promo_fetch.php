@@ -11,6 +11,8 @@ $where = "";
 
 if($_SESSION['userType'] == 4) {
   $where = "WHERE promo_agency = '".$_SESSION['userAgency']."' ";
+} else {
+  $where = "WHERE 1=1 ";
 }
 
 $query .= 'SELECT a.*, b.desc AS dpromo_from, c.desc AS dpromo_variable, d.agency_name AS agency_name

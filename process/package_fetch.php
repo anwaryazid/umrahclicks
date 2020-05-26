@@ -13,6 +13,8 @@ $where = "";
 
 if($_SESSION['userType'] == 4) {
   $where = "WHERE b.id = '".$_SESSION['userAgency']."' ";
+} else {
+  $where = "WHERE 1=1 ";
 }
 
 $query .= 'SELECT

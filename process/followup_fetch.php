@@ -2,8 +2,18 @@
 
 include("../lib/conn.php");
 include("../lib/function.php");
+require("../lib/SqlFormatter.php");
 $query = '';
 $output = array();
+session_start();
+
+$where = "";
+
+if($_SESSION['userType'] == 4) {
+  $where = "WHERE c.id = '".$_SESSION['userAgency']."' ";
+} else {
+  $where = "WHERE 1=1 ";
+}
 
 $query .= 'SELECT 
 a.*,
@@ -16,11 +26,11 @@ d.package_name
 FROM follow_up a
 LEFT JOIN guest_transaction b ON b.id = a.guest_id
 LEFT JOIN agency c ON c.id = b.agency_id
-LEFT JOIN package d ON d.id = b.package_id';
+LEFT JOIN package d ON d.id = b.package_id '.$where;
 if(isset($_POST["search"]["value"])) {
- $query .= ' WHERE guest_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= ' AND (guest_name LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= ' OR agency_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= ' OR package_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= ' OR package_name LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 if(isset($_POST["order"])) {
  $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
@@ -31,6 +41,8 @@ else {
 if($_POST["length"] != -1) {
  $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
+
+// echo SqlFormatter::format($query);
 
 // var_dump($query);
 
