@@ -56,7 +56,7 @@ $i = 1;
 foreach($result as $row)
 {
   if($row["fp_status"] == 1) { 
-    $fp_status = '<span class="badge badge-info" style="display: block;">Complete</span>';
+    $fp_status = '<span class="badge badge-info" style="display: block;">Completed</span>';
   } else {
     $fp_status = '<span class="badge badge-danger" style="display: block;">Not Complete</span>';
   }
