@@ -114,7 +114,7 @@ INNER JOIN (
 ) e ON a.id = e.package_id
 LEFT JOIN promo f ON f.id = a.package_promo
 WHERE 1=1
-AND a.package_pax >= '$pax'
+AND a.package_pax - a.package_pax_book  >= '$pax'
 AND ('$dateFromSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d') OR '$dateToSearch' >= DATE_FORMAT(package_dateFrom, '%Y-%m-%d'))
 AND ('$dateToSearch' <= DATE_FORMAT(package_dateTo, '%Y-%m-%d'))
 $where

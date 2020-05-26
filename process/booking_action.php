@@ -39,11 +39,6 @@ if(isset($_POST["operation"])) {
       $result2 = $conn->query($query2) or die(mysqli_error($conn));
     }
 
-    /* $query3 = "INSERT INTO follow_up (guest_id,guest_status) 
-    VALUES ('$last_id','1')"; */
-
-    // $result3 = $conn->query($query3) or die(mysqli_error($conn));
-
     if(!empty($result) && !empty($result2)) {
       echo 'added-'.$last_id;
     }

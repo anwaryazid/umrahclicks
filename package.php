@@ -90,6 +90,15 @@ $numPackages = mysqli_num_rows($packageList);
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
   <link href="css/search.css" rel="stylesheet">
 
+  <script type="text/javascript">    
+    function paymentSuccess() {
+      $('#confirmModal').modal('show');
+    }
+    if (<?= $_GET['success']?> == 1) {
+      window.onload = paymentSuccess;
+    }
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -617,7 +626,7 @@ $numPackages = mysqli_num_rows($packageList);
     include('view/modal/mbooking1.php');
     include('view/modal/mbooking2.php');
     include('view/modal/mconfirm.php');
-    include('view/modal/mcancel.php');
+    // include('view/modal/mcancel.php');
     include('view/modal/mrating.php');
     
   ?>

@@ -55,9 +55,7 @@
 
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <script type="text/javascript">
-
-    
+  <script type="text/javascript">    
     function changePassword() {
       var id = <?= $_SESSION['userId'] ?>;
       $.ajax({

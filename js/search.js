@@ -100,7 +100,9 @@ $(document).ready(function () {
           $('#formPayment')[0].reset();
           $('#formBooking')[0].reset();
           if (data.includes("paid")) {
-            $('#confirmModal').modal('show');
+            var goToURL = window.location.href + '&success=1';
+            window.open(goToURL, '_self');
+            // $('#confirmModal').modal('show');
           }
         }
       });
