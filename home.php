@@ -179,7 +179,7 @@ require("lib/conn.php");
               <div class="text-center"> 
                 <div class="btn-group btn-block" role="group">
                   <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#agenciesModal" style="width:50%; font-size:11px;">List of Agencies</button>
-                  <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#contactModal" style="width:50%; font-size:11px;">Contact Us</button>
+                  <button type="button" class="btn btn-sm btn-outline-primary" onclick="contactForm();" style="width:50%; font-size:11px;">Contact Us</button>
                 </div> 
               </div>
               <hr>

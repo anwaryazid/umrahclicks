@@ -21,6 +21,8 @@ LEFT JOIN promo f ON f.id = a.promo_id
 WHERE a.id = '".$_POST["id"]."' LIMIT 1") or die(mysqli_error($conn));
  foreach($result as $row)
  {
+  $output["booking_id"] = $row["booking_id"];
+  $output["guest_date_depart"] = $row["guest_date_depart"];
   $output["guest_name"] = $row["guest_name"];
   $output["guest_no"] = $row["guest_no"];
   $output["guest_email"] = $row["guest_email"];

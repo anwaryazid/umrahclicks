@@ -11,7 +11,7 @@
         <p class="text-center">Your booking has been confirmed. Check your email for details.</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+        <button class="btn btn-success btn-block" onclick="closeModalConfirm();">OK</button>
       </div>
     </div>
   </div>

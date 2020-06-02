@@ -99,8 +99,9 @@ $(document).ready(function () {
           $('#paymentModal').modal('hide');
           $('#formPayment')[0].reset();
           $('#formBooking')[0].reset();
-          if (data.includes("paid")) {
+          if (data.includes("Paid")) {
             var goToURL = window.location.href + '&success=1';
+            goToURL = removeUrlParam(goToURL, 'id');
             window.open(goToURL, '_self');
             // $('#confirmModal').modal('show');
           }
@@ -123,20 +124,28 @@ $(document).ready(function () {
 
   $(document).on('click', '.cancel-payment', function(){
     var id = $('#id').val();
+    var goToURL = window.location.href;
+    goToURL = removeUrlParam(goToURL, 'id');
+    goToURL = goToURL + '&id=' + id;
+    // alert(goToURL);
     if(confirm("Are you sure you want to cancel?"))
-    {
-      // send email 
-      $('#paymentModal').modal('hide');
+    {      
+      // $('#paymentModal').modal('hide');
       $.ajax({
         url:"process/booking_cancel_action.php",
         method:'POST',
-        data:{id:id},
-        dataType:"json",
-        success:function(data)
+        data:{
+          id:id,
+          url:goToURL
+        },
+        success:function(result)
         {
           $('#paymentModal').modal('hide');
+          var goToURL = window.location.href + '&success=0';
+          goToURL = removeUrlParam(goToURL, 'id');
+          window.open(goToURL, '_self');
         }
-      });
+      });      
     }
     else
     {
@@ -144,6 +153,14 @@ $(document).ready(function () {
     }
   });
 });
+
+function closeModalConfirm() {
+  $('#confirmModal').modal('hide');
+  var goToURL = window.location.href;
+  goToURL = removeUrlParam(goToURL, 'success');
+  goToURL = removeUrlParam(goToURL, 'id');
+  window.open(goToURL, '_self');
+}
 
 function booking(agency, package, room, price, promo) {
   // alert('Agency : ' + agency + '\r\nPackage : ' + package + '\r\nRoom : ' + room + '\r\nPromo : ' + promo);
@@ -170,6 +187,8 @@ function makePayment(id) {
     $('#error_text').text('');
     $('#bookingModal').modal('hide');
     $('#paymentModal').modal('show');
+    $('#v_booking_id').val(data.booking_id);
+    $('#v_guest_date_depart').val(data.guest_date_depart);
     $('#v_guest_name').val(data.guest_name);
     $('#v_guest_no').val(data.guest_no);
     $('#v_guest_email').val(data.guest_email);

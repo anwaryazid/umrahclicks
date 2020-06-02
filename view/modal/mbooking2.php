@@ -11,6 +11,11 @@
               <h6 class="text-primary"><i class='fas fa-info-circle fa-sm'></i>&nbsp;&nbsp;Booking Summary</h6>
               <hr>
               <div class="row text-md"  style="font-size: .7rem">
+                <label for="" class="col-sm-4 col-form-label">Booking ID</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_booking_id">
+                </div>
+
                 <label for="" class="col-sm-4 col-form-label">Customer Name</label>
                 <div class="col-sm-8">
                   <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_name">
@@ -30,12 +35,17 @@
                 <div class="col-sm-8">
                   <input type="text" readonly class="form-control-plaintext text-dark" id="v_country">
                 </div>
-
+                
+                <label for="" class="col-sm-4 col-form-label">Date Departure</label>
+                <div class="col-sm-8">
+                  <input type="text" readonly class="form-control-plaintext text-dark" id="v_guest_date_depart">
+                </div>
+               
                 <label for="" class="col-sm-4 col-form-label">Package Agency</label>
                 <div class="col-sm-8">
                   <input type="text" readonly class="form-control-plaintext text-dark" id="v_agency">
-                </div>
-
+                </div>                
+                
                 <label for="" class="col-sm-4 col-form-label">Package Name</label>
                 <div class="col-sm-8">
                   <input type="text" readonly class="form-control-plaintext text-dark" id="v_package">

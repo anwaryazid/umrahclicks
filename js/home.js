@@ -1,3 +1,52 @@
+$(document).ready(function () {
+
+  $(document).on('submit', '#formContact', function(event){
+    
+    event.preventDefault();
+    var error_text = '';
+    var guest = $('#guest').val();
+    var emailAddress = $('#emailAddress').val();
+    var phone = $('#phone').val();
+    var message = $('#message').val();
+
+    if(guest == '' || emailAddress == '' || phone == '' || message == '') {
+      error_text = '* Please fill in required field';
+      $('#error_text').text(error_text);
+    }
+    else {
+      error_text = '';
+      $('#error_text').text(error_text);
+    }   
+
+    if(error_text != '') {
+      return false;
+    }
+    else {
+      $('#contactModal').modal('hide');
+      $.ajax({
+        url:"process/contact_action.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          $('#formContact')[0].reset();
+          if (data.includes("sent")) {
+          }
+        }
+      });
+    }
+  });
+
+});
+
+function contactForm() {
+  $('#error_text').text('');
+  $('#formContact')[0].reset();
+  $('#contactModal').modal('show');
+}
+
 function resetSearch() {
   selectCountry('MY','MALAYSIA','MY.png');
 }
@@ -100,31 +149,30 @@ $('.btn-number').click(function(e) {
     var input = $("input[name='" + fieldName + "']");
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
-        if (type == 'minus') {
-
-            if (currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('min')) {
-                // $(this).attr('disabled', true);
-            }
-
-        } else if (type == 'plus') {
-
-            if (currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('max')) {
-                // $(this).attr('disabled', true);
-            }
-
+      if (type == 'minus') {
+        if (currentVal > input.attr('min')) {
+            input.val(currentVal - 1).change();
         }
+        if (parseInt(input.val()) == input.attr('min')) {
+            // $(this).attr('disabled', true);
+        }
+
+      } else if (type == 'plus') {
+
+        if (currentVal < input.attr('max')) {
+            input.val(currentVal + 1).change();
+        }
+        if (parseInt(input.val()) == input.attr('max')) {
+            // $(this).attr('disabled', true);
+        }
+
+      }
     } else {
-        input.val(0);
+      input.val(0);
     }
 });
 $('.input-number').focusin(function() {
-    $(this).data('oldValue', $(this).val());
+  $(this).data('oldValue', $(this).val());
 });
 /* $('.input-number').change(function() {
 

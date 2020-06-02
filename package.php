@@ -88,16 +88,63 @@ $numPackages = mysqli_num_rows($packageList);
 
   <link href="css/main-custom.css" rel="stylesheet">
   <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-  <link href="css/search.css" rel="stylesheet">
+  <link href="css/search.css" rel="stylesheet">  
 
-  <script type="text/javascript">    
+  <script type="text/javascript">  
+    
     function paymentSuccess() {
       $('#confirmModal').modal('show');
     }
-    if (<?= $_GET['success']?> == 1) {
-      window.onload = paymentSuccess;
+    function paymentCancel() {
+      $('#cancelModal').modal('show');
     }
+    if (<?= $_GET['success'] ?> == 1) {
+      window.onload = paymentSuccess;
+    } else {
+      window.onload = paymentCancel;
+    }
+    
   </script>
+
+  <?php
+  if($id != '0') {
+  ?>
+  <script type="text/javascript">
+    function makePayment() { 
+      var id = <?= $id ?>;
+      $.ajax({
+      url:"process/booking_fetch_single.php",
+      method:"POST",
+      data:{id:id},
+      dataType:"json",
+      success:function(data)
+      {
+        $('#error_text').text('');
+        $('#bookingModal').modal('hide');
+        $('#paymentModal').modal('show');
+        $('#v_booking_id').val(data.booking_id);
+        $('#v_guest_date_depart').val(data.guest_date_depart);
+        $('#v_guest_name').val(data.guest_name);
+        $('#v_guest_no').val(data.guest_no);
+        $('#v_guest_email').val(data.guest_email);
+        $('#v_guest_pax').val(data.guest_pax);
+        $('#v_guest_deposit').val('RM'+data.guest_deposit);
+        $('#v_guest_booking_price').val('RM'+data.guest_booking_price);
+        $('#v_country').val(data.country);
+        $('#v_agency').val(data.agency);
+        $('#v_package').val(data.package+' ('+data.room+')');
+        $('#v_actualPrice').val(data.actualPrice);
+        $('#v_promo').val(data.promo);
+        $('#amount').val(data.guest_deposit);
+        $('#id').val(id);
+      }
+      })
+    }
+    window.onload = makePayment;
+  </script>
+  <?php
+  }
+  ?>
 
 </head>
 
@@ -626,7 +673,7 @@ $numPackages = mysqli_num_rows($packageList);
     include('view/modal/mbooking1.php');
     include('view/modal/mbooking2.php');
     include('view/modal/mconfirm.php');
-    // include('view/modal/mcancel.php');
+    include('view/modal/mcancel.php');
     include('view/modal/mrating.php');
     
   ?>
