@@ -47,7 +47,7 @@ if(isset($_POST["operation"])) {
 
     if(!$mail->send()) {
       echo 'Message was not sent.<br/>';
-      echo $mailHost.'<br/>';
+      // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail->ErrorInfo . '<br/>';
     } else {
       echo 'Message has been sent.';
@@ -86,7 +86,7 @@ if(isset($_POST["operation"])) {
 
     if(!$mail2->send()) {
       echo 'Message was not sent.<br/>';
-      echo $mailHost.'<br/>';
+      // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail2->ErrorInfo . '<br/>';
     } else {
       echo 'Message has been sent.';

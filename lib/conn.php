@@ -23,7 +23,7 @@ $mailSetFrom = 'no-reply@umrahclicks.my';
 $mailSetFromName = 'UmrahClicks.my'; */
 
 $mailSMTPAuth = true;
-$mailSMTPDebug = '0';
+$mailSMTPDebug = 2;
 
 $adminEmail = "admin@umrahclicks.my";
 
