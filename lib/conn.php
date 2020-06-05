@@ -25,7 +25,6 @@ $mailUsername = 'talib@umrahclicks.com';
 $mailPassword = 'VGvvDu3G2k7X';
 $mailSMTPSecure = 'ssl';
 
-
 $mailSetFrom = 'no-reply@umrahclicks.my';
 $mailSetFromName = 'UmrahClicks.my';
 // VGvvDu3G2k7X
@@ -33,7 +32,7 @@ $mailSetFromName = 'UmrahClicks.my';
 $mailSMTPAuth = true;
 $mailSMTPDebug = 0;
 
-$adminEmail = "admin@umrahclicks.my";
+$adminEmail = "talib@umrahclicks.com";
 
 // Database Configuration
 /* $username = "root";
