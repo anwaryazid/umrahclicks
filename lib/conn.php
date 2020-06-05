@@ -21,13 +21,14 @@ $mailPassword = 'im6R38g7rCYTqkW';
 $mailSMTPSecure = 'ssl';
 $mailSetFrom = 'no-reply@umrahclicks.my';
 $mailSetFromName = 'UmrahClicks.my'; */
-$mailHost = 'smtp.umrahclicks.com';
+$mailHost = 'mail.umrahclicks.com';
 $mailPort = '465';
-$mailUsername = 'umrahcli';
-$mailPassword = '3lsAW-[0v5Nx6L';
+$mailUsername = 'talib@umrahclicks.com';
+$mailPassword = 'VGvvDu3G2k7X';
 $mailSMTPSecure = 'ssl';
 $mailSetFrom = 'no-reply@umrahclicks.my';
 $mailSetFromName = 'UmrahClicks.my';
+// VGvvDu3G2k7X
 
 $mailSMTPAuth = true;
 $mailSMTPDebug = 0;
