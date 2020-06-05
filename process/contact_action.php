@@ -99,7 +99,7 @@ if(isset($_POST["operation"])) {
     } else {
       echo 'Message has been sent.<br/>';      
       // $path = "{imap.gmail.com:993/imap/ssl}[Gmail]/Sent Mail";
-      $path = "{".$mail2->Host.":993/imap/ssl}/Sent Mail";
+      $path = "{".$mail2->Host.":993}Sent";
       $imapStream = imap_open($path, $mail2->Username, $mail2->Password);
       $result = imap_append($imapStream, $path, $mail2->getSentMIMEMessage());
       imap_close($imapStream);
