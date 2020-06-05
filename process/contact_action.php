@@ -57,6 +57,8 @@ if(isset($_POST["operation"])) {
       imap_close($imapStream);
       if ($result) {
         echo "Message saved!<br/>";
+      } else {
+        echo "Message not saved!<br/>";
       }
     }
 
@@ -103,6 +105,8 @@ if(isset($_POST["operation"])) {
       imap_close($imapStream);
       if ($result) {
         echo "Message saved!<br/>";
+      } else {
+        echo "Message not saved!<br/>";
       }
     }
 
