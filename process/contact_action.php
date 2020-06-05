@@ -47,10 +47,17 @@ if(isset($_POST["operation"])) {
 
     if(!$mail->send()) {
       echo 'Message was not sent.<br/>';
-      // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail->ErrorInfo . '<br/>';
     } else {
       echo 'Message has been sent.<br/>';
+      $path = "{".$mail->Host.":993/imap/ssl}/Sent Mail";
+      // $path = "{imap.gmail.com:993/imap/ssl}[Gmail]/Sent Mail";
+      $imapStream = imap_open($path, $mail->Username, $mail->Password);
+      $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
+      imap_close($imapStream);
+      if ($result) {
+        echo "Message saved!<br/>";
+      }
     }
 
     $title2 = 'Mesej Contact Us Dari Portal UmrahClicks.my - '.$guest.'';
@@ -86,10 +93,17 @@ if(isset($_POST["operation"])) {
 
     if(!$mail2->send()) {
       echo 'Message was not sent.<br/>';
-      // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail2->ErrorInfo . '<br/>';
     } else {
-      echo 'Message has been sent.<br/>';
+      echo 'Message has been sent.<br/>';      
+      // $path = "{imap.gmail.com:993/imap/ssl}[Gmail]/Sent Mail";
+      $path = "{".$mail2->Host.":993/imap/ssl}/Sent Mail";
+      $imapStream = imap_open($path, $mail2->Username, $mail2->Password);
+      $result = imap_append($imapStream, $path, $mail2->getSentMIMEMessage());
+      imap_close($imapStream);
+      if ($result) {
+        echo "Message saved!<br/>";
+      }
     }
 
   }

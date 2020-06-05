@@ -11,19 +11,19 @@ $termsURL = "http://umrahclicks.com/";
 $mailPort = '2525';
 $mailUsername = '0bc12932211a45';
 $mailPassword = 'b79e70fdbb0e3f';
-$mailSMTPSecure = 'tls';
+$mailSMTPSecure = 'tls'; */
 
 $mailHost = 'smtp.gmail.com';
 $mailPort = '465';
 $mailUsername = 'umrahclicksmy@gmail.com';
 $mailPassword = 'im6R38g7rCYTqkW';
-$mailSMTPSecure = 'ssl'; */
+$mailSMTPSecure = 'ssl';
 
-$mailHost = 'mail.umrahclicks.com';
+/* $mailHost = 'mail.umrahclicks.com';
 $mailPort = '465';
 $mailUsername = 'talib@umrahclicks.com';
 $mailPassword = 'VGvvDu3G2k7X';
-$mailSMTPSecure = 'ssl';
+$mailSMTPSecure = 'ssl'; */
 
 $mailSetFrom = 'no-reply@umrahclicks.my';
 $mailSetFromName = 'UmrahClicks.my';
@@ -32,17 +32,18 @@ $mailSetFromName = 'UmrahClicks.my';
 $mailSMTPAuth = true;
 $mailSMTPDebug = 0;
 
-$adminEmail = "talib@umrahclicks.com";
+// $adminEmail = "talib@umrahclicks.com";
+$adminEmail = "umrahclicksmy@gmail.com";
 
 // Database Configuration
-/* $username = "root";
+$username = "root";
 $password = "";
 $host = "localhost";
-$dbname = "umrahclicks"; */
-$username = "umrahcli_ucmy";
+$dbname = "umrahclicks";
+/* $username = "umrahcli_ucmy";
 $password = "7YCMmC6hry6qjEes";
 $host = "umrahclicks.com";
-$dbname = "umrahcli_umrahclicks";
+$dbname = "umrahcli_umrahclicks"; */
 
 $conn = NEW mysqli($host,$username,$password,$dbname) or die(mysqli_error($conn));
 
