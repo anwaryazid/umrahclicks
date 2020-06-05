@@ -19,7 +19,7 @@ $mailUsername = 'umrahclicksmy@gmail.com';
 $mailPassword = 'im6R38g7rCYTqkW';
 $mailSMTPSecure = 'ssl'; */
 
-$mailHost = 'mail.umrahclicks.com';
+$mailHost = 'smtp.umrahclicks.com';
 $mailPort = '465';
 $mailUsername = 'talib@umrahclicks.com';
 $mailPassword = 'VGvvDu3G2k7X';

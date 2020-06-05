@@ -50,7 +50,7 @@ if(isset($_POST["operation"])) {
       // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail->ErrorInfo . '<br/>';
     } else {
-      echo 'Message has been sent.';
+      echo 'Message has been sent.<br/>';
     }
 
     $title2 = 'Mesej Contact Us Dari Portal UmrahClicks.my - '.$guest.'';
@@ -89,7 +89,7 @@ if(isset($_POST["operation"])) {
       // echo $mailHost.'<br/>';
       echo 'Mailer error: ' . $mail2->ErrorInfo . '<br/>';
     } else {
-      echo 'Message has been sent.';
+      echo 'Message has been sent.<br/>';
     }
 
   }
