@@ -32,8 +32,8 @@ $mailSetFromName = 'UmrahClicks.my';
 $mailSMTPAuth = true;
 $mailSMTPDebug = 0;
 
-// $adminEmail = "talib@umrahclicks.com";
-$adminEmail = "umrahclicksmy@gmail.com";
+$adminEmail = "talib@umrahclicks.com";
+// $adminEmail = "umrahclicksmy@gmail.com";
 
 // Database Configuration
 /* $username = "root";
