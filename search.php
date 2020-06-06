@@ -574,6 +574,8 @@ if ($currencyCode == 'MYR') {
     include('view/modal/mbooking1.php');
     include('view/modal/mbooking2.php');
     include('view/modal/mrating.php');
+    include('view/modal/mcontact_success.php');
+    include('view/modal/mcontact_error.php');
     
   ?>
 

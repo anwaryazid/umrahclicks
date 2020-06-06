@@ -32,7 +32,10 @@ $(document).ready(function () {
         success:function(data)
         {
           $('#formContact')[0].reset();
-          if (data.includes("sent")) {
+          if (data.includes("Message has been sent")) {
+            $('#contactSuccessModal').modal('show');
+          } else {
+            $('#contactErrorModal').modal('show');            
           }
         }
       });

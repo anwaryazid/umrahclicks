@@ -13,6 +13,48 @@ $(document).ready(function () {
     }
   }
 
+  $(document).on('submit', '#formContact', function(event){
+    
+    event.preventDefault();
+    var error_text = '';
+    var guest = $('#guest').val();
+    var emailAddress = $('#emailAddress').val();
+    var phone = $('#phone').val();
+    var message = $('#message').val();
+
+    if(guest == '' || emailAddress == '' || phone == '' || message == '') {
+      error_text = '* Please fill in required field';
+      $('#error_text').text(error_text);
+    }
+    else {
+      error_text = '';
+      $('#error_text').text(error_text);
+    }   
+
+    if(error_text != '') {
+      return false;
+    }
+    else {
+      $('#contactModal').modal('hide');
+      $.ajax({
+        url:"process/contact_action.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          $('#formContact')[0].reset();
+          if (data.includes("Message has been sent")) {
+            $('#contactSuccessModal').modal('show');
+          } else {
+            $('#contactErrorModal').modal('show');            
+          }
+        }
+      });
+    }
+  });
+
   $(document).on('submit', '#formBooking', function(event){
     
     event.preventDefault();

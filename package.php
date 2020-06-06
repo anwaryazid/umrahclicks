@@ -675,6 +675,8 @@ $numPackages = mysqli_num_rows($packageList);
     include('view/modal/mconfirm.php');
     include('view/modal/mcancel.php');
     include('view/modal/mrating.php');
+    include('view/modal/mcontact_success.php');
+    include('view/modal/mcontact_error.php');
     
   ?>
 

@@ -239,6 +239,8 @@ require("lib/conn.php");
     <?php
       include('view/modal/mcontact.php');
       include('view/modal/magencies.php');
+      include('view/modal/mcontact_success.php');
+      include('view/modal/mcontact_error.php');
     ?>
 
   </div>
