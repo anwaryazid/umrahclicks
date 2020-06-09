@@ -242,8 +242,6 @@ if(isset($_POST["operation"])) {
 
     require_once('../PHPMailer/PHPMailerAutoload.php');
 
-    function sendEmail () {}
-
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->SMTPDebug = $mailSMTPDebug;
@@ -258,7 +256,7 @@ if(isset($_POST["operation"])) {
     $mail->Subject = $title;
     $mail->msgHTML($msg);
     $mail->addStringAttachment($pdf,'receipt.pdf');
-    $mail->addAddress('m.anwaryazid@gmail.com');
+    $mail->addAddress($guest_email);
 
     if(!$mail->send()) {
       echo 'Message was not sent.<br/>';
