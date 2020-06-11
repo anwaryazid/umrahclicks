@@ -7,7 +7,7 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="max-height: 480px; overflow-y: auto;">
         <div class="table-responsive text-md">
           <table class="table table-bordered table-sm" id="dt_CustomerDetail" width="100%" cellspacing="0">
             <thead>
