@@ -205,7 +205,7 @@ if(isset($_POST["operation"])) {
       </tr>
       <tr>
         <td colspan="2">
-          <h2 style="text-align: center; color:green;">Tempahan Anda Telah Disahkan</h2>
+          <h2 style="text-align: center; color:green;">Tempahan Anda Telah Disahkan!</h2>
         </td>
       </tr>
       <tr>

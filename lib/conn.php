@@ -7,22 +7,18 @@ $logoURL = "http://umrahclicks.com/staging/img/umrahclicks-logo.JPG";
 $termsURL = "http://umrahclicks.com/";
 
 // Email Configuration
+
 /* $mailHost = 'smtp.mailtrap.io';
 $mailPort = '2525';
 $mailUsername = '0bc12932211a45';
 $mailPassword = 'b79e70fdbb0e3f';
-$mailSMTPSecure = 'tls'; */
-
-/* $mailHost = 'smtp.gmail.com';
-$mailPort = '465';
-$mailUsername = 'umrahclicksmy@gmail.com';
-$mailPassword = 'im6R38g7rCYTqkW';
-$mailSMTPSecure = 'ssl'; */
+$mailSMTPSecure = 'tls';
+ */
 
 $mailHost = 'mail.umrahclicks.com';
 $mailPort = '465';
-$mailUsername = 'talib@umrahclicks.com';
-$mailPassword = 'VGvvDu3G2k7X';
+$mailUsername = 'infobooking@umrahclicks.com';
+$mailPassword = 'Bhnafq-1';
 $mailSMTPSecure = 'ssl';
 
 $mailSetFrom = 'no-reply@umrahclicks.my';
@@ -32,8 +28,7 @@ $mailSetFromName = 'UmrahClicks.my';
 $mailSMTPAuth = true;
 $mailSMTPDebug = 0;
 
-$adminEmail = "talib@umrahclicks.com";
-// $adminEmail = "umrahclicksmy@gmail.com";
+$adminEmail = "infobooking@umrahclicks.com";
 
 // Database Configuration
 /* $username = "root";
