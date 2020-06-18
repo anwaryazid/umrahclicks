@@ -26,8 +26,8 @@ if(isset($_POST["operation"])) {
     $guest_date_depart = $_POST["guest_date_depart"];
 
     $query = "INSERT INTO guest_transaction 
-    (guest_name,guest_no,guest_email,guest_payor,guest_country,guest_pax,guest_deposit,guest_booking_price,agency_id,package_id,package_room_id,promo_id,guest_date_depart) 
-    VALUES ('$guest_name','$guest_no','$guest_email','$guest_name','$guest_country','$guest_pax','$guest_deposit','$guest_booking_price','$agency_id','$package_id','$package_room_id','$promo_id','$guest_date_depart')";
+    (guest_name,guest_no,guest_email,guest_payor,guest_country,guest_pax,guest_deposit,guest_booking_price,agency_id,package_id,package_room_id,promo_id,guest_date_depart,booking_date) 
+    VALUES ('$guest_name','$guest_no','$guest_email','$guest_name','$guest_country','$guest_pax','$guest_deposit','$guest_booking_price','$agency_id','$package_id','$package_room_id','$promo_id','$guest_date_depart','$updatedDate')";
 
     $result = $conn->query($query) or die(mysqli_error($conn));
 

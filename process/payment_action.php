@@ -36,20 +36,21 @@ if(isset($_POST["operation"])) {
     $guest_date_depart = '';
 
     $guests = $conn->query("SELECT 
-    a.*,
-    b.keterangan AS country,
-    c.agency_name AS agency,
-    d.package_name AS package,
-    e.room_type AS room,
-    e.room_actualCost AS actualPrice,
-    f.promo_code AS promo
-   FROM guest_transaction a
-   LEFT JOIN ref_country b ON b.id = a.guest_country
-   LEFT JOIN agency c ON c.id = a.agency_id
-   LEFT JOIN package d ON d.id = a.package_id
-   LEFT JOIN package_room e ON e.id = a.package_room_id
-   LEFT JOIN promo f ON f.id = a.promo_id
-   WHERE a.id = '".$_POST["id"]."' LIMIT 1") or die(mysqli_error($conn));
+      a.*,
+      b.keterangan AS country,
+      c.agency_name AS agency,
+      d.package_name AS package,
+      e.room_type AS room,
+      e.room_actualCost AS actualPrice,
+      f.promo_code AS promo
+    FROM guest_transaction a
+    LEFT JOIN ref_country b ON b.id = a.guest_country
+    LEFT JOIN agency c ON c.id = a.agency_id
+    LEFT JOIN package d ON d.id = a.package_id
+    LEFT JOIN package_room e ON e.id = a.package_room_id
+    LEFT JOIN promo f ON f.id = a.promo_id
+    WHERE a.id = '".$_POST["id"]."' LIMIT 1") or die(mysqli_error($conn));
+    
     foreach($guests as $guest) {
       $guest_name = $guest['guest_name'];
       $guest_no = $guest['guest_no'];
